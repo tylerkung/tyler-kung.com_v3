@@ -1,0 +1,37 @@
+$blueColor: #2196F3;
+// $sleeperBlack: ;
+// $sleeperGreen: ;
+$sleeperWhite: #ffffff;
+
+$containerLg: 1200px;
+$containerMd: 960px;
+$containerSm: 720px;
+$containerXs: 540px;
+
+// $colorPrimary: ;
+// $colorSecondary: ;
+
+body {
+	padding-top: 100px;
+	background-color: $sleeperWhite;
+	font-family: 'Lato', Helvetica, Arial, sans-serif;
+	font-size: 14px;
+}
+
+.container{
+	padding: 0 15px;
+	width: 100%;
+	margin: 0 auto;
+	@media (min-width: 576px){
+		max-width: $containerXs;
+	}
+	@media (min-width: 768px){
+		max-width: $containerSm;
+	}
+	@media (min-width: 992px){
+		max-width: $containerMd;
+	}
+	@media (min-width: 1240px){
+		max-width: $containerLg;
+	}
+}

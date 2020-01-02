@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import {
    BrowserRouter as Router,
    Switch,
@@ -7,6 +6,9 @@ import {
    Link
 } from "react-router-dom";
 
+import Header from "./Components/Layout/Header";
+import Footer from "./Components/Layout/Footer";
+import Navigation from "./Components/Navigation";
 import HomePage from "./Components/Pages/HomePage";
 import AboutPage from "./Components/Pages/AboutPage";
 import FootballPage from "./Components/Pages/FootballPage";
@@ -16,26 +18,9 @@ function App() {
    return (
       <div className="App">
          <Router>
-            <header className="sleeper-header">
-               Header
-            </header>
+            <Header />
             <main>
-					<div>
-						<ul>
-							<li>
-								<Link to="/">Home</Link>
-							</li>
-							<li>
-								<Link to="/about">About</Link>
-							</li>
-							<li>
-								<Link to="/football">Football</Link>
-							</li>
-							<li>
-								<Link to="/basketball">Basketball</Link>
-							</li>
-						</ul>
-					</div>
+					<Navigation />
                <Switch>
                   <Route exact path="/" component={HomePage} />
 						<Route exact path="/about" component={AboutPage} />
@@ -43,9 +28,7 @@ function App() {
                   <Route exact path="/basketball" component={BasketballPage} />
                </Switch>
             </main>
-            <footer className="sleeper-footer">
-               Footer
-            </footer>
+            <Footer />
          </Router>
       </div>
    );

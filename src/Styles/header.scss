@@ -1,0 +1,26 @@
+.sleeper-header{
+	position: absolute;
+	top: 40px;
+	background-color: rgba(0,0,0,0.3);
+	width: 100%;
+	height: 75px;
+}
+
+.sleeper-header-container{
+	display: flex;
+	vertical-align: middle;
+	width: 1200px;
+	margin: 0 auto;
+	height: 100%;
+	justify-content: space-between;
+}
+
+.sleeper-header-logo{
+	display: flex;
+	align-items: center;
+}
+
+.sleeper-header-menu{
+	display: flex;
+	align-items: center;
+}

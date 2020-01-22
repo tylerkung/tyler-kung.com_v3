@@ -1,4 +1,10 @@
 import React, { Component } from "react";
+import {
+   BrowserRouter as Router,
+   Switch,
+   Route,
+   Link
+} from "react-router-dom";
 
 
 class Header extends Component {
@@ -12,12 +18,14 @@ class Header extends Component {
     render(){
         return (
             <header className="sleeper-header">
-					<div className="sleeper-header-container">
+					<div className="sleeper-header-container container">
 						<div className="sleeper-header-logo">
-							Sleeper
+							<Link to="/">
+								<img src="https://sleepercdn.com/images/landing/v3/logos/header_light-5c99df9d0d1ba4c82fedb46b4e9328fe.png?vsn=d" alt="Sleeper Home Logo" />
+							</Link>
 						</div>
 						<div className="sleeper-header-menu">
-							Menu
+							<div className="btn btn-default btn-sm">Open App</div>
 						</div>
 					</div>
 				</header>

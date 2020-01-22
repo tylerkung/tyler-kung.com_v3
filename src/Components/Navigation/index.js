@@ -19,9 +19,6 @@ class Navigation extends Component {
             <nav className="sleeper-nav">
 					<ul>
 						<li>
-							<Link to="/">Home</Link>
-						</li>
-						<li>
 							<Link to="/about">About</Link>
 						</li>
 						<li>
@@ -29,6 +26,9 @@ class Navigation extends Component {
 						</li>
 						<li>
 							<Link to="/basketball">Basketball</Link>
+						</li>
+						<li>
+							<Link to="/styles">Styles</Link>
 						</li>
 					</ul>
 				</nav>

@@ -1,32 +1,55 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,400i,700|Muli:800,900&display=swap');
-$muliStack: 'Muli', Helvetica, Arial, sans-serif;
+
 h1{
 	font-family: $muliStack;
 	font-weight: 900;
 	font-size: 3.429em;
+	color: $headerColor_1;
 }
 h2{
 	font-family: $muliStack;
 	font-weight: 900;
 	font-size: 2.429em;
+	color: $headerColor_1;
 }
 h3{
 	font-family: $muliStack;
 	font-weight: 900;
 	font-size: 1.714em;
+	color: $headerColor_2;
 }
 h4{
 	font-family: $muliStack;
 	font-weight: 800;
 	font-size: 1.429em;
+	color: $headerColor_1;
 }
 
-p{}
-a{}
+p{
+	color: $bodyTextColor;
+	font-size: 1.4em;
+	line-height: 1.8em;
+}
+a{
+	&:not(.btn){
+		text-decoration: none;
+		&:hover{
+			color: $linkHoverColor;
+		}
+	}
+}
 strong{}
 
 ul{
 	li{
 
 	}
+}
+
+.txt-sm{
+	color: $smallTextColor;
+	font-size: .75em;
+}
+.txt-center{
+	text-align: center;
 }

@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
 
-
-class HomePage extends Component {
+class Card extends Component {
     constructor(props){
         super(props);
 
@@ -12,11 +10,11 @@ class HomePage extends Component {
 
     render(){
         return (
-            <div className="page-content page-home">Home Page
-
+            <div className={"card" + (this.props.wide ? ' wide' : '')}>
+					{this.props.children}
 				</div>
         );
     }
 }
 
-export default withRouter(HomePage);
+export default Card;

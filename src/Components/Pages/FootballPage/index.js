@@ -48,7 +48,7 @@ class FootballPage extends Component {
 						<img src="https://images.unsplash.com/photo-1577949098254-1ad7b1b526eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" />
 					</div>
 					<div className="layout layout-secondary-color layout-rounded-top">
-						<div class="container">
+						<div className="container">
 							<Grid container spacing={3}>
 								<Grid item md={5}>
 									<h2>Gameday, everyday</h2>

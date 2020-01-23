@@ -112,7 +112,8 @@ body {
 	&.close{
 		transform: translateY(101%);
 		img{
-			transform: translateY(10vh);
+			transform: translateY(0vh);
+			opacity: 0;
 		}
 	}
 	img{

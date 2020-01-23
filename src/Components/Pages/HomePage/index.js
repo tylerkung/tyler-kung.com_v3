@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-
+import City from "../../City";
 
 class HomePage extends Component {
     constructor(props){
@@ -12,8 +12,8 @@ class HomePage extends Component {
 
     render(){
         return (
-            <div className="page-content page-home">Home Page
-
+            <div className="page-content page-home">
+					<City/>
 				</div>
         );
     }

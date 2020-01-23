@@ -9,7 +9,7 @@ import { RenderPass } from './Three/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from './Three/postprocessing/UnrealBloomPass.js';
 import { BasketballStadiumObjects, FootballStadiumObjects, SoccerStadiumObjects } from './Three/stadiumObjs.js';
 
-const city_file = 'https://flamboyant-bartik-46ef37.netlify.com/for_tyler_layout_19.fbx';
+const city_file = '../../models/for_tyler_layout_19.fbx';
 
 var mixer, composer, renderer;
 var clock = new THREE.Clock();

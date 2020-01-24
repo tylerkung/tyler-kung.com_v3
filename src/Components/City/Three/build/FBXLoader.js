@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-redeclare */
 /**
  * @author Kyle-Larson https://github.com/Kyle-Larson
  * @author Takahiro https://github.com/takahirox
@@ -116,7 +118,6 @@ var FBXLoader = ( function () {
 		},
 
 		parse: function ( FBXBuffer, path ) {
-			console.log(FBXBuffer, path);
 			if ( isFbxFormatBinary( FBXBuffer ) ) {
 
 				fbxTree = new BinaryParser().parse( FBXBuffer );
@@ -140,8 +141,6 @@ var FBXLoader = ( function () {
 				fbxTree = new TextParser().parse( FBXText );
 
 			}
-
-			// console.log( fbxTree );
 
 			var textureLoader = new TextureLoader( this.manager ).setPath( this.resourcePath || path ).setCrossOrigin( this.crossOrigin );
 

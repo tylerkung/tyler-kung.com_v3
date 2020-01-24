@@ -54,6 +54,7 @@ class App extends Component {
 	         <Router>
 	            <Header />
 	            <main>
+						<Navigation />
 	               <Switch>
 	                  <Route exact path="/" component={HomePage} />
 							<Route exact path="/about" component={AboutPage} />
@@ -71,7 +72,6 @@ class App extends Component {
 					<div className={'loading-screen ' + (this.state.loadScreenActive ? 'open' : 'close')}>
 						<img src="https://sleepercdn.com/images/landing/v3/logos/header_light-5c99df9d0d1ba4c82fedb46b4e9328fe.png?vsn=d" />
 					</div>
-					<Navigation />
 	            <Footer />
 	         </Router>
 	      </div>

@@ -159,7 +159,7 @@ class City extends Component {
 		var basketballLight = new THREE.PointLight( 0xFF7A5A, lightInts.basketballLightIntensity, 0);
 		basketballLight.position.set( 56.724, 42.230, -56.153 );
 		basketballLight.decay = 30;
-		// scene.add(basketballLight);
+		scene.add(basketballLight);
 
 		var basketballSpotLight = new THREE.SpotLight( 0xFF7A5A, 0.5, 0);
 		basketballSpotLight.position.set( 57.5, 42.230, -56.153 );
@@ -175,7 +175,7 @@ class City extends Component {
 		var soccerLight = new THREE.PointLight( 0x6E7DF5, lightInts.soccerLightIntensity, 0);
 		soccerLight.position.set( -91.691, 47.887, -8.561 );
 		soccerLight.decay = 30;
-		// scene.add(soccerLight);
+		scene.add(soccerLight);
 
 		var soccerSpotLight = new THREE.SpotLight( 0x6E7DF5, 0.5, 0);
 		soccerSpotLight.position.set( -91.691, 72.295, -8.799 );
@@ -227,7 +227,7 @@ class City extends Component {
 		var renderScene = new RenderPass( scene, camera );
 		composer = new EffectComposer( renderer );
 		composer.addPass( renderScene );
-		
+
 		var onProgress = function ( xhr ) {
 			if ( xhr.lengthComputable ) {
 			var percentComplete = xhr.loaded / xhr.total * 100;
@@ -253,9 +253,9 @@ class City extends Component {
 			// core.material.depthWrite = false;
 
 			object.traverse(function(child){
-			if (child.isMesh){
-				child.castShadow = true;
-			}
+				if (child.isMesh){
+					child.castShadow = true;
+				}
 			});
 
 			var ufoGlow = object.getObjectByName('Mai_Layout_04_nonstudentufo_with_light_02ufo_with_lightufo_top');
@@ -329,7 +329,7 @@ class City extends Component {
 			// propeller = object.getObjectByName('pCube532');
 			this.mixer = new THREE.AnimationMixer( object );
 			var clip = object.animations[ 0 ];
-			mixer.clipAction( clip.optimize() ).play();
+			// mixer.clipAction( clip.optimize() ).play();
 			setInterval(this.arrowOff, 1900);
 			setInterval(this.arrowOn, 2800);
 			setInterval(this.arrowOn, 5100);

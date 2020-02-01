@@ -7,7 +7,7 @@ class HomePage extends Component {
         super(props);
 
 		  this.state = {
- 			 loadScreenActive: true
+ 			 loadScreenActive: false
  		 }
     }
 

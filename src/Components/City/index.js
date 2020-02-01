@@ -11,7 +11,7 @@ import { UnrealBloomPass } from './Three/postprocessing/UnrealBloomPass.js';
 import { BasketballStadiumObjects, FootballStadiumObjects, SoccerStadiumObjects } from './Three/stadiumObjs.js';
 import PickHelper from './Three/PickHelper';
 
-const city_file = 'http://sleepercdn.com/downloads/webtest/for_tyler_layout_19.fbx';
+const city_file = 'https://sleepercdn.com/downloads/webtest/for_tyler_layout_19.fbx';
 
 var clock = new THREE.Clock();
 

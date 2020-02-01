@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import THREE from "./Three/three";
+import { TimelineMax as Timeline, Power3 } from 'gsap/dist/gsap';
 
 import { FBXLoader } from './Three/build/FBXLoader.js';
 import { TGALoader } from './Three/build/TGALoader.js';
@@ -42,9 +43,9 @@ if (!nightMode){
 } else{
 	lightInts = { // DARK MODE
 		mainLight: 0.08,
-		mainColor: 0x05258f,
+		mainColor: 0xffffff,
 		secondLight: 0.02,
-		ambientLight: 0.07,
+		ambientLight: 0.02,
 		ambientColor: 0x07227c,
 		soccerStadiumIntensity: 0.1,
 		basketballStadiumIntensity: 0.2,
@@ -81,6 +82,8 @@ class City extends Component {
 		this.clickPickPosition = this.clickPickPosition.bind(this);
 
 		this.viewFootball = this.viewFootball.bind(this);
+		this.viewBasketball = this.viewBasketball.bind(this);
+		this.moveCamera = this.moveCamera.bind(this);
 		this.footballLightsOn = this.footballLightsOn.bind(this);
 		this.pickposition = {x: 0, y: 0}
 
@@ -117,21 +120,21 @@ class City extends Component {
 		var multiplier = 1.1;
 		var factor = multiplier * windowWidth;
 
-		camera = new THREE.OrthographicCamera(-windowWidth / factor, windowWidth / factor, windowHeight / factor, -windowHeight / factor, near, far);
+		this.camera = new THREE.OrthographicCamera(-windowWidth / factor, windowWidth / factor, windowHeight / factor, -windowHeight / factor, near, far);
 		const defaultPosition = {
 			x: 341.8,
 			y: 275.87,
 			z: 351.8
 		}
-		camera.position.set(defaultPosition.x, defaultPosition.y, defaultPosition.z);
-		camera.scale.x = 100;
-		camera.scale.y = 100;
-		camera.scale.z = 100;
-		camera.zoom = 0.6;
-		this.cameraHelper = camera.clone();
+		this.camera.position.set(defaultPosition.x, defaultPosition.y, defaultPosition.z);
+		this.camera.scale.x = 100;
+		this.camera.scale.y = 100;
+		this.camera.scale.z = 100;
+		this.camera.zoom = 0.6;
+		this.cameraHelper = this.camera.clone();
 
 		// CONTROLS
-		controls = new OrbitControls( camera, renderer.domElement );
+		controls = new OrbitControls( this.camera, renderer.domElement );
 		controls.enableZoom = false;
 		controls.enablePan = false;
 		controls.enableRotate = false;
@@ -141,14 +144,14 @@ class City extends Component {
 		// LIGHTS
 		// Light 1
 		var sphere = new THREE.SphereBufferGeometry( 0.5, 16, 8 );
-		light1 = new THREE.PointLight( 0xffffff, lightInts.mainLight, 15, 2);
+		light1 = new THREE.PointLight( lightInts.mainColor, lightInts.mainLight, 15, 2);
 		light1.position.set( -24, 250, 12 );
 		light1.castShadow = true;
 		light1.shadow.radius = 2;
 		scene.add( light1 );
 
 		// Light 2
-		var light2 = new THREE.PointLight( 0xffffff, lightInts.secondLight, 0);
+		var light2 = new THREE.PointLight( lightInts.ambientColor, lightInts.secondLight, 0);
 		light2.position.set( 339, 200, 324 );
 		scene.add( light2 );
 
@@ -159,7 +162,7 @@ class City extends Component {
 		var basketballLight = new THREE.PointLight( 0xFF7A5A, lightInts.basketballLightIntensity, 0);
 		basketballLight.position.set( 56.724, 42.230, -56.153 );
 		basketballLight.decay = 30;
-		scene.add(basketballLight);
+		// scene.add(basketballLight);
 
 		var basketballSpotLight = new THREE.SpotLight( 0xFF7A5A, 0.5, 0);
 		basketballSpotLight.position.set( 57.5, 42.230, -56.153 );
@@ -175,7 +178,7 @@ class City extends Component {
 		var soccerLight = new THREE.PointLight( 0x6E7DF5, lightInts.soccerLightIntensity, 0);
 		soccerLight.position.set( -91.691, 47.887, -8.561 );
 		soccerLight.decay = 30;
-		scene.add(soccerLight);
+		// scene.add(soccerLight);
 
 		var soccerSpotLight = new THREE.SpotLight( 0x6E7DF5, 0.5, 0);
 		soccerSpotLight.position.set( -91.691, 72.295, -8.799 );
@@ -192,7 +195,7 @@ class City extends Component {
 		this.footballLight = new THREE.PointLight( 0x45E8A7, lightInts.footballLightIntensity, 0);
 		this.footballLight.position.set( 52.513, 47.887, 70.944 );
 		this.footballLight.decay = 30;
-		scene.add(this.footballLight);
+		// scene.add(this.footballLight);
 
 		var footballSpotLight = new THREE.SpotLight( 0xa2fcd8, 0.5, 0);
 		footballSpotLight.position.set( 58.873, 32.141, 34.106 );
@@ -215,7 +218,7 @@ class City extends Component {
 		plane.position.set(0, 5, 0);
 		scene.add(plane);
 
-		const defaultQ = camera.quaternion.clone();
+		const defaultQ = this.camera.quaternion.clone();
 		var currentQ = defaultQ;
 		// createjs.Ticker.timingMode = createjs.Ticker.RAF;
 
@@ -224,7 +227,7 @@ class City extends Component {
 			console.log( item, loaded, total );
 		};
 
-		var renderScene = new RenderPass( scene, camera );
+		var renderScene = new RenderPass( scene, this.camera );
 		composer = new EffectComposer( renderer );
 		composer.addPass( renderScene );
 
@@ -345,8 +348,8 @@ class City extends Component {
 		// console.log(delta);
 		// this.mixer.update( delta );
 		// console.log(this.mixer);
-		camera.updateProjectionMatrix();
-		var stadium = this.pickHelper.pick(this.pickPosition, scene, camera, time);
+		this.camera.updateProjectionMatrix();
+		var stadium = this.pickHelper.pick(this.pickPosition, scene, this.camera, time);
 		this.animateLights();
 		composer.render();
 	}
@@ -390,14 +393,13 @@ class City extends Component {
 	clickPickPosition(event){
 		var clickedStadium = this.pickHelper.click();
 		switch(clickedStadium){
-			// case 'basketball':
-			// 	viewBasketball();
+			case 'basketball':
+				this.viewBasketball();
 			// 	basketballLightsOn();
-			// 	break;
+				break;
 			case 'football':
-				// this.viewFootball();
-				console.log('test');
 				this.footballLightsOn();
+				this.viewFootball();
 				break;
 			// case 'soccer':
 			// 	viewSoccer();
@@ -411,17 +413,20 @@ class City extends Component {
 		lightInts.footballLightIntensity = 0.025;
 		lightInts.floodLightIntensity = 2;
 	}
+	viewBasketball(){
+		this.cameraHelper.lookAt( 84.433, 30.756, -48.331 );
+		var targetQ = this.cameraHelper.quaternion.clone();
+		this.moveCamera(targetQ, 1.2);
+	}
 	viewFootball(){
 		this.cameraHelper.lookAt( 18.731, 30.756, 68.805 );
 		var targetQ = this.cameraHelper.quaternion.clone();
-
-		// createjs.Tween.get(camera).to(
-		// 	{zoom: 1},
-		// 	800, createjs.Ease.getPowOut(3));
-		// createjs.Tween.get(camera.quaternion).to(targetQ,
-		// 	800, createjs.Ease.getPowOut(3));
-		// currentQ = targetQ;
-		// controls.target.set( 18.731, 30.756, 68.805 );
+		this.moveCamera(targetQ, 1);
+	}
+	moveCamera(target, zoom){
+		const timeline = new Timeline({ paused: false });
+		timeline.to(this.camera, 0.8, {zoom: zoom, ease: Power3.easeOut});
+		timeline.to(this.camera.quaternion, 0.8, {x: target.x, y: target.y, z: target.z, ease: Power3.easeOut}, 0);
 	}
 	arrowOn() {
 		lightInts.footballArrow = 1;

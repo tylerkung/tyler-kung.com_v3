@@ -111,17 +111,17 @@ class City extends Component {
 		var width = 2;
 		var height = 2;
 		var near = 0.1;
-		var far = 1000;
+		var far = 9;
 		var windowWidth = window.innerWidth;
 		var windowHeight = window.innerHeight;
 		var multiplier = 1.1;
 		var factor = multiplier * windowWidth;
 
-		camera = new THREE.OrthographicCamera(-windowWidth / factor, windowWidth / factor, windowHeight / factor, -windowHeight / factor, 0.1, 1000);
+		camera = new THREE.OrthographicCamera(-windowWidth / factor, windowWidth / factor, windowHeight / factor, -windowHeight / factor, near, far);
 		const defaultPosition = {
-		x: 341.8,
-		y: 275.87,
-		z: 351.8
+			x: 341.8,
+			y: 275.87,
+			z: 351.8
 		}
 		camera.position.set(defaultPosition.x, defaultPosition.y, defaultPosition.z);
 		camera.scale.x = 100;
@@ -134,7 +134,7 @@ class City extends Component {
 		controls = new OrbitControls( camera, renderer.domElement );
 		controls.enableZoom = false;
 		controls.enablePan = false;
-		// controls.enableRotate = false;
+		controls.enableRotate = false;
 		controls.maxPolarAngle = 1.0584632133487624;
 		controls.minPolarAngle = 1.0584632133487624;
 
@@ -159,7 +159,7 @@ class City extends Component {
 		var basketballLight = new THREE.PointLight( 0xFF7A5A, lightInts.basketballLightIntensity, 0);
 		basketballLight.position.set( 56.724, 42.230, -56.153 );
 		basketballLight.decay = 30;
-		scene.add(basketballLight);
+		// scene.add(basketballLight);
 
 		var basketballSpotLight = new THREE.SpotLight( 0xFF7A5A, 0.5, 0);
 		basketballSpotLight.position.set( 57.5, 42.230, -56.153 );
@@ -168,14 +168,14 @@ class City extends Component {
 		basketballSpotLight.target = bballTarget;
 		basketballSpotLight.angle = Math.PI / 10;
 		basketballSpotLight.penumbra = 0.6;
-		scene.add(bballTarget);
-		scene.add(basketballSpotLight);
+		// scene.add(bballTarget);
+		// scene.add(basketballSpotLight);
 
 		// Soccer LIGHTS
 		var soccerLight = new THREE.PointLight( 0x6E7DF5, lightInts.soccerLightIntensity, 0);
 		soccerLight.position.set( -91.691, 47.887, -8.561 );
 		soccerLight.decay = 30;
-		scene.add(soccerLight);
+		// scene.add(soccerLight);
 
 		var soccerSpotLight = new THREE.SpotLight( 0x6E7DF5, 0.5, 0);
 		soccerSpotLight.position.set( -91.691, 72.295, -8.799 );
@@ -184,8 +184,8 @@ class City extends Component {
 		soccerSpotLight.target = soccerTarget;
 		soccerSpotLight.angle = Math.PI / 6;
 		soccerSpotLight.penumbra = 1;
-		scene.add(soccerTarget);
-		scene.add(soccerSpotLight);
+		// scene.add(soccerTarget);
+		// scene.add(soccerSpotLight);
 
 
 		// Football Lights
@@ -227,6 +227,7 @@ class City extends Component {
 		var renderScene = new RenderPass( scene, camera );
 		composer = new EffectComposer( renderer );
 		composer.addPass( renderScene );
+		
 		var onProgress = function ( xhr ) {
 			if ( xhr.lengthComputable ) {
 			var percentComplete = xhr.loaded / xhr.total * 100;

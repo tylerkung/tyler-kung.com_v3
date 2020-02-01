@@ -11,7 +11,7 @@ import { UnrealBloomPass } from './Three/postprocessing/UnrealBloomPass.js';
 import { BasketballStadiumObjects, FootballStadiumObjects, SoccerStadiumObjects } from './Three/stadiumObjs.js';
 import PickHelper from './Three/PickHelper';
 
-const city_file = './models/for_tyler_layout_19.fbx';
+const city_file = 'http://sleepercdn.com/downloads/webtest/for_tyler_layout_19.fbx';
 
 var clock = new THREE.Clock();
 
@@ -425,8 +425,8 @@ class City extends Component {
 	}
 	moveCamera(target, zoom){
 		const timeline = new Timeline({ paused: false });
-		timeline.to(this.camera, 0.8, {zoom: zoom, ease: Power3.easeOut});
-		timeline.to(this.camera.quaternion, 0.8, {x: target.x, y: target.y, z: target.z, ease: Power3.easeOut}, 0);
+		timeline.to(this.camera, 1, {zoom: zoom, ease: Power3.easeOut});
+		timeline.to(this.camera.quaternion, 1, {x: target.x, y: target.y, z: target.z, ease: Power3.easeOut}, 0);
 	}
 	arrowOn() {
 		lightInts.footballArrow = 1;

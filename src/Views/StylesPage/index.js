@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
-import Card from '../../../Components/Card';
+import Card from '../../Components/Card';
 
 
 class StylesPage extends Component {
@@ -14,7 +14,13 @@ class StylesPage extends Component {
 
     render(){
         return (
-            <div className="page-content page-styles">
+			  <div className="page-content page-styles">
+				  <div className="sport-header">
+					  <img src="./images/inside-football.png"/>
+				  </div>
+				  <div className="sport-navigation">
+				  </div>
+				  <div className="sport-page">
 					<div className="layout layout-secondary-color layout-slant-down">
 						<div className="container">
 							<h1 className="txt-center">Styles</h1>
@@ -78,6 +84,7 @@ class StylesPage extends Component {
 					</div>
 					<div className="layout layout-secondary-color layout-no-shadow">
 					</div>
+				</div>
 				</div>
         );
     }

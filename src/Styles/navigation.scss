@@ -1,0 +1,39 @@
+.sleeper-nav{
+	position: absolute;
+	z-index: 20;
+	top: 100px;
+}
+
+.sport-nav{
+	ul{
+		margin: 0;
+		padding: 0;
+		display: flex;
+		li{
+			padding: 15px 50px;
+			list-style: none;
+			position: relative;
+			&:before{
+				content: '';
+				border-radius: 50%;
+				height: 30px;
+				width: 30px;
+				background-color: red;
+				display: block;
+				position: absolute;
+				left: 0px;
+				top: 8px;
+			}
+			&.link-football{
+				&:before{
+					background-color: $sleeperGreen;
+				}
+			}
+			&.link-basketball{
+				&:before{
+					background-color: $sleeperOrange;
+				}
+			}
+		}
+	}
+}

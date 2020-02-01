@@ -5,7 +5,14 @@
 	}
 }
 .sport-header{
-	height: 50vh;
+	height: 70vh;
+	min-height: 650px;
+	img{
+		object-fit: cover;
+		height: 100%;
+		width: 100%;
+		object-position: center center;
+	}
 }
 
 .layout{

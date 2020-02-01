@@ -1,39 +1,24 @@
-import React, { Component } from "react";
+import React from "react";
 import {
-   BrowserRouter as Router,
-   Switch,
-   Route,
    Link
 } from "react-router-dom";
 
-class Navigation extends Component {
-    constructor(props){
-        super(props);
+const routes = [
+	{ to: '/about', label: 'About' },
+	{ to: '/football', label: 'Football' },
+	{ to: '/basketball', label: 'Basketball' },
+	{ to: '/styles', label: 'Styles' }
+];
 
-        this.state = {
-        }
-    }
-
-    render(){
-        return (
-            <nav className="sleeper-nav">
-					<ul>
-						<li>
-							<Link to="/about">About</Link>
-						</li>
-						<li>
-							<Link to="/football">Football</Link>
-						</li>
-						<li>
-							<Link to="/basketball">Basketball</Link>
-						</li>
-						<li>
-							<Link to="/styles">Styles</Link>
-						</li>
-					</ul>
-				</nav>
-        );
-    }
+const Navigation = () => {
+	const links = routes.map(({ to, label }) => {
+		return <li><Link to={to} key={to}>{label}</Link></li>
+	})
+	return (
+		<nav className="sleeper-nav">
+			<ul>{links}</ul>
+		</nav>
+	)
 }
 
 export default Navigation;

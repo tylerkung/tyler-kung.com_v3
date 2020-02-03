@@ -80,13 +80,12 @@ class City extends Component {
 		this.setPickPosition = this.setPickPosition.bind(this);
 		this.clearPickPosition = this.clearPickPosition.bind(this);
 		this.clickPickPosition = this.clickPickPosition.bind(this);
-
 		this.viewFootball = this.viewFootball.bind(this);
 		this.viewBasketball = this.viewBasketball.bind(this);
 		this.moveCamera = this.moveCamera.bind(this);
 		this.footballLightsOn = this.footballLightsOn.bind(this);
 		this.pickposition = {x: 0, y: 0}
-
+		this.ferrisWheel = null;
 	}
 
 	componentDidMount(){
@@ -244,8 +243,10 @@ class City extends Component {
 		// var tgaLoader = new TGALoader();
 		// var cautionTexture = tgaLoader.load('images/caution_tape_1024.tga');
 		// LOADER
+
 		this.loader = new FBXLoader(manager);
 		this.loader.load( city_file, (object) => {
+			console.log(this);
 			scene.add( object );
 			// Mesh contains self-intersecting semi-transparent faces, which display
 			// z-fighting unless depthWrite is disabled.
@@ -327,17 +328,16 @@ class City extends Component {
 			footballArrow = object.getObjectByName('arrow_football');
 			footballArrow.material = footballFloodLightMaterial.clone();
 			footballArrow.material.emissive = { r: 60/255, g: 237/255, b: 152/255 };
-			// this.setState({ferrisWheel: object.getObjectByName( 'group26' ), propeller: object.getObjectByName('pCube532')});
-			// ferrisWheel = object.getObjectByName( 'group26' );
-			// propeller = object.getObjectByName('pCube532');
+			this.ferrisWheel = object.getObjectByName( 'group26' );
+			this.propeller = object.getObjectByName('pCube532');
 			this.mixer = new THREE.AnimationMixer( object );
 			var clip = object.animations[ 0 ];
-			// mixer.clipAction( clip.optimize() ).play();
-			setInterval(this.arrowOff, 1900);
-			setInterval(this.arrowOn, 2800);
-			setInterval(this.arrowOn, 5100);
-			}, onProgress, onError );
-		this.animate();
+			this.mixer.clipAction( clip.optimize() ).play();
+			// setInterval(this.arrowOff, 1900);
+			// setInterval(this.arrowOn, 2800);
+			// setInterval(this.arrowOn, 5100);
+			this.animate();
+		}, onProgress, onError );
 	}
 
 	animate(time) {
@@ -345,9 +345,9 @@ class City extends Component {
 
 		requestAnimationFrame( this.animate );
 		const delta = clock.getDelta();
-		// console.log(delta);
-		// this.mixer.update( delta );
-		// console.log(this.mixer);
+		this.mixer.update( delta );
+		this.ferrisWheel.rotation.z += .004;
+		this.propeller.rotation.y += 0.4;
 		this.camera.updateProjectionMatrix();
 		var stadium = this.pickHelper.pick(this.pickPosition, scene, this.camera, time);
 		this.animateLights();

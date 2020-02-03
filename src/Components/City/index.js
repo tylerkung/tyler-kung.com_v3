@@ -19,7 +19,7 @@ var scene, camera, controls, pointLight, stats, canvas;
 var composer, renderer, mixer;
 var ferrisWheel, propeller, footballArrow;
 var bballLightTarget;
-var mintGlowMaterial, orangeGlowMaterial, purpleGlowMaterial, footballFloodLightMaterial, light1, basketballLight, footballLight, soccerLight;
+var orangeGlowMaterial, purpleGlowMaterial, footballFloodLightMaterial, light1, basketballLight, footballLight, soccerLight;
 
 var nightMode = true;
 var lightInts = {};
@@ -70,7 +70,7 @@ class City extends Component {
 		super(props);
 
 		this.state = {
-			mixer: null,
+			activeStadium: ''
 		}
 		this.animate = this.animate.bind(this);
 		this.animateLights = this.animateLights.bind(this);
@@ -84,6 +84,9 @@ class City extends Component {
 		this.viewBasketball = this.viewBasketball.bind(this);
 		this.moveCamera = this.moveCamera.bind(this);
 		this.footballLightsOn = this.footballLightsOn.bind(this);
+		this.footballLightsOff = this.footballLightsOff.bind(this);
+		this.basketballLightsOn = this.basketballLightsOn.bind(this);
+		this.basketballLightsOff = this.basketballLightsOff.bind(this);
 		this.pickposition = {x: 0, y: 0}
 		this.ferrisWheel = null;
 	}
@@ -158,20 +161,20 @@ class City extends Component {
 		scene.add( new THREE.AmbientLight( lightInts.ambientColor, lightInts.ambientLight ) );
 
 		// Basketball Light
-		var basketballLight = new THREE.PointLight( 0xFF7A5A, lightInts.basketballLightIntensity, 0);
-		basketballLight.position.set( 56.724, 42.230, -56.153 );
-		basketballLight.decay = 30;
-		// scene.add(basketballLight);
+		this.basketballLight = new THREE.PointLight( 0xFF7A5A, lightInts.basketballLightIntensity, 0);
+		this.basketballLight.position.set( 56.724, 42.230, -56.153 );
+		this.basketballLight.decay = 30;
+		scene.add(this.basketballLight);
 
-		var basketballSpotLight = new THREE.SpotLight( 0xFF7A5A, 0.5, 0);
-		basketballSpotLight.position.set( 57.5, 42.230, -56.153 );
+		this.basketballSpotLight = new THREE.SpotLight( 0xFF7A5A, 0.5, 0);
+		this.basketballSpotLight.position.set( 57.5, 42.230, -56.153 );
 		var bballTarget = new THREE.Object3D();
 		bballTarget.position.set(57.5, -20, -56.163);
-		basketballSpotLight.target = bballTarget;
-		basketballSpotLight.angle = Math.PI / 10;
-		basketballSpotLight.penumbra = 0.6;
-		// scene.add(bballTarget);
-		// scene.add(basketballSpotLight);
+		this.basketballSpotLight.target = bballTarget;
+		this.basketballSpotLight.angle = Math.PI / 10;
+		this.basketballSpotLight.penumbra = 0.6;
+		scene.add(bballTarget);
+		scene.add(this.basketballSpotLight);
 
 		// Soccer LIGHTS
 		var soccerLight = new THREE.PointLight( 0x6E7DF5, lightInts.soccerLightIntensity, 0);
@@ -194,18 +197,18 @@ class City extends Component {
 		this.footballLight = new THREE.PointLight( 0x45E8A7, lightInts.footballLightIntensity, 0);
 		this.footballLight.position.set( 52.513, 47.887, 70.944 );
 		this.footballLight.decay = 30;
-		// scene.add(this.footballLight);
+		scene.add(this.footballLight);
 
-		var footballSpotLight = new THREE.SpotLight( 0xa2fcd8, 0.5, 0);
-		footballSpotLight.position.set( 58.873, 32.141, 34.106 );
+		this.footballSpotLight = new THREE.SpotLight( 0xa2fcd8, 0.5, 0);
+		this.footballSpotLight.position.set( 58.873, 32.141, 34.106 );
 		// footballSpotLight.castShadow = true;
 		var footballTarget = new THREE.Object3D();
 		footballTarget.position.set( 58.873, 13.936, 73.456 );
-		footballSpotLight.target = footballTarget;
-		footballSpotLight.angle = Math.PI / 8;
-		footballSpotLight.penumbra = 1;
+		this.footballSpotLight.target = footballTarget;
+		this.footballSpotLight.angle = Math.PI / 8;
+		this.footballSpotLight.penumbra = 1;
 		scene.add(footballTarget);
-		scene.add(footballSpotLight);
+		scene.add(this.footballSpotLight);
 
 		// shadowMap
 		var tempGeometry = new THREE.PlaneBufferGeometry( 2000, 2000 );
@@ -246,7 +249,6 @@ class City extends Component {
 
 		this.loader = new FBXLoader(manager);
 		this.loader.load( city_file, (object) => {
-			console.log(this);
 			scene.add( object );
 			// Mesh contains self-intersecting semi-transparent faces, which display
 			// z-fighting unless depthWrite is disabled.
@@ -263,28 +265,28 @@ class City extends Component {
 			});
 
 			var ufoGlow = object.getObjectByName('Mai_Layout_04_nonstudentufo_with_light_02ufo_with_lightufo_top');
-			mintGlowMaterial = ufoGlow.material.clone();
-			mintGlowMaterial.emissive = { r: 69/255, g: 232/255, b: 167/255 };
-			mintGlowMaterial.emissiveIntensity = lightInts.footballStadiumIntensity;
-			mintGlowMaterial.needsUpdate = true;
-			var ufoGlowMaterial = mintGlowMaterial.clone();
+			this.mintGlowMaterial = ufoGlow.material.clone();
+			this.mintGlowMaterial.emissive = { r: 69/255, g: 232/255, b: 167/255 };
+			this.mintGlowMaterial.emissiveIntensity = lightInts.footballStadiumIntensity;
+			this.mintGlowMaterial.needsUpdate = true;
+			var ufoGlowMaterial = this.mintGlowMaterial.clone();
 			ufoGlowMaterial.emissiveIntensity = 0.6;
 			ufoGlow.material = ufoGlowMaterial;
 			object.getObjectByName('Mai_Layout_04_nonstudentufo_with_light_02ufo_with_lightufo_lights').material = ufoGlowMaterial;
-			var footballStadiumGlow = object.getObjectByName('polySurface386');
-			var footballFieldGlow = object.getObjectByName('polySurface32');
-			footballFieldGlow.material.shininess = 10;
-			footballStadiumGlow.material = mintGlowMaterial;
-			var footballFloodLight = object.getObjectByName('pCylinder53');
-			footballFloodLightMaterial = mintGlowMaterial.clone();
-			footballFloodLightMaterial.emissive = { r: 120/255, g: 232/255, b: 190/255 };
-			footballFloodLightMaterial.emissiveIntensity = lightInts.floodLightIntensity;
-			footballFloodLight.material = footballFloodLightMaterial;
-			object.getObjectByName('pCylinder54').material = footballFloodLightMaterial;
-			object.getObjectByName('pCylinder55').material = footballFloodLightMaterial;
-			object.getObjectByName('pCylinder56').material = footballFloodLightMaterial;
-			object.getObjectByName('pCylinder57').material = footballFloodLightMaterial;
-			object.getObjectByName('pCylinder58').material = footballFloodLightMaterial;
+			this.footballStadiumGlow = object.getObjectByName('polySurface386');
+			this.footballFieldGlow = object.getObjectByName('polySurface32');
+			this.footballFieldGlow.material.shininess = 10;
+			this.footballStadiumGlow.material = this.mintGlowMaterial;
+			this.footballFloodLight = object.getObjectByName('pCylinder53');
+			this.footballFloodLightMaterial = this.mintGlowMaterial.clone();
+			this.footballFloodLightMaterial.emissive = { r: 120/255, g: 232/255, b: 190/255 };
+			this.footballFloodLightMaterial.emissiveIntensity = lightInts.floodLightIntensity;
+			this.footballFloodLight.material = this.footballFloodLightMaterial;
+			object.getObjectByName('pCylinder54').material = this.footballFloodLightMaterial;
+			object.getObjectByName('pCylinder55').material = this.footballFloodLightMaterial;
+			object.getObjectByName('pCylinder56').material = this.footballFloodLightMaterial;
+			object.getObjectByName('pCylinder57').material = this.footballFloodLightMaterial;
+			object.getObjectByName('pCylinder58').material = this.footballFloodLightMaterial;
 
 
 			var soccerGlow = object.getObjectByName('pTorus123');
@@ -294,21 +296,21 @@ class City extends Component {
 			purpleGlowMaterial.shininess = 1;
 			soccerGlow.material = purpleGlowMaterial;
 
-			var bballGlow = object.getObjectByName('Mai_Layout_04_nonstudentpolySurface42');
-			orangeGlowMaterial = bballGlow.material.clone();
-			bballGlow.material.emissive = { r: 0, g: 0, b: 0 };
-			orangeGlowMaterial.emissive = { r: 255/255, g: 122/255, b: 90/255 };
-			orangeGlowMaterial.emissiveIntensity = lightInts.basketballStadiumIntensity;
-			orangeGlowMaterial.shininess = 1;
-			bballGlow.material = orangeGlowMaterial;
+			this.bballGlow = object.getObjectByName('Mai_Layout_04_nonstudentpolySurface42');
+			this.orangeGlowMaterial = this.bballGlow.material.clone();
+			this.bballGlow.material.emissive = { r: 0, g: 0, b: 0 };
+			this.orangeGlowMaterial.emissive = { r: 255/255, g: 122/255, b: 90/255 };
+			this.orangeGlowMaterial.emissiveIntensity = lightInts.basketballStadiumIntensity;
+			this.orangeGlowMaterial.shininess = 1;
+			this.bballGlow.material = this.orangeGlowMaterial;
 			// object.getObjectByName('pCube672').material = orangeGlowMaterial;
 			// object.getObjectByName('pCube673').material = orangeGlowMaterial;
-			object.getObjectByName('Mai_Layout_04_nonstudentpolySurface46').material = orangeGlowMaterial;
-			object.getObjectByName('Mai_Layout_04_nonstudentpolySurface41').material = orangeGlowMaterial;
-			object.getObjectByName('polySurface989').material = orangeGlowMaterial; //jumbotron
-			object.getObjectByName('Mai_Layout_04_nonstudentpolySurface63').material = orangeGlowMaterial;
-			object.getObjectByName('pTorus121').material = orangeGlowMaterial;
-			object.getObjectByName('pTorus36').material = orangeGlowMaterial;
+			object.getObjectByName('Mai_Layout_04_nonstudentpolySurface46').material = this.orangeGlowMaterial;
+			object.getObjectByName('Mai_Layout_04_nonstudentpolySurface41').material = this.orangeGlowMaterial;
+			object.getObjectByName('polySurface989').material = this.orangeGlowMaterial; //jumbotron
+			object.getObjectByName('Mai_Layout_04_nonstudentpolySurface63').material = this.orangeGlowMaterial;
+			object.getObjectByName('pTorus121').material = this.orangeGlowMaterial;
+			object.getObjectByName('pTorus36').material = this.orangeGlowMaterial;
 
 			// object.getObjectByName('polySurface764').material.color = { r: 1, g: 200, b: 1 };
 			// object.getObjectByName('polySurface749').material.color = { r: 200, g: 1, b: 1 };
@@ -325,17 +327,17 @@ class City extends Component {
 
 			// object.getObjectByName('pTorus140').material.map = cautionTexture;
 
-			footballArrow = object.getObjectByName('arrow_football');
-			footballArrow.material = footballFloodLightMaterial.clone();
-			footballArrow.material.emissive = { r: 60/255, g: 237/255, b: 152/255 };
+			this.footballArrow = object.getObjectByName('arrow_football');
+			this.footballArrow.material = this.footballFloodLightMaterial.clone();
+			this.footballArrow.material.emissive = { r: 60/255, g: 237/255, b: 152/255 };
 			this.ferrisWheel = object.getObjectByName( 'group26' );
 			this.propeller = object.getObjectByName('pCube532');
 			this.mixer = new THREE.AnimationMixer( object );
 			var clip = object.animations[ 0 ];
 			this.mixer.clipAction( clip.optimize() ).play();
-			// setInterval(this.arrowOff, 1900);
-			// setInterval(this.arrowOn, 2800);
-			// setInterval(this.arrowOn, 5100);
+			setInterval(this.arrowOff, 1900);
+			setInterval(this.arrowOn, 2800);
+			setInterval(this.arrowOn, 5100);
 			this.animate();
 		}, onProgress, onError );
 	}
@@ -350,20 +352,21 @@ class City extends Component {
 		this.propeller.rotation.y += 0.4;
 		this.camera.updateProjectionMatrix();
 		var stadium = this.pickHelper.pick(this.pickPosition, scene, this.camera, time);
+		this.hoverLights(stadium);
 		this.animateLights();
 		composer.render();
 	}
 
 	animateLights(){
-		// basketballLight.intensity = lightInts.basketballLightIntensity;
-		// orangeGlowMaterial.emissiveIntensity = lightInts.basketballStadiumIntensity;
+		this.basketballLight.intensity = lightInts.basketballLightIntensity;
+		this.orangeGlowMaterial.emissiveIntensity = lightInts.basketballStadiumIntensity;
 		this.footballLight.intensity = lightInts.footballLightIntensity;
-		// mintGlowMaterial.emissiveIntensity = lightInts.footballStadiumIntensity;
-		// footballFloodLightMaterial.emissiveIntensity = lightInts.floodLightIntensity;
+		this.mintGlowMaterial.emissiveIntensity = lightInts.footballStadiumIntensity;
+		this.footballFloodLightMaterial.emissiveIntensity = lightInts.floodLightIntensity;
 		// soccerLight.intensity = lightInts.soccerLightIntensity;
 		// purpleGlowMaterial.emissiveIntensity = lightInts.soccerStadiumIntensity;
-		// light1.intensity = lightInts.mainLight;
-		// footballArrow.material.emissiveIntensity = lightInts.footballArrow;
+		light1.intensity = lightInts.mainLight;
+		this.footballArrow.material.emissiveIntensity = lightInts.footballArrow;
 	}
 
 	getCanvasRelativePosition(event) {
@@ -392,10 +395,11 @@ class City extends Component {
 	}
 	clickPickPosition(event){
 		var clickedStadium = this.pickHelper.click();
+		this.pickHelper.active = false;
 		switch(clickedStadium){
 			case 'basketball':
 				this.viewBasketball();
-			// 	basketballLightsOn();
+				this.basketballLightsOn();
 				break;
 			case 'football':
 				this.footballLightsOn();
@@ -407,11 +411,45 @@ class City extends Component {
 			// 	break;
 		}
 	}
+	hoverLights(stadium){
+		switch (stadium){
+			case 'basketball':
+				this.basketballLightsOn();
+				break;
+			case 'football':
+				this.footballLightsOn();
+				break;
+			// case 'soccer':
+			// 	viewSoccer();
+			// 	soccerLightsOn();
+			// 	break;
+			case '':
+				this.lightsOff();
+				break;
+		}
+	}
 
 	footballLightsOn(){
 		lightInts.footballStadiumIntensity = 1.5;
 		lightInts.footballLightIntensity = 0.025;
 		lightInts.floodLightIntensity = 2;
+		this.footballSpotLight.angle = Math.PI / 4;
+	}
+	footballLightsOff(){
+		lightInts.footballStadiumIntensity = 0.15;
+		lightInts.footballLightIntensity = 0.01;
+		lightInts.floodLightIntensity = 0.65;
+		this.footballSpotLight.angle = Math.PI / 8;
+	}
+	basketballLightsOn(){
+		lightInts.basketballStadiumIntensity = 1.5;
+		lightInts.basketballLightIntensity = 0.04;
+		this.basketballSpotLight.angle = Math.PI / 6;
+	}
+	basketballLightsOff(){
+		lightInts.basketballStadiumIntensity = 0.2;
+		lightInts.basketballLightIntensity = 0.01;
+		this.basketballSpotLight.angle = Math.PI / 10;
 	}
 	viewBasketball(){
 		this.cameraHelper.lookAt( 84.433, 30.756, -48.331 );
@@ -422,6 +460,11 @@ class City extends Component {
 		this.cameraHelper.lookAt( 18.731, 30.756, 68.805 );
 		var targetQ = this.cameraHelper.quaternion.clone();
 		this.moveCamera(targetQ, 1);
+	}
+	lightsOff(){
+		this.basketballLightsOff();
+		this.footballLightsOff();
+		// this.soccerLightsOff();
 	}
 	moveCamera(target, zoom){
 		const timeline = new Timeline({ paused: false });

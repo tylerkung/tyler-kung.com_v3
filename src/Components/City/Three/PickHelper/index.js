@@ -19,6 +19,7 @@ export default class PickHelper {
 		const intersectedObjects = this.raycaster.intersectObjects(scene.children, true);
 		if (intersectedObjects.length){
 			this.pickedObject = intersectedObjects[0].object;
+			console.log(this.pickedObject.name);
 			this.stadium = this.applyStadiumHover(this.pickedObject.name);
 			return this.stadium;
 		} return;
@@ -32,17 +33,13 @@ export default class PickHelper {
 	applyStadiumHover(name){
 		if (this.active){
 			if (BasketballStadiumObjects.includes(name)){
-				// basketballLightsOn();
 				return 'basketball';
 			} else if (FootballStadiumObjects.includes(name)){
-				// footballLightsOn();
 				return 'football';
 			} else if (SoccerStadiumObjects.includes(name)){
-				// soccerLightsOn();
 				return 'soccer';
 			} else{
-				// lightsOff();
-				return null;
+				return '';
 			}
 		}
 	}

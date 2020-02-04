@@ -16,7 +16,7 @@ class FootballPage extends Component {
         return (
             <div className="page-content page-football">
 					<div className="sport-header">
-						<img src="./images/inside-football.png" alt="Football Stadium"/>
+						<img src="./images/stadium_header_07_light.png" alt="Football Stadium"/>
 					</div>
 					<SportNavigation active="football"/>
 					<div className="sport-page">

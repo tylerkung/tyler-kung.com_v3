@@ -29,7 +29,6 @@ class App extends Component {
 	         <Router>
 	            <Header />
 	            <main>
-						<Navigation />
 						<Route render={({location}) => {
 							const { pathname, key } = location
 

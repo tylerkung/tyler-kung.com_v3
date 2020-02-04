@@ -10,6 +10,7 @@ import { RenderPass } from './Three/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from './Three/postprocessing/UnrealBloomPass.js';
 import { BasketballStadiumObjects, FootballStadiumObjects, SoccerStadiumObjects } from './Three/stadiumObjs.js';
 import PickHelper from './Three/PickHelper';
+import Overlay from './Overlay';
 
 const city_file = 'https://sleepercdn.com/downloads/webtest/for_tyler_layout_19.fbx';
 
@@ -17,7 +18,7 @@ var clock = new THREE.Clock();
 
 var scene, camera, controls, pointLight, stats, canvas;
 var composer, renderer, mixer;
-var ferrisWheel, propeller, footballArrow;
+var footballArrow;
 var bballLightTarget;
 var orangeGlowMaterial, purpleGlowMaterial, footballFloodLightMaterial, light1, basketballLight, footballLight, soccerLight;
 
@@ -80,6 +81,7 @@ class City extends Component {
 		this.setPickPosition = this.setPickPosition.bind(this);
 		this.clearPickPosition = this.clearPickPosition.bind(this);
 		this.clickPickPosition = this.clickPickPosition.bind(this);
+		this.enterStadium = this.enterStadium.bind(this);
 		this.viewFootball = this.viewFootball.bind(this);
 		this.viewBasketball = this.viewBasketball.bind(this);
 		this.moveCamera = this.moveCamera.bind(this);
@@ -93,7 +95,9 @@ class City extends Component {
 
 	componentDidMount(){
 		this.pickHelper = new PickHelper();
+		this.pickHelper.active = true;
 		this.pickPosition = {x: 0, y: 0};
+		lightInts.mainLight = 0.08;
 		window.addEventListener('mousemove', this.setPickPosition);
 		window.addEventListener('mouseout', this.clearPickPosition);
 		window.addEventListener('mouseleave', this.clearPickPosition);
@@ -335,17 +339,29 @@ class City extends Component {
 			this.mixer = new THREE.AnimationMixer( object );
 			var clip = object.animations[ 0 ];
 			this.mixer.clipAction( clip.optimize() ).play();
-			setInterval(this.arrowOff, 1900);
-			setInterval(this.arrowOn, 2800);
-			setInterval(this.arrowOn, 5100);
+			this.intervalID_1 = setInterval(this.arrowOff, 950);
+			this.intervalID_2 = setInterval(this.arrowOn, 1400);
+			this.intervalID_3 = setInterval(this.arrowOn, 2550);
+			console.log(this.pickHelper);
 			this.animate();
 		}, onProgress, onError );
 	}
 
+	componentWillUnmount(){
+		this.setState({activeStadium: null});
+		cancelAnimationFrame(this.frameId);
+		clearInterval(this.intervalID_1);
+		clearInterval(this.intervalID_2);
+		clearInterval(this.intervalID_3);
+	}
+	enterStadium(){
+		const timeline = new Timeline({ paused: false });
+		timeline.to(this.camera, 1, {zoom: 1.4, ease: Power3.easeOut});
+	}
 	animate(time) {
 		time *= 0.001;
 
-		requestAnimationFrame( this.animate );
+		this.frameId = requestAnimationFrame( this.animate );
 		const delta = clock.getDelta();
 		this.mixer.update( delta );
 		this.ferrisWheel.rotation.z += .004;
@@ -395,13 +411,17 @@ class City extends Component {
 	}
 	clickPickPosition(event){
 		var clickedStadium = this.pickHelper.click();
-		this.pickHelper.active = false;
+		// this.pickHelper.active = false;
+		const timeline = new Timeline({ paused: false });
+		// timeline.to(lightInts, 0.8, {mainLight: 0.01, ease: Power3.easeOut});
 		switch(clickedStadium){
 			case 'basketball':
+				this.setState({activeStadium: clickedStadium});
 				this.viewBasketball();
 				this.basketballLightsOn();
 				break;
 			case 'football':
+				this.setState({activeStadium: clickedStadium});
 				this.footballLightsOn();
 				this.viewFootball();
 				break;
@@ -412,20 +432,22 @@ class City extends Component {
 		}
 	}
 	hoverLights(stadium){
-		switch (stadium){
-			case 'basketball':
-				this.basketballLightsOn();
-				break;
-			case 'football':
-				this.footballLightsOn();
-				break;
-			// case 'soccer':
-			// 	viewSoccer();
-			// 	soccerLightsOn();
-			// 	break;
-			case '':
-				this.lightsOff();
-				break;
+		if (!this.state.activeStadium){
+			switch (stadium){
+				case 'basketball':
+					this.basketballLightsOn();
+					break;
+				case 'football':
+					this.footballLightsOn();
+					break;
+				// case 'soccer':
+				// 	viewSoccer();
+				// 	soccerLightsOn();
+				// 	break;
+				case '':
+					this.lightsOff();
+					break;
+			}
 		}
 	}
 
@@ -452,7 +474,7 @@ class City extends Component {
 		this.basketballSpotLight.angle = Math.PI / 10;
 	}
 	viewBasketball(){
-		this.cameraHelper.lookAt( 84.433, 30.756, -48.331 );
+		this.cameraHelper.lookAt( 75.433, 30.756, -48.331 );
 		var targetQ = this.cameraHelper.quaternion.clone();
 		this.moveCamera(targetQ, 1.2);
 	}
@@ -483,6 +505,7 @@ class City extends Component {
 		return (
 			<div className={"sleeper-city"}>
 				<canvas id="scene-sleeper"></canvas>
+				<Overlay sport={this.state.activeStadium} enterStadium={this.enterStadium}></Overlay>
 			</div>
 		);
 	}

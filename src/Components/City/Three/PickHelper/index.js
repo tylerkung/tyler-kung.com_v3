@@ -19,7 +19,6 @@ export default class PickHelper {
 		const intersectedObjects = this.raycaster.intersectObjects(scene.children, true);
 		if (intersectedObjects.length){
 			this.pickedObject = intersectedObjects[0].object;
-			console.log(this.pickedObject.name);
 			this.stadium = this.applyStadiumHover(this.pickedObject.name);
 			return this.stadium;
 		} return;

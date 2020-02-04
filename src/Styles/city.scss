@@ -1,0 +1,35 @@
+.city-overlay{
+	background-color: rgba(0, 0, 0, 0.85);
+	width: 50%;
+	top: 0;
+	bottom: 0;
+	position: fixed;
+	z-index: 99;
+	display: flex;
+	align-items: center;
+	padding: 3em 10em;
+	transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+	transform: translateX(-100%);
+	.overlay-inner{
+		height: 300px;
+		display: block;
+		width: 100%;
+		* {
+			color: #fff !important;
+		}
+	}
+	&.football-active{
+		text-align: right;
+	}
+	&.basketball-active{
+		text-align: left;
+		right: -100%;
+	}
+	&.overlay-open{
+		transition-delay: 0.5s;
+		transform: translateX(0%);
+		&.basketball-active{
+			transform: translateX(-200%);
+		}
+	}
+}

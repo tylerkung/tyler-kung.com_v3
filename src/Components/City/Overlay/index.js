@@ -1,0 +1,76 @@
+import React, { Component } from "react";
+import {
+   Link
+} from "react-router-dom";
+
+class Overlay extends Component {
+	constructor(props){
+		super(props);
+
+		this.state = {
+			classes: 'city-overlay',
+			overlayOpen: false
+		}
+
+		this.returnSportContent = this.returnSportContent.bind(this);
+		this.updateOverlay = this.updateOverlay.bind(this);
+		this.openOverlay = this.openOverlay.bind(this);
+		this.closeOverlay = this.closeOverlay.bind(this);
+	}
+	componentDidUpdate(prevProps){
+		if (prevProps.sport !== this.props.sport){
+			this.updateOverlay();
+		}
+	}
+	render(){
+		return (
+			<div className={this.state.classes}>
+				<div className='overlay-inner'>
+					{this.returnSportContent(this.props.sport)}
+				</div>
+			</div>
+		);
+	}
+
+	returnSportContent(sport){
+		switch(sport){
+			case 'basketball':
+				return (
+					<div>
+						<h1>Basketball</h1>
+						<p>Compete with friends by drafting and managing your own team of NBA players. Create a league, invite some friends, and make sure to draft your teams before the season tips off on October 27.</p>
+						<Link to='/basketball' key='basketball'>
+							<div className="btn btn-default btn-sm btn-orange" onClick={this.props.enterStadium}>Learn More</div>
+						</Link>
+					</div>
+				);
+				break;
+			case 'football':
+				return (
+					<div>
+						<h1>Football</h1>
+						<p>Compete with friends by drafting and managing your own team of NFL players. Create a league, invite some friends, and make sure to draft your teams before the season kicks off on September 12.</p>
+						<Link to='/football' key='football'>
+							<div className="btn btn-default btn-sm" onClick={this.props.enterStadium}>Learn More</div>
+						</Link>
+					</div>
+				)
+		}
+	}
+	updateOverlay(){
+		if (this.props.sport.length){
+			this.openOverlay(this.props.sport);
+		}
+	}
+	openOverlay(sport){
+		this.setState({
+			classes: this.state.classes + ' ' + sport + '-active overlay-open',
+			overlayOpen: true
+		});
+	}
+	closeOverlay(){
+
+	}
+}
+
+export default Overlay;

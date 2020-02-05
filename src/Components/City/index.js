@@ -105,6 +105,11 @@ class City extends Component {
 		// window.addEventListener('click', this.clickPickPosition);
 		//SCENE, CAMERA, RENDERER
 		canvas = document.querySelector('#scene-sleeper');
+		canvas.addEventListener('keydown', event => {
+			if (event.keyCode === 27 && this.state.activeStadium.length){
+				this.refs.overlay.exitStadium();
+			}
+		})
 		canvas.addEventListener('click', this.clickPickPosition);
 		this.canvas = canvas;
 		scene = new THREE.Scene();

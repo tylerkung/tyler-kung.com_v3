@@ -13,6 +13,7 @@ import AboutPage from "./Views/AboutPage";
 import FootballPage from "./Views/FootballPage";
 import BasketballPage from "./Views/BasketballPage";
 import StylesPage from "./Views/StylesPage";
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 class App extends Component {
 	constructor(props){
@@ -27,6 +28,7 @@ class App extends Component {
 			<div className="App">
 	         <Router>
 	            <Header />
+					<ParallaxProvider>
 	            <main>
 						<Route render={({location}) => {
 							const { pathname, key } = location
@@ -52,6 +54,7 @@ class App extends Component {
 							)
 						}}/>
 	            </main>
+					</ParallaxProvider>
 					<Footer />
 	         </Router>
 	      </div>

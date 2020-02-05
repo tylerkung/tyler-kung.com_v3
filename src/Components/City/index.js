@@ -443,7 +443,9 @@ class City extends Component {
 		timeline.to(this.camera, 1, {zoom: 1.4, ease: Power3.easeOut});
 	}
 	exitStadium(){
-		this.setState({activeStadium: '', hoverStadium: false});
+		setTimeout(() => {
+			this.setState({activeStadium: '', hoverStadium: false});
+		}, 600)
 		this.moveCamera(this.defaultQ, 0.6);
 		this.lightsOff();
 	}

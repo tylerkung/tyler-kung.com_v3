@@ -5,13 +5,26 @@
 	}
 }
 .sport-header{
-	height: 65vh;
-	min-height: 650px;
+	// height: 65vh;
+	// min-height: 650px;
 	img{
 		object-fit: cover;
 		height: 100%;
 		width: 100%;
 		object-position: left bottom;
+	}
+	.header-parallax{
+		margin: 0;
+	}
+	.sport-stadium{
+		position: relative;
+		height: 100%;
+		width: 100%;
+		display: block;
+		background-attachment: fixed;
+		background-position: 0px 0px;
+		background-repeat: no-repeat;
+		background-size: cover;
 	}
 }
 

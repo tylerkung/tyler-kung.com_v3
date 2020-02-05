@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
 import SportNavigation from "../../Components/SportNavigation";
-
+import { Parallax, ParallaxBanner } from 'react-scroll-parallax';
 
 class FootballPage extends Component {
     constructor(props){
@@ -16,7 +16,17 @@ class FootballPage extends Component {
         return (
             <div className="page-content page-football">
 					<div className="sport-header">
-						<img src="./images/stadium_header_07_light.png" alt="Football Stadium"/>
+						<ParallaxBanner y={[0, 0]}
+							layers={[
+								{image:'./images/stadium_header_dark_layer_01.png', amount: 0.5},
+								{image:'./images/stadium_header_dark_layer_02.png', amount: 0.3},
+								{image:'./images/stadium_header_dark_layer_03.png', amount: 0.1}
+							]}
+							style={{
+								height: '900px'
+							}}
+						>
+						</ParallaxBanner>
 					</div>
 					<SportNavigation active="football"/>
 					<div className="sport-page">

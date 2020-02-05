@@ -25,7 +25,7 @@
 		display: flex;
 		align-items: center;
 		padding: 3em 1em;
-		background-color: rgba(0, 0, 0, 0.85);
+		background-color: rgba(2, 6, 22, .85);
 		overflow: hidden;
 		@media (min-width: 768px){
 			padding: 3em 4em;
@@ -36,8 +36,8 @@
 		@media (min-width: 1440px){
 			padding: 3em 10em;
 		}
-		* {
-			color: #fff !important;
+		p {
+			color: #fff;
 		}
 		p:last-of-type{
 			margin-bottom: 3em;
@@ -64,7 +64,7 @@
 		.overlay-content{
 			@for $i from 1 through 6{
 				> *:nth-child(#{$i}){
-					transition-delay: $i * 0.2s + 0.75s;
+					transition-delay: $i * 0.15s + 0.85s;
 					transform: translateY(0px);
 				}
 			}
@@ -82,7 +82,7 @@
 		> * {
 			opacity: 0;
 			transform: translateY(30px);
-			transition: all 0.3s 0.6s ease-out;
+			transition: transform 0.8s 0.6s cubic-bezier(.1,.53,.32,1.17), opacity 0.6s 0.4s ease;
 			display: block;
 		}
 	}
@@ -90,7 +90,12 @@
 	.overlay-close{
 		cursor: pointer;
 		&:before{
-			content: 'x';
+			content: '';
+			background-image: url('/icons/close-icon.png');
+			background-repeat: no-repeat;
+    		background-position: center center;
+			height: 50px;
+			width: 50px;
 			font-size: 2em;
 			color: #fff;
 			position: absolute;

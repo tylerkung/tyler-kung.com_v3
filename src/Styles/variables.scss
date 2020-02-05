@@ -4,9 +4,11 @@ $muliStack: 'Muli', Helvetica, Arial, sans-serif;
 $blueColor: #2196F3;
 $blackColor: #000000;
 $whiteColor: #ffffff;
-$sleeperBlack: #01081F;
+$sleeperBlack: #022047;
 $sleeperGray: #677897;
-$sleeperGreen: #00CEB8;
+$sleeperGreen: #45E8A7;
+$sleeperMint: #00CEB8;
+$sleeperRed: #FF2B6D;
 $sleeperWhite: #F9F9F9;
 $sleeperOrange: #FF7A5A;
 
@@ -24,8 +26,8 @@ $headerColor_1: $sleeperBlack;
 $headerColor_2: $sleeperGray;
 $bodyTextColor: $sleeperGray;
 $smallTextColor: $sleeperGray;
-$btnColor: $whiteColor;
-$btnHoverColor: $sleeperBlack;
+$btnColor: $sleeperBlack;
+$btnHoverColor: $sleeperWhite;
 $linkHoverColor: $sleeperGreen;
 
 $layoutMainColor: $whiteColor;

@@ -111,3 +111,21 @@
 		}
 	}
 }
+
+// .city-overlay{
+// 	transform: translateX(calc( -100% - 21px));
+// 	&.basketball-active{
+// 		text-align: left;
+// 		right: -100%;
+// 		transform: translateX(calc(-100% + 20px));
+// 		.overlay-inner{
+// 			box-shadow: 0 0 20px $sleeperOrange;
+// 		}
+// 	}
+// 	&.football-active{
+// 		text-align: right;
+// 		.overlay-inner{
+// 			box-shadow: 0 0 20px $sleeperGreen;
+// 		}
+// 	}
+// }

@@ -8,16 +8,14 @@ import { OrbitControls } from './Three/build/OrbitControls.js';
 import { EffectComposer } from './Three/postprocessing/EffectComposer.js';
 import { RenderPass } from './Three/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from './Three/postprocessing/UnrealBloomPass.js';
-import { BasketballStadiumObjects, FootballStadiumObjects, SoccerStadiumObjects } from './Three/stadiumObjs.js';
 import PickHelper from './Three/PickHelper';
 import Overlay from './Overlay';
 import { CityFile } from './Assets';
 
 var clock = new THREE.Clock();
 
-var scene, camera, controls, canvas;
-var composer, renderer, mixer;
-var bballLightTarget;
+var scene, controls, canvas;
+var composer, renderer;
 var purpleGlowMaterial, light1, soccerLight;
 
 var nightMode = true;
@@ -58,7 +56,7 @@ if (!nightMode){
 }
 const params = {
 	exposure: 0.05,
-	bloomStrength: 0.2,
+	bloomStrength: 0.8,
 	bloomThreshold: 0,
 	bloomRadius: 0
 };
@@ -124,8 +122,6 @@ class City extends Component {
 
 		// CAMERA
 		var zoomCamera = false;
-		var width = 2;
-		var height = 2;
 		var near = 0.1;
 		var far = 9;
 		var windowWidth = window.innerWidth;
@@ -156,7 +152,7 @@ class City extends Component {
 
 		// LIGHTS
 		// Light 1
-		var sphere = new THREE.SphereBufferGeometry( 0.5, 16, 8 );
+		// var sphere = new THREE.SphereBufferGeometry( 0.5, 16, 8 );
 		light1 = new THREE.PointLight( lightInts.mainColor, lightInts.mainLight, 15, 2);
 		light1.position.set( -24, 250, 12 );
 		light1.castShadow = true;
@@ -232,7 +228,6 @@ class City extends Component {
 		scene.add(plane);
 
 		this.defaultQ = this.camera.quaternion.clone();
-		var currentQ = this.defaultQ;
 
 		var manager = new THREE.LoadingManager();
 		manager.onProgress = function ( item, loaded, total ) {
@@ -240,8 +235,14 @@ class City extends Component {
 		};
 
 		var renderScene = new RenderPass( scene, this.camera );
+		var bloomPass = new UnrealBloomPass( new THREE.Vector2( window.innerWidth, window.innerHeight ), 1.5, 0.4, 0.85 );
+		renderer.toneMappingExposure = 1;
+		bloomPass.threshold = params.bloomThreshold;
+		bloomPass.strength = params.bloomStrength;
+		bloomPass.radius = params.bloomRadius;
 		composer = new EffectComposer( renderer );
 		composer.addPass( renderScene );
+		// composer.addPass( bloomPass );
 
 		var onProgress = function ( xhr ) {
 			if ( xhr.lengthComputable ) {
@@ -313,8 +314,6 @@ class City extends Component {
 			this.orangeGlowMaterial.emissiveIntensity = lightInts.basketballStadiumIntensity;
 			this.orangeGlowMaterial.shininess = 1;
 			this.bballGlow.material = this.orangeGlowMaterial;
-			// object.getObjectByName('pCube672').material = orangeGlowMaterial;
-			// object.getObjectByName('pCube673').material = orangeGlowMaterial;
 			object.getObjectByName('Mai_Layout_04_nonstudentpolySurface46').material = this.orangeGlowMaterial;
 			object.getObjectByName('Mai_Layout_04_nonstudentpolySurface41').material = this.orangeGlowMaterial;
 			object.getObjectByName('polySurface989').material = this.orangeGlowMaterial; //jumbotron
@@ -359,11 +358,6 @@ class City extends Component {
 		clearInterval(this.intervalID_2);
 		clearInterval(this.intervalID_3);
 	}
-	// checkExitStadium(){
-	// 	if (this.state.activeStadium.length){
-	// 		this.refs.overlay.exitStadium();
-	// 	}
-	// }
 
 	//ANIMATE
 	animate(time) {
@@ -420,7 +414,7 @@ class City extends Component {
 	clickPickPosition(event){
 		var clickedStadium = this.pickHelper.click();
 		// this.pickHelper.active = false;
-		const timeline = new Timeline({ paused: false });
+		// const timeline = new Timeline({ paused: false });
 		// timeline.to(lightInts, 0.8, {mainLight: 0.01, ease: Power3.easeOut});
 		if (!this.state.activeStadium.length){
 			switch(clickedStadium){
@@ -438,6 +432,8 @@ class City extends Component {
 				// 	viewSoccer();
 				// 	soccerLightsOn();
 				// 	break;
+				default:
+					break;
 			}
 		}
 	}
@@ -483,6 +479,10 @@ class City extends Component {
 				// 	soccerLightsOn();
 				// 	break;
 				case '':
+					this.setState({hoverStadium: false});
+					this.lightsOff();
+					break;
+				default:
 					this.setState({hoverStadium: false});
 					this.lightsOff();
 					break;

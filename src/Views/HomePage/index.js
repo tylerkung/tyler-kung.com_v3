@@ -36,7 +36,7 @@ class HomePage extends Component {
             <div className="page-content page-home">
 					<City/>
 					<div className={'loading-screen ' + (this.state.loadScreenActive ? 'open' : 'close')}>
-						<img src="https://sleepercdn.com/images/landing/v3/logos/header_light-5c99df9d0d1ba4c82fedb46b4e9328fe.png?vsn=d" />
+						<img src="https://sleepercdn.com/images/landing/v3/logos/header_light-5c99df9d0d1ba4c82fedb46b4e9328fe.png?vsn=d" alt='Sleeper'/>
 					</div>
 				</div>
         );

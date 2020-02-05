@@ -11,16 +11,14 @@ import { UnrealBloomPass } from './Three/postprocessing/UnrealBloomPass.js';
 import { BasketballStadiumObjects, FootballStadiumObjects, SoccerStadiumObjects } from './Three/stadiumObjs.js';
 import PickHelper from './Three/PickHelper';
 import Overlay from './Overlay';
-
-const city_file = 'https://sleepercdn.com/downloads/webtest/for_tyler_layout_19.fbx';
+import { CityFile } from './Assets';
 
 var clock = new THREE.Clock();
 
-var scene, camera, controls, pointLight, stats, canvas;
+var scene, camera, controls, canvas;
 var composer, renderer, mixer;
-var footballArrow;
 var bballLightTarget;
-var orangeGlowMaterial, purpleGlowMaterial, footballFloodLightMaterial, light1, basketballLight, footballLight, soccerLight;
+var purpleGlowMaterial, light1, soccerLight;
 
 var nightMode = true;
 var lightInts = {};
@@ -58,7 +56,7 @@ if (!nightMode){
 		footballArrow: 0.2
 	}
 }
-var params = {
+const params = {
 	exposure: 0.05,
 	bloomStrength: 0.2,
 	bloomThreshold: 0,
@@ -230,7 +228,6 @@ class City extends Component {
 
 		this.defaultQ = this.camera.quaternion.clone();
 		var currentQ = this.defaultQ;
-		// createjs.Ticker.timingMode = createjs.Ticker.RAF;
 
 		var manager = new THREE.LoadingManager();
 		manager.onProgress = function ( item, loaded, total ) {
@@ -243,8 +240,8 @@ class City extends Component {
 
 		var onProgress = function ( xhr ) {
 			if ( xhr.lengthComputable ) {
-			var percentComplete = xhr.loaded / xhr.total * 100;
-			console.log( Math.round(percentComplete, 2) + '% downloaded' );
+				var percentComplete = xhr.loaded / xhr.total * 100;
+				console.log( Math.round(percentComplete, 2) + '% downloaded' );
 			}
 		};
 
@@ -256,7 +253,7 @@ class City extends Component {
 		// LOADER
 
 		this.loader = new FBXLoader(manager);
-		this.loader.load( city_file, (object) => {
+		this.loader.load( CityFile, (object) => {
 			scene.add( object );
 			// Mesh contains self-intersecting semi-transparent faces, which display
 			// z-fighting unless depthWrite is disabled.
@@ -445,11 +442,12 @@ class City extends Component {
 		timeline.to(this.camera, 1, {zoom: 1.4, ease: Power3.easeOut});
 	}
 	exitStadium(){
-		this.setState({activeStadium: ''});
+		this.setState({activeStadium: '', hoverStadium: false});
 		this.moveCamera(this.defaultQ, 0.6);
+		this.lightsOff();
 	}
 	viewBasketball(){
-		this.cameraHelper.lookAt( 75.433, 30.756, -48.331 );
+		this.cameraHelper.lookAt( 82.433, 30.756, -48.331 );
 		var targetQ = this.cameraHelper.quaternion.clone();
 		this.moveCamera(targetQ, 1.2);
 	}

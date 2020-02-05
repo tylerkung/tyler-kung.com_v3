@@ -8,7 +8,6 @@ import { Transition, TransitionGroup } from "react-transition-group";
 import { play, exit } from './timelines';
 import Header from "./Components/Layout/Header";
 import Footer from "./Components/Layout/Footer";
-import Navigation from "./Components/Navigation";
 import HomePage from "./Views/HomePage";
 import AboutPage from "./Views/AboutPage";
 import FootballPage from "./Views/FootballPage";
@@ -53,7 +52,7 @@ class App extends Component {
 							)
 						}}/>
 	            </main>
-
+					<Footer />
 	         </Router>
 	      </div>
 		);

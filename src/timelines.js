@@ -15,11 +15,9 @@ const getDefaultTimeline = (node, delay) => {
 
 const getHomeTimeline = (node, delay) => {
   const timeline = new Timeline({ paused: true });
-  const texts = node.querySelectorAll('h1 > div');
 
   timeline
     .from(node, 0, { display: 'none', autoAlpha: 0, delay });
-    // .staggerFrom(texts, 0.375, { autoAlpha: 0, x: -25, ease: Power1.easeOut }, 0.125);
 
   return timeline;
 }

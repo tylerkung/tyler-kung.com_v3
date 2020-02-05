@@ -47,7 +47,7 @@ class FootballPage extends Component {
 							</div>
 						</div>
 						<div className="layout layout-width-image">
-							<img src="https://images.unsplash.com/photo-1577949098254-1ad7b1b526eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" />
+					 		<img src="./images/inside-football.png" alt="Football Stadium" />
 						</div>
 						<div className="layout layout-secondary-color layout-rounded-top">
 							<div className="container">

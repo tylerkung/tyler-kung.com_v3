@@ -25,7 +25,6 @@ export default class PickHelper {
 	}
 	click(){
 		if (this.stadium){
-			console.log("Clicked: " + this.stadium);
 			return this.stadium;
 		}
 	}

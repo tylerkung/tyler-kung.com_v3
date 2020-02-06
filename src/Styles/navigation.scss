@@ -5,6 +5,8 @@
 }
 
 .sport-nav{
+	background-color: #020820;
+	position: relative;
 	ul{
 		margin: 0;
 		padding: 0;
@@ -13,6 +15,9 @@
 			padding: 15px 50px;
 			list-style: none;
 			position: relative;
+			a{
+				color: #fff;
+			}
 			&:before{
 				content: '';
 				border-radius: 50%;

@@ -21,9 +21,11 @@ const SportNavigation = (props) => {
 		return <li className={classes}><Link to={to} key={to}>{label}</Link></li>
 	});
 	return (
-		<nav className="sport-nav container">
-			<ul>{links}</ul>
-		</nav>
+		<div className="sport-nav">
+			<nav className="container">
+				<ul>{links}</ul>
+			</nav>
+		</div>
 	)
 }
 

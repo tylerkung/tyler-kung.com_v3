@@ -1,0 +1,13 @@
+.parallax-header, .parallax-layer{
+	height: 800px;
+}
+.parallax-header{
+	overflow: hidden;
+}
+.parallax-layer{
+	background-position: bottom center;
+	background-size: auto 800px;
+	background-repeat: repeat-x;
+	width: 100%;
+	position: absolute;
+}

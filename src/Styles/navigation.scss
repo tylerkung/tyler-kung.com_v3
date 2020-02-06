@@ -31,7 +31,9 @@
 			}
 			&.link-basketball{
 				&:before{
-					background-color: $sleeperOrange;
+					content: url('./icons/bball.svg');
+					color: $sleeperOrange;
+					background: transparent;
 				}
 			}
 		}

@@ -57,6 +57,11 @@
 			}
 		}
 		.overlay-close{
+			&:before{
+				opacity: 1;
+				pointer-events: all;
+				transition-delay: 0.8s;
+			}
 			&:after{
 				pointer-events: all;
 			}
@@ -100,8 +105,11 @@
 			color: #fff;
 			position: absolute;
 			top: 1em;
-			right: 2em;
+			right: -3em;
 			font-family: "Muli", Helvetica, Arial, sans-serif;
+			transition: opacity 0.3s ease;
+			opacity: 0;
+			pointer-events: none;
 		}
 		&:after{
 			content: '';

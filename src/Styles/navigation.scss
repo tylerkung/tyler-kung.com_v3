@@ -22,24 +22,37 @@
 			&:before{
 				content: '';
 				border-radius: 50%;
-				height: 30px;
-				width: 30px;
-				background-color: red;
+				height: 40px;
+				width: 40px;
 				display: block;
 				position: absolute;
 				left: 0px;
-				top: 8px;
-			}
-			&.link-football{
-				&:before{
-					background-color: $sleeperGreen;
-				}
+				top: 4px;
 			}
 			&.link-basketball{
 				&:before{
-					content: url('./icons/bball.svg');
-					color: $sleeperOrange;
-					background: transparent;
+					content: '';
+					background-image: url('./icons/Basketball_Default.png');
+					background-size: contain;
+					background-repeat: no-repeat;
+				}
+				&:hover, &.active{
+					&:before{
+						background-image: url('./icons/Basketball_Selected.png');
+					}
+				}
+			}
+			&.link-football{
+				&:before{
+					content: '';
+					background-image: url('./icons/Football_Default.png');
+					background-size: contain;
+					background-repeat: no-repeat;
+				}
+				&:hover, &.active{
+					&:before{
+						background-image: url('./icons/Football_Selected.png');
+					}
 				}
 			}
 		}

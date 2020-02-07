@@ -11,8 +11,19 @@ class FootballPage extends Component {
 
         this.state = {
         }
+		  this.onRouteChange = this.onRouteChange.bind(this);
     }
-
+	 componentDidMount(){
+ 		// this.initLoadScreen();
+ 		// this.props.stopLoad();
+ 		this.props.history.listen(this.onRouteChange.bind(this));
+ 	}
+	 onRouteChange(route){
+	 	console.log(route);
+		if (route.pathname === "/"){
+			this.props.goHome();
+		}
+	 }
     render(){
         return (
             <div className="page-content page-football">
@@ -21,7 +32,8 @@ class FootballPage extends Component {
 							{image:'./images/stadium_01.png', amount: 1},
 							{image:'./images/stadium_02.png', amount: 0.1},
 							{image:'./images/stadium_03.png', amount: 0}
-						]}/>
+						]}>
+						</ParallaxHeader>
 					</div>
 					<SportNavigation active="football"/>
 					<div className="sport-page">

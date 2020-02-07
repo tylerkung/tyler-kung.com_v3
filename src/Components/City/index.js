@@ -348,6 +348,7 @@ class City extends Component {
 			this.intervalID_2 = setInterval(this.arrowOn, 1400);
 			this.intervalID_3 = setInterval(this.arrowOn, 2550);
 			this.animate();
+			this.props.stopLoad();
 		}, onProgress, onError );
 	}
 

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import {
-   BrowserRouter as Router,
+   Router,
    Switch,
    Route
 } from "react-router-dom";
+import { createBrowserHistory } from 'history';
 import { Transition, TransitionGroup } from "react-transition-group";
 import { play, exit } from './timelines';
 import Header from "./Components/Layout/Header";
@@ -22,12 +23,31 @@ class App extends Component {
 		 this.state = {
 			 loadScreenActive: true
 		 }
+		 this.goHome = this.goHome.bind(this);
+		 this.startLoad = this.startLoad.bind(this);
+		 this.stopLoad = this.stopLoad.bind(this);
+		 this.history = createBrowserHistory();
+	}
+	goHome(){
+		this.startLoad();
+		setTimeout(() => {
+			console.log('go Home');
+			this.history.push('/home')}, 1000
+		);
+	}
+	startLoad(){
+		this.setState({loadScreenActive: true});
+	}
+	stopLoad(){
+		setTimeout(() => {
+			this.setState({loadScreenActive: false});}, 1000
+		);
 	}
    render() {
       return (
 			<div className="App">
-	         <Router>
-	            <Header />
+	         <Router history={this.history}>
+	            <Header goHome={this.goHome}/>
 					<ParallaxProvider>
 	            <main>
 						<Route render={({location}) => {
@@ -43,9 +63,17 @@ class App extends Component {
 										timeout={{enter: 0, exit: 500}}
 									>
 										<Switch location={location}>
-					                  <Route exact path="/" component={HomePage} />
+					                  <Route exact
+												path="/(home|)/"
+												render={(props) =>
+													<HomePage {...props} stopLoad={this.stopLoad} />}
+											/>
 											<Route exact path="/about" component={AboutPage} />
-					                  <Route exact path="/football" component={FootballPage} />
+											<Route exact
+												path="/football"
+												render={(props) =>
+													<FootballPage {...props} goHome={this.goHome} />}
+											/>
 					                  <Route exact path="/basketball" component={BasketballPage} />
 											<Route exact path="/styles" component={StylesPage} />
 					               </Switch>
@@ -53,6 +81,9 @@ class App extends Component {
 								</TransitionGroup>
 							)
 						}}/>
+						<div className={'loading-screen ' + (this.state.loadScreenActive ? 'open' : 'close')}>
+							<img src="https://sleepercdn.com/images/landing/v3/logos/header_light-5c99df9d0d1ba4c82fedb46b4e9328fe.png?vsn=d" alt='Sleeper'/>
+						</div>
 	            </main>
 					</ParallaxProvider>
 					<Footer />

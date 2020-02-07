@@ -7,6 +7,9 @@
 .sport-header{
 	// height: 65vh;
 	// min-height: 650px;
+	h1{
+		font-size: 5em;
+	}
 	img{
 		object-fit: cover;
 		height: 100%;
@@ -29,6 +32,8 @@
 }
 .sport-page{
 	background-color: $layoutMainColor;
+	position:relative;
+	z-index: 10;
 }
 .layout{
 	padding: 2rem 0;

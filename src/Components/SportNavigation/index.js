@@ -1,6 +1,7 @@
 import React from "react";
 import {
-   Link
+   Link,
+	NavLink
 } from "react-router-dom";
 
 const routes = [
@@ -18,7 +19,7 @@ const Basketball = ({ stroke }) => (
 const SportNavigation = (props) => {
 	const links = routes.map(({ sport, to, label, classes }) => {
 		if (props.active === sport) classes += ' active';
-		return <li className={classes}><Link to={to} key={to}>{label}</Link></li>
+		return <li className={classes}><NavLink to={to} key={to}>{label}</NavLink></li>
 	});
 	return (
 		<div className="sport-nav">

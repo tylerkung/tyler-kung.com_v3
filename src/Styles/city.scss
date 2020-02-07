@@ -13,7 +13,7 @@
 	top: 0;
 	bottom: 0;
 	position: fixed;
-	z-index: 11;
+	z-index: 20;
 	display: flex;
 	align-items: center;
 	transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -59,11 +59,11 @@
 		.overlay-close{
 			&:before{
 				opacity: 1;
-				pointer-events: all;
+				pointer-events: initial;
 				transition-delay: 0.8s;
 			}
 			&:after{
-				pointer-events: all;
+				pointer-events: initial;
 			}
 		}
 		.overlay-content{
@@ -82,6 +82,12 @@
 		text-align: left;
 		right: -100%;
 		transform: translateX(-100%);
+		.overlay-close{
+			&:before{
+				right: auto;
+				left: -3em;
+			}
+		}
 	}
 	.overlay-content{
 		> * {

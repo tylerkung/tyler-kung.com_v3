@@ -3,6 +3,18 @@
 }
 .parallax-header{
 	overflow: hidden;
+	&.reveal{
+		@for $i from 1 through 6{
+			.parallax-layer:nth-child(#{$i}){
+				transition-delay: $i * 0.4s + 0.1s;
+				opacity: 1;
+			}
+		}
+		.parallax-layer:first-of-type{
+			transform: scale(1.1);
+			transition: transform 1.4s 0.5s ease-out, opacity 0.6s 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+		}
+	}
 }
 .parallax-layer{
 	background-position: bottom center;
@@ -10,4 +22,20 @@
 	background-repeat: repeat-x;
 	width: 100%;
 	position: absolute;
+	opacity: 0;
+	transition: opacity 0.6s ease;
+	top: 0;
+	&:first-of-type{
+		transform: scale(1);
+	}
+	&:last-of-type{
+		z-index: 11;
+	}
+}
+
+.p-header-content{
+	z-index: 1;
+	position: fixed;
+	right: calc((100% - 1400px)/2);
+	top: 100px;
 }

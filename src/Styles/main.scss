@@ -155,5 +155,18 @@ body {
 		position: absolute;
 		transform: translateY(50vh);
 		transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+		animation: spin 2s ease;
+		animation-iteration-count: infinite;
+	}
+	@keyframes spin{
+		0%{
+			transform: translate3d(0, 46vh, 0);
+		}
+		50%{
+			transform: translate3d(0, 50vh, 0);
+		}
+		100%{
+			transform: translate3d(0, 46vh, 0);
+		}
 	}
 }

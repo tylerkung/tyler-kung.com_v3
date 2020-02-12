@@ -49,6 +49,7 @@ body {
 	text-transform: uppercase;
 	font-family: $muliStack;
 	font-weight: 800;
+	margin: 24px 0;
 	cursor: pointer;
 	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 	&:focus{
@@ -66,7 +67,7 @@ body {
 }
 
 .btn-default{
-	background-image: linear-gradient(to bottom right, #00B7B3, #4CE2A7);
+	background-image: linear-gradient(to top left, #00B7B3, #4CE2A7);
 	background-color: #00B7B3;
 	color: $btnColor;
 	&:after{

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import City from "../../Components/City";
+import NewCity from "../../Components/NewCity";
 
 class HomePage extends Component {
 	constructor(props){
@@ -39,7 +39,7 @@ class HomePage extends Component {
 	render(){
 		return (
 			<div className="page-content page-home">
-				<City stopLoad={this.props.stopLoad}/>
+				<NewCity stopLoad={this.props.stopLoad}/>
 			</div>
 		);
 	}

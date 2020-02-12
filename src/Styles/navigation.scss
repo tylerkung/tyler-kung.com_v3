@@ -13,7 +13,7 @@
 		padding: 0;
 		display: flex;
 		li{
-			padding: 15px 50px;
+			padding: 25px 50px;
 			list-style: none;
 			position: relative;
 			a{
@@ -27,7 +27,7 @@
 				display: block;
 				position: absolute;
 				left: 0px;
-				top: 4px;
+				top: 14px;
 			}
 			&.link-basketball{
 				&:before{

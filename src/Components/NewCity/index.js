@@ -18,7 +18,7 @@ var scene, controls, canvas;
 var composer, renderer;
 var purpleGlowMaterial, light1, soccerLight;
 
-var nightMode = true;
+var nightMode = false;
 var lightInts = {};
 
 if (!nightMode){

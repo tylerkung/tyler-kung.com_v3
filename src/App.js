@@ -21,7 +21,7 @@ class App extends Component {
 		 super(props);
 
 		 this.state = {
-			 loadScreenActive: true
+			 loadScreenActive: false
 		 }
 		 this.goHome = this.goHome.bind(this);
 		 this.startLoad = this.startLoad.bind(this);

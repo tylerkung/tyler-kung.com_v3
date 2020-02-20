@@ -1,1 +1,3 @@
-export const CityFile = 'https://sleepercdn.com/downloads/webtest/heropage_002.fbx';
+// export const CityFile = 'https://sleepercdn.com/downloads/webtest/heropage_003.fbx';
+
+export const CityFile = 'http://sleepercdn.com/downloads/webtest/heropage_005.fbx';

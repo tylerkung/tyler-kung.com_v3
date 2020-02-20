@@ -128,6 +128,12 @@
 	}
 }
 
+#btn-function{
+	position: absolute;
+	left: 0px;
+	z-index: 99;
+}
+
 // .city-overlay{
 // 	transform: translateX(calc( -100% - 21px));
 // 	&.basketball-active{

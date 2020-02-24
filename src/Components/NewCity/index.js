@@ -56,7 +56,7 @@ class NewCity extends Component {
 		this.pickHelper = new PickHelper();
 		this.pickHelper.active = true;
 		this.pickPosition = {x: 0, y: 0};
-		document.querySelector('#btn-function').addEventListener('click', this.button);
+		// document.querySelector('#btn-function').addEventListener('click', this.button);
 		window.addEventListener('mousemove', this.setPickPosition);
 		window.addEventListener('mouseout', this.clearPickPosition);
 		window.addEventListener('mouseleave', this.clearPickPosition);
@@ -109,7 +109,7 @@ class NewCity extends Component {
 		// Light 1
 		// var sphere = new THREE.SphereBufferGeometry( 0.5, 16, 8 );
 		light1 = new THREE.PointLight( lightInts.mainColor, lightInts.mainLight, 15, 2);
-		light1.position.set( -24, 250, 12 );
+		light1.position.set( -24, 300, 12 );
 		light1.castShadow = true;
 		light1.shadow.radius = 2;
 		scene.add( light1 );
@@ -183,10 +183,14 @@ class NewCity extends Component {
 				child.material.roughness = 0;
 			}
 		});
+		object.getObjectByName( 'main' ).intensity = 0;
+		this.ferrisWheel = object.getObjectByName('ferris_wheel');
+		this.mixer = new THREE.AnimationMixer( object );
+		var clip = object.animations[ 0 ];
+		this.mixer.clipAction( clip.optimize() ).play();
 		scene.add( object );
-		// var clip = object.animations[ 0 ];
 		this.animate();
-		// this.props.stopLoad();
+		this.props.stopLoad();
 	});
 }
 
@@ -201,8 +205,8 @@ class NewCity extends Component {
 
 		this.frameId = requestAnimationFrame( this.animate );
 		const delta = clock.getDelta();
-		// this.mixer.update( delta );
-		// this.ferrisWheel.rotation.z += .002;
+		this.mixer.update( delta );
+		this.ferrisWheel.rotation.z += .002;
 		// this.propeller.rotation.y += 0.4;
 		this.camera.updateProjectionMatrix();
 		var stadium = this.pickHelper.pick(this.pickPosition, scene, this.camera, time);
@@ -304,7 +308,7 @@ class NewCity extends Component {
 		return (
 			<div className={`sleeper-city ${(this.state.activeStadium) ? "overlay-active" : ""}${(this.state.hoverStadium && !this.state.activeStadium) ? "stadium-hover" : ""}`}>
 				<canvas id="scene-sleeper"></canvas>
-				<button id="btn-function">Click</button>
+
 				<Overlay ref="overlay" sport={this.state.activeStadium} enterStadium={this.enterStadium} exitStadium={this.exitStadium}></Overlay>
 			</div>
 		);

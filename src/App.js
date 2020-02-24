@@ -21,7 +21,7 @@ class App extends Component {
 		 super(props);
 
 		 this.state = {
-			 loadScreenActive: false
+			 loadScreenActive: true
 		 }
 		 this.goHome = this.goHome.bind(this);
 		 this.startLoad = this.startLoad.bind(this);
@@ -82,7 +82,7 @@ class App extends Component {
 							)
 						}}/>
 						<div className={'loading-screen ' + (this.state.loadScreenActive ? 'open' : 'close')}>
-							<img src="https://sleepercdn.com/images/landing/v3/logos/header_light-5c99df9d0d1ba4c82fedb46b4e9328fe.png?vsn=d" alt='Sleeper'/>
+							<img src="./images/splash-screen.webp" alt='Sleeper'/>
 						</div>
 	            </main>
 					</ParallaxProvider>

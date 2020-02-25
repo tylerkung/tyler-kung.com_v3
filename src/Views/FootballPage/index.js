@@ -28,12 +28,10 @@ class FootballPage extends Component {
         return (
             <div className="page-content page-football">
 					<div className="sport-header">
-						<ParallaxHeader layers={[
-							{image:'./images/stadium_01.png', amount: 1},
-							{image:'./images/stadium_02.png', amount: 0.1},
-							{image:'./images/stadium_03.png', amount: 0}
-						]}>
-						</ParallaxHeader>
+						<video autoPlay muted loop>
+							<source src="./videos/football-landing.mp4" type="video/mp4" />
+								Your browser doesn't support the HTML5 video tag.
+						</video>
 					</div>
 					<SportNavigation active="football"/>
 					<div className="sport-page">

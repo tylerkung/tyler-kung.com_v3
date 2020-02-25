@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import THREE from "./Three/three";
 import { TimelineMax as Timeline, Power3 } from 'gsap/dist/gsap';
-import insideWorker from 'offscreen-canvas/inside-worker';
+import {
+   Link
+} from "react-router-dom";
 
 import { FBXLoader } from './Three/build/FBXLoader.js';
 import { GLTFLoader } from './Three/build/GLTFLoader.js';
@@ -21,10 +23,10 @@ var purpleGlowMaterial, light1, soccerLight;
 
 var lightInts = {
 	mainLight: 0.6,
-	mainColor: 0xffffff,
-	secondLight: 0,
+	mainColor: 0xf5f6fa,
+	secondLight: 0.1,
 	ambientLight: 0.8,
-	ambientColor: 0xe3eaff
+	ambientColor: 0xedf2ff
 }
 
 
@@ -56,7 +58,7 @@ class NewCity extends Component {
 		this.pickHelper = new PickHelper();
 		this.pickHelper.active = true;
 		this.pickPosition = {x: 0, y: 0};
-		// document.querySelector('#btn-function').addEventListener('click', this.button);
+		document.querySelector('#btn-function').addEventListener('click', this.button);
 		window.addEventListener('mousemove', this.setPickPosition);
 		window.addEventListener('mouseout', this.clearPickPosition);
 		window.addEventListener('mouseleave', this.clearPickPosition);
@@ -94,17 +96,17 @@ class NewCity extends Component {
 		this.camera.scale.x = 100;
 		this.camera.scale.y = 100;
 		this.camera.scale.z = 100;
-		this.camera.zoom = 2;
+		this.camera.zoom = 4;
 		this.cameraHelper = this.camera.clone();
 
 		// CONTROLS
 		controls = new OrbitControls( this.camera, renderer.domElement );
 		// controls.enableZoom = false;
-		// controls.enablePan = false;
+		controls.enablePan = false;
 		// controls.enableRotate = false;
-		// controls.maxPolarAngle = 1.0584632133487624;
-		// controls.minPolarAngle = 1.0584632133487624;
-
+		controls.maxPolarAngle = 0.9718649472467462;
+		controls.minPolarAngle = 0.9718649472467462;
+		console.log(controls.getPolarAngle());
 		// LIGHTS
 		// Light 1
 		// var sphere = new THREE.SphereBufferGeometry( 0.5, 16, 8 );
@@ -184,6 +186,27 @@ class NewCity extends Component {
 			}
 		});
 		object.getObjectByName( 'main' ).intensity = 0;
+		object.getObjectByName('polySurface62').material.emissiveIntensity = 0;
+		var texture = new THREE.TextureLoader().load('./images/sleeper-billboard.png');
+		// var texture = new THREE.TextureLoader().load('./videos/football-landing.mp4');
+		var ratio = 1000 * 381 / (800 * 555);
+		// texture.image = './images/inside-basketball.jpg';
+		// texture.image.width = 100;
+		texture.offset.x = -1.5;
+		texture.repeat.set(4, 4);
+		texture.wrapS = THREE.ClampToEdgeWrapping;
+		texture.wrapT = THREE.RepeatWrapping;
+		console.log(texture);
+		var signMaterial = object.getObjectByName('sign_06').material.clone();
+		signMaterial.map = texture;
+		signMaterial.emissive = {r: 1, g: 1, b: 1};
+		signMaterial.emissiveIntensity = 0.25;
+		object.getObjectByName('sign_01').material = signMaterial;
+		object.getObjectByName('sign_02').material = signMaterial;
+		object.getObjectByName('sign_03').material = signMaterial;
+		object.getObjectByName('sign_04').material = signMaterial;
+		object.getObjectByName('sign_05').material = signMaterial;
+		object.getObjectByName('sign_06').material = signMaterial;
 		this.ferrisWheel = object.getObjectByName('ferris_wheel');
 		this.mixer = new THREE.AnimationMixer( object );
 		var clip = object.animations[ 0 ];
@@ -308,7 +331,9 @@ class NewCity extends Component {
 		return (
 			<div className={`sleeper-city ${(this.state.activeStadium) ? "overlay-active" : ""}${(this.state.hoverStadium && !this.state.activeStadium) ? "stadium-hover" : ""}`}>
 				<canvas id="scene-sleeper"></canvas>
-
+				<Link to='/football' key='football'>
+					<button className="btn btn-default" id="btn-function">Click</button>
+				</Link>
 				<Overlay ref="overlay" sport={this.state.activeStadium} enterStadium={this.enterStadium} exitStadium={this.exitStadium}></Overlay>
 			</div>
 		);

@@ -16,6 +16,12 @@
 		width: 100%;
 		object-position: left bottom;
 	}
+	video{
+		width: 100%;
+		max-height: calc(70vh - 80px);
+		object-fit: cover;
+		object-position: center center;
+	}
 	.header-parallax{
 		margin: 0;
 	}

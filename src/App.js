@@ -14,7 +14,7 @@ import AboutPage from "./Views/AboutPage";
 import FootballPage from "./Views/FootballPage";
 import BasketballPage from "./Views/BasketballPage";
 import StylesPage from "./Views/StylesPage";
-import { ParallaxProvider } from 'react-scroll-parallax';
+import ScrollToTop from './Components/ScrollToTop';
 
 class App extends Component {
 	constructor(props){
@@ -47,8 +47,8 @@ class App extends Component {
       return (
 			<div className="App">
 	         <Router history={this.history}>
+					<ScrollToTop />
 	            <Header goHome={this.goHome}/>
-					<ParallaxProvider>
 	            <main>
 						<Route render={({location}) => {
 							const { pathname, key } = location
@@ -85,7 +85,6 @@ class App extends Component {
 							<img src="./images/splash-screen.webp" alt='Sleeper'/>
 						</div>
 	            </main>
-					</ParallaxProvider>
 					<Footer />
 	         </Router>
 	      </div>

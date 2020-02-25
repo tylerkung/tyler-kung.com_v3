@@ -15,7 +15,10 @@ class BasketballPage extends Component {
         return (
 			  <div className="page-content page-basketball">
 				  <div className="sport-header">
-					  <img src="./images/inside-basketball.jpg" alt="Basketball Stadium"/>
+					  <video autoPlay muted loop>
+						  <source src="./videos/basketball-landing.mp4" type="video/mp4" />
+							  Your browser doesn't support the HTML5 video tag.
+					  </video>
 				  </div>
 				  <SportNavigation active="basketball"/>
 				  <div className="sport-page">

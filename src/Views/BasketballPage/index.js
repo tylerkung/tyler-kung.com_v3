@@ -7,13 +7,31 @@ class BasketballPage extends Component {
     constructor(props){
         super(props);
 
-        this.state = {
+		  this.state = {
+			  pageLoaded: false
         }
+		  this.onRouteChange = this.onRouteChange.bind(this);
     }
-
+	 componentDidMount(){
+ 		// this.initLoadScreen();
+ 		// this.props.stopLoad();
+		setTimeout(
+			() => {
+				this.setState({pageLoaded: true});
+			}, 2000);
+ 		this.props.history.listen(this.onRouteChange.bind(this));
+ 	}
+	componentWillUnmount(){
+		this.setState({pageLoaded: false});
+	}
+	onRouteChange(route){
+		if (route.pathname === "/"){
+			this.props.goHome();
+		}
+	}
     render(){
         return (
-			  <div className="page-content page-basketball">
+			  <div className={`page-content page-basketball ${(this.state.pageLoaded) ? "page-loaded" : ""}`}>
 				  <div className="sport-header">
 					  <video autoPlay muted loop>
 						  <source src="./videos/basketball-landing.mp4" type="video/mp4" />

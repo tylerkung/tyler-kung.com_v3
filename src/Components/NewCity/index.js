@@ -26,7 +26,7 @@ var lightInts = {
 	mainColor: 0xf5f6fa,
 	secondLight: 0.1,
 	ambientLight: 0.8,
-	ambientColor: 0xedf2ff
+	ambientColor: 0xE4E9F5
 }
 
 
@@ -36,7 +36,7 @@ class NewCity extends Component {
 
 		this.state = {
 			activeStadium: '',
-			hoverStadium: false
+			hoverStadium: ''
 		}
 		this.animate = this.animate.bind(this);
 		this.animateLights = this.animateLights.bind(this);
@@ -49,7 +49,6 @@ class NewCity extends Component {
 		this.viewFootball = this.viewFootball.bind(this);
 		this.viewBasketball = this.viewBasketball.bind(this);
 		this.moveCamera = this.moveCamera.bind(this);
-		this.button = this.button.bind(this);
 		this.pickposition = {x: 0, y: 0}
 		this.ferrisWheel = null;
 	}
@@ -58,7 +57,6 @@ class NewCity extends Component {
 		this.pickHelper = new PickHelper();
 		this.pickHelper.active = true;
 		this.pickPosition = {x: 0, y: 0};
-		document.querySelector('#btn-function').addEventListener('click', this.button);
 		window.addEventListener('mousemove', this.setPickPosition);
 		window.addEventListener('mouseout', this.clearPickPosition);
 		window.addEventListener('mouseleave', this.clearPickPosition);
@@ -69,13 +67,14 @@ class NewCity extends Component {
 			if (event.keyCode === 27 && this.state.activeStadium.length){
 				this.refs.overlay.exitStadium();
 			}
-		})
+		});
+		canvas.addEventListener('click', this.clickPickPosition);
 		this.canvas = canvas;
 		scene = new THREE.Scene();
 		renderer = new THREE.WebGLRenderer({canvas, antialias: true});
 		renderer.setPixelRatio( 1 );
 		renderer.setSize( window.innerWidth, window.innerHeight );
-		renderer.setClearColor(0xFFFFFF);
+		renderer.setClearColor(0xB4E8FF);
 		renderer.shadowMap.enabled = true;
 		renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 		renderer.gammaFactor = 2.2;
@@ -91,22 +90,22 @@ class NewCity extends Component {
 		var factor = multiplier * windowWidth;
 
 		this.camera = new THREE.PerspectiveCamera( 50, windowWidth/windowHeight, near, far);
-		const defaultPosition = {x: -256.9441725985171, y: 317.2596352789266, z: 387.3251255603564}
-		this.camera.position.set(defaultPosition.x, defaultPosition.y, defaultPosition.z);
+		this.defaultPosition = {x: -326.1627032276631, y: 317.2596352789266, z: 331.14793030593717}
+		this.camera.position.set(this.defaultPosition.x, this.defaultPosition.y, this.defaultPosition.z);
 		this.camera.scale.x = 100;
 		this.camera.scale.y = 100;
 		this.camera.scale.z = 100;
-		this.camera.zoom = 4;
+		this.camera.zoom = 3.4;
 		this.cameraHelper = this.camera.clone();
 
 		// CONTROLS
 		controls = new OrbitControls( this.camera, renderer.domElement );
-		// controls.enableZoom = false;
+		controls.enableZoom = false;
 		controls.enablePan = false;
-		// controls.enableRotate = false;
+		controls.enableRotate = false;
+		controls.keyPanSpeed = 1;
 		controls.maxPolarAngle = 0.9718649472467462;
 		controls.minPolarAngle = 0.9718649472467462;
-		console.log(controls.getPolarAngle());
 		// LIGHTS
 		// Light 1
 		// var sphere = new THREE.SphereBufferGeometry( 0.5, 16, 8 );
@@ -125,7 +124,7 @@ class NewCity extends Component {
 		scene.add( new THREE.AmbientLight( lightInts.ambientColor, lightInts.ambientLight ) );
 
 		// shadowMap
-		var tempGeometry = new THREE.PlaneBufferGeometry( 2000, 2000 );
+		var tempGeometry = new THREE.PlaneBufferGeometry( 500, 500 );
 		var planeMaterial = new THREE.ShadowMaterial();
 		planeMaterial.opacity = 0.15;
 		var plane = new THREE.Mesh(tempGeometry, planeMaterial);
@@ -161,61 +160,59 @@ class NewCity extends Component {
 
 		// this.loader = new GLTFLoader();
 		this.loader = new FBXLoader(manager);
-	// 	this.loader.load( CityFile, (object) => {
-	// 		object.scene.traverse(function(child){
-	// 			if (child.isMesh){
-	// 				child.castShadow = true;
-	// 				child.material.shininess = 0;
-	// 				child.material.metalness = 0;
-	// 				child.material.roughness = 0;
-	// 			}
-	// 		});
-	// 		scene.add( object.scene );
-	// 		// var clip = object.animations[ 0 ];
-	// 		this.animate();
-	// 		// this.props.stopLoad();
-	// 	});
-	// }
-	this.loader.load( CityFile, (object) => {
-		object.traverse(function(child){
-			if (child.isMesh){
-				child.castShadow = true;
-				child.material.shininess = 0;
-				child.material.metalness = 0;
-				child.material.roughness = 0;
-			}
-		});
-		object.getObjectByName( 'main' ).intensity = 0;
-		object.getObjectByName('polySurface62').material.emissiveIntensity = 0;
-		var texture = new THREE.TextureLoader().load('./images/sleeper-billboard.png');
-		// var texture = new THREE.TextureLoader().load('./videos/football-landing.mp4');
-		var ratio = 1000 * 381 / (800 * 555);
-		// texture.image = './images/inside-basketball.jpg';
-		// texture.image.width = 100;
-		texture.offset.x = -1.5;
-		texture.repeat.set(4, 4);
-		texture.wrapS = THREE.ClampToEdgeWrapping;
-		texture.wrapT = THREE.RepeatWrapping;
-		console.log(texture);
-		var signMaterial = object.getObjectByName('sign_06').material.clone();
-		signMaterial.map = texture;
+		this.loader.load( CityFile, (object) => {
+			object.traverse(function(child){
+				if (child.isMesh){
+					child.castShadow = true;
+					child.material.shininess = 0;
+					child.material.metalness = 0;
+					child.material.roughness = 0;
+				}
+			});
+		object.getObjectByName('main').intensity = 0;
+		const textures = {};
+		textures.sleeper = new THREE.TextureLoader().load('./images/sleeper-billboard-w.png');
+		textures.budlight = new THREE.TextureLoader().load('./images/budlight.png');
+		textures.coke = new THREE.TextureLoader().load('./images/coke.jpg');
+		textures.tatum = new THREE.TextureLoader().load('./images/tatum.png');
+		for (var texture in textures){
+			textures[texture].offset.x = -1.5;
+			textures[texture].repeat.set(4, 4);
+			textures[texture].wrapS = THREE.ClampToEdgeWrapping;
+			textures[texture].wrapT = THREE.RepeatWrapping;
+		}
+
+		var signMaterial = object.getObjectByName('billboard_03').material.clone();
+		signMaterial.map = textures.sleeper;
 		signMaterial.emissive = {r: 1, g: 1, b: 1};
 		signMaterial.emissiveIntensity = 0.25;
-		object.getObjectByName('sign_01').material = signMaterial;
-		object.getObjectByName('sign_02').material = signMaterial;
-		object.getObjectByName('sign_03').material = signMaterial;
-		object.getObjectByName('sign_04').material = signMaterial;
-		object.getObjectByName('sign_05').material = signMaterial;
-		object.getObjectByName('sign_06').material = signMaterial;
+
+		var sleeperSign = signMaterial.clone();
+		sleeperSign.map = textures.sleeper;
+		var budlightSign = signMaterial.clone();
+		budlightSign.map = textures.budlight;
+		var cokeSign = signMaterial.clone();
+		cokeSign.map = textures.coke;
+		var tatumSign = signMaterial.clone();
+		tatumSign.map = textures.tatum;
+
+		object.getObjectByName('billboard_01').material = budlightSign;
+		object.getObjectByName('billboard_03').material = sleeperSign;
+		object.getObjectByName('billboard_08').material = tatumSign;
+		object.getObjectByName('billboard_05').material = cokeSign;
+		object.getObjectByName('billboard_09').material = budlightSign;
+		// object.getObjectByName('sign_05').material = signMaterial;
+		// object.getObjectByName('sign_06').material = signMaterial;
 		this.ferrisWheel = object.getObjectByName('ferris_wheel');
+		this.propeller = object.getObjectByName('pCube736');
 		this.mixer = new THREE.AnimationMixer( object );
 		var clip = object.animations[ 0 ];
 		this.mixer.clipAction( clip.optimize() ).play();
 		scene.add( object );
 		this.animate();
 		this.props.stopLoad();
-	});
-}
+		});
+	}
 
 	componentWillUnmount(){
 		this.setState({activeStadium: null});
@@ -225,15 +222,14 @@ class NewCity extends Component {
 	//ANIMATE
 	animate(time) {
 		time *= 0.001;
-
 		this.frameId = requestAnimationFrame( this.animate );
 		const delta = clock.getDelta();
 		this.mixer.update( delta );
 		this.ferrisWheel.rotation.z += .002;
-		// this.propeller.rotation.y += 0.4;
+		this.propeller.rotation.y += 0.4;
 		this.camera.updateProjectionMatrix();
 		var stadium = this.pickHelper.pick(this.pickPosition, scene, this.camera, time);
-		// this.hoverLights(stadium);
+		this.hoverStadium(stadium);
 		// this.animateLights();
 		composer.render();
 	}
@@ -255,6 +251,10 @@ class NewCity extends Component {
 		this.pickPosition.y = (pos.y / canvas.clientHeight) * -2 + 1;  // note we flip Y
 		this.mouseX = this.pickPosition.x;
 		this.mouseY = this.pickPosition.y;
+		const scale = 1.5;
+		if (!this.state.activeStadium.length){
+			this.camera.position.set(this.defaultPosition.x + (this.mouseX * scale), this.defaultPosition.y + (this.mouseY * scale), this.defaultPosition.z + (this.mouseX * scale));
+		}
 	}
 
 	clearPickPosition(){
@@ -275,11 +275,9 @@ class NewCity extends Component {
 				case 'basketball':
 					this.setState({activeStadium: clickedStadium});
 					this.viewBasketball();
-					this.basketballLightsOn();
 					break;
 				case 'football':
 					this.setState({activeStadium: clickedStadium});
-					this.footballLightsOn();
 					this.viewFootball();
 					break;
 				// case 'soccer':
@@ -291,27 +289,43 @@ class NewCity extends Component {
 			}
 		}
 	}
-
+	hoverStadium(stadium){
+		if (!this.state.activeStadium){
+			switch (stadium){
+				case 'basketball':
+					this.setState({hoverStadium: 'basketball'});
+					break;
+				case 'football':
+					this.setState({hoverStadium: 'football'});
+					break;
+				case 'soccer':
+					break;
+				default:
+					this.setState({hoverStadium: ''});
+					break;
+			}
+		}
+	}
 	enterStadium(){
 		const timeline = new Timeline({ paused: false });
-		timeline.to(this.camera, 1, {zoom: 1.4, ease: Power3.easeOut});
+		timeline.to(this.camera, 1, {zoom: 6, ease: Power3.easeOut});
 	}
 	exitStadium(){
 		setTimeout(() => {
-			this.setState({activeStadium: '', hoverStadium: false});
+			this.setState({activeStadium: '', hoverStadium: ''});
 		}, 600)
-		this.moveCamera(this.defaultQ, 0.6);
-		this.lightsOff();
+		this.moveCamera(this.defaultQ, 3.4);
+		// this.lightsOff();
 	}
 	viewBasketball(){
-		this.cameraHelper.lookAt( 82.433, 30.756, -48.331 );
+		this.cameraHelper.lookAt( -39, 9.7, -11.5 );
 		var targetQ = this.cameraHelper.quaternion.clone();
-		this.moveCamera(targetQ, 1.2);
+		this.moveCamera(targetQ, 5.2);
 	}
 	viewFootball(){
-		this.cameraHelper.lookAt( 18.731, 30.756, 68.805 );
+		this.cameraHelper.lookAt( -12.5, 9.7, 26.6 );
 		var targetQ = this.cameraHelper.quaternion.clone();
-		this.moveCamera(targetQ, 1);
+		this.moveCamera(targetQ, 5.4);
 	}
 	moveCamera(target, zoom){
 		const timeline = new Timeline({ paused: false });
@@ -319,17 +333,9 @@ class NewCity extends Component {
 		timeline.to(this.camera.quaternion, 1, {x: target.x, y: target.y, z: target.z, ease: Power3.easeOut}, 0);
 	}
 
-	hoverLights(stadium){
-
-	}
-
-	button(){
-		console.log(this.camera.position);
-	}
-
 	render(){
 		return (
-			<div className={`sleeper-city ${(this.state.activeStadium) ? "overlay-active" : ""}${(this.state.hoverStadium && !this.state.activeStadium) ? "stadium-hover" : ""}`}>
+			<div className={`sleeper-city ${(this.state.activeStadium) ? "overlay-active" : ""}${(this.state.hoverStadium === 'basketball' && !this.state.activeStadium) ? "basketball-hover" : ""} ${(this.state.hoverStadium === 'football' && !this.state.activeStadium) ? "football-hover" : ""}`}>
 				<canvas id="scene-sleeper"></canvas>
 				<Link to='/football' key='football'>
 					<button className="btn btn-default" id="btn-function">Click</button>

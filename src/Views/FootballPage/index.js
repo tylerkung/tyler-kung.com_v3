@@ -10,30 +10,37 @@ class FootballPage extends Component {
         super(props);
 
         this.state = {
+			  pageLoaded: false
         }
 		  this.onRouteChange = this.onRouteChange.bind(this);
     }
 	 componentDidMount(){
  		// this.initLoadScreen();
  		// this.props.stopLoad();
+		setTimeout(
+			() => {
+				this.setState({pageLoaded: true});
+			}, 2000);
  		this.props.history.listen(this.onRouteChange.bind(this));
  	}
+	componentWillUnmount(){
+		this.setState({pageLoaded: false});
+	}
 	 onRouteChange(route){
-	 	console.log(route);
 		if (route.pathname === "/"){
 			this.props.goHome();
 		}
 	 }
     render(){
         return (
-            <div className="page-content page-football">
+            <div className={`page-content page-football ${(this.state.pageLoaded) ? "page-loaded" : ""}`}>
 					<div className="sport-header">
 						<video autoPlay muted loop>
 							<source src="./videos/football-landing.mp4" type="video/mp4" />
 								Your browser doesn't support the HTML5 video tag.
 						</video>
 					</div>
-					<SportNavigation active="football"/>
+					<SportNavigation active="football" />
 					<div className="sport-page">
 						<div className="layout layout-secondary-color layout-slant-down">
 							<div className="container">

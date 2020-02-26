@@ -7,6 +7,13 @@
 	&.stadium-hover{
 		cursor: pointer;
 	}
+	&.basketball-hover{
+		cursor: url('./icons/Basketball_Selected.png'), pointer !important;
+		// cursor: pointer;
+	}
+	&.football-hover{
+		cursor: url('./icons/Football_Selected.png'), auto !important;
+	}
 }
 .city-overlay{
 	width: 50%;

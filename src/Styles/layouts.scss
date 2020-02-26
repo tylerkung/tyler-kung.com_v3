@@ -3,10 +3,21 @@
 		// height: 50vh;
 		// background-color: #eee;
 	}
+	&.page-loaded{
+		.sport-header{
+			max-height: 80vh;
+			video{
+				max-height: 90vh;
+			}
+		}
+	}
 }
 .sport-header{
 	// height: 65vh;
 	// min-height: 650px;
+	max-height: 100vh;
+	height: 100vh;
+	transition: max-height 2s cubic-bezier(0.075, 0.82, 0.165, 1);
 	h1{
 		font-size: 5em;
 	}
@@ -18,9 +29,11 @@
 	}
 	video{
 		width: 100%;
-		max-height: calc(70vh - 80px);
+		max-height: 100vh;
+		height: 100vh;
 		object-fit: cover;
 		object-position: center center;
+		transition: max-height 2s cubic-bezier(0.075, 0.82, 0.165, 1);
 	}
 	.header-parallax{
 		margin: 0;

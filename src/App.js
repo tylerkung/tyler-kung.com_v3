@@ -74,7 +74,11 @@ class App extends Component {
 												render={(props) =>
 													<FootballPage {...props} goHome={this.goHome} />}
 											/>
-					                  <Route exact path="/basketball" component={BasketballPage} />
+											<Route exact
+												path="/basketball"
+												render={(props) =>
+													<BasketballPage {...props} goHome={this.goHome} />}
+											/>
 											<Route exact path="/styles" component={StylesPage} />
 					               </Switch>
 									</Transition>

@@ -337,9 +337,6 @@ class NewCity extends Component {
 		return (
 			<div className={`sleeper-city ${(this.state.activeStadium) ? "overlay-active" : ""}${(this.state.hoverStadium === 'basketball' && !this.state.activeStadium) ? "basketball-hover" : ""} ${(this.state.hoverStadium === 'football' && !this.state.activeStadium) ? "football-hover" : ""}`}>
 				<canvas id="scene-sleeper"></canvas>
-				<Link to='/football' key='football'>
-					<button className="btn btn-default" id="btn-function">Click</button>
-				</Link>
 				<Overlay ref="overlay" sport={this.state.activeStadium} enterStadium={this.enterStadium} exitStadium={this.exitStadium}></Overlay>
 			</div>
 		);

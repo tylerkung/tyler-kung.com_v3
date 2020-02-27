@@ -108,8 +108,7 @@ body {
 		}
 	}
 	&.btn-orange{
-		background-image: none;
-		background-color: $sleeperOrange;
+		background-image: linear-gradient(to top left, #FFAE58, #FF4542);
 		color: $btnColor;
 		&:after{
 			background-color: $sleeperOrange;

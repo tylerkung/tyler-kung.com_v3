@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import SportNavigation from "../../Components/SportNavigation";
 import { Parallax, ParallaxBanner } from 'react-scroll-parallax';
 import ParallaxHeader from "../../Components/ParallaxHeader";
+import FootballCarousel from "../../Components/FootballCarousel";
 
 class FootballPage extends Component {
     constructor(props){
@@ -56,6 +57,7 @@ class FootballPage extends Component {
 							<div className="container">
 								<Grid container spacing={3}>
 									<Grid item md={7}>
+									<FootballCarousel />
 									</Grid>
 									<Grid item md={4}>
 										<h2>1. Draft Players</h2>

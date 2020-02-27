@@ -17,7 +17,6 @@ import { CityFile } from './Assets';
 var clock = new THREE.Clock();
 
 var scene, controls, canvas;
-var composer, renderer;
 var purpleGlowMaterial, light1, soccerLight;
 
 
@@ -44,6 +43,7 @@ class NewCity extends Component {
 		this.setPickPosition = this.setPickPosition.bind(this);
 		this.clearPickPosition = this.clearPickPosition.bind(this);
 		this.clickPickPosition = this.clickPickPosition.bind(this);
+		this.resize = this.resize.bind(this);
 		this.enterStadium = this.enterStadium.bind(this);
 		this.exitStadium = this.exitStadium.bind(this);
 		this.viewFootball = this.viewFootball.bind(this);
@@ -51,12 +51,24 @@ class NewCity extends Component {
 		this.moveCamera = this.moveCamera.bind(this);
 		this.pickposition = {x: 0, y: 0}
 		this.ferrisWheel = null;
+		this.cursors = [{
+			sport: 'basketball',
+			cursor: './images/basketball-cursor.png'
+		},
+		{
+			sport: 'football',
+			cursor: './images/football-cursor.png'
+		}];
+		this.camera = null;
+		this.renderer = null;
+		this.composer = null;
 	}
 
 	componentDidMount(){
 		this.pickHelper = new PickHelper();
 		this.pickHelper.active = true;
 		this.pickPosition = {x: 0, y: 0};
+		window.addEventListener('resize', this.resize);
 		window.addEventListener('mousemove', this.setPickPosition);
 		window.addEventListener('mouseout', this.clearPickPosition);
 		window.addEventListener('mouseleave', this.clearPickPosition);
@@ -71,14 +83,14 @@ class NewCity extends Component {
 		canvas.addEventListener('click', this.clickPickPosition);
 		this.canvas = canvas;
 		scene = new THREE.Scene();
-		renderer = new THREE.WebGLRenderer({canvas, antialias: true});
-		renderer.setPixelRatio( 1 );
-		renderer.setSize( window.innerWidth, window.innerHeight );
-		renderer.setClearColor(0xB4E8FF);
-		renderer.shadowMap.enabled = true;
-		renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-		renderer.gammaFactor = 2.2;
-		// renderer.gammaOutput = true;
+		this.renderer = new THREE.WebGLRenderer({canvas, antialias: true});
+		this.renderer.setPixelRatio( 1 );
+		this.renderer.setSize( window.innerWidth, window.innerHeight );
+		this.renderer.setClearColor(0xB4E8FF);
+		this.renderer.shadowMap.enabled = true;
+		this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+		this.renderer.gammaFactor = 2.2;
+		// this.renderer.gammaOutput = true;
 
 		// CAMERA
 		var zoomCamera = false;
@@ -87,7 +99,7 @@ class NewCity extends Component {
 		var windowWidth = window.innerWidth;
 		var windowHeight = window.innerHeight;
 		var multiplier = 1.1;
-		var factor = multiplier * windowWidth;
+		this.factor = multiplier * windowWidth;
 
 		this.camera = new THREE.PerspectiveCamera( 50, windowWidth/windowHeight, near, far);
 		this.defaultPosition = {x: -326.1627032276631, y: 317.2596352789266, z: 331.14793030593717}
@@ -99,7 +111,7 @@ class NewCity extends Component {
 		this.cameraHelper = this.camera.clone();
 
 		// CONTROLS
-		controls = new OrbitControls( this.camera, renderer.domElement );
+		controls = new OrbitControls( this.camera, this.renderer.domElement );
 		controls.enableZoom = false;
 		controls.enablePan = false;
 		controls.enableRotate = false;
@@ -141,10 +153,10 @@ class NewCity extends Component {
 		};
 
 		var renderScene = new RenderPass( scene, this.camera );
-		renderer.toneMappingExposure = 1;
-		composer = new EffectComposer( renderer );
-		composer.addPass( renderScene );
-		// composer.addPass( bloomPass );
+		this.renderer.toneMappingExposure = 1;
+		this.composer = new EffectComposer( this.renderer );
+		this.composer.addPass( renderScene );
+		// this.composer.addPass( bloomPass );
 
 		var onProgress = function ( xhr ) {
 			if ( xhr.lengthComputable ) {
@@ -231,7 +243,7 @@ class NewCity extends Component {
 		var stadium = this.pickHelper.pick(this.pickPosition, scene, this.camera, time);
 		this.hoverStadium(stadium);
 		// this.animateLights();
-		composer.render();
+		this.composer.render();
 	}
 
 	animateLights(){
@@ -251,10 +263,23 @@ class NewCity extends Component {
 		this.pickPosition.y = (pos.y / canvas.clientHeight) * -2 + 1;  // note we flip Y
 		this.mouseX = this.pickPosition.x;
 		this.mouseY = this.pickPosition.y;
-		const scale = 1.5;
+		const scale = 1;
 		if (!this.state.activeStadium.length){
 			this.camera.position.set(this.defaultPosition.x + (this.mouseX * scale), this.defaultPosition.y + (this.mouseY * scale), this.defaultPosition.z + (this.mouseX * scale));
 		}
+		// if (this.state.hoverStadium === 'football'){
+		// 	const cursor = document.getElementsByClassName('cursor-football')[0];
+		// 	// cursor.style.position = 'fixed';
+		// 	cursor.style.left = pos.x - 50 + 'px';
+		// 	cursor.style.top = pos.y - 50 + 'px';
+		// 	console.log(cursor);
+		// } else if(this.state.hoverStadium === 'basketball'){
+		// 	const cursor = document.getElementsByClassName('cursor-basketball')[0];
+		// 	// cursor.style.position = 'fixed';
+		// 	cursor.style.left = pos.x - 50 + 'px';
+		// 	cursor.style.top = pos.y - 50 + 'px';
+		// 	console.log(cursor);
+		// }
 	}
 
 	clearPickPosition(){
@@ -332,12 +357,34 @@ class NewCity extends Component {
 		timeline.to(this.camera, 1, {zoom: zoom, ease: Power3.easeOut});
 		timeline.to(this.camera.quaternion, 1, {x: target.x, y: target.y, z: target.z, ease: Power3.easeOut}, 0);
 	}
+	renderCursors(){
+		const cursors = []
+		this.cursors.map((value, index) => {
+			cursors.push(<div className={`cursor cursor-${value.sport}`}></div>);
+		});
+		return cursors;
+	}
+	resize() {
+		console.log(this);
+		var windowWidth = window.innerWidth;
+		var windowHeight = window.innerHeight;
+		this.camera.aspect = windowWidth / windowHeight;
+		this.renderer.setSize( windowWidth, windowHeight );
+		this.camera.left = -windowWidth / this.factor;
+		this.camera.right = windowWidth / this.factor;
+		this.camera.top = windowHeight / this.factor;
+		this.camera.bottom = -windowHeight / this.factor;
+		this.camera.updateProjectionMatrix();
 
+		this.renderer.setSize( windowWidth, windowHeight );
+		this.composer.setSize( windowWidth, windowHeight );
+	};
 	render(){
 		return (
 			<div className={`sleeper-city ${(this.state.activeStadium) ? "overlay-active" : ""}${(this.state.hoverStadium === 'basketball' && !this.state.activeStadium) ? "basketball-hover" : ""} ${(this.state.hoverStadium === 'football' && !this.state.activeStadium) ? "football-hover" : ""}`}>
 				<canvas id="scene-sleeper"></canvas>
 				<Overlay ref="overlay" sport={this.state.activeStadium} enterStadium={this.enterStadium} exitStadium={this.exitStadium}></Overlay>
+				{this.renderCursors()}
 			</div>
 		);
 	}

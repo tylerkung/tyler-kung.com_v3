@@ -181,48 +181,49 @@ class NewCity extends Component {
 					child.material.roughness = 0;
 				}
 			});
-		object.getObjectByName('main').intensity = 0;
-		const textures = {};
-		textures.sleeper = new THREE.TextureLoader().load('./images/sleeper-billboard-w.png');
-		textures.budlight = new THREE.TextureLoader().load('./images/budlight.png');
-		textures.coke = new THREE.TextureLoader().load('./images/coke.jpg');
-		textures.tatum = new THREE.TextureLoader().load('./images/tatum.png');
-		for (var texture in textures){
-			textures[texture].offset.x = -1.5;
-			textures[texture].repeat.set(4, 4);
-			textures[texture].wrapS = THREE.ClampToEdgeWrapping;
-			textures[texture].wrapT = THREE.RepeatWrapping;
-		}
+			object.getObjectByName('main').intensity = 0;
+			const textures = {};
+			textures.sleeper = new THREE.TextureLoader().load('./images/sleeper-billboard-w.png');
+			textures.budlight = new THREE.TextureLoader().load('./images/budlight.png');
+			textures.coke = new THREE.TextureLoader().load('./images/coke.jpg');
+			textures.tatum = new THREE.TextureLoader().load('./images/tatum.png');
+			for (var texture in textures){
+				textures[texture].offset.x = -1.5;
+				textures[texture].repeat.set(4, 4);
+				textures[texture].wrapS = THREE.ClampToEdgeWrapping;
+				textures[texture].wrapT = THREE.RepeatWrapping;
+			}
 
-		var signMaterial = object.getObjectByName('billboard_03').material.clone();
-		signMaterial.map = textures.sleeper;
-		signMaterial.emissive = {r: 1, g: 1, b: 1};
-		signMaterial.emissiveIntensity = 0.25;
+			var signMaterial = object.getObjectByName('billboard_03').material.clone();
+			signMaterial.map = textures.sleeper;
+			signMaterial.emissive = {r: 1, g: 1, b: 1};
+			signMaterial.emissiveIntensity = 0.25;
 
-		var sleeperSign = signMaterial.clone();
-		sleeperSign.map = textures.sleeper;
-		var budlightSign = signMaterial.clone();
-		budlightSign.map = textures.budlight;
-		var cokeSign = signMaterial.clone();
-		cokeSign.map = textures.coke;
-		var tatumSign = signMaterial.clone();
-		tatumSign.map = textures.tatum;
+			var sleeperSign = signMaterial.clone();
+			sleeperSign.map = textures.sleeper;
+			var budlightSign = signMaterial.clone();
+			budlightSign.map = textures.budlight;
+			var cokeSign = signMaterial.clone();
+			cokeSign.map = textures.coke;
+			var tatumSign = signMaterial.clone();
+			tatumSign.map = textures.tatum;
 
-		object.getObjectByName('billboard_01').material = budlightSign;
-		object.getObjectByName('billboard_03').material = sleeperSign;
-		object.getObjectByName('billboard_08').material = tatumSign;
-		object.getObjectByName('billboard_05').material = cokeSign;
-		object.getObjectByName('billboard_09').material = budlightSign;
-		// object.getObjectByName('sign_05').material = signMaterial;
-		// object.getObjectByName('sign_06').material = signMaterial;
-		this.ferrisWheel = object.getObjectByName('ferris_wheel');
-		this.propeller = object.getObjectByName('pCube736');
-		this.mixer = new THREE.AnimationMixer( object );
-		var clip = object.animations[ 0 ];
-		this.mixer.clipAction( clip.optimize() ).play();
-		scene.add( object );
-		this.animate();
-		this.props.stopLoad();
+			object.getObjectByName('billboard_01').material = budlightSign;
+			object.getObjectByName('billboard_03').material = sleeperSign;
+			object.getObjectByName('billboard_08').material = tatumSign;
+			object.getObjectByName('billboard_05').material = cokeSign;
+			object.getObjectByName('billboard_09').material = budlightSign;
+			// object.getObjectByName('sign_05').material = signMaterial;
+			// object.getObjectByName('sign_06').material = signMaterial;
+			this.ferrisWheel = object.getObjectByName('ferris_wheel');
+			this.propeller = object.getObjectByName('pCube736');
+			this.mixer = new THREE.AnimationMixer( object );
+			var clip = object.animations[ 0 ];
+			this.mixer.clipAction( clip.optimize() ).play();
+			scene.add( object );
+			this.camera.updateProjectionMatrix();
+			this.animate();
+			this.props.stopLoad();
 		});
 	}
 
@@ -239,9 +240,9 @@ class NewCity extends Component {
 		this.mixer.update( delta );
 		this.ferrisWheel.rotation.z += .002;
 		this.propeller.rotation.y += 0.4;
-		this.camera.updateProjectionMatrix();
 		var stadium = this.pickHelper.pick(this.pickPosition, scene, this.camera, time);
 		this.hoverStadium(stadium);
+		this.camera.updateProjectionMatrix();
 		// this.animateLights();
 		this.composer.render();
 	}
@@ -365,7 +366,6 @@ class NewCity extends Component {
 		return cursors;
 	}
 	resize() {
-		console.log(this);
 		var windowWidth = window.innerWidth;
 		var windowHeight = window.innerHeight;
 		this.camera.aspect = windowWidth / windowHeight;

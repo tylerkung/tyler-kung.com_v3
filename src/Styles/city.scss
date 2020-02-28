@@ -14,7 +14,9 @@
 	&.basketball-hover{
 		// cursor: url('./icons/Basketball_Selected.png'), pointer !important;
 		// cursor: pointer;
-		cursor: pointer;
+		#scene-sleeper{
+			cursor: pointer;
+		}
 		.cursor-basketball{
 			&:before{
 				animation-duration: 4s;
@@ -23,7 +25,9 @@
 	}
 	&.football-hover{
 		// cursor: url('./icons/Football_Selected.png'), auto !important;
-		cursor: pointer;
+		#scene-sleeper{
+			cursor: pointer;
+		}
 		.cursor-football{
 			&:before{
 				animation-duration: 4s;
@@ -155,7 +159,7 @@
 	height: 120px;
 	width: 120px;
 	position: absolute;
-	z-index: 999;
+	z-index: 19;
 	pointer-events: none;
 	transition: all 0.4s ease-out;
 	opacity: 1;

@@ -7,7 +7,13 @@
 .sport-nav{
 	background-color: #020820;
 	position: relative;
-	z-index: 10;
+	border-radius: 34px;
+	transform: translateY(0px);
+	z-index: 11;
+	max-width: 1800px;
+	margin: 0 auto;
+	padding: 0 6em;
+	transition: transform 2s cubic-bezier(0.075, 0.82, 0.165, 1);
 	ul{
 		margin: 0;
 		padding: 0;
@@ -16,6 +22,8 @@
 			padding: 25px 50px;
 			list-style: none;
 			position: relative;
+			color: $whiteColor;
+
 			a{
 				color: #fff;
 			}
@@ -56,5 +64,17 @@
 				}
 			}
 		}
+	}
+}
+
+.sport-nav-link{
+	li:hover{
+		color: $sleeperMint;
+	}
+}
+
+.page-content.page-loaded{
+	.sport-nav{
+		transform: translateY(34px);
 	}
 }

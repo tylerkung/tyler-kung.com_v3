@@ -86,7 +86,9 @@ class App extends Component {
 							)
 						}}/>
 						<div className={'loading-screen ' + (this.state.loadScreenActive ? 'open' : 'close')}>
-							<img src="./images/splash-screen.webp" alt='Sleeper'/>
+							<video autoPlay muted loop>
+								<source src="./videos/loading-bot.mp4" type="video/mp4" />
+							</video>
 						</div>
 	            </main>
 					<Footer />

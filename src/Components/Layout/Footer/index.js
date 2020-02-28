@@ -3,6 +3,7 @@ import {
    Link
 } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
+import GamesList from './GamesList';
 
 class Footer extends Component {
     constructor(props){
@@ -17,10 +18,14 @@ class Footer extends Component {
             <footer className="sleeper-footer">
 					<div className="sleeper-footer-main">
 						<div className="main-primary">
-							<h4>Sports</h4>
+							<div className="primary-label">
+								<h4>Games</h4>
+							</div>
+							<div className="primary-content">
+								<GamesList />
+							</div>
 						</div>
 						<div className="main-secondary">
-							Download
 						</div>
 					</div>
 					<div className="sleeper-footer-secondary">
@@ -34,8 +39,6 @@ class Footer extends Component {
 								<ul className="footer-links">
 									<li className="links-header">Company</li>
 									<li><Link to="/about">About</Link></li>
-									<li>Jobs</li>
-									<li>Blog</li>
 								</ul>
 						  	</Grid>
 							<Grid item md={2} xs={12}>

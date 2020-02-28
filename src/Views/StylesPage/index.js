@@ -15,7 +15,7 @@ class StylesPage extends Component {
     render(){
         return (
 			  <div className="page-content page-styles">
-				  <div className="sport-header">
+				  <div className="page-header">
 					  <img src="./images/inside-football.png" alt="Football"/>
 				  </div>
 				  <div className="sport-navigation">

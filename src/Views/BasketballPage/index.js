@@ -33,8 +33,10 @@ class BasketballPage extends Component {
         return (
 			  <div className={`page-content page-basketball ${(this.state.pageLoaded) ? "page-loaded" : ""}`}>
 				  <div className="sport-header">
+
 					  <video autoPlay muted loop>
 						  <source src="./videos/basketball-landing.mp4" type="video/mp4" />
+							  <img src='./images/basketball-stadium-fallback.png' alt="Basketball"/>
 							  Your browser doesn't support the HTML5 video tag.
 					  </video>
 				  </div>

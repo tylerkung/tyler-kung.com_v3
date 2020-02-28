@@ -12,8 +12,6 @@
 		cursor: pointer;
 	}
 	&.basketball-hover{
-		// cursor: url('./icons/Basketball_Selected.png'), pointer !important;
-		// cursor: pointer;
 		#scene-sleeper{
 			cursor: pointer;
 		}
@@ -24,11 +22,20 @@
 		}
 	}
 	&.football-hover{
-		// cursor: url('./icons/Football_Selected.png'), auto !important;
 		#scene-sleeper{
 			cursor: pointer;
 		}
 		.cursor-football{
+			&:before{
+				animation-duration: 4s;
+			}
+		}
+	}
+	&.soccer-hover{
+		#scene-sleeper{
+			cursor: pointer;
+		}
+		.cursor-soccer{
 			&:before{
 				animation-duration: 4s;
 			}
@@ -188,7 +195,14 @@
 	}
 	transform: translate(calc(50vw - 60px - 50vh), calc(50vh - 60px + 6vh));
 }
-
+.cursor-soccer{
+	top: 0;
+	&:before{
+		background-image: url('./icons/soccer-cursor.png');
+		background-size: contain;
+	}
+	transform: translate(calc(50vw - 60px + 1vh), calc(50vh - 60px - 31vh));
+}
 #btn-function{
 	position: absolute;
 	left: 0px;

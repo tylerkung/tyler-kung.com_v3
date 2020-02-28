@@ -121,6 +121,16 @@ body {
 	color: $btnColor;
 }
 
+.btn-secondary{
+	background-color: transparent;
+	border: 2px solid #344054;
+	color: #344054;
+	&:hover{
+		background-color: #344054;
+		color: #D8E2ED;
+	}
+}
+
 .btn-lg{
 	padding-left: 8rem;
 	padding-right: 8rem;

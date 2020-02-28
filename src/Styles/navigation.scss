@@ -5,15 +5,20 @@
 }
 
 .sport-nav{
-	background-color: #020820;
-	position: relative;
-	border-radius: 34px;
-	transform: translateY(0px);
+	background-color: transparent;
+	position: absolute;
+	bottom: -1px;
+	width: 100%;
 	z-index: 11;
-	max-width: 1800px;
 	margin: 0 auto;
 	padding: 0 6em;
 	transition: transform 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+	height: 600px;
+	background-image: url('./background/football-round-path.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center bottom;
+
 	ul{
 		margin: 0;
 		padding: 0;
@@ -74,7 +79,7 @@
 }
 
 .page-content.page-loaded{
-	.sport-nav{
-		transform: translateY(34px);
-	}
+	// .sport-nav{
+	// 	transform: translateY(34px);
+	// }
 }

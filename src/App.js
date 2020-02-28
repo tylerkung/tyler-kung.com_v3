@@ -13,6 +13,7 @@ import HomePage from "./Views/HomePage";
 import AboutPage from "./Views/AboutPage";
 import FootballPage from "./Views/FootballPage";
 import BasketballPage from "./Views/BasketballPage";
+import SoccerPage from "./Views/SoccerPage";
 import PrivacyPage from "./Views/PrivacyPage";
 import StylesPage from "./Views/StylesPage";
 import ScrollToTop from './Components/ScrollToTop';
@@ -22,7 +23,7 @@ class App extends Component {
 		 super(props);
 
 		 this.state = {
-			 loadScreenActive: true
+			 loadScreenActive: false
 		 }
 		 this.goHome = this.goHome.bind(this);
 		 this.startLoad = this.startLoad.bind(this);
@@ -83,6 +84,11 @@ class App extends Component {
 												path="/basketball"
 												render={(props) =>
 													<BasketballPage {...props} goHome={this.goHome} />}
+											/>
+											<Route exact
+												path="/soccer"
+												render={(props) =>
+													<SoccerPage {...props} goHome={this.goHome} />}
 											/>
 											<Route exact
 												path="/privacy"

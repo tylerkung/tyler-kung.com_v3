@@ -15,7 +15,7 @@ const SportNavigation = (props) => {
 		return <NavLink to={to} key={to} className='sport-nav-link'><li className={classes}>{label}</li></NavLink>
 	});
 	return (
-		<div className="sport-nav">
+		<div className={`sport-nav ${props.active}-active`}>
 			<nav className="">
 				<ul>{links}</ul>
 			</nav>

@@ -32,7 +32,7 @@ class BasketballPage extends Component {
     render(){
         return (
 			  <div className={`page-content page-basketball ${(this.state.pageLoaded) ? "page-loaded" : ""}`}>
-				  <div className="sport-header header-basketball">
+				  <div className="sport-header">
 
 					  <video autoPlay muted loop>
 						  <source src="./videos/Basketball.mp4" type="video/mp4" />
@@ -40,6 +40,7 @@ class BasketballPage extends Component {
 							  Your browser doesn't support the HTML5 video tag.
 					  </video>
 				  </div>
+				  <SportNavigation active="basketball"/>
 				  <div className="sport-page">
 					  <div className="layout layout-secondary-color layout-slant-down">
 						  <div className="container">

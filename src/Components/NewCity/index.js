@@ -38,7 +38,6 @@ class NewCity extends Component {
 			hoverStadium: ''
 		}
 		this.animate = this.animate.bind(this);
-		this.animateLights = this.animateLights.bind(this);
 		this.getCanvasRelativePosition = this.getCanvasRelativePosition.bind(this);
 		this.setPickPosition = this.setPickPosition.bind(this);
 		this.clearPickPosition = this.clearPickPosition.bind(this);
@@ -48,16 +47,18 @@ class NewCity extends Component {
 		this.exitStadium = this.exitStadium.bind(this);
 		this.viewFootball = this.viewFootball.bind(this);
 		this.viewBasketball = this.viewBasketball.bind(this);
+		this.viewSoccer = this.viewSoccer.bind(this);
 		this.moveCamera = this.moveCamera.bind(this);
 		this.pickposition = {x: 0, y: 0}
 		this.ferrisWheel = null;
 		this.cursors = [{
 			sport: 'basketball',
-			cursor: './images/basketball-cursor.png'
 		},
 		{
 			sport: 'football',
-			cursor: './images/football-cursor.png'
+		},
+		{
+			sport: 'soccer',
 		}];
 		this.camera = null;
 		this.renderer = null;
@@ -243,11 +244,7 @@ class NewCity extends Component {
 		var stadium = this.pickHelper.pick(this.pickPosition, scene, this.camera, time);
 		this.hoverStadium(stadium);
 		this.camera.updateProjectionMatrix();
-		// this.animateLights();
 		this.composer.render();
-	}
-
-	animateLights(){
 	}
 
 	getCanvasRelativePosition(event) {
@@ -306,10 +303,10 @@ class NewCity extends Component {
 					this.setState({activeStadium: clickedStadium});
 					this.viewFootball();
 					break;
-				// case 'soccer':
-				// 	viewSoccer();
-				// 	soccerLightsOn();
-				// 	break;
+				case 'soccer':
+					this.setState({activeStadium: clickedStadium});
+					this.viewSoccer();
+					break;
 				default:
 					break;
 			}
@@ -325,6 +322,7 @@ class NewCity extends Component {
 					this.setState({hoverStadium: 'football'});
 					break;
 				case 'soccer':
+					this.setState({hoverStadium: 'soccer'});
 					break;
 				default:
 					this.setState({hoverStadium: ''});
@@ -349,6 +347,11 @@ class NewCity extends Component {
 		this.moveCamera(targetQ, 5.2);
 	}
 	viewFootball(){
+		this.cameraHelper.lookAt( -12.5, 9.7, 26.6 );
+		var targetQ = this.cameraHelper.quaternion.clone();
+		this.moveCamera(targetQ, 5.4);
+	}
+	viewSoccer(){
 		this.cameraHelper.lookAt( -12.5, 9.7, 26.6 );
 		var targetQ = this.cameraHelper.quaternion.clone();
 		this.moveCamera(targetQ, 5.4);
@@ -381,7 +384,7 @@ class NewCity extends Component {
 	};
 	render(){
 		return (
-			<div className={`sleeper-city ${(this.state.activeStadium) ? "overlay-active" : ""}${(this.state.hoverStadium === 'basketball' && !this.state.activeStadium) ? "basketball-hover" : ""} ${(this.state.hoverStadium === 'football' && !this.state.activeStadium) ? "football-hover" : ""}`}>
+			<div className={`sleeper-city ${(this.state.activeStadium) ? "overlay-active" : ""}${(this.state.hoverStadium === 'basketball' && !this.state.activeStadium) ? "basketball-hover" : ""} ${(this.state.hoverStadium === 'football' && !this.state.activeStadium) ? "football-hover" : ""} ${(this.state.hoverStadium === 'soccer' && !this.state.activeStadium) ? "soccer-hover" : ""}`}>
 				<canvas id="scene-sleeper"></canvas>
 				<Overlay ref="overlay" sport={this.state.activeStadium} enterStadium={this.enterStadium} exitStadium={this.exitStadium}></Overlay>
 				{this.renderCursors()}

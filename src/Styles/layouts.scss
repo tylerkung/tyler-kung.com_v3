@@ -4,12 +4,12 @@
 		// background-color: #eee;
 	}
 	&.page-loaded{
-		.sport-header{
-			max-height: 80vh;
-			video{
-				max-height: 90vh;
-			}
-		}
+		// .sport-header{
+		// 	max-height: 80vh;
+		// 	video{
+		// 		max-height: 90vh;
+		// 	}
+		// }
 	}
 	&.page-football, &.page-basketball, &.page-soccer, &.page-home{
 		padding-top: 0;
@@ -23,6 +23,32 @@
 	height: 100vh;
 	transition: max-height 2s cubic-bezier(0.075, 0.82, 0.165, 1);
 	position: relative;
+	&.header-football, &.header-basketball{
+		&:before{
+			content: '';
+			position: absolute;
+			bottom: -1px;
+			z-index: 11;
+			height: 600px;
+			width: 100%;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center bottom;
+			pointer-events: none;
+		}
+	}
+	&.header-football{
+		&:before{
+			background-image: url('./background/football-round-path.png');
+		}
+	}
+	&.header-basketball{
+		&:before{
+			background-image: url('./background/basketball-round-path.png');
+			background-position: center bottom;
+			height: 450px;
+		}
+	}
 	h1{
 		font-size: 5em;
 	}

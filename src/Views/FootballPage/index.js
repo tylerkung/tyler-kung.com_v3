@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
-import SportNavigation from "../../Components/SportNavigation";
 import { Parallax, ParallaxBanner } from 'react-scroll-parallax';
 import ParallaxHeader from "../../Components/ParallaxHeader";
 import FootballCarousel from "../../Components/FootballCarousel";
@@ -35,13 +34,12 @@ class FootballPage extends Component {
     render(){
         return (
             <div className={`page-content page-football ${(this.state.pageLoaded) ? "page-loaded" : ""}`}>
-					<div className="sport-header">
+					<div className="sport-header header-football">
 						<video autoPlay muted loop>
 							<source src="./videos/football-landing.mp4" type="video/mp4" />
 								Your browser doesn't support the HTML5 video tag.
 						</video>
 					</div>
-					<SportNavigation active="football" />
 					<div className="sport-page">
 						<div className="layout layout-secondary-color layout-slant-down">
 							<div className="container">

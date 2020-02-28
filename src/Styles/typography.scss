@@ -42,9 +42,17 @@ a{
 }
 strong{}
 
-ul{
+ul:not(.footer-links){
 	li{
-
+		color: $bodyTextColor;
+		font-size: 19px;
+		line-height: 1.8em;
+	}
+	> li{
+		margin-bottom: 1em;
+		> ul > li > ul > li{
+			margin-bottom: 0;
+		}
 	}
 }
 
@@ -60,4 +68,10 @@ ul{
 }
 .txt-orange{
 	color: $sleeperOrange !important;
+}
+.subtitle{
+	font-family: $muliStack;
+	font-weight: 700;
+	font-size: 1.8em;
+	color: $sleeperGray;
 }

@@ -5,22 +5,29 @@ import Card from '../../Components/Card';
 
 
 class StylesPage extends Component {
-    constructor(props){
-        super(props);
+	constructor(props){
+		super(props);
 
-        this.state = {
-        }
-    }
+			this.state = {
+			}
+		}
 
-    render(){
-        return (
-			  <div className="page-content page-styles">
-				  <div className="page-header">
-					  <img src="./images/inside-football.png" alt="Football"/>
-				  </div>
-				  <div className="sport-navigation">
-				  </div>
-				  <div className="sport-page">
+	render(){
+		return (
+			<div className="page-content page-styles">
+				<div className="page-header">
+					<div className="page-title">
+						<h1>Styles</h1>
+						<div className="subtitle">
+							Where all the styles go ¯\_(ツ)_/¯
+						</div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+					</div>
+					<div className="page-banner">
+						<img src="./images/football-stadium-fallback.png" alt="Football"/>
+					</div>
+				</div>
+				<div className="default-page">
 					<div className="layout layout-secondary-color layout-slant-down">
 						<div className="container">
 							<h1 className="txt-center">Styles</h1>
@@ -31,48 +38,48 @@ class StylesPage extends Component {
 					</div>
 					<div className="layout layout-main-color layout-rounded-bottom">
 						<div className="container">
-							<button className="btn btn-default">Sleeper
-							</button>
-							<button className="btn btn-default btn-lg">Sleeper
-							</button>
-							<button className="btn btn-default btn-sm">Sleeper
-							</button>
-							<p>
-								<button className="btn btn-default btn-orange btn-sm">Sleeper
-								</button>
-							</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-							<Card wide><Grid container spacing={3}>
-								<Grid item xs={12}>
-									<h2>2 Column - Wide</h2>
-								</Grid>
-								<Grid item md={6}>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-								</Grid>
-								<Grid item md={6}>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-								</Grid>
-							</Grid></Card>
-							<Grid container spacing={3}>
-								<Grid item md={4}>
-									<Card>
-										<h4>3 Column</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									</Card>
-								</Grid>
-								<Grid item md={4}>
-									<Card>
-										<h4>3 Column</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									</Card>
-								</Grid>
-								<Grid item md={4}>
-									<Card>
-										<h4>3 Column</h4>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-									</Card>
-								</Grid>
-							</Grid>
+						<button className="btn btn-default">Sleeper
+						</button>
+						<button className="btn btn-default btn-lg">Sleeper
+						</button>
+						<button className="btn btn-default btn-sm">Sleeper
+						</button>
+						<p>
+						<button className="btn btn-default btn-orange btn-sm">Sleeper
+						</button>
+						</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<Card wide><Grid container spacing={3}>
+						<Grid item xs={12}>
+						<h2>2 Column - Wide</h2>
+						</Grid>
+						<Grid item md={6}>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</Grid>
+						<Grid item md={6}>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</Grid>
+						</Grid></Card>
+						<Grid container spacing={3}>
+						<Grid item md={4}>
+						<Card>
+						<h4>3 Column</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</Card>
+						</Grid>
+						<Grid item md={4}>
+						<Card>
+						<h4>3 Column</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</Card>
+						</Grid>
+						<Grid item md={4}>
+						<Card>
+						<h4>3 Column</h4>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</Card>
+						</Grid>
+						</Grid>
 						</div>
 					</div>
 					<div className="layout layout-width-image">
@@ -85,9 +92,9 @@ class StylesPage extends Component {
 					<div className="layout layout-secondary-color layout-no-shadow">
 					</div>
 				</div>
-				</div>
-        );
-    }
+			</div>
+		);
+	}
 }
 
 export default withRouter(StylesPage);

@@ -13,6 +13,7 @@ import HomePage from "./Views/HomePage";
 import AboutPage from "./Views/AboutPage";
 import FootballPage from "./Views/FootballPage";
 import BasketballPage from "./Views/BasketballPage";
+import PrivacyPage from "./Views/PrivacyPage";
 import StylesPage from "./Views/StylesPage";
 import ScrollToTop from './Components/ScrollToTop';
 
@@ -21,7 +22,7 @@ class App extends Component {
 		 super(props);
 
 		 this.state = {
-			 loadScreenActive: false
+			 loadScreenActive: true
 		 }
 		 this.goHome = this.goHome.bind(this);
 		 this.startLoad = this.startLoad.bind(this);
@@ -68,7 +69,11 @@ class App extends Component {
 												render={(props) =>
 													<HomePage {...props} stopLoad={this.stopLoad} />}
 											/>
-											<Route exact path="/about" component={AboutPage} />
+											<Route exact
+												path="/about"
+												render={(props) =>
+													<AboutPage {...props} goHome={this.goHome} />}
+											/>
 											<Route exact
 												path="/football"
 												render={(props) =>
@@ -78,6 +83,11 @@ class App extends Component {
 												path="/basketball"
 												render={(props) =>
 													<BasketballPage {...props} goHome={this.goHome} />}
+											/>
+											<Route exact
+												path="/privacy"
+												render={(props) =>
+													<PrivacyPage {...props} goHome={this.goHome} />}
 											/>
 											<Route exact path="/styles" component={StylesPage} />
 					               </Switch>

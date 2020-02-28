@@ -49,7 +49,7 @@ class Footer extends Component {
 									<li>API</li>
 									<li>Alerts</li>
 									<li>Advertise</li>
-									<li>Privacy & Terms</li>
+									<Link to="/privacy"><li>Privacy & Terms</li></Link>
 								</ul>
 						  	</Grid>
 						</Grid>

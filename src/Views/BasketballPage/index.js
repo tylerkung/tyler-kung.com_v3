@@ -35,7 +35,7 @@ class BasketballPage extends Component {
 				  <div className="sport-header">
 
 					  <video autoPlay muted loop>
-						  <source src="./videos/basketball-landing.mp4" type="video/mp4" />
+						  <source src="./videos/Basketball.mp4" type="video/mp4" />
 							  <img src='./images/basketball-stadium-fallback.png' alt="Basketball"/>
 							  Your browser doesn't support the HTML5 video tag.
 					  </video>

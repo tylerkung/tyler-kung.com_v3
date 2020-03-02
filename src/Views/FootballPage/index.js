@@ -87,7 +87,7 @@ class FootballPage extends Component {
 								<Grid container spacing={10} className="flex-center">
 									<Grid item md={6}>
 										<h2>1. Draft Players</h2>
-										<p>Your team, your players, and your friends, all in one place. Sleeper integrates a social environment with the competitive fantasy atmosphere. Next level features and everything else your league needs are here.</p>
+										<p>RB's first? Maybe WR's? TE in the first round? Or a QB (but not too early). Build your team the way you want in the draft. Choose wisely, your season depends on it!</p>
 									</Grid>
 									<Grid item md={6}>
 										<LayeredGraphic
@@ -112,13 +112,13 @@ class FootballPage extends Component {
 									</Grid>
 									<Grid item md={6}>
 										<h2>2. Play your opponents</h2>
-										<p>Your team, your players, and your friends, all in one place. Sleeper integrates a social environment with the competitive fantasy atmosphere. Next level features and everything else your league needs are here.</p>
+										<p>Match up head to head with your friends and see if your team is ready for the 13 week season. Compete for fun and play for glory. Only the top teams will advance to the playoffs.</p>
 									</Grid>
 								</Grid>
 								<Grid container spacing={10} className="flex-center">
 									<Grid item md={6}>
 										<h2>3. Win the playoffs</h2>
-										<p>Your team, your players, and your friends, all in one place. Sleeper integrates a social environment with the competitive fantasy atmosphere. Next level features and everything else your league needs are here.</p>
+										<p>It's win or go home! Be the last team standing to be crowned the champion of your league. Do you have what it takes?</p>
 									</Grid>
 									<Grid item md={6}>
 										<LayeredGraphic

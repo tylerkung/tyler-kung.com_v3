@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
-import { Parallax, ParallaxBanner } from 'react-scroll-parallax';
-import ParallaxHeader from "../../Components/ParallaxHeader";
-import FootballCarousel from "../../Components/FootballCarousel";
+import LayeredGraphic from "../../Components/LayeredGraphic";
+import Testimonials from "../../Components/Testimonials";
 
 class FootballPage extends Component {
     constructor(props){
@@ -13,6 +12,38 @@ class FootballPage extends Component {
 			  pageLoaded: false
         }
 		  this.onRouteChange = this.onRouteChange.bind(this);
+		  this.testimonials = [
+			  {
+				  name: 'Phatdad66',
+				  image: './images/sleeper-avatar-1.png',
+				  quote: "It's basically everything I've ever dreamed of in a fantasy app. From the draft board, to the greatest chat room system ever made.",
+				  direction: 'left'
+			  },
+			  {
+				  name: 'David S',
+				  image: './images/sleeper-avatar-2.png',
+				  quote: "Switched leagues from ESPN and Yahoo. Other owners couldn't believe Sleeper existed. Really brought fantasy football up to modern standards.",
+				  direction: 'right'
+			  },
+			  {
+				  name: 'Andrew D.',
+				  image: './images/sleeper-avatar-3.png',
+				  quote: "We all love what you're doing over at Sleeper. Every day we're reminded why we switched from ESPN, Yahoo, etc.",
+				  direction: 'right'
+			  },
+			  {
+				  name: 'AN1836',
+				  image: './images/sleeper-avatar-4.png',
+				  quote: "The news updates are super handy, the in app league chat is amazing since you don't have to use another app for talking to leaguemates.",
+				  direction: 'right'
+			  },
+			  {
+				  name: 'ChemistryWiz17',
+				  image: './images/sleeper-avatar-5.png',
+				  quote: "From trading rookie draft picks during the season to multi team trades to its interactive and helpful customer services, our league has never regretted switching...",
+				  direction: 'right'
+			  },
+		  ]
     }
 	 componentDidMount(){
  		// this.initLoadScreen();
@@ -41,7 +72,7 @@ class FootballPage extends Component {
 						</video>
 					</div>
 					<div className="sport-page">
-						<div className="layout layout-secondary-color layout-slant-down">
+						<div className="layout layout-secondary-color">
 							<div className="container">
 								<h1 className="txt-center">Join millions of fans on Sleeper</h1>
 								<h3 className="txt-center">See why everyone is moving their leagues to Sleeper.<br/>Never use antiquated fantasy platforms again.</h3>
@@ -51,37 +82,148 @@ class FootballPage extends Component {
 								</div>
 							</div>
 						</div>
-						<div className="layout layout-main-color layout-rounded-bottom">
+						<div className="layout layout-secondary-color">
 							<div className="container">
-								<Grid container spacing={3}>
-									<Grid item md={7}>
-									<FootballCarousel />
-									</Grid>
-									<Grid item md={4}>
+								<Grid container spacing={10} className="flex-center">
+									<Grid item md={6}>
 										<h2>1. Draft Players</h2>
 										<p>Your team, your players, and your friends, all in one place. Sleeper integrates a social environment with the competitive fantasy atmosphere. Next level features and everything else your league needs are here.</p>
+									</Grid>
+									<Grid item md={6}>
+										<LayeredGraphic
+											back='./images/draft-phone.png'
+											middle='./images/sleeper-draft-2.png'
+											elements={['./images/clock.png', './images/player_card_05.png', './images/player_card_06.png', './images/player_card_05.png']}
+											className='draft-graphic'
+											entrance={true}
+										/>
+									</Grid>
+								</Grid>
+								<Grid container spacing={10} className="flex-center">
+									<Grid item md={6}>
+										<LayeredGraphic
+											back='./images/play-phone.png'
+											middle='./images/sleeper-play.png'
+											elements={['./images/chat_bubble_01.png','./images/football_03.png','./images/touchdown.png']}
+											className='play-graphic'
+											entrance={true}
+											imagePosition='left'
+										/>
+									</Grid>
+									<Grid item md={6}>
 										<h2>2. Play your opponents</h2>
 										<p>Your team, your players, and your friends, all in one place. Sleeper integrates a social environment with the competitive fantasy atmosphere. Next level features and everything else your league needs are here.</p>
+									</Grid>
+								</Grid>
+								<Grid container spacing={10} className="flex-center">
+									<Grid item md={6}>
 										<h2>3. Win the playoffs</h2>
 										<p>Your team, your players, and your friends, all in one place. Sleeper integrates a social environment with the competitive fantasy atmosphere. Next level features and everything else your league needs are here.</p>
 									</Grid>
+									<Grid item md={6}>
+										<LayeredGraphic
+											back='./images/win-phone.png'
+											middle='./images/sleeper-win.png'
+											className='win-graphic'
+											entrance={true}
+										/>
+									</Grid>
 								</Grid>
 							</div>
 						</div>
-						<div className="layout layout-width-image">
-					 		<img src="./images/inside-football.png" alt="Football Stadium" />
-						</div>
-						<div className="layout layout-secondary-color layout-rounded-top">
+						<div className="layout layout-secondary-color">
 							<div className="container">
 								<Grid container spacing={3}>
-									<Grid item md={5}>
+									<Grid item md={3}>
+									</Grid>
+									<Grid item md={6} className="txt-center">
 										<h2>Gameday, everyday</h2>
 										<p>Your team, your players, and your friends, all in one place. Sleeper integrates a social environment with the competitive fatnasy atmosphere. Next level features and everything else your team needs are here.</p>
+										<Link to="">
+											<button className="btn btn-default">
+												Create a league
+											</button>
+										</Link>
 									</Grid>
-									<Grid item md={7}>
+									<Grid item md={3}>
 									</Grid>
 								</Grid>
 							</div>
+						</div>
+						<div className="layout layout-secondary-color">
+							<div className="container">
+								<Grid container spacing={10} className="feature-row">
+									<Grid item md={4}>
+										<div className="feature-icon mint">
+										</div>
+										<h4>League Chat</h4>
+										<p>Send text, gifs, polls and more with a modern chat right in your league, complete with the ability to react to trades and waiver pickups.</p>
+									</Grid>
+									<Grid item md={4}>
+										<div className="feature-icon purple">
+										</div>
+										<h4>Draftboard</h4>
+										<p>Beautiful. Powerful. Contextual. Draft on a modern interface and cast it to a big screen TV – complete with full controls to fix any draft mistakes.</p>
+									</Grid>
+									<Grid item md={4}>
+										<div className="feature-icon red">
+										</div>
+										<h4>Game Day</h4>
+										<p>Experience the fastest scores, live play-by-plays, and real-time box scores, all custom delivered based on your league's scoring settings.</p>
+									</Grid>
+								</Grid>
+								<Grid container spacing={10} className="feature-row">
+									<Grid item md={4}>
+										<div className="feature-icon pink">
+										</div>
+										<h4>Mascots</h4>
+										<p>Game Day gets better as you choose custom mascots to represent your team. Mascot reactions are sync'd to your team's performance in real-time!</p>
+									</Grid>
+									<Grid item md={4}>
+										<div className="feature-icon gray">
+										</div>
+										<h4>Blockbuster Trades</h4>
+										<p>Pull off a multi-team trade. Send future draft picks. Trade FAAB dollars. Trade during your draft. Sleeper lets you wheel and deal like never before.</p>
+									</Grid>
+									<Grid item md={4}>
+										<div className="feature-icon green">
+										</div>
+										<h4>Waiver Countdown</h4>
+										<p>Weekly waivers process instantly when the countdown hits zero, turning waiver day into a fun experience with leaguemates.</p>
+									</Grid>
+								</Grid>
+								<Grid container spacing={10} className="feature-row">
+									<Grid item md={4}>
+										<div className="feature-icon yellow">
+										</div>
+										<h4>Direct messaging</h4>
+										<p>1:1 and group messaging is easy with Sleeper. Propose trades, talk smack, or organize events. No more downloading a separate chat app.</p>
+									</Grid>
+									<Grid item md={4}>
+										<div className="feature-icon lilac">
+										</div>
+										<h4>Dynasty Leagues</h4>
+										<p>Leagues are open 365 days a year, and Sleeper offers a full-suite of dynasty features. Unlike our peers, we do it for free.</p>
+									</Grid>
+									<Grid item md={4}>
+										<div className="feature-icon aqua">
+										</div>
+										<h4>Keeper Leagues</h4>
+										<p>Sleeper offers full keeper support. We do all the tracking, so all you have to worry about is keeping the right players.</p>
+									</Grid>
+								</Grid>
+							</div>
+						</div>
+						<div className="layout layout-secondary-color">
+							<Testimonials
+								className="football-testimonial"
+								background="up"
+								testimonials={this.testimonials}
+							>
+								<h1>The place for sports and friends</h1>
+								<p>From mascots, to epic moments, to fun competition, see why many are inviting their friends and family to play with them on Sleeper.</p>
+								<button className="btn btn-default">Get Started</button>
+							</Testimonials>
 						</div>
 					</div>
 				</div>

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-   Link,
 	NavLink
 } from "react-router-dom";
 import { TimelineMax as Timeline, Power3 } from 'gsap/dist/gsap';
@@ -38,7 +37,7 @@ class GamesList extends Component {
 	more(){
 		const timeline = new Timeline({ paused: false });
 		const listWidth = this.gamesList.offsetWidth - this.slideAmount;
-		var slideAmount, newPosition;
+		var newPosition;
 		if (listWidth - (-1 * this.state.position) > this.slideAmount){
 			newPosition = this.state.position - this.slideAmount;
 		} else{
@@ -50,8 +49,7 @@ class GamesList extends Component {
 	}
 	less(){
 		const timeline = new Timeline({ paused: false });
-		const listWidth = this.gamesList.offsetWidth - this.slideAmount;
-		var slideAmount, newPosition;
+		var newPosition;
 		if (this.state.position < -this.slideAmount){
 			newPosition = this.state.position + this.slideAmount;
 		} else{

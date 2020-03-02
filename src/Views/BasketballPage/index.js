@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
-import SportNavigation from "../../Components/SportNavigation";
 
 class BasketballPage extends Component {
     constructor(props){
@@ -33,7 +32,6 @@ class BasketballPage extends Component {
         return (
 			  <div className={`page-content page-basketball ${(this.state.pageLoaded) ? "page-loaded" : ""}`}>
 				  <div className="sport-header header-basketball">
-
 					  <video autoPlay muted loop>
 						  <source src="./videos/Basketball.mp4" type="video/mp4" />
 							  <img src='./images/basketball-stadium-fallback.png' alt="Basketball"/>

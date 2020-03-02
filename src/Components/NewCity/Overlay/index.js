@@ -61,14 +61,21 @@ class Overlay extends Component {
 						</div>
 					</div>
 				)
+			case 'soccer':
+				return (
+					<div className='overlay-content'>
+						<h1 className="txt-blue">Soccer</h1>
+						<p>Currently under construction.. Check back soon</p>
+					</div>
+				)
 			default:
 				return (
 					<div className='overlay-content'>
-						<h1>Basketball</h1>
-						<p>Compete with friends by drafting and managing your own team of NBA players. Create a league, invite some friends, and make sure to draft your teams before the season tips off on October 27.</p>
+						<h1 className="txt-mint">Football</h1>
+						<p>Compete with friends by drafting and managing your own team of NFL players. Create a league, invite some friends, and make sure to draft your teams before the season kicks off on September 12.</p>
 						<div className="sport-link">
-							<Link to='/basketball' key='basketball'>
-								<div className="btn btn-default btn-sm btn-orange" onClick={this.enterStadium}>Learn More</div>
+							<Link to='/football' key='football'>
+								<div className="btn btn-default btn-sm" onClick={this.enterStadium}>Learn More</div>
 							</Link>
 						</div>
 					</div>

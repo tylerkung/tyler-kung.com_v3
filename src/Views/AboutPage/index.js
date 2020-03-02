@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { withRouter } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
 import Card from '../../Components/Card';

@@ -56,9 +56,6 @@ class NewCity extends Component {
 		},
 		{
 			sport: 'football',
-		},
-		{
-			sport: 'soccer',
 		}];
 		this.camera = null;
 		this.renderer = null;
@@ -187,7 +184,8 @@ class NewCity extends Component {
 			textures.sleeper = new THREE.TextureLoader().load('./images/sleeper-billboard-w.png');
 			textures.budlight = new THREE.TextureLoader().load('./images/budlight.png');
 			textures.coke = new THREE.TextureLoader().load('./images/coke.jpg');
-			textures.tatum = new THREE.TextureLoader().load('./images/tatum.png');
+			textures.tatum = new THREE.TextureLoader().load('./images/birchmere.png');
+			textures.hero = new THREE.TextureLoader().load('./images/sleeper-billboard-hero.png');
 			for (var texture in textures){
 				textures[texture].offset.x = -1.5;
 				textures[texture].repeat.set(4, 4);
@@ -208,10 +206,12 @@ class NewCity extends Component {
 			cokeSign.map = textures.coke;
 			var tatumSign = signMaterial.clone();
 			tatumSign.map = textures.tatum;
+			var heroSign = signMaterial.clone();
+			heroSign.map = textures.hero;
 
 			object.getObjectByName('billboard_01').material = budlightSign;
 			object.getObjectByName('billboard_03').material = sleeperSign;
-			object.getObjectByName('billboard_08').material = tatumSign;
+			object.getObjectByName('billboard_08').material = heroSign;
 			object.getObjectByName('billboard_05').material = cokeSign;
 			object.getObjectByName('billboard_09').material = budlightSign;
 			// object.getObjectByName('sign_05').material = signMaterial;
@@ -352,9 +352,9 @@ class NewCity extends Component {
 		this.moveCamera(targetQ, 5.4);
 	}
 	viewSoccer(){
-		this.cameraHelper.lookAt( -12.5, 9.7, 26.6 );
+		this.cameraHelper.lookAt( 34.7, 17.5, -67.1 );
 		var targetQ = this.cameraHelper.quaternion.clone();
-		this.moveCamera(targetQ, 5.4);
+		this.moveCamera(targetQ, 5.6);
 	}
 	moveCamera(target, zoom){
 		const timeline = new Timeline({ paused: false });

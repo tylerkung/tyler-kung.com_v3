@@ -16,42 +16,49 @@ class Footer extends Component {
     render(){
         return (
             <footer className="sleeper-footer">
-					<div className="sleeper-footer-main">
-						<div className="main-primary">
-							<div className="primary-label">
-								<h4>Games</h4>
-							</div>
-							<div className="primary-content">
-								<GamesList />
-							</div>
-						</div>
-						<div className="main-secondary">
-						</div>
-					</div>
+
 					<div className="sleeper-footer-secondary">
 						<Grid className="container" container>
-							<Grid item md={2} xs={12}>
-								<div className="txt-sm">
-									© <strong>2020</strong> Sleeper
-								</div>
-						  	</Grid>
 							<Grid item md={2} xs={12}>
 								<ul className="footer-links">
 									<li className="links-header">Company</li>
 									<li><Link to="/about">About</Link></li>
+									<li>Blog</li>
 								</ul>
 						  	</Grid>
 							<Grid item md={2} xs={12}>
-						  	</Grid>
-							<Grid item md={6} xs={12}>
-								<ul className="footer-links footer-right txt-sm">
-									<li>Support</li>
-									<li>API</li>
-									<li>Alerts</li>
-									<li>Advertise</li>
-									<Link to="/privacy"><li>Privacy & Terms</li></Link>
+								<ul className="footer-links">
+									<li className="links-header">Product</li>
+									<li><Link to="/basketball">Bracket Mania</Link></li>
+									<li><Link to="/football">Football</Link></li>
 								</ul>
 						  	</Grid>
+							<Grid item md={2} xs={12}>
+								<ul className="footer-links">
+									<li className="links-header">Resources</li>
+									<li><Link to="/about">About</Link></li>
+								</ul>
+						  	</Grid>
+							<Grid item md={2} xs={12}>
+								<ul className="footer-links">
+									<li className="links-header">More</li>
+									<li><Link to="/about">About</Link></li>
+								</ul>
+						  	</Grid>
+							<Grid item md={4} xs={12}>
+								<div className="footer-right">
+									<img src='./images/sleeper-logo-footer.png' alt="Sleeper" />
+								</div>
+						  	</Grid>
+						</Grid>
+					</div>
+					<div className="footer-bottom">
+						<Grid className="container" container>
+							<Grid item xs={12} className="txt-center">
+								<div className="txt-sm">
+									<h3>© 2020 Copyrights are Blitz Studios Inc.</h3>
+								</div>
+							</Grid>
 						</Grid>
 					</div>
 				</footer>

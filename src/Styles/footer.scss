@@ -1,10 +1,10 @@
 .sleeper-footer{
-	padding-top: 200px;
+	padding: 200px 0 100px;
 	h1, h2, h3, h4{
 		margin: 0 0 1em;
 	}
 	background-image: url('https://sleepercdn.com/images/landing/v3/bg/footer-36c752f7551b7c4a87ce39ce19820201.png?vsn=d');
-	background-size: contain;
+	background-size: cover;
 	background-position: 50% 100px;
 	background-repeat: no-repeat;
 	position: relative;
@@ -86,15 +86,15 @@
 	li{
 		margin-bottom: 1.286em;
 	}
-	&.footer-right{
-		text-align: right;
-		display: flex;
-		justify-content: flex-end;
-		li{
-			padding: 0 .6em;
-			&:last-of-type{
-				padding-right: 0;
-			}
+}
+.footer-right{
+	text-align: right;
+	display: flex;
+	justify-content: flex-end;
+	li{
+		padding: 0 .6em;
+		&:last-of-type{
+			padding-right: 0;
 		}
 	}
 }

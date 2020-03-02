@@ -23,7 +23,7 @@ class App extends Component {
 		 super(props);
 
 		 this.state = {
-			 loadScreenActive: false
+			 loadScreenActive: true
 		 }
 		 this.goHome = this.goHome.bind(this);
 		 this.startLoad = this.startLoad.bind(this);
@@ -102,9 +102,7 @@ class App extends Component {
 							)
 						}}/>
 						<div className={'loading-screen ' + (this.state.loadScreenActive ? 'open' : 'close')}>
-							<video autoPlay muted loop>
-								<source src="./videos/loading-bot.mp4" type="video/mp4" />
-							</video>
+							<img src='./images/floating_bot_mid.png' alt="Sleeper Loading" />
 						</div>
 	            </main>
 					<Footer />

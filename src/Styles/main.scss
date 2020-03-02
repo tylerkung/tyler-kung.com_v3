@@ -65,7 +65,6 @@ body {
 		}
 	}
 }
-
 .btn-default{
 	background-image: linear-gradient(to top left, #00B7B3, #4CE2A7);
 	background-color: #00B7B3;
@@ -177,6 +176,75 @@ body {
 		}
 		100%{
 			transform: translate3d(0, 46vh, 0);
+		}
+	}
+}
+
+.feature-row{
+	margin-bottom: 4em !important;
+}
+.feature-icon{
+	height: 50px;
+	width: 50px;
+	background-color: $sleeperMint;
+	border-radius: 19px;
+	position: relative;
+	&:after{
+		content: '';
+		display: block;
+		position: absolute;
+		box-shadow: 0 6px 15px $sleeperMint;
+		border-radius: 19px;
+		height: 100%;
+		width: 100%;
+		opacity: 0.7
+	}
+	&.purple{
+		background-color: $sleeperPurple;
+		&:after{
+			box-shadow: 0 6px 15px $sleeperPurple;
+		}
+	}
+	&.red{
+		background-color: $sleeperRed;
+		&:after{
+			box-shadow: 0 6px 15px $sleeperRed;
+		}
+	}
+	&.pink{
+		background-color: $sleeperPink;
+		&:after{
+			box-shadow: 0 6px 15px $sleeperPink;
+		}
+	}
+	&.gray{
+		background-color: #344054;
+		&:after{
+			box-shadow: 0 6px 15px #344054;
+		}
+	}
+	&.green{
+		background-color: $sleeperGreen;
+		&:after{
+			box-shadow: 0 6px 15px $sleeperGreen;
+		}
+	}
+	&.yellow{
+		background-color: $sleeperYellow;
+		&:after{
+			box-shadow: 0 6px 15px $sleeperYellow;
+		}
+	}
+	&.lilac{
+		background-color: $sleeperLilac;
+		&:after{
+			box-shadow: 0 6px 15px $sleeperLilac;
+		}
+	}
+	&.aqua{
+		background-color: $sleeperAqua;
+		&:after{
+			box-shadow: 0 6px 15px $sleeperAqua;
 		}
 	}
 }

@@ -21,9 +21,21 @@ class Header extends Component {
 						</div>
 						<div className="sleeper-header-navigation">
 							<ul className="nav">
-								<Link>
-									<li className="nav-link">Product</li>
-								</Link>
+								<li className="nav-link">
+									Product
+									<ul className="dropdown-nav">
+										<Link to="/bracket-mania">
+											<li className="nav-link">
+												Bracket Mania
+											</li>
+										</Link>
+										<Link to="/fantasy-football">
+											<li className="nav-link">
+												Fantasy Football
+											</li>
+										</Link>
+									</ul>
+								</li>
 								<Link to="/about">
 									<li className="nav-link">Company</li>
 								</Link>

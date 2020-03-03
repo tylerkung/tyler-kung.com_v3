@@ -148,13 +148,14 @@ body {
 	width: 100%;
 	height: 100%;
 	z-index: 30;
-	background-color: #18202F;
+	background-image: radial-gradient(#fbfbfb, #d8e2ed);
 	transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 	display: flex;
 	justify-content: center;
 	&.close{
-		transition-duration: 1s;
+		transition-duration: 2s;
 		transform: translateY(101%);
+		opacity: 0;
 		img{
 			transform: translateY(0vh);
 			opacity: 0;
@@ -165,7 +166,7 @@ body {
 	}
 	img{
 		position: absolute;
-		transform: translateY(calc(50vh - 200px));
+		transform: translateY(calc(50vh - 40px));
 		transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
 		// animation: spin 2s ease;
 		// animation-iteration-count: infinite;

@@ -81,12 +81,12 @@ class App extends Component {
 													<AboutPage {...props} goHome={this.goHome} />}
 											/>
 											<Route exact
-												path="/football"
+												path="/fantasy-football"
 												render={(props) =>
 													<FootballPage {...props} goHome={this.goHome} />}
 											/>
 											<Route exact
-												path="/basketball"
+												path="/bracket-mania"
 												render={(props) =>
 													<BasketballPage {...props} goHome={this.goHome} />}
 											/>
@@ -107,7 +107,7 @@ class App extends Component {
 							)
 						}}/>
 						<div className={'loading-screen ' + (this.state.loadScreenActive ? 'open' : 'close') + (this.state.initLoadScreen ? ' init' : '')}>
-							<img src='./images/floating_bot_mid.png' alt="Sleeper Loading" />
+							<img src='./images/v4_200px.png' alt="Sleeper Loading" />
 						</div>
 	            </main>
 					<Footer />

@@ -43,7 +43,7 @@ class Overlay extends Component {
 						<h1 className="txt-orange">Bracket Mania</h1>
 						<p>Bracket Mania is here, just in time for the NCAA mens basketball tournament.  Play the popular bracket pick’em game with your friends and co-workers. </p>
 						<div className="sport-link">
-							<Link to='/basketball' key='basketball'>
+							<Link to='/bracket-mania' key='basketball'>
 								<div className="btn btn-default btn-sm btn-orange" onClick={this.enterStadium}>Learn More</div>
 							</Link>
 						</div>
@@ -64,7 +64,7 @@ class Overlay extends Component {
 			case 'soccer':
 				return (
 					<div className='overlay-content'>
-						<h1 className="txt-blue">Fantasy EPL</h1>
+						<h1 className="txt-blue">Fantasy PL</h1>
 						<p>Currently under construction.. Check back soon</p>
 					</div>
 				)
@@ -74,7 +74,7 @@ class Overlay extends Component {
 						<h1 className="txt-mint">Football</h1>
 						<p>Compete with friends by drafting and managing your own team of NFL players. Create a league, invite some friends, and make sure to draft your teams before the season kicks off on September 12.</p>
 						<div className="sport-link">
-							<Link to='/football' key='football'>
+							<Link to='/fantasy-football' key='football'>
 								<div className="btn btn-default btn-sm" onClick={this.enterStadium}>Learn More</div>
 							</Link>
 						</div>

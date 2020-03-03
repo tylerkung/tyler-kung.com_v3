@@ -108,7 +108,7 @@ class FootballPage extends Component {
 										<LayeredGraphic
 											back='./images/play-phone.png'
 											middle='./images/sleeper-play.png'
-											elements={['./images/chat_bubble_01.png','./images/football_03.png','./images/touchdown.png']}
+											elements={['./images/football_03.png','./images/touchdown.png']}
 											className='play-graphic'
 											entrance={true}
 											imagePosition='left'

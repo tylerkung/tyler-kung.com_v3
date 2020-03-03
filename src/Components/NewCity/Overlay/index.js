@@ -55,7 +55,7 @@ class Overlay extends Component {
 						<h1 className="txt-mint">Fantasy Football</h1>
 						<p>Compete with friends by drafting and managing your own team of NFL players. Create a league, invite some friends, and make sure to draft your teams before the season kicks off on September 12.</p>
 						<div className="sport-link">
-							<Link to='/football' key='football'>
+							<Link to='/fantasy-football' key='football'>
 								<div className="btn btn-default btn-sm" onClick={this.enterStadium}>Learn More</div>
 							</Link>
 						</div>

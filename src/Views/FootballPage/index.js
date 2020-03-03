@@ -88,7 +88,7 @@ class FootballPage extends Component {
 					<div className="sport-page">
 						<div className="layout layout-secondary-color">
 							<div className="container">
-								<Grid container spacing={10} className="flex-center">
+								<Grid container spacing={10} className="flex-center graphic-row">
 									<Grid item md={6}>
 										<h1>Draft Players</h1>
 										<p>RB's first? Maybe WR's? TE in the first round? Or a QB (but not too early). Build your team the way you want in the draft. Choose wisely, your season depends on it!</p>
@@ -103,7 +103,7 @@ class FootballPage extends Component {
 										/>
 									</Grid>
 								</Grid>
-								<Grid container spacing={10} className="flex-center">
+								<Grid container spacing={10} className="flex-center graphic-row">
 									<Grid item md={6}>
 										<LayeredGraphic
 											back='./images/play-phone.png'
@@ -119,7 +119,7 @@ class FootballPage extends Component {
 										<p>Match up head to head with your friends and see if your team is ready for the 13 week season. Compete for fun and play for glory. Only the top teams will advance to the playoffs.</p>
 									</Grid>
 								</Grid>
-								<Grid container spacing={10} className="flex-center">
+								<Grid container spacing={10} className="flex-center graphic-row">
 									<Grid item md={6}>
 										<h1>Win the playoffs</h1>
 										<p>It's win or go home! Be the last team standing to be crowned the champion of your league. Do you have what it takes?</p>

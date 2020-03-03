@@ -51,7 +51,7 @@ class BasketballPage extends Component {
 		setTimeout(
 			() => {
 				this.setState({pageLoaded: true});
-			}, 2000);
+			}, 1000);
  		this.props.history.listen(this.onRouteChange.bind(this));
  	}
 	componentWillUnmount(){
@@ -155,7 +155,7 @@ render(){
 				</div>
 				<div className="layout layout-secondary-color">
 					<div className="container">
-						<Grid container spacing={10} className="flex-center">
+						<Grid container spacing={10} className="flex-center graphic-row">
 							<Grid item md={7}>
 								<LayeredGraphic
 									back='./images/weekly-phone.png'
@@ -171,7 +171,7 @@ render(){
 								<p>Match up head to head with your friends and see if your team is ready for the 13 week season. Compete for fun and play for glory. Only the top teams will advance to the playoffs.</p>
 							</Grid>
 						</Grid>
-						<Grid container spacing={10} className="flex-center">
+						<Grid container spacing={10} className="flex-center graphic-row">
 							<Grid item md={5}>
 								<h1>Classic Mode</h1>
 								<p>Match up head to head with your friends and see if your team is ready for the 13 week season. Compete for fun and play for glory. Only the top teams will advance to the playoffs.</p>

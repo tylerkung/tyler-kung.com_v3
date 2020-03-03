@@ -52,7 +52,7 @@ class Overlay extends Component {
 			case 'football':
 				return (
 					<div className='overlay-content'>
-						<h1 className="txt-mint">Football</h1>
+						<h1 className="txt-mint">Fantasy Football</h1>
 						<p>Compete with friends by drafting and managing your own team of NFL players. Create a league, invite some friends, and make sure to draft your teams before the season kicks off on September 12.</p>
 						<div className="sport-link">
 							<Link to='/football' key='football'>
@@ -64,7 +64,7 @@ class Overlay extends Component {
 			case 'soccer':
 				return (
 					<div className='overlay-content'>
-						<h1 className="txt-blue">Soccer</h1>
+						<h1 className="txt-blue">Fantasy EPL</h1>
 						<p>Currently under construction.. Check back soon</p>
 					</div>
 				)

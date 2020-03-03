@@ -30,7 +30,7 @@ class Footer extends Component {
 								<ul className="footer-links">
 									<li className="links-header">Product</li>
 									<li><Link to="/basketball">Bracket Mania</Link></li>
-									<li><Link to="/football">Football</Link></li>
+									<li><Link to="/football">Fantasy Football</Link></li>
 								</ul>
 						  	</Grid>
 							<Grid item md={2} xs={12}>

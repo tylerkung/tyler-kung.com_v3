@@ -124,28 +124,28 @@ render(){
 						<Grid container spacing={3} className="feature-row">
 							<Grid item md={3}>
 								<div className="feature-icon mint">
-									<img src='./icons/icon_01_league_chat@3x.png' alt='League Chat' />
+									<img src='./icons/icon_bm_01_group_chat.png' alt='Group Chat' />
 								</div>
 								<h4>Group Chat</h4>
 								<p>Pools are more fun with chat at the center. Send text, images, gifs and polls to your group before and during the tournament.</p>
 							</Grid>
 							<Grid item md={3}>
 								<div className="feature-icon red">
-									<img src='./icons/icon_02_draftboard@3x.png' alt='League Chat' />
+									<img src='./icons/icon_bm_02_mobile_app.png' alt='Mobile App' />
 								</div>
 								<h4>Mobile app</h4>
 								<p>An intuitive mobile interfaces makes it easy for everyone to fill out their brackets. Now you can edit brackets anywhere, including on the go.</p>
 							</Grid>
 							<Grid item md={3}>
 								<div className="feature-icon yellow">
-									<img src='./icons/icon_03_game_day@3x.png' alt='League Chat' />
+									<img src='./icons/icon_bm_03_live_standing.png' alt='Live Standings' />
 								</div>
 								<h4>Live standings</h4>
 								<p>Know where you stand at all times with the fastest and most frequently updated scores, straight from the source.</p>
 							</Grid>
 							<Grid item md={3}>
 								<div className="feature-icon lilac">
-									<img src='./icons/icon_03_game_day@3x.png' alt='League Chat' />
+									<img src='./icons/icon_bm_04_team_notes.png' alt='Team Notes' />
 								</div>
 								<h4>Team notes</h4>
 								<p>Easily compare teams via our dynamic matchup screen that features easy-to-digest notes on each team to help you decide between picks.</p>

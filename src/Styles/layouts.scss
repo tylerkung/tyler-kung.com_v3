@@ -277,6 +277,12 @@
 }
 
 .graphic-row{
-	margin-top: -200px !important;
-	margin-bottom: -200px !important;
+	margin-top: -250px !important;
+	margin-bottom: -100px !important;
+	&:first-of-type{
+		margin-top: -200px !important;
+	}
+	&:not(:last-of-type){
+		margin-bottom: -250px !important;
+	}
 }

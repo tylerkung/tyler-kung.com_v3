@@ -97,7 +97,6 @@ class Testimonials extends Component {
 		}
 	}
 	render(){
-		console.log(this.props);
 		return (
 			<div className={`testimonials-module ${this.props.className}`} id={this.key}>
 				{this.scrollMagicController}

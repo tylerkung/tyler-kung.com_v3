@@ -169,8 +169,8 @@
 }
 
 .cursor{
-	height: 120px;
-	width: 120px;
+	height: 250px;
+	width: 250px;
 	position: absolute;
 	z-index: 19;
 	pointer-events: none;
@@ -191,7 +191,7 @@
 		background-image: url('./icons/football-cursor.png');
 		background-size: contain;
 	}
-	transform: translate(calc(50vw - 60px + 24vh), calc(50vh - 60px + 4vh));
+	transform: translate(calc(50vw - 125px + 24vh), calc(50vh - 125px + 4vh));
 }
 .cursor-basketball{
 	top: 0;
@@ -199,7 +199,7 @@
 		background-image: url('./icons/basketball-cursor.png');
 		background-size: contain;
 	}
-	transform: translate(calc(50vw - 60px - 50vh), calc(50vh - 60px + 6vh));
+	transform: translate(calc(50vw - 125px - 48vh), calc(50vh - 125px + 6vh));
 }
 .cursor-soccer{
 	top: 0;

@@ -246,7 +246,7 @@ class FootballPage extends Component {
 						<div className="layout layout-secondary-color">
 							<Testimonials
 								className="football-testimonial"
-								background="up"
+								background="down"
 								testimonials={this.testimonials}
 							>
 								<h1>The place for sports and friends</h1>

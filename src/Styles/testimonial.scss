@@ -3,7 +3,7 @@
 	position: relative;
 
 	&.football-testimonial{
-		background-image: linear-gradient(to top, rgba(3, 206, 185, 0.1), transparent 80%);
+		background-image: linear-gradient(to bottom, rgba(3, 206, 185, 0.1), transparent 80%);
 		.testimonial-item{
 			&.item-0{
 				grid-column-start: 5;

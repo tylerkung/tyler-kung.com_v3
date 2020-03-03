@@ -25,7 +25,7 @@ class HomePage extends Component {
 		}
 	}
 	onRouteChange(route){
-		console.log(route);
+		// console.log(route);
 	}
 	render(){
 		return (

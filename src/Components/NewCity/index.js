@@ -83,7 +83,6 @@ class NewCity extends Component {
 		scene = new THREE.Scene();
 		this.renderer = new THREE.WebGLRenderer({canvas, antialias: true});
 		this.renderer.setPixelRatio( 1 );
-		this.renderer.setSize( window.innerWidth, window.innerHeight + 200 );
 		this.renderer.setClearColor(0xB4E8FF);
 		this.renderer.shadowMap.enabled = true;
 		this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -156,6 +155,8 @@ class NewCity extends Component {
 		this.composer.addPass( renderScene );
 		// this.composer.addPass( bloomPass );
 
+		this.resize();
+
 		var onProgress = function ( xhr ) {
 			if ( xhr.lengthComputable ) {
 				var percentComplete = xhr.loaded / xhr.total * 100;
@@ -223,7 +224,6 @@ class NewCity extends Component {
 			var clip = object.animations[ 0 ];
 			this.mixer.clipAction( clip.optimize() ).play();
 			scene.add( object );
-			this.camera.updateProjectionMatrix();
 			this.animate();
 			this.props.stopLoad();
 		});

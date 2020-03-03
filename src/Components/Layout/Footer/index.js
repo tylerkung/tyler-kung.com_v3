@@ -23,7 +23,7 @@ class Footer extends Component {
 								<ul className="footer-links">
 									<li className="links-header">Company</li>
 									<li><Link to="/about">About</Link></li>
-									<li>Blog</li>
+									<li><a href="https://blog.sleeper.app/" target="_blank">Blog</a></li>
 								</ul>
 						  	</Grid>
 							<Grid item md={2} xs={12}>
@@ -36,13 +36,11 @@ class Footer extends Component {
 							<Grid item md={2} xs={12}>
 								<ul className="footer-links">
 									<li className="links-header">Resources</li>
-									<li><Link to="/about">About</Link></li>
 								</ul>
 						  	</Grid>
 							<Grid item md={2} xs={12}>
 								<ul className="footer-links">
 									<li className="links-header">More</li>
-									<li><Link to="/about">About</Link></li>
 								</ul>
 						  	</Grid>
 							<Grid item md={4} xs={12}>

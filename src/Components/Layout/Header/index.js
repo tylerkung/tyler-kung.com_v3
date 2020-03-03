@@ -21,14 +21,11 @@ class Header extends Component {
 						</div>
 						<div className="sleeper-header-navigation">
 							<ul className="nav">
-								<Link to="/product">
+								<Link>
 									<li className="nav-link">Product</li>
 								</Link>
 								<Link to="/about">
 									<li className="nav-link">Company</li>
-								</Link>
-								<Link to="/resources">
-									<li className="nav-link">Resources</li>
 								</Link>
 							</ul>
 						</div>

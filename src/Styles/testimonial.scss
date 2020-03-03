@@ -27,6 +27,31 @@
 			}
 		}
 	}
+	&.about-testimonial{
+		background-image: linear-gradient(to top, rgba(3, 206, 185, 0.1), transparent 80%);
+		.testimonial-item{
+			&.item-0{
+				grid-column-start: 5;
+				grid-row-start: 3;
+			}
+			&.item-1{
+				grid-column-start: 11;
+				grid-row-start: 2;
+			}
+			&.item-2{
+				grid-column-start: 4;
+				grid-row-start: 8
+			}
+			&.item-3{
+				grid-column-start: 10;
+				grid-row-start: 8;
+			}
+			&.item-4{
+				grid-column-start: 13;
+				grid-row-start: 5;
+			}
+		}
+	}
 	&.basketball-testimonial{
 		background-image: linear-gradient(to bottom, rgba(255, 229, 210, 0.63), transparent 80%);
 		.testimonial-item{

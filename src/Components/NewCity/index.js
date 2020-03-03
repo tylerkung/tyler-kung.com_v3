@@ -83,7 +83,7 @@ class NewCity extends Component {
 		scene = new THREE.Scene();
 		this.renderer = new THREE.WebGLRenderer({canvas, antialias: true});
 		this.renderer.setPixelRatio( 1 );
-		this.renderer.setSize( window.innerWidth, window.innerHeight );
+		this.renderer.setSize( window.innerWidth, window.innerHeight + 200 );
 		this.renderer.setClearColor(0xB4E8FF);
 		this.renderer.shadowMap.enabled = true;
 		this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
@@ -95,7 +95,7 @@ class NewCity extends Component {
 		var near = 0.1;
 		var far = 100;
 		var windowWidth = window.innerWidth;
-		var windowHeight = window.innerHeight;
+		var windowHeight = window.innerHeight + 200;
 		var multiplier = 1.1;
 		this.factor = multiplier * windowWidth;
 
@@ -371,7 +371,7 @@ class NewCity extends Component {
 	}
 	resize() {
 		var windowWidth = window.innerWidth;
-		var windowHeight = window.innerHeight;
+		var windowHeight = window.innerHeight + 200;
 		this.camera.aspect = windowWidth / windowHeight;
 		this.renderer.setSize( windowWidth, windowHeight );
 		this.camera.left = -windowWidth / this.factor;

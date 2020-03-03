@@ -1,4 +1,7 @@
 .page-content{
+	&:not(.page-home){
+		padding-bottom: 250px;
+	}
 	&.page-home{
 		// height: 50vh;
 		// background-color: #eee;

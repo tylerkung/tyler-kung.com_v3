@@ -191,7 +191,7 @@
 		background-image: url('./icons/football-cursor.png');
 		background-size: contain;
 	}
-	transform: translate(calc(50vw - 125px + 24vh), calc(50vh - 125px + 4vh));
+	transform: translate(calc(50vw - 25px + 22vh), calc(50vh - 25px + 4vh));
 }
 .cursor-basketball{
 	top: 0;
@@ -199,7 +199,7 @@
 		background-image: url('./icons/basketball-cursor.png');
 		background-size: contain;
 	}
-	transform: translate(calc(50vw - 125px - 48vh), calc(50vh - 125px + 6vh));
+	transform: translate(calc(50vw - 25px - 64vh), calc(50vh - 25px + 7vh));
 }
 .cursor-soccer{
 	top: 0;
@@ -238,9 +238,9 @@
 		transform: rotate(0deg);
 	}
 	50%{
-		transform: rotate(180deg);
+		transform: rotate(-180deg);
 	}
 	100%{
-		transform: rotate(360deg);
+		transform: rotate(-360deg);
 	}
 }

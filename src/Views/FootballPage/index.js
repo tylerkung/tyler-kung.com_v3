@@ -3,6 +3,8 @@ import { Link, withRouter } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
 import LayeredGraphic from "../../Components/LayeredGraphic";
 import Testimonials from "../../Components/Testimonials";
+import Lottie from "react-lottie";
+import animationData from "../../Lotties/scroll-animation.json";
 
 class FootballPage extends Component {
     constructor(props){
@@ -57,20 +59,28 @@ class FootballPage extends Component {
 	componentWillUnmount(){
 		this.setState({pageLoaded: false});
 	}
-	 onRouteChange(route){
+	onRouteChange(route){
 		if (route.pathname === "/"){
 			this.props.goHome();
 		}
-	 }
-    render(){
-        return (
+	}
+   render(){
+		const defaultOptions = {
+			loop: true,
+			autoplay: true,
+			animationData: animationData,
+			rendererSettings: {
+				preserveAspectRatio: 'xMidYMid slice'
+			}
+		};
+      return (
             <div className={`page-content page-football ${(this.state.pageLoaded) ? "page-loaded" : ""}`}>
 					<div className="sport-header header-football">
 						<div className="container">
 							<Grid container spacing={3}>
 								<Grid item md={6}>
 								</Grid>
-								<Grid item md={5} className="header-content">
+								<Grid item md={6} className="header-content">
 									<h1 className="">Join millions of fans on Sleeper</h1>
 									<p className="txt-black">See why everyone is moving their leagues to Sleeper.<br/>Never use antiquated fantasy platforms again.</p>
 									<div className="">
@@ -78,14 +88,18 @@ class FootballPage extends Component {
 										</button>
 									</div>
 								</Grid>
-								<Grid item md={1}>
-								</Grid>
 							</Grid>
 						</div>
 						<video autoPlay muted loop>
 							<source src="http://sleepercdn.com/downloads/webtest/football_landing.mp4" type="video/mp4" />
 								Your browser doesn't support the HTML5 video tag.
 						</video>
+						<div className="scroll-down">
+							<Lottie options={defaultOptions}
+								height={50}
+								width={50}
+							/>
+						</div>
 					</div>
 					<div className="sport-page">
 						<div className="layout layout-secondary-color">
@@ -110,7 +124,7 @@ class FootballPage extends Component {
 										<LayeredGraphic
 											back='./images/play-phone.png'
 											middle='./images/sleeper-play.png'
-											elements={['./images/football_03.png','./images/touchdown.png']}
+											elements={['./images/football_green.png','./images/touchdown.png']}
 											className='play-graphic'
 											entrance={true}
 											imagePosition='left'

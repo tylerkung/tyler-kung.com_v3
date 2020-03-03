@@ -3,6 +3,8 @@ import { withRouter } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
 import LayeredGraphic from "../../Components/LayeredGraphic";
 import Testimonials from "../../Components/Testimonials";
+import Lottie from "react-lottie";
+import animationData from "../../Lotties/scroll-animation.json";
 
 class BasketballPage extends Component {
     constructor(props){
@@ -62,148 +64,160 @@ class BasketballPage extends Component {
 			this.props.goHome();
 		}
 	}
-render(){
-	return (
-		<div className={`page-content page-basketball ${(this.state.pageLoaded) ? "page-loaded" : ""}`}>
-			<div className="sport-header header-basketball">
-				<div className="container">
-					<Grid container spacing={3}>
-						<Grid item md={1}>
-						</Grid>
-						<Grid item md={5} className="header-content">
-							<h1 className="">Play Bracket Mania</h1>
-							<p className="txt-black">Your favorite fantasy app now supports college basketball brackets with all the features that you've come to expect and love</p>
-							<div className="">
-								<button className="btn btn-default btn-orange">Create a Pool
-								</button>
-							</div>
-						</Grid>
-						<Grid item md={6}>
-						</Grid>
-					</Grid>
-				</div>
-				<video autoPlay muted loop>
-					<source src="http://sleepercdn.com/downloads/webtest/basketball_landing.mp4 " type="video/mp4" />
-					<img src='./images/basketball-stadium-fallback.png' alt="Basketball"/>
-					Your browser doesn't support the HTML5 video tag.
-				</video>
-			</div>
-			<div className="sport-page">
-				<div className="layout layout-secondary-color">
+	render(){
+		const defaultOptions = {
+			loop: true,
+			autoplay: true,
+			animationData: animationData,
+			rendererSettings: {
+				preserveAspectRatio: 'xMidYMid slice'
+			}
+		};
+		return (
+			<div className={`page-content page-basketball ${(this.state.pageLoaded) ? "page-loaded" : ""}`}>
+				<div className="sport-header header-basketball">
 					<div className="container">
 						<Grid container spacing={3}>
-							<Grid item md={2}>
-							</Grid>
-							<Grid item md={8} className="header-content">
-								<h1 className="txt-center">The biggest event this March</h1>
-								<p className="txt-center">Get ready to fill out your brackets for the NCAA college basketball tournament!<br/>Enjoy Weekly and Classic gameplay designed for groups.</p>
-								<div className="txt-center">
-									<button className="btn btn-default btn-orange">Download App
+							<Grid item md={6} className="header-content">
+								<h1 className="">Play Bracket Mania</h1>
+								<p className="txt-black">Your favorite fantasy app now supports college basketball brackets with all the features that you've come to expect and love</p>
+								<div className="">
+									<button className="btn btn-default btn-orange">Create a Pool
 									</button>
 								</div>
 							</Grid>
-							<Grid item md={2}>
+							<Grid item md={6}>
 							</Grid>
 						</Grid>
 					</div>
-				</div>
-				<div className="layout layout-bracket-mania-color">
-						<Grid container spacing={3}>
-							<Grid item md={12}>
-								<LayeredGraphic
-									back='./images/bracket-mania-phone.png'
-									middle='./images/sleeper-bracket-mania.png'
-									elements={[]}
-									className='bracket-mania-graphic'
-									entrance={true}
-									imagePosition='right'
-								/>
-							</Grid>
-						</Grid>
-				</div>
-				<div className="layout layout-secondary-color">
-					<div className="container">
-						<Grid container spacing={3} className="feature-row">
-							<Grid item md={3}>
-								<div className="feature-icon mint">
-									<img src='./icons/icon_bm_01_group_chat.png' alt='Group Chat' />
-								</div>
-								<h4>Group Chat</h4>
-								<p>Pools are more fun with chat at the center. Send text, images, gifs and polls to your group before and during the tournament.</p>
-							</Grid>
-							<Grid item md={3}>
-								<div className="feature-icon red">
-									<img src='./icons/icon_bm_02_mobile_app.png' alt='Mobile App' />
-								</div>
-								<h4>Mobile app</h4>
-								<p>An intuitive mobile interfaces makes it easy for everyone to fill out their brackets. Now you can edit brackets anywhere, including on the go.</p>
-							</Grid>
-							<Grid item md={3}>
-								<div className="feature-icon yellow">
-									<img src='./icons/icon_bm_03_live_standing.png' alt='Live Standings' />
-								</div>
-								<h4>Live standings</h4>
-								<p>Know where you stand at all times with the fastest and most frequently updated scores, straight from the source.</p>
-							</Grid>
-							<Grid item md={3}>
-								<div className="feature-icon lilac">
-									<img src='./icons/icon_bm_04_team_notes.png' alt='Team Notes' />
-								</div>
-								<h4>Team notes</h4>
-								<p>Easily compare teams via our dynamic matchup screen that features easy-to-digest notes on each team to help you decide between picks.</p>
-							</Grid>
-						</Grid>
+					<video autoPlay muted loop>
+						<source src="http://sleepercdn.com/downloads/webtest/basketball_landing.mp4 " type="video/mp4" />
+						<img src='./images/basketball-stadium-fallback.png' alt="Basketball"/>
+						Your browser doesn't support the HTML5 video tag.
+					</video>
+					<div className="scroll-down">
+						<Lottie options={defaultOptions}
+							height={50}
+							width={50}
+						/>
 					</div>
 				</div>
-				<div className="layout layout-secondary-color">
-					<div className="container">
-						<Grid container spacing={10} className="flex-center graphic-row">
-							<Grid item md={7}>
-								<LayeredGraphic
-									back='./images/weekly-phone.png'
-									middle='./images/sleeper-weekly.png'
-									elements={['./images/bm-clock.png', './images/orange-calendar.png','./images/orange-confetti.png','./images/bm-basketball.png']}
-									className='weekly-graphic'
-									entrance={true}
-									imagePosition='left'
-								/>
+				<div className="sport-page">
+					<div className="layout layout-secondary-color">
+						<div className="container">
+							<Grid container spacing={3}>
+								<Grid item md={2}>
+								</Grid>
+								<Grid item md={8} className="header-content">
+									<h1 className="txt-center">The biggest event this March</h1>
+									<p className="txt-center">Get ready to fill out your brackets for the NCAA college basketball tournament!<br/>Enjoy Weekly and Classic gameplay designed for groups.</p>
+									<div className="txt-center">
+										<button className="btn btn-default btn-orange">Download App
+										</button>
+									</div>
+								</Grid>
+								<Grid item md={2}>
+								</Grid>
 							</Grid>
-							<Grid item md={5}>
-								<h1>Weekly Mode</h1>
-								<p>Match up head to head with your friends and see if your team is ready for the 13 week season. Compete for fun and play for glory. Only the top teams will advance to the playoffs.</p>
-							</Grid>
-						</Grid>
-						<Grid container spacing={10} className="flex-center graphic-row">
-							<Grid item md={5}>
-								<h1>Classic Mode</h1>
-								<p>Match up head to head with your friends and see if your team is ready for the 13 week season. Compete for fun and play for glory. Only the top teams will advance to the playoffs.</p>
-							</Grid>
-							<Grid item md={7}>
-								<LayeredGraphic
-									back='./images/classic-phone.png'
-									middle='./images/sleeper-classic.png'
-									elements={['./images/orange-confetti.png','./images/bm-basketball.png','./images/orange-trophy.png']}
-									className='classic-graphic'
-									entrance={true}
-									imagePosition='right'
-								/>
-							</Grid>
-						</Grid>
+						</div>
 					</div>
-				</div>
-				<div className="layout layout-secondary-color">
-					<Testimonials
-						className="basketball-testimonial"
-						background="down"
-						testimonials={this.testimonials}
-					>
-						<h1>The place for sports and friends</h1>
-						<p>From mascots, to epic moments, to fun competition, see why many are inviting their friends and family to play with them on Sleeper.</p>
-						<button className="btn btn-default btn-orange">Get Started</button>
-					</Testimonials>
+					<div className="layout layout-bracket-mania-color">
+							<Grid container spacing={3}>
+								<Grid item md={12}>
+									<LayeredGraphic
+										back='./images/bracket-mania-phone.png'
+										middle='./images/sleeper-bracket-mania.png'
+										elements={[]}
+										className='bracket-mania-graphic'
+										entrance={true}
+										imagePosition='right'
+									/>
+								</Grid>
+							</Grid>
+					</div>
+					<div className="layout layout-secondary-color">
+						<div className="container">
+							<Grid container spacing={3} className="feature-row">
+								<Grid item md={3}>
+									<div className="feature-icon mint">
+										<img src='./icons/icon_bm_01_group_chat.png' alt='Group Chat' />
+									</div>
+									<h4>Group Chat</h4>
+									<p>Pools are more fun with chat at the center. Send text, images, gifs and polls to your group before and during the tournament.</p>
+								</Grid>
+								<Grid item md={3}>
+									<div className="feature-icon red">
+										<img src='./icons/icon_bm_02_mobile_app.png' alt='Mobile App' />
+									</div>
+									<h4>Mobile app</h4>
+									<p>An intuitive mobile interfaces makes it easy for everyone to fill out their brackets. Now you can edit brackets anywhere, including on the go.</p>
+								</Grid>
+								<Grid item md={3}>
+									<div className="feature-icon yellow">
+										<img src='./icons/icon_bm_03_live_standing.png' alt='Live Standings' />
+									</div>
+									<h4>Live standings</h4>
+									<p>Know where you stand at all times with the fastest and most frequently updated scores, straight from the source.</p>
+								</Grid>
+								<Grid item md={3}>
+									<div className="feature-icon lilac">
+										<img src='./icons/icon_bm_04_team_notes.png' alt='Team Notes' />
+									</div>
+									<h4>Team notes</h4>
+									<p>Easily compare teams via our dynamic matchup screen that features easy-to-digest notes on each team to help you decide between picks.</p>
+								</Grid>
+							</Grid>
+						</div>
+					</div>
+					<div className="layout layout-secondary-color">
+						<div className="container">
+							<Grid container spacing={10} className="flex-center graphic-row">
+								<Grid item md={7}>
+									<LayeredGraphic
+										back='./images/weekly-phone.png'
+										middle='./images/sleeper-weekly.png'
+										elements={['./images/bm-clock.png', './images/orange-calendar.png','./images/orange-confetti.png','./images/bm-basketball.png']}
+										className='weekly-graphic'
+										entrance={true}
+										imagePosition='left'
+									/>
+								</Grid>
+								<Grid item md={5}>
+									<h1>Weekly Mode</h1>
+									<p>Match up head to head with your friends and see if your team is ready for the 13 week season. Compete for fun and play for glory. Only the top teams will advance to the playoffs.</p>
+								</Grid>
+							</Grid>
+							<Grid container spacing={10} className="flex-center graphic-row">
+								<Grid item md={5}>
+									<h1>Classic Mode</h1>
+									<p>Match up head to head with your friends and see if your team is ready for the 13 week season. Compete for fun and play for glory. Only the top teams will advance to the playoffs.</p>
+								</Grid>
+								<Grid item md={7}>
+									<LayeredGraphic
+										back='./images/classic-phone.png'
+										middle='./images/sleeper-classic.png'
+										elements={['./images/orange-confetti.png','./images/bm-basketball.png','./images/orange-trophy.png']}
+										className='classic-graphic'
+										entrance={true}
+										imagePosition='right'
+									/>
+								</Grid>
+							</Grid>
+						</div>
+					</div>
+					<div className="layout layout-secondary-color">
+						<Testimonials
+							className="basketball-testimonial"
+							background="down"
+							testimonials={this.testimonials}
+						>
+							<h1>The place for sports and friends</h1>
+							<p>From mascots, to epic moments, to fun competition, see why many are inviting their friends and family to play with them on Sleeper.</p>
+							<button className="btn btn-default btn-orange">Get Started</button>
+						</Testimonials>
+					</div>
 				</div>
 			</div>
-		</div>
 		);
 	}
 }

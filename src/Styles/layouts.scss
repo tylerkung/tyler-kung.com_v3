@@ -79,8 +79,6 @@
 	&.header-basketball{
 		&:before{
 			background-image: url('./background/basketball-round-path.png');
-			background-position: center bottom;
-			height: 450px;
 		}
 		.header-content{
 
@@ -120,11 +118,20 @@
 		background-repeat: no-repeat;
 		background-size: cover;
 	}
+	.scroll-down{
+		position: absolute;
+		bottom: 50px;
+		z-index: 12;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100px;
+	}
 }
 .sport-page, .default-page{
 	background-color: $layoutMainColor;
 	position:relative;
 	z-index: 10;
+	overflow: hidden;
 }
 
 .default-page{

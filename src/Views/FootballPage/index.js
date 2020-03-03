@@ -70,13 +70,15 @@ class FootballPage extends Component {
 							<Grid container spacing={3}>
 								<Grid item md={6}>
 								</Grid>
-								<Grid item md={6} className="header-content">
+								<Grid item md={5} className="header-content">
 									<h1 className="">Join millions of fans on Sleeper</h1>
 									<p className="txt-black">See why everyone is moving their leagues to Sleeper.<br/>Never use antiquated fantasy platforms again.</p>
 									<div className="">
 										<button className="btn btn-default">Get Started
 										</button>
 									</div>
+								</Grid>
+								<Grid item md={1}>
 								</Grid>
 							</Grid>
 						</div>

@@ -68,7 +68,9 @@ render(){
 			<div className="sport-header header-basketball">
 				<div className="container">
 					<Grid container spacing={3}>
-						<Grid item md={6} className="header-content">
+						<Grid item md={1}>
+						</Grid>
+						<Grid item md={5} className="header-content">
 							<h1 className="">Play Bracket Mania</h1>
 							<p className="txt-black">Your favorite fantasy app now supports college basketball brackets with all the features that you've come to expect and love</p>
 							<div className="">

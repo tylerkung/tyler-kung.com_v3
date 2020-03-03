@@ -44,7 +44,7 @@ class Overlay extends Component {
 						<p>Bracket Mania is here, just in time for the NCAA mens basketball tournament.  Play the popular bracket pick’em game with your friends and co-workers. </p>
 						<div className="sport-link">
 							<Link to='/bracket-mania' key='basketball'>
-								<div className="btn btn-default btn-sm btn-orange" onClick={this.enterStadium}>Learn More</div>
+								<div className="btn btn-secondary" onClick={this.enterStadium}>Learn More</div>
 							</Link>
 						</div>
 					</div>
@@ -56,7 +56,7 @@ class Overlay extends Component {
 						<p>Compete with friends by drafting and managing your own team of NFL players. Create a league, invite some friends, and make sure to draft your teams before the season kicks off on September 12.</p>
 						<div className="sport-link">
 							<Link to='/fantasy-football' key='football'>
-								<div className="btn btn-default btn-sm" onClick={this.enterStadium}>Learn More</div>
+								<div className="btn btn-secondary" onClick={this.enterStadium}>Learn More</div>
 							</Link>
 						</div>
 					</div>

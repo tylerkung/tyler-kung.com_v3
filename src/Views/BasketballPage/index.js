@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import LayeredGraphic from "../../Components/LayeredGraphic";
 import Testimonials from "../../Components/Testimonials";
 import Lottie from "react-lottie";
-import animationData from "../../Lotties/scroll-animation.json";
+import animationData from "../../Lotties/scroll-animation-dark.json";
 
 class BasketballPage extends Component {
     constructor(props){

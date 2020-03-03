@@ -77,6 +77,49 @@
 	}
 	&.football-active{
 		text-align: right;
+		.overlay-inner{
+			background-color: transparent;
+			background-image: linear-gradient(to bottom left, rgba(0, 206, 184, .8), rgba(0, 183, 179, 1));
+		}
+		.overlay-content{
+			> *{
+				color: $sleeperBlack !important;;
+			}
+		}
+	}
+	&.basketball-active{
+		text-align: left;
+		right: -100%;
+		transform: translateX(-100%);
+		.overlay-close{
+			&:before{
+				right: auto;
+				left: 0;
+			}
+		}
+		.overlay-inner{
+			background-color: transparent;
+			background-image: linear-gradient(to bottom right, rgba(255, 100, 13, .8), rgba(255, 92, 0, .97));
+			justify-content: flex-start;
+			clip-path: circle(100vw at 100vw 50vh);
+		}
+		.overlay-content{
+			> *{
+				color: $sleeperBlack !important;;
+			}
+		}
+	}
+	&.soccer-active{
+		text-align: right;
+		.overlay-inner{
+			background-color: transparent;
+			background-image: linear-gradient(to bottom left, rgba(124, 218, 249, .8), rgba(94, 115, 228, .97));
+		}
+		.overlay-content{
+			> *{
+				color: $sleeperBlack !important;;
+			}
+		}
 	}
 	&.overlay-open{
 		transition-delay: 0.5s;
@@ -108,21 +151,6 @@
 			> * {
 				opacity: 1;
 			}
-		}
-	}
-	&.basketball-active{
-		text-align: left;
-		right: -100%;
-		transform: translateX(-100%);
-		.overlay-close{
-			&:before{
-				right: auto;
-				left: 0;
-			}
-		}
-		.overlay-inner{
-			justify-content: flex-start;
-			clip-path: circle(100vw at 100vw 50vh);
 		}
 	}
 	.overlay-content{

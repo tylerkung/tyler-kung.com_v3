@@ -149,7 +149,7 @@ body {
 	height: 100%;
 	z-index: 30;
 	background-color: #18202F;
-	transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+	transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 	display: flex;
 	justify-content: center;
 	&.close{

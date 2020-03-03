@@ -65,7 +65,12 @@ class Overlay extends Component {
 				return (
 					<div className='overlay-content'>
 						<h1 className="txt-blue">Fantasy PL</h1>
-						<p>Currently under construction.. Check back soon</p>
+						<p>Currently under construction..</p>
+						<div className="sport-link">
+							<Link to='/fantasy-pl' key='soccer'>
+								<div className="btn btn-secondary btn-sm" onClick={this.enterStadium}>Learn More</div>
+							</Link>
+						</div>
 					</div>
 				)
 			default:

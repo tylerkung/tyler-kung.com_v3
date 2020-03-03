@@ -56,6 +56,9 @@ class NewCity extends Component {
 		},
 		{
 			sport: 'football',
+		},
+		{
+			sport: 'soccer',
 		}];
 		this.camera = null;
 		this.renderer = null;

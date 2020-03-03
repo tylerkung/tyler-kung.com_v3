@@ -91,7 +91,7 @@ class App extends Component {
 													<BasketballPage {...props} goHome={this.goHome} />}
 											/>
 											<Route exact
-												path="/soccer"
+												path="/fantasy-pl"
 												render={(props) =>
 													<SoccerPage {...props} goHome={this.goHome} />}
 											/>

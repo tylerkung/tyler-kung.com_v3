@@ -45,6 +45,11 @@ class Header extends Component {
 													Fantasy Football
 												</li>
 											</Link>
+											<Link to="/fantasy-pl">
+												<li className="nav-link">
+													Fantasy PL
+												</li>
+											</Link>
 										</ul>
 									</li>
 									<Link to="/about">

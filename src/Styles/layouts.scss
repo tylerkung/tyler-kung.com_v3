@@ -65,7 +65,7 @@
 			}
 		}
 	}
-	&.header-football, &.header-basketball{
+	&.header-football, &.header-basketball, &.header-soccer{
 		&:before{
 			content: '';
 			position: absolute;
@@ -87,6 +87,14 @@
 	&.header-basketball{
 		&:before{
 			background-image: url('./background/basketball-round-path.png');
+		}
+		.header-content{
+
+		}
+	}
+	&.header-soccer{
+		&:before{
+			background-image: url('./background/soccer-round-path.png');
 		}
 		.header-content{
 

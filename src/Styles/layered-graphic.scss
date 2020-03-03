@@ -101,6 +101,57 @@
 			}
 		}
 	}
+	&.weekly-graphic{
+		.layer-elements{
+			.element-0{
+				animation: none;
+				left: 0;
+				top: 0;
+				width: 100%;
+			}
+			.element-1{
+				top: 40%;
+				animation-duration: 8s;
+			}
+			.element-2{
+				top: 10%;
+				left: 50%;
+				animation-duration: 5s;
+			}
+			.element-3{
+				right: 40%;
+				bottom: 20%;
+				animation-duration: 9s;
+			}
+		}
+	}
+	&.classic-graphic{
+		.layer-elements{
+			.element-0{
+				top: 15%;
+				left: 25%;
+			}
+			.element-1{
+				top: 50%;
+				right: 20%;
+				animation-duration: 9s;
+			}
+			.element-2{
+				bottom: 25%;
+				left: 5%;
+				animation-duration: 7s;
+			}
+		}
+	}
+	&.bracket-mania-graphic{
+		background-image: url('./background/bracketmap.png');
+		background-size: contain;
+		background-position: center center;
+		background-repeat: no-repeat;
+		.c-frame{
+			margin: 0 auto;
+		}
+	}
 	.graphic-inner.active{
 		.layer-back, .layer-middle, .layer-elements{
 			opacity: 1;
@@ -120,6 +171,9 @@
 		transition: all 1s 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
 		opacity: 0;
 		transform: translateX(20px);
+		img{
+			max-width: unset;
+		}
 	}
 	.layer-middle{
 		transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -134,6 +188,7 @@
 		transform: translateX(20px);
 	}
 	.c-frame.layer-left{
+		float: right;
 		.layer-back{
 			img{
 				float: right;

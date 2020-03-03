@@ -52,7 +52,7 @@ class LayeredGraphic extends Component {
 				<Scene
 					classToggle='active'
 					triggerElement={`#${this.key}`}
-					offset={100}
+					offset={50}
 					reverse={true}
 				>
 					{(progress, event) => (

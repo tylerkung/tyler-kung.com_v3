@@ -58,9 +58,10 @@
 		height: 100%;
 		display: flex;
 		align-items: center;
+		justify-content: flex-end;
 		padding: 3em 1em;
 		background-color: rgba(14, 22, 37, .94);
-		overflow: hidden;
+		clip-path: circle(100vw at -50vw 50vh);
 		@media (min-width: 768px){
 			padding: 3em 4em;
 		}
@@ -116,11 +117,16 @@
 		.overlay-close{
 			&:before{
 				right: auto;
-				left: -3em;
+				left: 0;
 			}
+		}
+		.overlay-inner{
+			justify-content: flex-start;
+			clip-path: circle(100vw at 100vw 50vh);
 		}
 	}
 	.overlay-content{
+		max-width: 800px;
 		> * {
 			opacity: 0;
 			transform: translateY(30px);
@@ -142,7 +148,7 @@
 			color: #fff;
 			position: absolute;
 			top: 1em;
-			right: -3em;
+			right: 0;
 			font-family: "Muli", Helvetica, Arial, sans-serif;
 			transition: opacity 0.3s ease;
 			opacity: 0;

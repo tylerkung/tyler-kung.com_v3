@@ -10,6 +10,12 @@
 		// 		max-height: 90vh;
 		// 	}
 		// }
+		.header-content{
+			> *{
+				transform: translateY(0px);
+				opacity: 1;
+			}
+		}
 	}
 	&.page-football, &.page-basketball, &.page-soccer, &.page-home{
 		padding-top: 0;
@@ -19,10 +25,38 @@
 .sport-header{
 	// height: 65vh;
 	// min-height: 650px;
-	max-height: 100vh;
+	max-height: 1200px;
 	height: 100vh;
 	transition: max-height 2s cubic-bezier(0.075, 0.82, 0.165, 1);
 	position: relative;
+	display: flex;
+	align-items: center;
+	.header-content{
+		position: relative;
+		&:after{
+			content: '';
+			background-image: radial-gradient($sleeperWhite 70%, transparent);
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			filter: blur(20px);
+			border-radius: 50%;
+			opacity: 0.6;
+		}
+		> *{
+			transform: translateY(20px);
+			opacity: 0;
+			transition: all 0.8s cubic-bezier(.1,.53,.32,1.17);
+			&:nth-child(2){
+				transition-delay: 0.2s;
+			}&:nth-child(3){
+				transition-delay: 0.4s;
+			}
+		}
+	}
 	&.header-football, &.header-basketball{
 		&:before{
 			content: '';
@@ -48,9 +82,9 @@
 			background-position: center bottom;
 			height: 450px;
 		}
-	}
-	h1{
-		font-size: 5em;
+		.header-content{
+
+		}
 	}
 	.stadium-fallback{
 		object-fit: cover;
@@ -65,7 +99,10 @@
 		width: 100%;
 		max-height: 100vh;
 		height: 100vh;
-		position: relative;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -2;
 		object-fit: cover;
 		object-position: center center;
 		transition: max-height 2s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -141,7 +178,7 @@
 	}
 }
 .layout{
-	padding: 2rem 0;
+	padding: 5rem 0 0;
 }
 .layout-main-color{
 	&, &[class*="layout-rounded"]:before, &[class*="layout-slant"]:after{
@@ -152,6 +189,9 @@
 	&, &[class*="layout-rounded"]:before, &[class*="layout-slant"]:after{
 		background-color: $layoutSecondaryColor;
 	}
+}
+.layout-bracket-mania-color{
+	background-image: linear-gradient(to bottom, rgba(255, 201, 0, 0.0), rgba(255, 153, 0, 0.15))
 }
 .layout-slant-down{
 	position: relative;

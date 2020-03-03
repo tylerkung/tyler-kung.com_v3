@@ -181,9 +181,9 @@ class NewCity extends Component {
 			});
 			object.getObjectByName('main').intensity = 0;
 			const textures = {};
-			textures.sleeper = new THREE.TextureLoader().load('./images/sleeper-billboard-w.png');
-			textures.budlight = new THREE.TextureLoader().load('./images/budlight.png');
-			textures.coke = new THREE.TextureLoader().load('./images/coke.jpg');
+			textures.sleeper = new THREE.TextureLoader().load('./images/sleeper-billboard-4.png');
+			textures.sleeper_2 = new THREE.TextureLoader().load('./images/sleeper-billboard-3.png');
+			textures.sleeper_bm = new THREE.TextureLoader().load('./images/bracket-mania-billboard.png');
 			textures.tatum = new THREE.TextureLoader().load('./images/birchmere.png');
 			textures.hero = new THREE.TextureLoader().load('./images/sleeper-billboard-hero.png');
 			for (var texture in textures){
@@ -200,20 +200,21 @@ class NewCity extends Component {
 
 			var sleeperSign = signMaterial.clone();
 			sleeperSign.map = textures.sleeper;
-			var budlightSign = signMaterial.clone();
-			budlightSign.map = textures.budlight;
-			var cokeSign = signMaterial.clone();
-			cokeSign.map = textures.coke;
+			var sleeperSign_2 = signMaterial.clone();
+			sleeperSign_2.map = textures.sleeper_2;
+			var sleeperSign_BM = signMaterial.clone();
+			sleeperSign_BM.map = textures.sleeper_bm;
 			var tatumSign = signMaterial.clone();
 			tatumSign.map = textures.tatum;
 			var heroSign = signMaterial.clone();
 			heroSign.map = textures.hero;
 
-			object.getObjectByName('billboard_01').material = budlightSign;
-			object.getObjectByName('billboard_03').material = sleeperSign;
-			object.getObjectByName('billboard_08').material = heroSign;
-			object.getObjectByName('billboard_05').material = cokeSign;
-			object.getObjectByName('billboard_09').material = budlightSign;
+			object.getObjectByName('billboard_01').material = sleeperSign_2;
+			object.getObjectByName('billboard_03').material = heroSign;
+			object.getObjectByName('billboard_08').material = sleeperSign_2;
+			object.getObjectByName('billboard_04').material = sleeperSign_BM;
+			object.getObjectByName('billboard_05').material = sleeperSign;
+			object.getObjectByName('billboard_09').material = sleeperSign;
 			// object.getObjectByName('sign_05').material = signMaterial;
 			// object.getObjectByName('sign_06').material = signMaterial;
 			this.ferrisWheel = object.getObjectByName('ferris_wheel');

@@ -5,17 +5,8 @@ import NewCity from "../../Components/NewCity";
 class HomePage extends Component {
 	constructor(props){
 		super(props);
-
-		this.state = {
-			loadScreenActive: false
-		}
 		this.onRouteChange = this.onRouteChange.bind(this);
-	}
-
-	initLoadScreen(){
-		this.timeoutId = setTimeout(function () {
-			this.setState({loadScreenActive: false});
-		}.bind(this), 2000);
+		this.props.initLoad();
 	}
 	// closeLoadScreen(){
 	// 	console.log("hello");

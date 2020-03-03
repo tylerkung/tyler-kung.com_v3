@@ -107,7 +107,7 @@ body {
 		}
 	}
 	&.btn-orange{
-		background-image: linear-gradient(to top left, #FFAE58, #FF4542);
+		background-image: linear-gradient(to top left, #FF4542, #FFAE58);
 		color: $btnColor;
 		&:after{
 			background-color: $sleeperOrange;
@@ -148,17 +148,20 @@ body {
 	width: 100%;
 	height: 100%;
 	z-index: 30;
-	background-color: #000;
-	transition: all 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+	background-color: #18202F;
+	transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
 	display: flex;
 	justify-content: center;
 	&.close{
-		transition-duration: 2s;
+		transition-duration: 1s;
 		transform: translateY(101%);
 		img{
 			transform: translateY(0vh);
 			opacity: 0;
 		}
+	}
+	&.init:not(.close){
+		transition-property: none;
 	}
 	img{
 		position: absolute;
@@ -181,23 +184,28 @@ body {
 }
 
 .feature-row{
-	margin-bottom: 4em !important;
+	margin-bottom: 2em !important;
 }
 .feature-icon{
-	height: 50px;
-	width: 50px;
+	height: 60px;
+	width: 60px;
 	background-color: $sleeperMint;
-	border-radius: 19px;
+	border-radius: 50%;
 	position: relative;
+	img{
+		width: 100%;
+	}
 	&:after{
 		content: '';
 		display: block;
 		position: absolute;
 		box-shadow: 0 6px 15px $sleeperMint;
-		border-radius: 19px;
+		border-radius: 50%;
 		height: 100%;
 		width: 100%;
-		opacity: 0.7
+		opacity: 0.7;
+		top: 0;
+		left: 0;
 	}
 	&.purple{
 		background-color: $sleeperPurple;
@@ -218,9 +226,15 @@ body {
 		}
 	}
 	&.gray{
-		background-color: #344054;
+		background-color: #677897;
 		&:after{
-			box-shadow: 0 6px 15px #344054;
+			box-shadow: 0 6px 15px #677897;
+		}
+	}
+	&.orange{
+		background-color: #FF7A5A;
+		&:after{
+			box-shadow: 0 6px 15px #FF7A5A;
 		}
 	}
 	&.green{
@@ -247,4 +261,8 @@ body {
 			box-shadow: 0 6px 15px $sleeperAqua;
 		}
 	}
+}
+
+img{
+	max-width: 100%;
 }

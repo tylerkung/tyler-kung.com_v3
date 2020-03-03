@@ -23,9 +23,11 @@ class App extends Component {
 		 super(props);
 
 		 this.state = {
-			 loadScreenActive: true
+			 loadScreenActive: false,
+			 initLoadScreen: false
 		 }
 		 this.goHome = this.goHome.bind(this);
+		 this.initLoad = this.initLoad.bind(this);
 		 this.startLoad = this.startLoad.bind(this);
 		 this.stopLoad = this.stopLoad.bind(this);
 		 this.history = createBrowserHistory();
@@ -37,12 +39,15 @@ class App extends Component {
 			this.history.push('/home')}, 1000
 		);
 	}
+	initLoad(){
+		this.setState({initLoadScreen: true, loadScreenActive: true});
+	}
 	startLoad(){
 		this.setState({loadScreenActive: true});
 	}
 	stopLoad(){
 		setTimeout(() => {
-			this.setState({loadScreenActive: false});}, 1000
+			this.setState({loadScreenActive: false, initLoadScreen: false});}, 1000
 		);
 	}
    render() {
@@ -68,7 +73,7 @@ class App extends Component {
 					                  <Route exact
 												path="/(home|)/"
 												render={(props) =>
-													<HomePage {...props} stopLoad={this.stopLoad} />}
+													<HomePage {...props} stopLoad={this.stopLoad} initLoad={this.initLoad}/>}
 											/>
 											<Route exact
 												path="/about"
@@ -101,7 +106,7 @@ class App extends Component {
 								</TransitionGroup>
 							)
 						}}/>
-						<div className={'loading-screen ' + (this.state.loadScreenActive ? 'open' : 'close')}>
+						<div className={'loading-screen ' + (this.state.loadScreenActive ? 'open' : 'close') + (this.state.initLoadScreen ? ' init' : '')}>
 							<img src='./images/floating_bot_mid.png' alt="Sleeper Loading" />
 						</div>
 	            </main>

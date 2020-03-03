@@ -43,7 +43,7 @@ class FootballPage extends Component {
 				  quote: "From trading rookie draft picks during the season to multi team trades to its interactive and helpful customer services, our league has never regretted switching...",
 				  direction: 'right'
 			  },
-		  ]
+		  ];
     }
 	 componentDidMount(){
  		// this.initLoadScreen();
@@ -51,7 +51,7 @@ class FootballPage extends Component {
 		setTimeout(
 			() => {
 				this.setState({pageLoaded: true});
-			}, 2000);
+			}, 1000);
  		this.props.history.listen(this.onRouteChange.bind(this));
  	}
 	componentWillUnmount(){
@@ -66,6 +66,20 @@ class FootballPage extends Component {
         return (
             <div className={`page-content page-football ${(this.state.pageLoaded) ? "page-loaded" : ""}`}>
 					<div className="sport-header header-football">
+						<div className="container">
+							<Grid container spacing={3}>
+								<Grid item md={6}>
+								</Grid>
+								<Grid item md={6} className="header-content">
+									<h1 className="">Join millions of fans on Sleeper</h1>
+									<p className="txt-black">See why everyone is moving their leagues to Sleeper.<br/>Never use antiquated fantasy platforms again.</p>
+									<div className="">
+										<button className="btn btn-default">Get Started
+										</button>
+									</div>
+								</Grid>
+							</Grid>
+						</div>
 						<video autoPlay muted loop>
 							<source src="./videos/football-landing.mp4" type="video/mp4" />
 								Your browser doesn't support the HTML5 video tag.
@@ -74,19 +88,9 @@ class FootballPage extends Component {
 					<div className="sport-page">
 						<div className="layout layout-secondary-color">
 							<div className="container">
-								<h1 className="txt-center">Join millions of fans on Sleeper</h1>
-								<h3 className="txt-center">See why everyone is moving their leagues to Sleeper.<br/>Never use antiquated fantasy platforms again.</h3>
-								<div className="txt-center">
-									<button className="btn btn-default">Sign Up
-									</button>
-								</div>
-							</div>
-						</div>
-						<div className="layout layout-secondary-color">
-							<div className="container">
 								<Grid container spacing={10} className="flex-center">
 									<Grid item md={6}>
-										<h2>1. Draft Players</h2>
+										<h1>Draft Players</h1>
 										<p>RB's first? Maybe WR's? TE in the first round? Or a QB (but not too early). Build your team the way you want in the draft. Choose wisely, your season depends on it!</p>
 									</Grid>
 									<Grid item md={6}>
@@ -111,13 +115,13 @@ class FootballPage extends Component {
 										/>
 									</Grid>
 									<Grid item md={6}>
-										<h2>2. Play your opponents</h2>
+										<h1>Play your opponents</h1>
 										<p>Match up head to head with your friends and see if your team is ready for the 13 week season. Compete for fun and play for glory. Only the top teams will advance to the playoffs.</p>
 									</Grid>
 								</Grid>
 								<Grid container spacing={10} className="flex-center">
 									<Grid item md={6}>
-										<h2>3. Win the playoffs</h2>
+										<h1>Win the playoffs</h1>
 										<p>It's win or go home! Be the last team standing to be crowned the champion of your league. Do you have what it takes?</p>
 									</Grid>
 									<Grid item md={6}>
@@ -155,18 +159,21 @@ class FootballPage extends Component {
 								<Grid container spacing={10} className="feature-row">
 									<Grid item md={4}>
 										<div className="feature-icon mint">
+											<img src='./icons/icon_01_league_chat@3x.png' alt='League Chat' />
 										</div>
 										<h4>League Chat</h4>
 										<p>Send text, gifs, polls and more with a modern chat right in your league, complete with the ability to react to trades and waiver pickups.</p>
 									</Grid>
 									<Grid item md={4}>
 										<div className="feature-icon purple">
+											<img src='./icons/icon_02_draftboard@3x.png' alt='League Chat' />
 										</div>
 										<h4>Draftboard</h4>
 										<p>Beautiful. Powerful. Contextual. Draft on a modern interface and cast it to a big screen TV – complete with full controls to fix any draft mistakes.</p>
 									</Grid>
 									<Grid item md={4}>
 										<div className="feature-icon red">
+											<img src='./icons/icon_03_game_day@3x.png' alt='League Chat' />
 										</div>
 										<h4>Game Day</h4>
 										<p>Experience the fastest scores, live play-by-plays, and real-time box scores, all custom delivered based on your league's scoring settings.</p>
@@ -174,19 +181,22 @@ class FootballPage extends Component {
 								</Grid>
 								<Grid container spacing={10} className="feature-row">
 									<Grid item md={4}>
-										<div className="feature-icon pink">
+										<div className="feature-icon gray">
+											<img src='./icons/icon_04_mascots@3x.png' alt='League Chat' />
 										</div>
 										<h4>Mascots</h4>
 										<p>Game Day gets better as you choose custom mascots to represent your team. Mascot reactions are sync'd to your team's performance in real-time!</p>
 									</Grid>
 									<Grid item md={4}>
-										<div className="feature-icon gray">
+										<div className="feature-icon orange">
+											<img src='./icons/icon_05_blockbuster_trade@3x.png' alt='League Chat' />
 										</div>
 										<h4>Blockbuster Trades</h4>
 										<p>Pull off a multi-team trade. Send future draft picks. Trade FAAB dollars. Trade during your draft. Sleeper lets you wheel and deal like never before.</p>
 									</Grid>
 									<Grid item md={4}>
 										<div className="feature-icon green">
+											<img src='./icons/icon_06_waiver_countdown@3x.png' alt='League Chat' />
 										</div>
 										<h4>Waiver Countdown</h4>
 										<p>Weekly waivers process instantly when the countdown hits zero, turning waiver day into a fun experience with leaguemates.</p>
@@ -195,18 +205,21 @@ class FootballPage extends Component {
 								<Grid container spacing={10} className="feature-row">
 									<Grid item md={4}>
 										<div className="feature-icon yellow">
+											<img src='./icons/icon_07_DM@3x.png' alt='League Chat' />
 										</div>
 										<h4>Direct messaging</h4>
 										<p>1:1 and group messaging is easy with Sleeper. Propose trades, talk smack, or organize events. No more downloading a separate chat app.</p>
 									</Grid>
 									<Grid item md={4}>
 										<div className="feature-icon lilac">
+											<img src='./icons/icon_08_dynasty_league@3x.png' alt='League Chat' />
 										</div>
 										<h4>Dynasty Leagues</h4>
 										<p>Leagues are open 365 days a year, and Sleeper offers a full-suite of dynasty features. Unlike our peers, we do it for free.</p>
 									</Grid>
 									<Grid item md={4}>
 										<div className="feature-icon aqua">
+											<img src='./icons/icon_09_keeper@3x.png' alt='League Chat' />
 										</div>
 										<h4>Keeper Leagues</h4>
 										<p>Sleeper offers full keeper support. We do all the tracking, so all you have to worry about is keeping the right players.</p>

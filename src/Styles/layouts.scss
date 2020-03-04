@@ -91,23 +91,17 @@
 	}
 	&.header-football{
 		&:before{
-			background-image: url('./background/football-round-path.png');
+			background-image: url('https://sleepercdn.com/downloads/webtest/football_round_path.png');
 		}
 	}
 	&.header-basketball{
 		&:before{
-			background-image: url('./background/basketball-round-path.png');
-		}
-		.header-content{
-
+			background-image: url('https://sleepercdn.com/downloads/webtest/basketball_round_path.png');
 		}
 	}
 	&.header-soccer{
 		&:before{
-			background-image: url('./background/soccer-round-path.png');
-		}
-		.header-content{
-
+			background-image: url('https://sleepercdn.com/downloads/webtest/soccer_round_path.png');
 		}
 	}
 	.stadium-fallback{

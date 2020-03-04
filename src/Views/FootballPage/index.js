@@ -158,7 +158,7 @@ class FootballPage extends Component {
 									</Grid>
 									<Grid item md={6} className="txt-center">
 										<h2>Gameday, everyday</h2>
-										<p>Your team, your players, and your friends, all in one place. Sleeper integrates a social environment with the competitive fatnasy atmosphere. Next level features and everything else your team needs are here.</p>
+										<p>Your team, your players, and your friends, all in one place. Sleeper integrates a social environment with the competitive fantasy atmosphere. Next level features and everything else your team needs are here.</p>
 										<Link to="">
 											<button className="btn btn-default">
 												Create a league

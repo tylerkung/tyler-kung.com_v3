@@ -23,7 +23,7 @@ class Footer extends Component {
   					offset={-100}
   					triggerHook={1}
   					reverse={true}
-  					indicators={true}
+  					indicators={false}
   				>
             <footer className="sleeper-footer">
 

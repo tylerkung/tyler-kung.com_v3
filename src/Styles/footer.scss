@@ -10,9 +10,7 @@
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-
-	// margin-top: -400px;
-	z-index: 10;
+	z-index: 11;
 	transition: all 1.2s cubic-bezier(.1,.53,.32,1.17);
 	transform: translateY(400px);
 	-webkit-transform: translateY(400px);

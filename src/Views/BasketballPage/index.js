@@ -91,7 +91,7 @@ class BasketballPage extends Component {
 						</Grid>
 					</div>
 					<video autoPlay muted loop>
-						<source src="http://sleepercdn.com/downloads/webtest/basketball_landing.mp4  " type="video/mp4" />
+						<source src="http://sleepercdn.com/downloads/webtest/basketball_landing.mp4" type="video/mp4" />
 						<img src='./images/basketball-stadium-fallback.png' alt="Basketball"/>
 						Your browser doesn't support the HTML5 video tag.
 					</video>

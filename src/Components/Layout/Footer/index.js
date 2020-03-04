@@ -20,7 +20,7 @@ class Footer extends Component {
   				<Scene
   					classToggle='show'
   					triggerElement={`.footer-helper`}
-  					offset={-100}
+  					offset={-50}
   					triggerHook={1}
   					reverse={true}
   					indicators={false}

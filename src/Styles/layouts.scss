@@ -1,10 +1,12 @@
 .page-content{
-	&:not(.page-home){
-		padding-bottom: 300px;
+	padding-bottom: 300px;
+	&.page-soccer{
+		padding-bottom: 50px;
 	}
 	&.page-home{
 		// height: 50vh;
 		// background-color: #eee;
+		padding-bottom: 0;
 	}
 	&.page-loaded{
 		// .sport-header{

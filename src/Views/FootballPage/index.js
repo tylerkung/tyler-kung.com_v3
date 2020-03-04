@@ -91,7 +91,7 @@ class FootballPage extends Component {
 							</Grid>
 						</div>
 						<video autoPlay muted loop>
-							<source src="http://sleepercdn.com/downloads/webtest/football_landing.mp4 " type="video/mp4" />
+							<source src="http://sleepercdn.com/downloads/webtest/football_landing.mp4" type="video/mp4" />
 								Your browser doesn't support the HTML5 video tag.
 						</video>
 						<div className="scroll-down">
@@ -106,8 +106,8 @@ class FootballPage extends Component {
 							<div className="container">
 								<Grid container spacing={10} className="flex-center graphic-row">
 									<Grid item md={6}>
-										<h1 className="block-header purple">Draft Players</h1>
-										<p>RB's first? Maybe WR's? TE in the first round? Or a QB (but not too early). Build your team the way you want in the draft. Choose wisely, your season depends on it!</p>
+										<h1 className="block-header purple">Draft players</h1>
+										<p>RB's early? TE in the second round? Or a QB (but not too early). Build your team the way you want in the draft. Choose wisely, your season depends on it!</p>
 									</Grid>
 									<Grid item md={6}>
 										<LayeredGraphic

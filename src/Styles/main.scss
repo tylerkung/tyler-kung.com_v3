@@ -129,10 +129,10 @@ body {
 
 .btn-secondary{
 	background-color: rgba(238,242,247,0.7);
-	border: 2px solid #344054;
+	border: 2px solid $sleeperBlack;
 	color: #344054;
 	&:hover{
-		background-color: #344054;
+		background-color: $sleeperBlack;
 		color: #D8E2ED;
 	}
 }
@@ -161,9 +161,6 @@ body {
 	justify-content: center;
 	&.close{
 		transition-duration: 2s;
-		transform: translateY(101%);
-		-webkit-transform: translateY(101%);
-		-ms-transform: translateY(101%);
 		opacity: 0;
 		pointer-events: none;
 		img{
@@ -178,9 +175,9 @@ body {
 	}
 	img{
 		position: absolute;
-		transform: translateY(calc(50vh - 40px));
-		-webkit-transform: translateY(calc(50vh - 40px));
-		-ms-transform: translateY(calc(50vh - 40px));
+		transform: translateY(calc(50vh - 50px));
+		-webkit-transform: translateY(calc(50vh - 50px));
+		-ms-transform: translateY(calc(50vh - 50px));
 		transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
 	}
 	@keyframes spin{

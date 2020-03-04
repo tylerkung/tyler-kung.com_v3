@@ -219,8 +219,8 @@
 }
 
 .cursor{
-	height: 250px;
-	width: 250px;
+	height: 200px;
+	width: 200px;
 	position: absolute;
 	z-index: 19;
 	pointer-events: none;
@@ -245,9 +245,9 @@
 		background-image: url('./icons/football-cursor.png');
 		background-size: contain;
 	}
-	transform: translate(calc(50vw - 125px + 24vh), calc(50vh - 125px + 11vh));
-	-webkit-transform: translate(calc(50vw - 125px + 24vh), calc(50vh - 125px + 11vh));
-	-ms-transform: translate(calc(50vw - 125px + 24vh), calc(50vh - 125px + 11vh));
+	transform: translate(calc(50vw - 100px + 26vh), calc(50vh - 100px + 14vh));
+	-webkit-transform: translate(calc(50vw - 100px + 26vh), calc(50vh - 100px + 14vh));
+	-ms-transform: translate(calc(50vw - 100px + 26vh), calc(50vh - 100px + 14vh));
 }
 .cursor-basketball{
 	top: 0;
@@ -255,9 +255,9 @@
 		background-image: url('./icons/basketball-cursor.png');
 		background-size: contain;
 	}
-	transform: translate(calc(50vw - 125px - 49vh), calc(50vh - 125px + 14vh));
-	-webkit-transform: translate(calc(50vw - 125px - 49vh), calc(50vh - 125px + 14vh));
-	-ms-transform: translate(calc(50vw - 125px - 49vh), calc(50vh - 125px + 14vh));
+	transform: translate(calc(50vw - 100px - 49vh), calc(50vh - 100px + 14vh));
+	-webkit-transform: translate(calc(50vw - 100px - 49vh), calc(50vh - 100px + 14vh));
+	-ms-transform: translate(calc(50vw - 100px - 49vh), calc(50vh - 100px + 14vh));
 }
 .cursor-soccer{
 	top: 0;
@@ -265,9 +265,9 @@
 		background-image: url('./icons/soccer-cursor.png');
 		background-size: contain;
 	}
-	transform: translate(calc(50vw - 125px + 1vh), calc(50vh - 125px - 22vh));
-	-webkit-transform: translate(calc(50vw - 125px + 1vh), calc(50vh - 125px - 22vh));
-	-ms-transform: translate(calc(50vw - 125px + 1vh), calc(50vh - 125px - 22vh));
+	transform: translate(calc(50vw - 100px + 1vh), calc(50vh - 100px - 22vh));
+	-webkit-transform: translate(calc(50vw - 100px + 1vh), calc(50vh - 100px - 22vh));
+	-ms-transform: translate(calc(50vw - 100px + 1vh), calc(50vh - 100px - 22vh));
 }
 #btn-function{
 	position: absolute;

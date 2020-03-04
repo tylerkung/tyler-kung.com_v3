@@ -184,13 +184,19 @@ class BasketballPage extends Component {
 								</Grid>
 								<Grid item md={5}>
 									<h1>Weekly Mode</h1>
-									<p>Match up head to head with your friends and see if your team is ready for the 13 week season. Compete for fun and play for glory. Only the top teams will advance to the playoffs.</p>
+									<p>In <strong>Weekly Mode (Recommended)</strong>, the 64-team tournament is divided into 3 weeks. There are 2 rounds in every week.</p>
+									<p><strong>Week 1</strong> - Rounds 1 & 2<br/>
+									<strong>Week 2</strong> - Sweet 16 & Elite 8<br/>
+									<strong>Week 3</strong> - Final Four and Championship<br/>
+									</p>
+									<p>At the beginning of each week of the tournament, players will fill out the bracket for the next 2 rounds, choosing from teams that are still in the tournament.</p>
+									<p>This mode offers the right balance of strategy and chance, with the opportunity for upset comebacks in your pool.</p>
 								</Grid>
 							</Grid>
 							<Grid container spacing={10} className="flex-center graphic-row">
 								<Grid item md={5}>
 									<h1>Classic Mode</h1>
-									<p>Match up head to head with your friends and see if your team is ready for the 13 week season. Compete for fun and play for glory. Only the top teams will advance to the playoffs.</p>
+									<p>In <strong>Classic Mode</strong>, each participant will submit all of their picks for the entire bracket, including through the Championship Game.  No changes can be made once games begin.</p>
 								</Grid>
 								<Grid item md={7}>
 									<LayeredGraphic

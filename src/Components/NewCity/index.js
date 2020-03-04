@@ -190,6 +190,7 @@ class NewCity extends Component {
 			textures.sleeper_bm = new THREE.TextureLoader().load('./images/bracket-mania-billboard.png');
 			textures.tatum = new THREE.TextureLoader().load('./images/birchmere.png');
 			textures.hero = new THREE.TextureLoader().load('./images/sleeper-billboard-hero.png');
+			textures.juju = new THREE.TextureLoader().load('./images/juju.png');
 			for (var texture in textures){
 				textures[texture].offset.x = -1.5;
 				textures[texture].repeat.set(4, 4);
@@ -212,13 +213,15 @@ class NewCity extends Component {
 			tatumSign.map = textures.tatum;
 			var heroSign = signMaterial.clone();
 			heroSign.map = textures.hero;
+			var jujuSign = signMaterial.clone();
+			jujuSign.map = textures.juju;
 
 			object.getObjectByName('billboard_01').material = sleeperSign_2;
 			object.getObjectByName('billboard_03').material = heroSign;
 			object.getObjectByName('billboard_08').material = sleeperSign_2;
 			object.getObjectByName('billboard_04').material = sleeperSign_BM;
 			object.getObjectByName('billboard_05').material = sleeperSign;
-			object.getObjectByName('billboard_09').material = sleeperSign;
+			object.getObjectByName('billboard_09').material = jujuSign;
 			// object.getObjectByName('sign_05').material = signMaterial;
 			// object.getObjectByName('sign_06').material = signMaterial;
 			this.ferrisWheel = object.getObjectByName('ferris_wheel');

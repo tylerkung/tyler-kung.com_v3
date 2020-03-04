@@ -30,7 +30,7 @@ class StylesPage extends Component {
 				<div className="default-page">
 					<div className="layout layout-secondary-color layout-slant-down">
 						<div className="container">
-							<h1 className="txt-center">Styles</h1>
+							<h1 className="block-header lilac">Styles</h1>
 							<h2>Header 2</h2>
 							<h3>Header 3</h3>
 							<h4>Header 4</h4>

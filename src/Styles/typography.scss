@@ -42,6 +42,47 @@ a{
 }
 strong{}
 
+h1, h2{
+	&.block-header{
+		padding-left: 100px;
+		position: relative;
+		&:before{
+			content: '';
+			height: 68px;
+			width: 68px;
+			display: block;
+			background-color: $sleeperMint;
+			border-radius: 19px;
+			position: absolute;
+			left: 0;
+			bottom: 10px;
+		}
+		&:after{
+			content: '';
+			display: block;
+			position: absolute;
+			box-shadow: 0 6px 15px $sleeperMint;
+			border-radius: 19px;
+			height: 68px;
+			width: 68px;
+			opacity: 0.7;
+			bottom: 10px;
+			left: 0;
+		}
+		&.mint{&:before{ background-color: $sleeperMint; } &:after{ box-shadow: 0 6px 15px $sleeperMint;}}
+		&.gray{&:before{ background-color: $sleeperGray; } &:after{ box-shadow: 0 6px 15px $sleeperGray;}}
+		&.green{&:before{ background-color: $sleeperGreen; } &:after{ box-shadow: 0 6px 15px $sleeperGreen;}}
+		&.red{&:before{ background-color: $sleeperRed; } &:after{ box-shadow: 0 6px 15px $sleeperRed;}}
+		&.orange{&:before{ background-color: $sleeperOrange; } &:after{ box-shadow: 0 6px 15px $sleeperOrange;}}
+		&.blue{&:before{ background-color: $sleeperBlue; } &:after{ box-shadow: 0 6px 15px $sleeperBlue;}}
+		&.purple{&:before{ background-color: $sleeperPurple; } &:after{ box-shadow: 0 6px 15px $sleeperPurple;}}
+		&.pink{&:before{ background-color: $sleeperPink; } &:after{ box-shadow: 0 6px 15px $sleeperPink;}}
+		&.yellow{&:before{ background-color: $sleeperYellow; } &:after{ box-shadow: 0 6px 15px $sleeperYellow;}}
+		&.lilac{&:before{ background-color: $sleeperLilac; } &:after{ box-shadow: 0 6px 15px $sleeperLilac;}}
+		&.aqua{&:before{ background-color: $sleeperAqua; } &:after{ box-shadow: 0 6px 15px $sleeperAqua;}}
+
+	}
+}
 ul:not(.footer-links){
 	li{
 		color: $bodyTextColor;

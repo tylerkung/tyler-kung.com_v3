@@ -183,7 +183,7 @@ class BasketballPage extends Component {
 									/>
 								</Grid>
 								<Grid item md={5}>
-									<h1>Weekly Mode</h1>
+									<h1 className="block-header orange">Weekly Mode</h1>
 									<p>In <strong>Weekly Mode (Recommended)</strong>, the 64-team tournament is divided into 3 weeks. There are 2 rounds in every week.</p>
 									<p><strong>Week 1</strong> - Rounds 1 & 2<br/>
 									<strong>Week 2</strong> - Sweet 16 & Elite 8<br/>
@@ -195,7 +195,7 @@ class BasketballPage extends Component {
 							</Grid>
 							<Grid container spacing={10} className="flex-center graphic-row">
 								<Grid item md={5}>
-									<h1>Classic Mode</h1>
+									<h1 className="block-header yellow">Classic Mode</h1>
 									<p>In <strong>Classic Mode</strong>, each participant will submit all of their picks for the entire bracket, including through the Championship Game.  No changes can be made once games begin.</p>
 								</Grid>
 								<Grid item md={7}>

@@ -110,6 +110,7 @@ class App extends Component {
 							<img src='./images/v4_200px.png' alt="Sleeper Loading" />
 						</div>
 	            </main>
+					<div className="footer-helper"></div>
 					<Footer />
 	         </Router>
 	      </div>

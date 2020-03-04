@@ -7,12 +7,16 @@
 	background-size: cover;
 	background-position: 50% 150px;
 	background-repeat: no-repeat;
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	width: 100%;
 
 	// margin-top: -400px;
 	z-index: 10;
+	transition: all 1.2s cubic-bezier(.1,.53,.32,1.17);
+	transform: translateY(370px);
+	-webkit-transform: translateY(370px);
+	-ms-transform: translateY(370px);
 	&:after{
 		content: '';
 		height: 180px;
@@ -33,6 +37,13 @@
 			background-position: 95% 0px;
 			top: 200px;
 		}
+	}
+	&.show{
+		transition-duration: 0.6s;
+		bottom: -12px;
+		transform: translateY(0px);
+		-webkit-transform: translateY(0px);
+		-ms-transform: translateY(0px);
 	}
 }
 

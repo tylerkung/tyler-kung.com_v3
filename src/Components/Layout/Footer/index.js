@@ -3,7 +3,7 @@ import {
    Link
 } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
-import GamesList from './GamesList';
+import { Controller, Scene } from 'react-scrollmagic';
 
 class Footer extends Component {
     constructor(props){
@@ -15,6 +15,16 @@ class Footer extends Component {
 
     render(){
         return (
+
+			  <Controller>
+  				<Scene
+  					classToggle='show'
+  					triggerElement={`.footer-helper`}
+  					offset={-100}
+  					triggerHook={1}
+  					reverse={true}
+  					indicators={true}
+  				>
             <footer className="sleeper-footer">
 
 					<div className="sleeper-footer-secondary">
@@ -61,6 +71,8 @@ class Footer extends Component {
 						</Grid>
 					</div>
 				</footer>
+				</Scene>
+				</Controller>
         );
     }
 }

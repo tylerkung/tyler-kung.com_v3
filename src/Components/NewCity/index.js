@@ -97,7 +97,7 @@ class NewCity extends Component {
 		var near = 0.1;
 		var far = 100;
 		var windowWidth = window.innerWidth;
-		var windowHeight = window.innerHeight;
+		var windowHeight = window.innerHeight + 175;
 		var multiplier = 1.1;
 		this.factor = multiplier * windowWidth;
 
@@ -377,7 +377,7 @@ class NewCity extends Component {
 	}
 	resize() {
 		var windowWidth = window.innerWidth;
-		var windowHeight = window.innerHeight;
+		var windowHeight = window.innerHeight + 175;
 		this.camera.aspect = windowWidth / windowHeight;
 		this.renderer.setSize( windowWidth, windowHeight );
 		this.camera.left = -windowWidth / this.factor;

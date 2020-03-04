@@ -97,7 +97,7 @@ class NewCity extends Component {
 		var near = 0.1;
 		var far = 100;
 		var windowWidth = window.innerWidth;
-		var windowHeight = window.innerHeight + 200;
+		var windowHeight = window.innerHeight;
 		var multiplier = 1.1;
 		this.factor = multiplier * windowWidth;
 
@@ -107,7 +107,7 @@ class NewCity extends Component {
 		this.camera.scale.x = 100;
 		this.camera.scale.y = 100;
 		this.camera.scale.z = 100;
-		this.camera.zoom = 3.4;
+		this.camera.zoom = 3.0;
 		this.cameraHelper = this.camera.clone();
 
 		// CONTROLS
@@ -345,11 +345,11 @@ class NewCity extends Component {
 		setTimeout(() => {
 			this.setState({activeStadium: '', hoverStadium: ''});
 		}, 600)
-		this.moveCamera(this.defaultQ, 3.4);
+		this.moveCamera(this.defaultQ, 3.0);
 		// this.lightsOff();
 	}
 	viewBasketball(){
-		this.cameraHelper.lookAt( -39, 9.7, -11.5 );
+		this.cameraHelper.lookAt( -50, 9.7, 1 );
 		var targetQ = this.cameraHelper.quaternion.clone();
 		this.moveCamera(targetQ, 5.2);
 	}
@@ -359,7 +359,7 @@ class NewCity extends Component {
 		this.moveCamera(targetQ, 5.4);
 	}
 	viewSoccer(){
-		this.cameraHelper.lookAt( 34.7, 17.5, -67.1 );
+		this.cameraHelper.lookAt( 10.7, 17.5, -40.1 );
 		var targetQ = this.cameraHelper.quaternion.clone();
 		this.moveCamera(targetQ, 5.6);
 	}
@@ -377,7 +377,7 @@ class NewCity extends Component {
 	}
 	resize() {
 		var windowWidth = window.innerWidth;
-		var windowHeight = window.innerHeight + 200;
+		var windowHeight = window.innerHeight;
 		this.camera.aspect = windowWidth / windowHeight;
 		this.renderer.setSize( windowWidth, windowHeight );
 		this.camera.left = -windowWidth / this.factor;

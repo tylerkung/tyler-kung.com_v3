@@ -18,6 +18,8 @@
 		.cursor-basketball{
 			&:before{
 				animation-duration: 4s;
+				-webkit-animation-duration: 4s;
+				-ms-animation-duration: 4s;
 			}
 		}
 	}
@@ -28,6 +30,8 @@
 		.cursor-football{
 			&:before{
 				animation-duration: 4s;
+				-webkit-animation-duration: 4s;
+				-ms-animation-duration: 4s;
 			}
 		}
 	}
@@ -38,6 +42,8 @@
 		.cursor-soccer{
 			&:before{
 				animation-duration: 4s;
+				-webkit-animation-duration: 4s;
+				-ms-animation-duration: 4s;
 			}
 		}
 	}
@@ -52,6 +58,8 @@
 	align-items: center;
 	transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 	transform: translateX(-100%);
+	-webkit-transform: translateX(-100%);
+	-ms-transform: translateX(-100%);
 	.overlay-inner{
 		display: block;
 		width: 100%;
@@ -91,6 +99,8 @@
 		text-align: left;
 		right: -100%;
 		transform: translateX(-100%);
+		-webkit-transform: translateX(-100%);
+		-ms-transform: translateX(-100%);
 		.overlay-close{
 			&:before{
 				right: auto;
@@ -124,8 +134,12 @@
 	&.overlay-open{
 		transition-delay: 0.5s;
 		transform: translateX(0%);
+		-webkit-transform: translateX(0%);
+		-ms-transform: translateX(0%);
 		&.basketball-active{
 			transform: translateX(-200%);
+			-webkit-transform: translateX(-200%);
+			-ms-transform: translateX(-200%);
 			.overlay-close:after{
 				left: auto;
 				right: 0;
@@ -146,6 +160,8 @@
 				> *:nth-child(#{$i}){
 					transition-delay: $i * 0.15s + 0.85s;
 					transform: translateY(0px);
+					-webkit-transform: translateY(0px);
+					-ms-transform: translateY(0px);
 				}
 			}
 			> * {
@@ -158,6 +174,8 @@
 		> * {
 			opacity: 0;
 			transform: translateY(30px);
+			-webkit-transform: translateY(30px);
+			-ms-transform: translateY(30px);
 			transition: transform 0.8s 0.6s cubic-bezier(.1,.53,.32,1.17), opacity 0.6s 0.4s ease;
 			display: block;
 		}
@@ -165,6 +183,10 @@
 
 	.overlay-close{
 		cursor: pointer;
+		position: absolute;
+		z-index: 0;
+		width: 100%;
+		height: 100%;
 		&:before{
 			content: '';
 			background-image: url('./icons/close-icon-1.png');
@@ -210,7 +232,11 @@
 		width: 100%;
 		display: block;
 		animation: spin 16s linear;
+		-webkit-animation: spin 16s linear;
+		-ms-animation: spin 16s linear;
 		animation-iteration-count: infinite;
+		-webkit-animation-iteration-count: infinite;
+		-ms-animation-iteration-count: infinite;
 	}
 }
 .cursor-football{
@@ -219,7 +245,9 @@
 		background-image: url('./icons/football-cursor.png');
 		background-size: contain;
 	}
-	transform: translate(calc(50vw - 25px + 22vh), calc(50vh - 25px + 4vh));
+	transform: translate(calc(50vw - 125px + 21vh), calc(50vh - 125px + 4vh));
+	-webkit-transform: translate(calc(50vw - 125px + 21vh), calc(50vh - 125px + 4vh));
+	-ms-transform: translate(calc(50vw - 125px + 21vh), calc(50vh - 125px + 4vh));
 }
 .cursor-basketball{
 	top: 0;
@@ -227,7 +255,9 @@
 		background-image: url('./icons/basketball-cursor.png');
 		background-size: contain;
 	}
-	transform: translate(calc(50vw - 25px - 64vh), calc(50vh - 25px + 7vh));
+	transform: translate(calc(50vw - 125px - 43vh), calc(50vh - 125px + 6vh));
+	-webkit-transform: translate(calc(50vw - 125px - 43vh), calc(50vh - 125px + 6vh));
+	-ms-transform: translate(calc(50vw - 125px - 43vh), calc(50vh - 125px + 6vh));
 }
 .cursor-soccer{
 	top: 0;
@@ -235,7 +265,9 @@
 		background-image: url('./icons/soccer-cursor.png');
 		background-size: contain;
 	}
-	transform: translate(calc(50vw - 25px - 7vh), calc(50vh - 25px - 34vh));
+	transform: translate(calc(50vw - 125px + 1vh), calc(50vh - 125px - 25vh));
+	-webkit-transform: translate(calc(50vw - 125px + 1vh), calc(50vh - 125px - 25vh));
+	-ms-transform: translate(calc(50vw - 125px + 1vh), calc(50vh - 125px - 25vh));
 }
 #btn-function{
 	position: absolute;
@@ -264,11 +296,17 @@
 @keyframes spin{
 	0%{
 		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
 	}
 	50%{
 		transform: rotate(-180deg);
+		-webkit-transform: rotate(-180deg);
+		-ms-transform: rotate(-180deg);
 	}
 	100%{
 		transform: rotate(-360deg);
+		-webkit-transform: rotate(-360deg);
+		-ms-transform: rotate(-360deg);
 	}
 }

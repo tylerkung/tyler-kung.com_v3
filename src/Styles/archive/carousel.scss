@@ -57,6 +57,8 @@
 			.layer-phone{
 				transition-delay: 0.2s;
 				transform: translateY(20px);
+				-webkit-transform: translateY(20px);
+				-ms-transform: translateY(20px);
 			}
 			.layer-elements{
 				img{
@@ -89,6 +91,8 @@
 			.layer-phone{
 				transition-delay: 0s;
 				transform: translateY(0px);
+				-webkit-transform: translateY(0px);
+				-ms-transform: translateY(0px);
 			}
 			.layer-elements{
 				transition-delay: 0.5s;
@@ -113,7 +117,11 @@
 		transition-duration: 0.8s;
 		transition-timing-function: ease-out;
 		animation: floatNoSpin 8s ease-in-out;
+		-webkit-animation: floatNoSpin 8s ease-in-out;
+		-ms-animation: floatNoSpin 8s ease-in-out;
 		animation-iteration-count: infinite;
+		-webkit-animation-iteration-count: infinite;
+		-ms-animation-iteration-count: infinite;
 	}
 	.layer-video{
 		&:before{
@@ -133,7 +141,11 @@
 			// top: 0;
 			// right: 0;
 			animation: float 4s ease-in-out;
+			-webkit-animation: float 4s ease-in-out;
+			-ms-animation: float 4s ease-in-out;
 			animation-iteration-count: infinite;
+			-webkit-animation-iteration-count: infinite;
+			-ms-animation-iteration-count: infinite;
 		}
 	}
 }
@@ -145,23 +157,35 @@
 @keyframes float{
 	0%{
 		transform: translateY(0%) rotate(-10deg);
+		-webkit-transform: translateY(0%) rotate(-10deg);
+		-ms-transform: translateY(0%) rotate(-10deg);
 	}
 	50%{
 		transform: translateY(50%) rotate(20deg);
+		-webkit-transform: translateY(50%) rotate(20deg);
+		-ms-transform: translateY(50%) rotate(20deg);
 	}
 	100%{
 		transform: translateY(0%) rotate(-10deg);
+		-webkit-transform: translateY(0%) rotate(-10deg);
+		-ms-transform: translateY(0%) rotate(-10deg);
 	}
 }
 
 @keyframes floatNoSpin{
 	0%{
 		transform: translate3d(0, 0%, 0);
+		-webkit-transform: translate3d(0, 0%, 0);
+		-ms-transform: translate3d(0, 0%, 0);
 	}
 	50%{
 		transform: translate3d(0, 15px, 0);
+		-webkit-transform: translate3d(0, 15px, 0);
+		-ms-transform: translate3d(0, 15px, 0);
 	}
 	100%{
 		transform: translate3d(0, 0%, 0);
+		-webkit-transform: translate3d(0, 0%, 0);
+		-ms-transform: translate3d(0, 0%, 0);
 	}
 }

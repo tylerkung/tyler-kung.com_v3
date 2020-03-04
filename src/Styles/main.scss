@@ -2,6 +2,9 @@
 *{
 	box-sizing: border-box;
 }
+.App{
+	position: relative;
+}
 body {
 	background-color: $layoutMainColor;
 	font-family: 'Lato', Helvetica, Arial, sans-serif;
@@ -51,6 +54,8 @@ body {
 	margin: 24px 0;
 	cursor: pointer;
 	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	-webkit-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	-ms-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 	&:focus{
 		outline: 0;
 		box-shadow: 0 0 5px 3px rgba(0, 123, 255, .6) !important;
@@ -68,6 +73,8 @@ body {
 	background-image: linear-gradient(to top left, #00B7B3, #4CE2A7);
 	background-color: #00B7B3;
 	color: $btnColor;
+	z-index: 0;
+	position: relative;
 	&:after{
 		content: '';
 		width: 84%;
@@ -154,9 +161,14 @@ body {
 	&.close{
 		transition-duration: 2s;
 		transform: translateY(101%);
+		-webkit-transform: translateY(101%);
+		-ms-transform: translateY(101%);
 		opacity: 0;
+		pointer-events: none;
 		img{
 			transform: translateY(0vh);
+			-webkit-transform: translateY(0vh);
+			-ms-transform: translateY(0vh);
 			opacity: 0;
 		}
 	}
@@ -166,19 +178,25 @@ body {
 	img{
 		position: absolute;
 		transform: translateY(calc(50vh - 40px));
+		-webkit-transform: translateY(calc(50vh - 40px));
+		-ms-transform: translateY(calc(50vh - 40px));
 		transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
-		// animation: spin 2s ease;
-		// animation-iteration-count: infinite;
 	}
 	@keyframes spin{
 		0%{
 			transform: translate3d(0, 46vh, 0);
+			-webkit-transform: translate3d(0, 46vh, 0);
+			-ms-transform: translate3d(0, 46vh, 0);
 		}
 		50%{
 			transform: translate3d(0, 50vh, 0);
+			-webkit-transform: translate3d(0, 50vh, 0);
+			-ms-transform: translate3d(0, 50vh, 0);
 		}
 		100%{
 			transform: translate3d(0, 46vh, 0);
+			-webkit-transform: translate3d(0, 46vh, 0);
+			-ms-transform: translate3d(0, 46vh, 0);
 		}
 	}
 }

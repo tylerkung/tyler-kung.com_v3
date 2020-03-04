@@ -1,6 +1,6 @@
 .page-content{
 	&:not(.page-home){
-		padding-bottom: 250px;
+		padding-bottom: 300px;
 	}
 	&.page-home{
 		// height: 50vh;
@@ -16,11 +16,15 @@
 		.header-content{
 			> *{
 				transform: translateY(0px);
+				-webkit-transform: translateY(0px);
+				-ms-transform: translateY(0px);
 				opacity: 1;
 			}
 		}
 		.scroll-down{
 			transform: translate(-50%, 0px);
+			-webkit-transform: translate(-50%, 0px);
+			-ms-transform: translate(-50%, 0px);
 			opacity: 1;
 			transition-delay: 0.8s;
 		}
@@ -41,6 +45,7 @@
 	align-items: center;
 	.header-content{
 		position: relative;
+		z-index: 0;
 		&:after{
 			content: '';
 			background-image: radial-gradient($sleeperWhite 70%, transparent);
@@ -51,11 +56,15 @@
 			left: 0;
 			z-index: -1;
 			filter: blur(20px);
+			-webkit-filter: blur(20px);
+			-moz-filter: blur(20px);
 			border-radius: 50%;
 			opacity: 0.6;
 		}
 		> *{
 			transform: translateY(20px);
+			-webkit-transform: translateY(20px);
+			-ms-transform: translateY(20px);
 			opacity: 0;
 			transition: all 0.8s cubic-bezier(.1,.53,.32,1.17);
 			&:nth-child(2){
@@ -140,6 +149,8 @@
 		z-index: 12;
 		left: 50%;
 		transform: translate(-50%, 20px);
+		-webkit-transform: translate(-50%, 20px);
+		-ms-transform: translate(-50%, 20px);
 		opacity: 0;
 		transition: all 0.8s cubic-bezier(.1,.53,.32,1.17);
 		width: 100px;
@@ -225,7 +236,7 @@
 		left: 0;
 		width: 100%;
 		height: 120px;
-		background-image: url('./background/round-path-white.png');
+		background-image: url('./background/gradient-round-path.png');
 		background-size: 150%;
 		background-position: top center;
 		background-repeat: no-repeat;
@@ -237,28 +248,6 @@
 }
 .layout-bracket-mania-color{
 	background-image: linear-gradient(to bottom, rgba(255, 201, 0, 0.0), rgba(255, 153, 0, 0.15))
-}
-.layout-slant-down{
-	position: relative;
-	&:not(.layout-no-shadow){
-		filter: drop-shadow(0px 50px 25px rgba(0, 0, 0, 0.1));
-	}
-	&:after{
-		content: '';
-		clip-path: polygon(0% 0%, 100% 100%, 100% 0%);
-		height: 250px;
-		width: 100%;
-		display: block;
-		bottom: -249px;
-		position: absolute;
-		z-index: -1;
-	}
-	+ .layout{
-		position: relative;
-		z-index: 0;
-		background-color: transparent;
-		min-height: 350px;
-	}
 }
 .layout-rounded-top{
 	position: relative;
@@ -343,6 +332,8 @@
 				text-align: center;
 			}
 			transform: translateY(-145px);
+			-webkit-transform: translateY(-145px);
+			-ms-transform: translateY(-145px);
 		}
 		.MuiGrid-item:nth-child(2),.MuiGrid-item:nth-child(3){
 			.feature-icon{
@@ -352,6 +343,8 @@
 				text-align: center;
 			}
 			transform: translateY(-170px);
+			-webkit-transform: translateY(-170px);
+			-ms-transform: translateY(-170px);
 		}
 		margin-bottom: -100px;
 	}

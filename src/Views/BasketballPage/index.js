@@ -91,7 +91,7 @@ class BasketballPage extends Component {
 						</Grid>
 					</div>
 					<video autoPlay muted loop>
-						<source src="http://sleepercdn.com/downloads/webtest/basketball_landing.mp4 " type="video/mp4" />
+						<source src="http://sleepercdn.com/downloads/webtest/basketball_landing.mp4  " type="video/mp4" />
 						<img src='./images/basketball-stadium-fallback.png' alt="Basketball"/>
 						Your browser doesn't support the HTML5 video tag.
 					</video>
@@ -160,7 +160,7 @@ class BasketballPage extends Component {
 									<p>Know where you stand at all times with the fastest and most frequently updated scores, straight from the source.</p>
 								</Grid>
 								<Grid item md={3}>
-									<div className="feature-icon lilac">
+									<div className="feature-icon purple">
 										<img src='./icons/icon_bm_04_team_notes.png' alt='Team Notes' />
 									</div>
 									<h4>Team notes</h4>

@@ -142,8 +142,9 @@
 	&.bracket-mania-graphic{
 		background-image: url('./background/bracketmap.png');
 		background-size: contain;
-		background-position: center center;
+		background-position: bottom center;
 		background-repeat: no-repeat;
+		padding-bottom: 100px;
 		.c-frame{
 			margin: 0 auto;
 		}

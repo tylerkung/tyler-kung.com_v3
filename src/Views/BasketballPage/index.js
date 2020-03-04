@@ -135,9 +135,9 @@ class BasketballPage extends Component {
 								</Grid>
 							</Grid>
 					</div>
-					<div className="layout layout-secondary-color">
+					<div className="layout layout-secondary-color rounded-top bracket-mania-features">
 						<div className="container">
-							<Grid container spacing={3} className="feature-row">
+							<Grid container spacing={10} className="feature-row">
 								<Grid item md={3}>
 									<div className="feature-icon mint">
 										<img src='./icons/icon_bm_01_group_chat.png' alt='Group Chat' />

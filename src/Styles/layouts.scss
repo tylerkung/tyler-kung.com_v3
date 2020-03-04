@@ -28,7 +28,6 @@
 			-webkit-transform: translate(-50%, 0px);
 			-ms-transform: translate(-50%, 0px);
 			opacity: 1;
-			transition-delay: 0.8s;
 		}
 	}
 	&.page-football, &.page-basketball, &.page-soccer, &.page-home{
@@ -47,7 +46,7 @@
 	align-items: center;
 	.header-content{
 		position: relative;
-		z-index: 0;
+		z-index: 11;
 		&:after{
 			content: '';
 			background-image: radial-gradient($sleeperWhite 70%, transparent);
@@ -68,11 +67,11 @@
 			-webkit-transform: translateY(20px);
 			-ms-transform: translateY(20px);
 			opacity: 0;
-			transition: all 0.8s cubic-bezier(.1,.53,.32,1.17);
+			transition: all 0.8s 0.4s cubic-bezier(.1,.53,.32,1.17);
 			&:nth-child(2){
-				transition-delay: 0.2s;
+				transition-delay: 0.6s;
 			}&:nth-child(3){
-				transition-delay: 0.4s;
+				transition-delay: 0.8s;
 			}
 		}
 	}
@@ -154,8 +153,9 @@
 		-webkit-transform: translate(-50%, 20px);
 		-ms-transform: translate(-50%, 20px);
 		opacity: 0;
-		transition: all 0.8s cubic-bezier(.1,.53,.32,1.17);
+		transition: all 0.8s 1.6s cubic-bezier(.1,.53,.32,1.17);
 		width: 100px;
+		pointer-events: none;
 	}
 }
 .sport-page, .default-page{

@@ -95,19 +95,19 @@ class NewCity extends Component {
 		// CAMERA
 		var zoomCamera = false;
 		var near = 0.1;
-		var far = 100;
+		var far = 10;
 		var windowWidth = window.innerWidth;
 		var windowHeight = window.innerHeight + 175;
 		var multiplier = 1.1;
 		this.factor = multiplier * windowWidth;
 
-		this.camera = new THREE.PerspectiveCamera( 50, windowWidth/windowHeight, near, far);
+		this.camera = new THREE.PerspectiveCamera( 18, windowWidth/windowHeight, near, far);
 		this.defaultPosition = {x: -326.1627032276631, y: 317.2596352789266, z: 331.14793030593717}
 		this.camera.position.set(this.defaultPosition.x, this.defaultPosition.y, this.defaultPosition.z);
 		this.camera.scale.x = 100;
 		this.camera.scale.y = 100;
 		this.camera.scale.z = 100;
-		this.camera.zoom = 3.0;
+		this.camera.zoom = 1.0;
 		this.cameraHelper = this.camera.clone();
 
 		// CONTROLS
@@ -178,12 +178,16 @@ class NewCity extends Component {
 			object.traverse(function(child){
 				if (child.isMesh){
 					child.castShadow = true;
-					child.material.shininess = 0;
-					child.material.metalness = 0;
-					child.material.roughness = 0;
+					if (child.material.type === "MeshPhongMaterial"){
+						child.material.shininess = 0;
+						child.material.metalness = 0;
+						child.material.roughness = 0;
+					}
 				}
 			});
 			object.getObjectByName('main').intensity = 0;
+
+
 			const textures = {};
 			textures.sleeper = new THREE.TextureLoader().load('./images/sleeper-billboard-4.png');
 			textures.sleeper_2 = new THREE.TextureLoader().load('./images/sleeper-billboard-3.png');
@@ -265,7 +269,7 @@ class NewCity extends Component {
 	setPickPosition(event) {
 		const pos = this.getCanvasRelativePosition(event);
 		this.pickPosition.x = (pos.x / canvas.clientWidth ) *  2 - 1;
-		this.pickPosition.y = (pos.y / canvas.clientHeight) * -2 + 1;  // note we flip Y
+		this.pickPosition.y = (pos.y / canvas.clientHeight) * -2 + 1;  // flip Y
 		this.mouseX = this.pickPosition.x;
 		this.mouseY = this.pickPosition.y;
 		const scale = 1;
@@ -285,6 +289,7 @@ class NewCity extends Component {
 		// 	cursor.style.top = pos.y - 50 + 'px';
 		// 	console.log(cursor);
 		// }
+		this.camera.updateProjectionMatrix();
 	}
 
 	clearPickPosition(){
@@ -298,8 +303,6 @@ class NewCity extends Component {
 	clickPickPosition(event){
 		var clickedStadium = this.pickHelper.click();
 		// this.pickHelper.active = false;
-		// const timeline = new Timeline({ paused: false });
-		// timeline.to(lightInts, 0.8, {mainLight: 0.01, ease: Power3.easeOut});
 		if (!this.state.activeStadium.length){
 			switch(clickedStadium){
 				case 'basketball':
@@ -339,29 +342,29 @@ class NewCity extends Component {
 	}
 	enterStadium(){
 		const timeline = new Timeline({ paused: false });
-		timeline.to(this.camera, 1, {zoom: 6, ease: Power3.easeOut});
+		timeline.to(this.camera, 1, {zoom: 2.4, ease: Power3.easeOut});
 	}
 	exitStadium(){
 		setTimeout(() => {
 			this.setState({activeStadium: '', hoverStadium: ''});
 		}, 600)
-		this.moveCamera(this.defaultQ, 3.0);
+		this.moveCamera(this.defaultQ, 1.0);
 		// this.lightsOff();
 	}
 	viewBasketball(){
-		this.cameraHelper.lookAt( -50, 9.7, 1 );
+		this.cameraHelper.lookAt( -54, 9.7, 1 );
 		var targetQ = this.cameraHelper.quaternion.clone();
-		this.moveCamera(targetQ, 5.2);
+		this.moveCamera(targetQ, 1.8);
 	}
 	viewFootball(){
 		this.cameraHelper.lookAt( -12.5, 9.7, 26.6 );
 		var targetQ = this.cameraHelper.quaternion.clone();
-		this.moveCamera(targetQ, 5.4);
+		this.moveCamera(targetQ, 2.0);
 	}
 	viewSoccer(){
-		this.cameraHelper.lookAt( 10.7, 17.5, -40.1 );
+		this.cameraHelper.lookAt( 12.7, 17.5, -45.1 );
 		var targetQ = this.cameraHelper.quaternion.clone();
-		this.moveCamera(targetQ, 5.6);
+		this.moveCamera(targetQ, 2.2);
 	}
 	moveCamera(target, zoom){
 		const timeline = new Timeline({ paused: false });

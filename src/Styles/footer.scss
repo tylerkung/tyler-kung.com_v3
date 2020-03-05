@@ -1,20 +1,20 @@
 .sleeper-footer{
-	padding: 250px 0 50px;
+	padding: 150px 0 50px;
 	h1, h2, h3, h4{
 		margin: 0 0 1em;
 	}
 	background-image: url('./background/img_footer_w.png');
 	background-size: cover;
-	background-position: 50% 150px;
+	background-position: 50% 0px;
 	background-repeat: no-repeat;
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 	width: 100%;
 	z-index: 11;
 	transition: all 1.2s cubic-bezier(.1,.53,.32,1.17);
-	transform: translateY(400px);
-	-webkit-transform: translateY(400px);
-	-ms-transform: translateY(400px);
+	// transform: translateY(400px);
+	// -webkit-transform: translateY(400px);
+	// -ms-transform: translateY(400px);
 	&:after{
 		content: '';
 		height: 180px;
@@ -36,13 +36,13 @@
 			top: 200px;
 		}
 	}
-	&.show{
-		transition-duration: 0.5s;
-		bottom: -12px;
-		transform: translateY(0px);
-		-webkit-transform: translateY(0px);
-		-ms-transform: translateY(0px);
-	}
+	// &.show{
+	// 	transition-duration: 0.5s;
+	// 	bottom: -12px;
+	// 	transform: translateY(0px);
+	// 	-webkit-transform: translateY(0px);
+	// 	-ms-transform: translateY(0px);
+	// }
 }
 
 .sleeper-footer-main{
@@ -59,7 +59,6 @@
 		display: flex;
 		.primary-content{
 			padding: 0 20px;
-			overflow: auto;
 			width: 100%;
 		}
 	}

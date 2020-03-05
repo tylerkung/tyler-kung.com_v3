@@ -92,16 +92,9 @@ h3.block-header{
 		border-radius: 14px;
 		bottom: 3px;
 	}
-	&.frontend{
+	&.engineering{
 		&:before{
 			background-image: url('./icons/icon_01_league_chat@3x.png');
-			background-size: contain;
-			background-position: center center;
-		}
-	}
-	&.backend{
-		&:before{
-			background-image: url('./icons/icon_09_keeper@3x.png');
 			background-size: contain;
 			background-position: center center;
 		}
@@ -113,9 +106,23 @@ h3.block-header{
 			background-position: center center;
 		}
 	}
-	&.growth{
+	&.operations{
 		&:before{
 			background-image: url('./icons/icon_02_draftboard@3x.png');
+			background-size: contain;
+			background-position: center center;
+		}
+	}
+	&.support{
+		&:before{
+			background-image: url('./icons/icon_05_blockbuster_trade@3x.png');
+			background-size: contain;
+			background-position: center center;
+		}
+	}
+	&.marketing{
+		&:before{
+			background-image: url('./icons/icon_03_game_day@3x.png');
 			background-size: contain;
 			background-position: center center;
 		}

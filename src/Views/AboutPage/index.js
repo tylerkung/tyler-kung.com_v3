@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Card from '../../Components/Card';
 import LayeredGraphic from "../../Components/LayeredGraphic";
 import Testimonials from "../../Components/Testimonials";
-import ParallaxImage from "../../Components/ParallaxImage";
+
 
 class AboutPage extends Component {
 	constructor(props){
@@ -45,6 +45,108 @@ class AboutPage extends Component {
 				direction: 'right'
 			},
 		];
+		this.departmentClasses = {
+			support: 'support orange',
+			engineering: 'engineering mint',
+			operations: 'operations purple',
+			design: 'design yellow',
+			marketing: 'marketing red'
+		}
+		this.employees = {
+			daniel: {
+				name: 'Daniel',
+				department: 'Growth',
+				class: this.departmentClasses.marketing
+			}, eric_b: {
+				name: 'Eric B.',
+				department: 'Engineering',
+				class: this.departmentClasses.engineering
+			}, eric_k: {
+				name: 'Eric K.',
+				department: 'Ops/Marketing',
+				class: this.departmentClasses.operations
+			},jeannie: {
+				name: 'Jeannie',
+				department: 'Support',
+				class: this.departmentClasses.support
+			},joel: {
+				name: 'Joel',
+				department: 'Engineering',
+				class: this.departmentClasses.engineering
+			},jorge: {
+				name: 'Jorge',
+				department: 'Engineering',
+				class: this.departmentClasses.engineering
+			},kat: {
+				name: 'Kat',
+				department: 'Operations',
+				class: this.departmentClasses.operations
+			},kenny: {
+				name: 'Kenny',
+				department: 'Engineering',
+				class: this.departmentClasses.engineering
+			},kevin: {
+				name: 'Kevin',
+				department: 'Support',
+				class: this.departmentClasses.support
+			},lam: {
+				name: 'Lam',
+				department: 'Design',
+				class: this.departmentClasses.design
+			},luke: {
+				name: 'Luke',
+				department: 'Engineering',
+				class: this.departmentClasses.engineering
+			},mai: {
+				name: 'Mai',
+				department: 'Design',
+				class: this.departmentClasses.design
+			},ray: {
+				name: 'Ray',
+				department: 'Design',
+				class: this.departmentClasses.design
+			},seth: {
+				name: 'Seth',
+				department: 'Engineering',
+				class: this.departmentClasses.engineering
+			},sheng: {
+				name: 'Sheng',
+				department: 'Design',
+				class: this.departmentClasses.design
+			},sunny: {
+				name: 'Sunny',
+				department: 'Design',
+				class: this.departmentClasses.design
+			},tyler: {
+				name: 'Tyler',
+				department: 'Design',
+				class: this.departmentClasses.design
+			},victoriya: {
+				name: 'Victoriya',
+				department: 'Design',
+				class: this.departmentClasses.design
+			},william: {
+				name: 'William',
+				department: 'Design',
+				class: this.departmentClasses.design
+			},
+		}
+	}
+
+	renderEmployees(names){
+		const employees = [];
+		names.map((employee, index) => {
+			console.log(employee);
+			console.log(this.employees[employee]);
+			employees.push(
+				<Grid item md={2} sm={4} key={index}>
+					<h3 className={`block-header ${this.employees[employee].class}`}>
+						{this.employees[employee].name}<br/><span className="txt-sm">{this.employees[employee].department}</span>
+					</h3>
+				</Grid>
+			)
+		});
+		return employees;
 	}
 	render(){
 
@@ -95,7 +197,7 @@ class AboutPage extends Component {
 								<Grid item md={6} className="header-content">
 									<h2 className="txt-center">Our Team</h2>
 									<p className="txt-center">We believe in quality over quantity, and intentionally keep our team small. Each team member has the potential for outsized impact, and is empowered to be breakout superstars..</p>
-									<p>Everyone on the team has the skills and confidence to take the last shot.</p>
+									<p className="txt-center">Everyone on the team has the skills and confidence to take the last shot.</p>
 								</Grid>
 								<Grid item md={3}>
 								</Grid>
@@ -103,75 +205,47 @@ class AboutPage extends Component {
 						</div>
 					</div>
 					<div className="layout layout-secondary-color">
-						<div className="container">
+						<div className="container wide">
 							<Grid container spacing={10} className="feature-row">
-								<Grid item md={4}>
-									<h3 className="block-header mint frontend">Henry</h3>
+								<Grid item md={3}>
+									<h3 className="block-header purple operations">Nan<br/><span className="txt-sm">CEO, Founder</span></h3>
+									<p>Recovering finance professional. Repatriated ex-patriot who roots for the Patriots. Really excited about building Sleeper into a sports network where friends can enjoy sports together.</p>
+								</Grid>
+								<Grid item md={3}>
+									<h3 className="block-header mint engineering">Weixi<br/><span className="txt-sm">CTO, Founder</span></h3>
+									<p>Berkeley grad. Husband & father. Warriors fan. Picked Odell Beckham #1 overall. Favorite quote: "If you have no faith, why are you guys even here?" - HotshotGG.</p>
+								</Grid>
+								<Grid item md={3}>
+									<h3 className="block-header mint engineering">Henry<br/><span className="txt-sm">Founding Engineer</span></h3>
 									<p>Passionate developer striving to code meaningful experiences to end-users. There is only one thing we say to bad user experiences: Not today.</p>
 								</Grid>
-								<Grid item md={4}>
-									<h3 className="block-header mint frontend">Jorge</h3>
-									<p>Software Engineer. Born in Venezuela. Love team-work and bringing ideas to life. Excited to make Sleeper the best sport app.</p>
-								</Grid>
-								<Grid item md={4}>
-									<h3 className="block-header mint frontend">Ken</h3>
+								<Grid item md={3}>
+									<h3 className="block-header mint engineering">Ken<br/><span className="txt-sm">Founding Engineer</span></h3>
 									<p>If you're reading this, come join us for a 🍻, have some 🔥🥘, play some 🎮, and have a 🎉⏱</p>
 								</Grid>
 							</Grid>
-							<Grid container spacing={10} className="feature-row">
-								<ParallaxImage
-									src="./images/img_watermark_league chat.png"
-									className="watermark-right"
-									offsetY={[-40, -20]}
-								/>
-								<Grid item md={4}>
-									<h3 className="block-header yellow design">Lam</h3>
-									<p>Self-proclaimed digital puppet master who can turn anything he touches to life. Rumor has it that he can draw with any limb. His mind power and imagination can turn anything into reality.</p>
-								</Grid>
-								<Grid item md={4}>
-									<h3 className="block-header yellow design">Sheng</h3>
-									<p>45% Designer. 25% Collector and dreamer. 15% Boba lover. 15% Failed as a basketball player so became a basketball fan. 5% to be continued.</p>
-								</Grid>
-								<Grid item md={4}>
-									<h3 className="block-header yellow design">Sunny</h3>
-									<p>Sunny of House Yen, first of her name, master of grills and protector of phone screens, marinator of the great kalbi, breaker of Apple design guidelines, and mother of penguins.</p>
-								</Grid>
+						</div>
+						<div className="container full-team">
+							<Grid container spacing={3} className="feature-row">
+								{this.renderEmployees(['eric_k', 'daniel', 'kat', 'jeannie', 'kevin'])}
 							</Grid>
-							<Grid container spacing={10} className="feature-row">
-								<ParallaxImage
-									src="./images/img_watermark_matchup.png"
-									className="watermark-left"
-									offsetY={[-40, -20]}
-								/>
-								<Grid item md={4}>
-									<h3 className="block-header purple growth">Daniel</h3>
-									<p>49ers/Sharks fan. Stanford grad. Will never draft a QB earlier than the 6th round and there is a special place in his heart for March Madness.</p>
-								</Grid>
-								<Grid item md={4}>
-									<h3 className="block-header purple growth">Nan</h3>
-									<p>Recovering finance professional. Repatriated ex-patriot who roots for the Patriots. Really excited about building Sleeper into a sports network where friends can enjoy sports together.</p>
-								</Grid>
-								<Grid item md={4}>
-									<h3 className="block-header aqua backend">Weixi</h3>
-									<p>Berkeley grad. Husband & father. Warriors fan. Picked Odell Beckham #1 overall. Favorite quote: "If you have no faith, why are you guys even here?" - HotshotGG.</p>
-								</Grid>
+							<Grid container spacing={3} className="feature-row">
+								{this.renderEmployees(['kenny', 'joel', 'eric_b'])}
 							</Grid>
-							<Grid container spacing={10} className="feature-row">
-								<Grid item md={4}>
-								</Grid>
-								<Grid item md={4}>
-									<h3 className="block-header aqua backend">Kenny</h3>
-									<p>Works on my machine ¯\_(ツ)_/¯</p>
-								</Grid>
-								<Grid item md={4}>
-
-								</Grid>
+							<Grid container spacing={3} className="feature-row">
+								{this.renderEmployees(['seth', 'luke', 'jorge'])}
+							</Grid>
+							<Grid container spacing={3} className="feature-row">
+								{this.renderEmployees(['lam', 'victoriya', 'ray', 'mai'])}
+							</Grid>
+							<Grid container spacing={3} className="feature-row">
+								{this.renderEmployees(['sheng', 'tyler', 'william', 'sunny'])}
 							</Grid>
 						</div>
 					</div>
 					<div className="layout layout-secondary-color">
 						<div className="container">
-							<Grid container spacing={3}>
+							<Grid container spacing={10}>
 								<Grid item md={3}>
 								</Grid>
 								<Grid item md={6} className="header-content">

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import NewCity from "../../Components/NewCity";
+import { Controller, Scene } from 'react-scrollmagic';
+import { Tween, Timeline } from 'react-gsap';
 
 class HomePage extends Component {
 	constructor(props){

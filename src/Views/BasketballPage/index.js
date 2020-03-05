@@ -6,6 +6,8 @@ import Testimonials from "../../Components/Testimonials";
 import ParallaxImage from "../../Components/ParallaxImage";
 import Lottie from "react-lottie";
 import animationData from "../../Lotties/scroll-animation-dark.json";
+import { Controller, Scene } from 'react-scrollmagic';
+import { Tween, Timeline } from 'react-gsap';
 
 class BasketballPage extends Component {
     constructor(props){
@@ -76,34 +78,57 @@ class BasketballPage extends Component {
 		};
 		return (
 			<div className={`page-content page-basketball ${(this.state.pageLoaded) ? "page-loaded" : ""}`}>
-				<div className="sport-header header-basketball">
-					<div className="container">
-						<Grid container spacing={3}>
-							<Grid item md={6} className="header-content">
-								<h1 className="">Play Bracket Mania</h1>
-								<p className="txt-black">Your favorite fantasy app now supports college basketball brackets with all the features that you've come to expect and love.</p>
-								<div className="">
-									<button className="btn btn-default btn-orange">Create a Pool
-									</button>
+			<Controller>
+			  <Scene
+				  classToggle=''
+				  reverse={true}
+				  indicators={false}
+				  triggerHook={0}
+				  offset={10}
+				  duration="1000px"
+			  >
+				  <Timeline>
+					  <Tween
+						  position="0"
+						  from={{
+							  yPercent: 0,
+						  }}
+						  to={{
+							  yPercent: 30,
+						  }}
+					  >
+							<div className="sport-header header-basketball">
+								<div className="container">
+									<Grid container spacing={3}>
+										<Grid item md={6} className="header-content">
+											<h1 className="">Play Bracket Mania</h1>
+											<p className="txt-black">Your favorite fantasy app now supports college basketball brackets with all the features that you've come to expect and love.</p>
+											<div className="">
+												<button className="btn btn-default btn-orange">Create a Pool
+												</button>
+											</div>
+										</Grid>
+										<Grid item md={6}>
+										</Grid>
+									</Grid>
 								</div>
-							</Grid>
-							<Grid item md={6}>
-							</Grid>
-						</Grid>
-					</div>
-					<video autoPlay muted loop>
-						<source src="http://sleepercdn.com/downloads/webtest/basketball_landing.mp4" type="video/mp4" />
-						<img src='./images/basketball-stadium-fallback.png' alt="Basketball"/>
-						Your browser doesn't support the HTML5 video tag.
-					</video>
+								<video autoPlay muted loop>
+									<source src="http://sleepercdn.com/downloads/webtest/basketball_landing.mp4" type="video/mp4" />
+									<img src='./images/basketball-stadium-fallback.png' alt="Basketball"/>
+									Your browser doesn't support the HTML5 video tag.
+								</video>
+							</div>
+						</Tween>
+					</Timeline>
+				</Scene>
+				</Controller>
+				<div className="sport-page">
 					<div className="scroll-down">
 						<Lottie options={defaultOptions}
 							height={50}
 							width={50}
 						/>
 					</div>
-				</div>
-				<div className="sport-page">
 					<div className="layout layout-secondary-color">
 						<div className="container">
 							<Grid container spacing={3}>

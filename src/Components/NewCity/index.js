@@ -101,7 +101,7 @@ class NewCity extends Component {
 		var multiplier = 1.1;
 		this.factor = multiplier * windowWidth;
 
-		this.camera = new THREE.PerspectiveCamera( 18, windowWidth/windowHeight, near, far);
+		this.camera = new THREE.PerspectiveCamera( 16, windowWidth/windowHeight, near, far);
 		this.defaultPosition = {x: -326.1627032276631, y: 317.2596352789266, z: 331.14793030593717}
 		this.camera.position.set(this.defaultPosition.x, this.defaultPosition.y, this.defaultPosition.z);
 		this.camera.scale.x = 100;
@@ -289,7 +289,7 @@ class NewCity extends Component {
 		// 	cursor.style.top = pos.y - 50 + 'px';
 		// 	console.log(cursor);
 		// }
-		this.camera.updateProjectionMatrix();
+		// this.camera.updateProjectionMatrix();
 	}
 
 	clearPickPosition(){
@@ -387,14 +387,14 @@ class NewCity extends Component {
 		this.camera.right = windowWidth / this.factor;
 		this.camera.top = windowHeight / this.factor;
 		this.camera.bottom = -windowHeight / this.factor;
-		this.camera.updateProjectionMatrix();
+		// this.camera.updateProjectionMatrix();
 
 		this.renderer.setSize( windowWidth, windowHeight );
 		this.composer.setSize( windowWidth, windowHeight );
 	};
 	render(){
 		return (
-			<div className={`sleeper-city ${(this.state.activeStadium) ? "overlay-active" : ""}${(this.state.hoverStadium === 'basketball' && !this.state.activeStadium) ? "basketball-hover" : ""} ${(this.state.hoverStadium === 'football' && !this.state.activeStadium) ? "football-hover" : ""} ${(this.state.hoverStadium === 'soccer' && !this.state.activeStadium) ? "soccer-hover" : ""}`}>
+			<div className={`sleeper-city ${(this.state.activeStadium) ? "overlay-active" : ""}${(this.state.hoverStadium === 'basketball' && !this.state.activeStadium) ? "basketball-hover" : ""}${(this.state.hoverStadium === 'football' && !this.state.activeStadium) ? "football-hover" : ""}${(this.state.hoverStadium === 'soccer' && !this.state.activeStadium) ? "soccer-hover" : ""}`}>
 				<canvas id="scene-sleeper"></canvas>
 				<Overlay ref="overlay" sport={this.state.activeStadium} enterStadium={this.enterStadium} exitStadium={this.exitStadium}></Overlay>
 				{this.renderCursors()}

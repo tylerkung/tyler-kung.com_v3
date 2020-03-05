@@ -5,6 +5,8 @@ import LayeredGraphic from "../../Components/LayeredGraphic";
 import Testimonials from "../../Components/Testimonials";
 import Lottie from "react-lottie";
 import animationData from "../../Lotties/scroll-animation-dark.json";
+import { Controller, Scene } from 'react-scrollmagic';
+import { Tween, Timeline } from 'react-gsap';
 
 class SoccerPage extends Component {
 	constructor(props){
@@ -75,27 +77,46 @@ class SoccerPage extends Component {
 	  };
 	  return (
 		  <div className={`page-content page-soccer ${(this.state.pageLoaded) ? "page-loaded" : ""}`}>
-			  <div className="sport-header header-soccer">
-				  <div className="container">
-					  <Grid container spacing={3}>
-						  <Grid item md={6} className="header-content">
-							  <h1 className="">Fantasy PL is under construction</h1>
-							  <p className="txt-black"><strong>Caution</strong>: Hard hat required.. Check back soon..</p>
-						  </Grid>
-						  <Grid item md={6}>
-						  </Grid>
-					  </Grid>
-				  </div>
-				  <video autoPlay muted loop>
-					  <source src="http://sleepercdn.com/downloads/webtest/soccer_landing.mp4" type="video/mp4" />
-					  Your browser doesn't support the HTML5 video tag.
-				  </video>
-			  </div>
+			  <Controller>
+				  <Scene
+					  classToggle=''
+					  reverse={true}
+					  indicators={false}
+					  triggerHook={0}
+					  offset={10}
+					  duration="1000px"
+				  >
+					  <Timeline>
+						  <Tween
+							  position="0"
+							  from={{
+								  yPercent: 0,
+							  }}
+							  to={{
+								  yPercent: 30,
+							  }}
+						  >
+							  <div className="sport-header header-soccer">
+								  <div className="container">
+									  <Grid container spacing={3}>
+										  <Grid item md={6} className="header-content">
+											  <h1 className="">Fantasy PL is under construction</h1>
+											  <p className="txt-black"><strong>Caution</strong>: Hard hat required.. Check back soon..</p>
+										  </Grid>
+										  <Grid item md={6}>
+										  </Grid>
+									  </Grid>
+								  </div>
+								  <video autoPlay muted loop>
+									  <source src="http://sleepercdn.com/downloads/webtest/soccer_landing.mp4" type="video/mp4" />
+									  Your browser doesn't support the HTML5 video tag.
+								  </video>
+							  </div>
+						  </Tween>
+					  </Timeline>
+				  </Scene>
+			  </Controller>
 			  <div className="sport-page">
-				  <div className="layout layout-secondary-color">
-					  <div className="container">
-					  </div>
-				  </div>
 			  </div>
 		  </div>
 	  );

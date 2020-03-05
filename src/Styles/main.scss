@@ -4,12 +4,15 @@
 }
 .App{
 	position: relative;
-	overflow: hidden;
 }
 body {
 	background-color: $layoutMainColor;
 	font-family: 'Lato', Helvetica, Arial, sans-serif;
 	font-size: 14px;
+}
+main{
+	padding-bottom: 400px;
+	background-color: #fbfbfb;
 }
 .container{
 	padding: 0 15px;
@@ -31,6 +34,23 @@ body {
 	}
 	@media (min-width: 1440px){
 		max-width: $containerXl;
+	}
+	&.wide{
+		@media (min-width: 576px){
+			max-width: $containerSm;
+		}
+		@media (min-width: 768px){
+			max-width: $containerMd;
+		}
+		@media (min-width: 992px){
+			max-width: $containerLg;
+		}
+		@media (min-width: 1240px){
+			max-width: $containerXl;
+		}
+		@media (min-width: 1440px){
+			max-width: 1800px;
+		}
 	}
 }
 
@@ -308,5 +328,14 @@ img{
 	width: 100%;
 	@media (min-width: 1800px){
 		left: calc((100vw - 1800px)/2);
+	}
+}
+.full-team{
+	@media (min-width: 960px){
+		.MuiGrid-grid-md-2 {
+			flex-grow: 0;
+			max-width: 20%;
+			flex-basis: 20%;
+		}
 	}
 }

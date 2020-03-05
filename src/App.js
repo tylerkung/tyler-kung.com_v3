@@ -17,7 +17,6 @@ import SoccerPage from "./Views/SoccerPage";
 import PrivacyPage from "./Views/PrivacyPage";
 import StylesPage from "./Views/StylesPage";
 import ScrollToTop from './Components/ScrollToTop';
-
 class App extends Component {
 	constructor(props){
 		 super(props);

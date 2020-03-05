@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
 import LayeredGraphic from "../../Components/LayeredGraphic";
 import Testimonials from "../../Components/Testimonials";
+import ParallaxImage from "../../Components/ParallaxImage";
 import Lottie from "react-lottie";
 import animationData from "../../Lotties/scroll-animation-dark.json";
 
@@ -80,7 +81,7 @@ class BasketballPage extends Component {
 						<Grid container spacing={3}>
 							<Grid item md={6} className="header-content">
 								<h1 className="">Play Bracket Mania</h1>
-								<p className="txt-black">Your favorite fantasy app now supports college basketball brackets with all the features that you've come to expect and love</p>
+								<p className="txt-black">Your favorite fantasy app now supports college basketball brackets with all the features that you've come to expect and love.</p>
 								<div className="">
 									<button className="btn btn-default btn-orange">Create a Pool
 									</button>
@@ -122,18 +123,23 @@ class BasketballPage extends Component {
 						</div>
 					</div>
 					<div className="layout layout-bracket-mania-color">
-							<Grid container spacing={3}>
-								<Grid item md={12}>
-									<LayeredGraphic
-										back='./images/bracket-mania-phone.png'
-										middle='./images/sleeper-bracket-mania.png'
-										elements={[]}
-										className='bracket-mania-graphic'
-										entrance={true}
-										imagePosition='right'
-									/>
-								</Grid>
+						<ParallaxImage
+							src="./images/bracketmap-1.png"
+							className="bracket-map"
+							offsetY={[0,20]}
+						/>
+						<Grid container spacing={3}>
+							<Grid item md={12}>
+								<LayeredGraphic
+									back='./images/bracket-mania-phone.png'
+									middle='./images/sleeper-bracket-mania.png'
+									elements={[]}
+									className='bracket-mania-graphic'
+									entrance={true}
+									imagePosition='right'
+								/>
 							</Grid>
+						</Grid>
 					</div>
 					<div className="layout layout-secondary-color rounded-top bracket-mania-features">
 						<div className="container">

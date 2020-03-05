@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
 import LayeredGraphic from "../../Components/LayeredGraphic";
 import Testimonials from "../../Components/Testimonials";
+import ParallaxImage from "../../Components/ParallaxImage";
 import Lottie from "react-lottie";
 import animationData from "../../Lotties/scroll-animation-dark.json";
 
@@ -173,6 +174,11 @@ class FootballPage extends Component {
 						<div className="layout layout-secondary-color">
 							<div className="container">
 								<Grid container spacing={10} className="feature-row">
+									<ParallaxImage
+										src="./images/img_watermark_matchup.png"
+										className="watermark-left"
+										offsetY={[-40, -20]}
+									/>
 									<Grid item md={4}>
 										<div className="feature-icon mint">
 											<img src='./icons/icon_01_league_chat@3x.png' alt='League Chat' />
@@ -196,6 +202,11 @@ class FootballPage extends Component {
 									</Grid>
 								</Grid>
 								<Grid container spacing={10} className="feature-row">
+									<ParallaxImage
+										src="./images/img_watermark_league chat.png"
+										className="watermark-right"
+										offsetY={[-40, -20]}
+									/>
 									<Grid item md={4}>
 										<div className="feature-icon gray">
 											<img src='./icons/icon_04_mascots@3x.png' alt='League Chat' />

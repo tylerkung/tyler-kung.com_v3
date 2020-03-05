@@ -42,7 +42,7 @@ a{
 }
 strong{}
 
-h1, h2{
+h1, h2, h3{
 	&.block-header{
 		padding-left: 100px;
 		position: relative;
@@ -81,6 +81,44 @@ h1, h2{
 		&.lilac{&:before{ background-color: $sleeperLilac; } &:after{ box-shadow: 0 6px 15px $sleeperLilac;}}
 		&.aqua{&:before{ background-color: $sleeperAqua; } &:after{ box-shadow: 0 6px 15px $sleeperAqua;}}
 
+	}
+}
+h3.block-header{
+	color: $sleeperBlack;
+	padding-left: 70px;
+	&:before, &:after{
+		height: 50px;
+		width: 50px;
+		border-radius: 14px;
+		bottom: 3px;
+	}
+	&.frontend{
+		&:before{
+			background-image: url('./icons/icon_01_league_chat@3x.png');
+			background-size: contain;
+			background-position: center center;
+		}
+	}
+	&.backend{
+		&:before{
+			background-image: url('./icons/icon_09_keeper@3x.png');
+			background-size: contain;
+			background-position: center center;
+		}
+	}
+	&.design{
+		&:before{
+			background-image: url('./icons/icon_07_DM@3x.png');
+			background-size: contain;
+			background-position: center center;
+		}
+	}
+	&.growth{
+		&:before{
+			background-image: url('./icons/icon_02_draftboard@3x.png');
+			background-size: contain;
+			background-position: center center;
+		}
 	}
 }
 ul:not(.footer-links){

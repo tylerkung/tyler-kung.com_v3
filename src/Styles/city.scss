@@ -87,7 +87,7 @@
 		text-align: right;
 		.overlay-inner{
 			background-color: transparent;
-			background-image: linear-gradient(to bottom left, rgba(0, 206, 184, .8), rgba(0, 183, 179, 1));
+			background-image: linear-gradient(to bottom left, rgba(76, 226, 167, .8), rgba(0, 183, 179, .97));
 		}
 		.overlay-content{
 			> *{
@@ -109,7 +109,7 @@
 		}
 		.overlay-inner{
 			background-color: transparent;
-			background-image: linear-gradient(to bottom right, rgba(255, 100, 13, .8), rgba(255, 92, 0, .97));
+			background-image: linear-gradient(to bottom right, rgba(255, 100, 13, .8), rgba(255, 69, 66, .97));
 			justify-content: flex-start;
 			clip-path: circle(100vw at 100vw 50vh);
 		}

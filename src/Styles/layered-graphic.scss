@@ -162,13 +162,16 @@
 		}
 	}
 	&.bracket-mania-graphic{
-		background-image: url('./background/bracketmap.png');
+		// background-image: url('./background/bracketmap.png');
 		background-size: contain;
 		background-position: bottom center;
 		background-repeat: no-repeat;
 		padding-bottom: 100px;
 		.c-frame{
 			margin: 0 auto;
+			&.layer-left{
+				float: none;
+			}
 		}
 	}
 	.graphic-inner.active{

@@ -7,11 +7,11 @@
 	background-size: cover;
 	background-position: 50% 0px;
 	background-repeat: no-repeat;
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	width: 100%;
 	z-index: 11;
-	transition: all 1.2s cubic-bezier(.1,.53,.32,1.17);
+	transition: all 1s cubic-bezier(.1,.53,.32,1.17);
 	// transform: translateY(400px);
 	// -webkit-transform: translateY(400px);
 	// -ms-transform: translateY(400px);
@@ -21,28 +21,29 @@
 		width: 100%;
 		display: block;
 		position: absolute;
-		top: 100px;
+		pointer-events: none;
+		top: 0px;
 		z-index: 0;
 		background-image: url('./background/img_footer_spaceship_w.png');
 		background-repeat: no-repeat;
 		background-size: contain;
-		background-position: 75% 0px;
-		@media (min-width: 1600px){
-			background-position: 95% 0px;
-			top: 120px;
-		}
-		@media (min-width: 2000px){
-			background-position: 95% 0px;
-			top: 200px;
-		}
+		background-position: calc(100% - 104px) 0px;
+		// @media (min-width: 1600px){
+		// 	background-position: 95% 0px;
+		// 	top: 120px;
+		// }
+		// @media (min-width: 2000px){
+		// 	background-position: 95% 0px;
+		// 	top: 200px;
+		// }
 	}
-	// &.show{
-	// 	transition-duration: 0.5s;
-	// 	bottom: -12px;
-	// 	transform: translateY(0px);
-	// 	-webkit-transform: translateY(0px);
-	// 	-ms-transform: translateY(0px);
-	// }
+}
+.show .sleeper-footer{
+	transition-duration: 0.1s;
+	// bottom: -12px;
+	// transform: translateY(0px);
+	// -webkit-transform: translateY(0px);
+	// -ms-transform: translateY(0px);
 }
 
 .sleeper-footer-main{
@@ -114,11 +115,24 @@
 .footer-right{
 	text-align: right;
 	display: flex;
-	justify-content: flex-end;
+	align-items: flex-end;
+	flex-direction: column;
 	li{
 		padding: 0 .6em;
 		&:last-of-type{
 			padding-right: 0;
+		}
+	}
+	.footer-logo{
+		// width: 100%;
+		// flex-grow: 1;
+		margin-bottom: 20px;
+	}
+	.footer-socials{
+		> *{
+			&:not(:first-of-type){
+				margin-left: 20px;
+			}
 		}
 	}
 }

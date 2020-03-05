@@ -4,6 +4,7 @@ import {
 } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
 import { Controller, Scene } from 'react-scrollmagic';
+import { Tween, Timeline } from 'react-gsap';
 
 class Footer extends Component {
     constructor(props){
@@ -20,11 +21,22 @@ class Footer extends Component {
   				<Scene
   					classToggle='show'
   					triggerElement={`.footer-helper`}
-  					offset={-50}
+  					offset={-300}
   					triggerHook={1}
   					reverse={true}
   					indicators={false}
+					duration="400px"
   				>
+				<Timeline>
+					<Tween
+						position="0"
+						from={{
+							y: '400px',
+						}}
+						to={{
+							y: '0px'
+						}}
+					>
             <footer className="sleeper-footer">
 
 					<div className="sleeper-footer-secondary">
@@ -56,7 +68,13 @@ class Footer extends Component {
 						  	</Grid>
 							<Grid item md={4} xs={12}>
 								<div className="footer-right">
-									<img src='./images/sleeper-logo-footer.png' alt="Sleeper" />
+									<img src='./images/sleeper-logo-footer.png' alt="Sleeper" className="footer-logo"/>
+									<div className="footer-socials">
+										<img src="./icons/reddit.png" alt="Reddit"/>
+										<img src="./icons/twitter_White.png" alt="Twitter"/>
+										<img src="./icons/Facebook_White.png" alt="Facebook"/>
+										<img src="./icons/Medium_White.png" alt="Medium"/>
+									</div>
 								</div>
 						  	</Grid>
 						</Grid>
@@ -71,6 +89,8 @@ class Footer extends Component {
 						</Grid>
 					</div>
 				</footer>
+				</Tween>
+				</Timeline>
 				</Scene>
 				</Controller>
         );

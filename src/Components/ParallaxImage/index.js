@@ -23,7 +23,7 @@ class ParallaxImage extends Component {
 					classToggle=''
 					reverse={true}
 					indicators={false}
-					triggerHook={0}
+					triggerHook={1}
 					duration="200%"
 				>
 					<Timeline>

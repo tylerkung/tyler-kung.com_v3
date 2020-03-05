@@ -202,7 +202,7 @@ class FootballPage extends Component {
 									<ParallaxImage
 										src="./images/img_watermark_matchup.png"
 										className="watermark-left"
-										offsetY={[-40, -20]}
+										offsetY={[-40, -10]}
 									/>
 									<Grid item md={4}>
 										<div className="feature-icon mint">
@@ -230,7 +230,7 @@ class FootballPage extends Component {
 									<ParallaxImage
 										src="./images/img_watermark_league chat.png"
 										className="watermark-right"
-										offsetY={[-40, -20]}
+										offsetY={[-40, -10]}
 									/>
 									<Grid item md={4}>
 										<div className="feature-icon gray">

@@ -83,7 +83,7 @@ class SoccerPage extends Component {
 					  reverse={true}
 					  indicators={false}
 					  triggerHook={0}
-					  offset={10}
+					  offset={0}
 					  duration="1000px"
 				  >
 					  <Timeline>
@@ -93,7 +93,7 @@ class SoccerPage extends Component {
 								  yPercent: 0,
 							  }}
 							  to={{
-								  yPercent: 30,
+								  yPercent: 40,
 							  }}
 						  >
 							  <div className="sport-header header-soccer">

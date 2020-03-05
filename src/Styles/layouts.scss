@@ -81,6 +81,12 @@
 				pointer-events: none;
 			}
 		}
+		&, &.page-soccer{
+			> div:first-of-type {
+				height: 100vh;
+				max-height: 1200px;
+			}
+		}
 	}
 	&.page-football .sport-page{
 		&:before{
@@ -134,6 +140,9 @@
 		&:before{
 			background-image: url('https://sleepercdn.com/downloads/webtest/soccer_round_path.png');
 		}
+	}
+	h1{
+		font-size:4em;
 	}
 	.header-content{
 		position: relative;

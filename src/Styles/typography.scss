@@ -94,35 +94,42 @@ h3.block-header{
 	}
 	&.engineering{
 		&:before{
-			background-image: url('./icons/icon_01_league_chat@3x.png');
+			background-image: url('./icons/icon_team_02_engineer@3x.png');
 			background-size: contain;
 			background-position: center center;
 		}
 	}
 	&.design{
 		&:before{
-			background-image: url('./icons/icon_07_DM@3x.png');
+			background-image: url('./icons/icon_team_05_design@3x.png');
 			background-size: contain;
 			background-position: center center;
 		}
 	}
 	&.operations{
 		&:before{
-			background-image: url('./icons/icon_02_draftboard@3x.png');
+			background-image: url('./icons/icon_team_03_operation@3x.png');
 			background-size: contain;
 			background-position: center center;
 		}
 	}
 	&.support{
 		&:before{
-			background-image: url('./icons/icon_05_blockbuster_trade@3x.png');
+			background-image: url('./icons/icon_team_04_support@3x.png');
 			background-size: contain;
 			background-position: center center;
 		}
 	}
 	&.marketing{
 		&:before{
-			background-image: url('./icons/icon_03_game_day@3x.png');
+			background-image: url('./icons/icon_team_06_growth.png');
+			background-size: contain;
+			background-position: center center;
+		}
+	}
+	&.ceo{
+		&:before{
+			background-image: url('./icons/icon_team_01_ceo@3x.png');
 			background-size: contain;
 			background-position: center center;
 		}

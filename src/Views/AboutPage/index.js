@@ -48,7 +48,7 @@ class AboutPage extends Component {
 		this.departmentClasses = {
 			support: 'support orange',
 			engineering: 'engineering mint',
-			operations: 'operations purple',
+			operations: 'operations aqua',
 			design: 'design yellow',
 			marketing: 'marketing red'
 		}
@@ -136,8 +136,6 @@ class AboutPage extends Component {
 	renderEmployees(names){
 		const employees = [];
 		names.map((employee, index) => {
-			console.log(employee);
-			console.log(this.employees[employee]);
 			if (employee.length > 0){
 				employees.push(
 					<Grid item md={2} sm={4} key={index}>
@@ -215,7 +213,7 @@ class AboutPage extends Component {
 						<div className="container wide">
 							<Grid container spacing={10} className="feature-row">
 								<Grid item md={3}>
-									<h3 className="block-header purple operations">Nan<br/><span className="txt-sm">CEO, Founder</span></h3>
+									<h3 className="block-header purple ceo">Nan<br/><span className="txt-sm">CEO, Founder</span></h3>
 									<p>Recovering finance professional. Repatriated ex-patriot who roots for the Patriots. Really excited about building Sleeper into a sports network where friends can enjoy sports together.</p>
 								</Grid>
 								<Grid item md={3}>

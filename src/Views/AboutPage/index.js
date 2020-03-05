@@ -138,13 +138,20 @@ class AboutPage extends Component {
 		names.map((employee, index) => {
 			console.log(employee);
 			console.log(this.employees[employee]);
-			employees.push(
-				<Grid item md={2} sm={4} key={index}>
-					<h3 className={`block-header ${this.employees[employee].class}`}>
-						{this.employees[employee].name}<br/><span className="txt-sm">{this.employees[employee].department}</span>
-					</h3>
-				</Grid>
-			)
+			if (employee.length > 0){
+				employees.push(
+					<Grid item md={2} sm={4} key={index}>
+						<h3 className={`block-header ${this.employees[employee].class}`}>
+							{this.employees[employee].name}<br/><span className="txt-sm">{this.employees[employee].department}</span>
+						</h3>
+					</Grid>
+				)
+			} else{
+				employees.push(
+					<Grid item md={2} sm={4} key={index}>
+					</Grid>
+				)
+			}
 		});
 		return employees;
 	}
@@ -216,30 +223,30 @@ class AboutPage extends Component {
 									<p>Berkeley grad. Husband & father. Warriors fan. Picked Odell Beckham #1 overall. Favorite quote: "If you have no faith, why are you guys even here?" - HotshotGG.</p>
 								</Grid>
 								<Grid item md={3}>
-									<h3 className="block-header mint engineering">Henry<br/><span className="txt-sm">Founding Engineer</span></h3>
-									<p>Passionate developer striving to code meaningful experiences to end-users. There is only one thing we say to bad user experiences: Not today.</p>
-								</Grid>
-								<Grid item md={3}>
 									<h3 className="block-header mint engineering">Ken<br/><span className="txt-sm">Founding Engineer</span></h3>
 									<p>If you're reading this, come join us for a 🍻, have some 🔥🥘, play some 🎮, and have a 🎉⏱</p>
+								</Grid>
+								<Grid item md={3}>
+									<h3 className="block-header mint engineering">Henry<br/><span className="txt-sm">Founding Engineer</span></h3>
+									<p>Passionate developer striving to code meaningful experiences to end-users. There is only one thing we say to bad user experiences: Not today.</p>
 								</Grid>
 							</Grid>
 						</div>
 						<div className="container full-team">
-							<Grid container spacing={3} className="feature-row">
-								{this.renderEmployees(['eric_k', 'daniel', 'kat', 'jeannie', 'kevin'])}
+							<Grid container spacing={10} className="feature-row">
+								{this.renderEmployees(['eric_k', 'kenny', 'seth', 'lam', 'sheng'])}
 							</Grid>
-							<Grid container spacing={3} className="feature-row">
-								{this.renderEmployees(['kenny', 'joel', 'eric_b'])}
+							<Grid container spacing={10} className="feature-row">
+								{this.renderEmployees(['daniel', 'joel', 'luke', 'victoriya', 'tyler'])}
 							</Grid>
-							<Grid container spacing={3} className="feature-row">
-								{this.renderEmployees(['seth', 'luke', 'jorge'])}
+							<Grid container spacing={10} className="feature-row">
+								{this.renderEmployees(['kat', 'eric_b', 'jorge', 'ray', 'william'])}
 							</Grid>
-							<Grid container spacing={3} className="feature-row">
-								{this.renderEmployees(['lam', 'victoriya', 'ray', 'mai'])}
+							<Grid container spacing={10} className="feature-row">
+								{this.renderEmployees(['jeannie', '', '', 'mai', 'sunny'])}
 							</Grid>
-							<Grid container spacing={3} className="feature-row">
-								{this.renderEmployees(['sheng', 'tyler', 'william', 'sunny'])}
+							<Grid container spacing={10} className="feature-row">
+								{this.renderEmployees(['kevin'])}
 							</Grid>
 						</div>
 					</div>

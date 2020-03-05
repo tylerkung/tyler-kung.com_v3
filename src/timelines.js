@@ -24,11 +24,13 @@ const getHomeTimeline = (node, delay) => {
 
 const getSportTimeline = (node, delay) => {
 	const timeline = new Timeline({ paused: true });
-   const video = node.querySelector('.sport-header video');
-
+   const video = node.querySelector('.sport-video');
+	const page = node.querySelector('.sport-page');
+	console.log(video);
    timeline
      .from(node, { display: 'none', autoAlpha: 0, delay, ease: Power1.easeIn })
-     .from(video, 1.2, { autoAlpha: 0, y: -15, scaleX: .98, scaleY: .98, ease: Power2.easeOut, delay: 0.2 });
+	  .from(page, 1, {autoAlpha: 0, y: 50, ease: Power2.easeOut})
+     // .from(video, 1, { autoAlpha: 0, y: -15, scaleX: .98, scaleY: .98, ease: Power2.easeOut, delay: 0.4 });
      // .from(contentInner, 0.15, { autoAlpha: 0, delay: 0.15, ease: Power1.easeIn });
 
    return timeline;

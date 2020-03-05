@@ -70,10 +70,15 @@ class Footer extends Component {
 								<div className="footer-right">
 									<img src='./images/sleeper-logo-footer.png' alt="Sleeper" className="footer-logo"/>
 									<div className="footer-socials">
-										<img src="./icons/reddit.png" alt="Reddit"/>
-										<img src="./icons/twitter_White.png" alt="Twitter"/>
-										<img src="./icons/Facebook_White.png" alt="Facebook"/>
-										<img src="./icons/Medium_White.png" alt="Medium"/>
+										<a href="https://twitter.com/SleeperHQ" target="_blank">
+											<img src="./icons/twitter_White.png" alt="Twitter"/>
+										</a>
+										<a href="https://www.facebook.com/sleeperhq" target="_blank">
+											<img src="./icons/Facebook_White.png" alt="Facebook"/>
+										</a>
+										<a href="https://medium.com/@sleeperbot" target="_blank">
+											<img src="./icons/Medium_White.png" alt="Medium"/>
+										</a>
 									</div>
 								</div>
 						  	</Grid>

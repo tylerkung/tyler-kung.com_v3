@@ -148,9 +148,9 @@ main{
 }
 
 .btn-secondary{
-	background-color: rgba(238,242,247,0.7);
+	background-color: rgba(238,242,247,0.1);
 	border: 2px solid $sleeperBlack;
-	color: #344054;
+	color: $sleeperBlack;
 	&:hover{
 		background-color: $sleeperBlack;
 		color: #D8E2ED;

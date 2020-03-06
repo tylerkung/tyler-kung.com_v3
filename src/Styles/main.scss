@@ -183,26 +183,28 @@ main{
 	transition: all 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	&.close{
 		transition-duration: 2s;
 		opacity: 0;
 		pointer-events: none;
 		img{
-			transform: translateY(0vh);
-			-webkit-transform: translateY(0vh);
-			-ms-transform: translateY(0vh);
-			opacity: 0;
+			// transform: translateY(0vh);
+			// -webkit-transform: translateY(0vh);
+			// -ms-transform: translateY(0vh);
+			// opacity: 0;
 		}
 	}
 	&.init:not(.close){
 		transition-property: none;
 	}
-	img{
-		position: absolute;
-		transform: translateY(calc(50vh - 50px));
-		-webkit-transform: translateY(calc(50vh - 50px));
-		-ms-transform: translateY(calc(50vh - 50px));
-		transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+	picture{
+		// position: absolute;
+		// left: 50%;
+		// transform: translate(-50%, calc(50vh - 50px));
+		// -webkit-transform: translate(-50%, calc(50vh - 50px));
+		// -ms-transform: translate(-50%, calc(50vh - 50px));
+		// transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
 	}
 	@keyframes spin{
 		0%{

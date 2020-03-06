@@ -107,7 +107,7 @@ class App extends Component {
 						}}/>
 						<div className={'loading-screen ' + (this.state.loadScreenActive ? 'open' : 'close') + (this.state.initLoadScreen ? ' init' : '')}>
 							<picture>
-								<source type="image/webp" srcset="./images/loading-bot.webp" alt="Sleeper Loading"/>
+								<source type="image/webp" srcSet="./images/loading-bot.webp" alt="Sleeper Loading"/>
 								<img src="images/v4_200px.png" alt="Sleeper Loading"/>
 							</picture>
 						</div>

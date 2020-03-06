@@ -23,7 +23,8 @@ class App extends Component {
 
 		 this.state = {
 			 loadScreenActive: false,
-			 initLoadScreen: false
+			 initLoadScreen: false,
+			 overlayStatus: false
 		 }
 		 this.goHome = this.goHome.bind(this);
 		 this.initLoad = this.initLoad.bind(this);
@@ -35,7 +36,7 @@ class App extends Component {
 		this.startLoad();
 		setTimeout(() => {
 			console.log('go Home');
-			this.history.push('./')}, 1000
+			this.history.push('./')}, 800
 		);
 	}
 	initLoad(){
@@ -45,9 +46,7 @@ class App extends Component {
 		this.setState({loadScreenActive: true});
 	}
 	stopLoad(){
-		setTimeout(() => {
-			this.setState({loadScreenActive: false, initLoadScreen: false});}, 1000
-		);
+		this.setState({loadScreenActive: false, initLoadScreen: false});
 	}
    render() {
       return (
@@ -70,34 +69,34 @@ class App extends Component {
 									>
 										<Switch location={location}>
 					                  <Route exact
-												path="/(|index.html)/"
+												path="/(|index.html|home)/"
 												render={(props) =>
 													<HomePage {...props} stopLoad={this.stopLoad} initLoad={this.initLoad}/>}
 											/>
 											<Route exact
 												path="/(about|index.html/about)"
 												render={(props) =>
-													<AboutPage {...props} goHome={this.goHome} />}
+													<AboutPage {...props}/>}
 											/>
 											<Route exact
 												path="/(fantasy-football|index.html/fantasy-football)"
 												render={(props) =>
-													<FootballPage {...props} goHome={this.goHome} />}
+													<FootballPage {...props}/>}
 											/>
 											<Route exact
 												path="/(bracket-mania|index.html/bracket-mania)"
 												render={(props) =>
-													<BasketballPage {...props} goHome={this.goHome} />}
+													<BasketballPage {...props}/>}
 											/>
 											<Route exact
 												path="/(fantasy-pl|index.html/fantasy.pl)"
 												render={(props) =>
-													<SoccerPage {...props} goHome={this.goHome} />}
+													<SoccerPage {...props}/>}
 											/>
 											<Route exact
 												path="/(privacy|index.html/privacy)"
 												render={(props) =>
-													<PrivacyPage {...props} goHome={this.goHome} />}
+													<PrivacyPage {...props}/>}
 											/>
 											<Route exact path="/styles" component={StylesPage} />
 					               </Switch>

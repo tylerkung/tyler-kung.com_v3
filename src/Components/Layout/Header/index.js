@@ -25,7 +25,7 @@ class Header extends Component {
 					reverse={true}
 					indicators={false}
 				>
-					<header className="sleeper-header">
+					<header className={`sleeper-header`} id="sleeper-header">
 						<div className="sleeper-header-container">
 							<div className="sleeper-header-logo" onClick={this.props.goHome}>
 								<img src="./images/logo-sleeper-d.webp" alt="Sleeper Home Logo" />

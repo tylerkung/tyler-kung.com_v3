@@ -245,7 +245,6 @@ class NewCity extends Component {
 		this.setState({activeStadium: null});
 		cancelAnimationFrame(this.frameId);
 	}
-
 	//ANIMATE
 	animate(time) {
 		time *= 0.001;
@@ -391,7 +390,6 @@ class NewCity extends Component {
 		this.camera.bottom = -windowHeight / this.factor;
 		this.zoom = 1.4 - (1200/windowWidth * 0.35);
 		this.camera.zoom = this.zoom;
-		console.log(windowWidth);
 		// this.camera.updateProjectionMatrix();
 
 		this.renderer.setSize( windowWidth, windowHeight );

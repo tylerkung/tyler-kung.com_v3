@@ -99,6 +99,14 @@
 				color: $sleeperBlack !important;;
 			}
 		}
+		.overlay-close{
+			&:before{
+				left: auto;
+				top: 50%;
+				transform: translate(0px, -50%);
+				right: -60px;
+			}
+		}
 	}
 	&.basketball-active{
 		text-align: left;
@@ -109,7 +117,9 @@
 		.overlay-close{
 			&:before{
 				right: auto;
-				left: -25px;
+				top: 50%;
+				transform: translate(0px, -50%);
+				left: -60px;
 			}
 		}
 		.overlay-inner{
@@ -154,7 +164,7 @@
 			&:before{
 				opacity: 1;
 				pointer-events: initial;
-				transition-delay: 0.8s;
+				transition-delay: 1.2s;
 			}
 			&:after{
 				pointer-events: initial;

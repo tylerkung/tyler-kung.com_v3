@@ -6,10 +6,10 @@ import {
 } from "react-router-dom";
 
 import { FBXLoader } from './Three/build/FBXLoader.js';
-import { GLTFLoader } from './Three/build/GLTFLoader.js';
+// import { GLTFLoader } from './Three/build/GLTFLoader.js';
 import { OrbitControls } from './Three/build/OrbitControls.js';
-import { EffectComposer } from './Three/postprocessing/EffectComposer.js';
-import { RenderPass } from './Three/postprocessing/RenderPass.js';
+// import { EffectComposer } from './Three/postprocessing/EffectComposer.js';
+// import { RenderPass } from './Three/postprocessing/RenderPass.js';
 import PickHelper from './Three/PickHelper';
 import Overlay from './Overlay';
 import { CityFile } from './Assets';
@@ -45,9 +45,6 @@ class NewCity extends Component {
 		this.resize = this.resize.bind(this);
 		this.enterStadium = this.enterStadium.bind(this);
 		this.exitStadium = this.exitStadium.bind(this);
-		this.viewFootball = this.viewFootball.bind(this);
-		this.viewBasketball = this.viewBasketball.bind(this);
-		this.viewSoccer = this.viewSoccer.bind(this);
 		this.moveCamera = this.moveCamera.bind(this);
 		this.pickposition = {x: 0, y: 0}
 		this.ferrisWheel = null;
@@ -106,7 +103,6 @@ class NewCity extends Component {
 		this.camera.scale.y = 100;
 		this.camera.scale.z = 100;
 		this.camera.zoom = 1.4;
-		this.camera.lookAt({x: 1000, y: 100, z: 100});
 		this.cameraHelper = this.camera.clone();
 
 		// CONTROLS
@@ -129,9 +125,9 @@ class NewCity extends Component {
 		scene.add( light1 );
 
 		// Light 2
-		var light2 = new THREE.PointLight( lightInts.ambientColor, lightInts.secondLight, 0);
-		light2.position.set( 339, 200, 324 );
-		scene.add( light2 );
+		// var light2 = new THREE.PointLight( lightInts.ambientColor, lightInts.secondLight, 0);
+		// light2.position.set( 339, 200, 324 );
+		// scene.add( light2 );
 
 		// Ambient Light
 		scene.add( new THREE.AmbientLight( lightInts.ambientColor, lightInts.ambientLight ) );
@@ -153,10 +149,11 @@ class NewCity extends Component {
 			console.log( item, loaded, total );
 		};
 
-		var renderScene = new RenderPass( scene, this.camera );
+		// var renderScene = new RenderPass( scene, this.camera );
 		this.renderer.toneMappingExposure = 1;
-		this.composer = new EffectComposer( this.renderer );
-		this.composer.addPass( renderScene );
+		// this.composer = new EffectComposer( this.renderer );
+		// this.composer.addPass( renderScene );
+		// this.renderer.render(scene, this.camera);
 		// this.composer.addPass( bloomPass );
 
 		this.resize();
@@ -186,8 +183,6 @@ class NewCity extends Component {
 					}
 				}
 			});
-			object.getObjectByName('main').intensity = 0;
-
 
 			const textures = {};
 			textures.sleeper = new THREE.TextureLoader().load('./images/sleeper-billboard-4.png');
@@ -201,7 +196,7 @@ class NewCity extends Component {
 				textures[texture].repeat.set(4, 4);
 				textures[texture].wrapS = THREE.ClampToEdgeWrapping;
 				textures[texture].wrapT = THREE.RepeatWrapping;
-				textures[texture].anisotropy = this.renderer.getMaxAnisotropy();
+				textures[texture].anisotropy = this.renderer.capabilities.getMaxAnisotropy();
 			}
 
 			var signMaterial = object.getObjectByName('billboard_03').material.clone();
@@ -256,7 +251,7 @@ class NewCity extends Component {
 		var stadium = this.pickHelper.pick(this.pickPosition, scene, this.camera, time);
 		this.hoverStadium(stadium);
 		this.camera.updateProjectionMatrix();
-		this.composer.render();
+		this.renderer.render(scene, this.camera);
 	}
 
 	getCanvasRelativePosition(event) {
@@ -393,7 +388,7 @@ class NewCity extends Component {
 		// this.camera.updateProjectionMatrix();
 
 		this.renderer.setSize( windowWidth, windowHeight );
-		this.composer.setSize( windowWidth, windowHeight );
+		// this.composer.setSize( windowWidth, windowHeight );
 	};
 	render(){
 		return (

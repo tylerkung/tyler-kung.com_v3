@@ -49,6 +49,7 @@ class App extends Component {
 		this.setState({loadScreenActive: false, initLoadScreen: false});
 	}
    render() {
+		document.addEventListener('touchstart', {passive: true});
       return (
 			<div className="App">
 	         <Router history={this.history}>

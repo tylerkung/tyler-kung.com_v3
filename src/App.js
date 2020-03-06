@@ -70,32 +70,32 @@ class App extends Component {
 									>
 										<Switch location={location}>
 					                  <Route exact
-												path="/(home|)/"
+												path="/(home|index.html)/"
 												render={(props) =>
 													<HomePage {...props} stopLoad={this.stopLoad} initLoad={this.initLoad}/>}
 											/>
 											<Route exact
-												path="/about"
+												path="/(about|index.html/about)"
 												render={(props) =>
 													<AboutPage {...props} goHome={this.goHome} />}
 											/>
 											<Route exact
-												path="/fantasy-football"
+												path="/(fantasy-football|index.html/fantasy-football)"
 												render={(props) =>
 													<FootballPage {...props} goHome={this.goHome} />}
 											/>
 											<Route exact
-												path="/bracket-mania"
+												path="/(bracket-mania|index.html/bracket-mania)"
 												render={(props) =>
 													<BasketballPage {...props} goHome={this.goHome} />}
 											/>
 											<Route exact
-												path="/fantasy-pl"
+												path="/(fantasy-pl|index.html/fantasy.pl)"
 												render={(props) =>
 													<SoccerPage {...props} goHome={this.goHome} />}
 											/>
 											<Route exact
-												path="/privacy"
+												path="/(privacy|index.html/privacy)"
 												render={(props) =>
 													<PrivacyPage {...props} goHome={this.goHome} />}
 											/>

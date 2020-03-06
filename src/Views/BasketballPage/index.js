@@ -159,7 +159,7 @@ class BasketballPage extends Component {
 							<Grid item md={12}>
 								<LayeredGraphic
 									back='./images/bracket-mania-phone.png'
-									middle='./images/sleeper-bracket-mania.png'
+									middle='./images/sleeper-bracket-mania.webp'
 									elements={[]}
 									className='bracket-mania-graphic'
 									entrance={true}

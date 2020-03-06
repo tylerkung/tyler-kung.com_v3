@@ -78,25 +78,7 @@ class FootballPage extends Component {
 		};
       return (
             <div className={`page-content page-football ${(this.state.pageLoaded) ? "page-loaded" : ""}`}>
-					<Controller>
-	 				  <Scene
-	 					  classToggle=''
-	 					  reverse={true}
-	 					  indicators={false}
-	 					  triggerHook={0}
-						  offset={0}
-	 					  duration="1000px"
-	 				  >
-	 					  <Timeline>
-	 						  <Tween
-	 							  position="0"
-	 							  from={{
-	 								  yPercent: 0,
-	 							  }}
-	 							  to={{
-	 								  yPercent: 40,
-	 							  }}
-	 						  >
+					<div>
 									<div className="sport-header header-football">
 										<div className="container">
 											<Grid container spacing={3}>
@@ -119,10 +101,7 @@ class FootballPage extends Component {
 											</video>
 										</div>
 									</div>
-								</Tween>
-							</Timeline>
-						</Scene>
-					</Controller>
+								</div>
 					<div className="sport-page">
 						<div className="scroll-down">
 							<Lottie options={defaultOptions}
@@ -140,7 +119,7 @@ class FootballPage extends Component {
 									<Grid item md={6}>
 										<LayeredGraphic
 											back='./images/draft-phone.png'
-											middle='./images/sleeper-draft-2.png'
+											middle='./images/sleeper-draft.webp'
 											elements={['./images/clock.png', './images/player_card_05.png', './images/player_card_06.png', './images/player_card_05.png']}
 											className='draft-graphic'
 											entrance={true}
@@ -151,7 +130,7 @@ class FootballPage extends Component {
 									<Grid item md={6}>
 										<LayeredGraphic
 											back='./images/play-phone.png'
-											middle='./images/sleeper-play.png'
+											middle='./images/sleeper-play.webp'
 											elements={['./images/football_green.png','./images/touchdown.png']}
 											className='play-graphic'
 											entrance={true}
@@ -171,7 +150,7 @@ class FootballPage extends Component {
 									<Grid item md={6}>
 										<LayeredGraphic
 											back='./images/win-phone.png'
-											middle='./images/sleeper-win.png'
+											middle='./images/sleeper-win.webp'
 											className='win-graphic'
 											entrance={true}
 										/>

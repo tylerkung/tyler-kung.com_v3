@@ -35,26 +35,23 @@ class Header extends Component {
 									<li className="nav-link">
 										Product
 										<ul className="dropdown-nav">
-											<Link to="/bracket-mania">
-												<li className="nav-link">
+											<li className="nav-link">
+												<Link to="/bracket-mania">
 													Bracket Mania
-												</li>
-											</Link>
-											<Link to="/fantasy-football">
-												<li className="nav-link">
+												</Link>
+											</li>
+											<li className="nav-link">
+												<Link to="/fantasy-football">
 													Fantasy Football
-												</li>
-											</Link>
-											<Link to="/fantasy-pl">
-												<li className="nav-link">
-													Fantasy PL
-												</li>
-											</Link>
+												</Link>
+											</li>
 										</ul>
 									</li>
-									<Link to="/about">
-										<li className="nav-link">Company</li>
-									</Link>
+									<li className="nav-link">
+										<Link to="/about">
+											Company
+										</Link>
+									</li>
 								</ul>
 							</div>
 							<div className="sleeper-header-menu">

@@ -45,7 +45,7 @@ class Footer extends Component {
 								<ul className="footer-links">
 									<li className="links-header">Company</li>
 									<li><Link to="/about">About</Link></li>
-									<li><a href="https://blog.sleeper.app/" target="_blank">Blog</a></li>
+									<li><a href="https://blog.sleeper.app/" target="_blank" rel="noopener noreferrer">Blog</a></li>
 								</ul>
 						  	</Grid>
 							<Grid item md={2} xs={12}>
@@ -53,7 +53,6 @@ class Footer extends Component {
 									<li className="links-header">Product</li>
 									<li><Link to="/bracket-mania">Bracket Mania</Link></li>
 									<li><Link to="/fantasy-football">Fantasy Football</Link></li>
-									<li><Link to="/fantasy-pl">Fantasy PL</Link></li>
 								</ul>
 						  	</Grid>
 							<Grid item md={2} xs={12}>

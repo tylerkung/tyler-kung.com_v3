@@ -206,7 +206,7 @@ class NewCity extends Component {
 			var signMaterial = object.getObjectByName('billboard_03').material.clone();
 			signMaterial.map = textures.sleeper;
 			signMaterial.emissive = {r: 1, g: 1, b: 1};
-			signMaterial.emissiveIntensity = 0.25;
+			signMaterial.emissiveIntensity = 0.35;
 
 			var sleeperSign = signMaterial.clone();
 			sleeperSign.map = textures.sleeper;
@@ -273,10 +273,10 @@ class NewCity extends Component {
 		this.pickPosition.y = (pos.y / canvas.clientHeight) * -2 + 1;  // flip Y
 		this.mouseX = this.pickPosition.x;
 		this.mouseY = this.pickPosition.y;
-		const scale = 1;
-		if (!this.state.activeStadium.length){
-			this.camera.position.set(this.defaultPosition.x + (this.mouseX * scale), this.defaultPosition.y + (this.mouseY * scale), this.defaultPosition.z + (this.mouseX * scale));
-		}
+		// const scale = 1;
+		// if (!this.state.activeStadium.length){
+		// 	this.camera.position.set(this.defaultPosition.x + (this.mouseX * scale), this.defaultPosition.y + (this.mouseY * scale), this.defaultPosition.z + (this.mouseX * scale));
+		// }
 		// if (this.state.hoverStadium === 'football'){
 		// 	const cursor = document.getElementsByClassName('cursor-football')[0];
 		// 	// cursor.style.position = 'fixed';

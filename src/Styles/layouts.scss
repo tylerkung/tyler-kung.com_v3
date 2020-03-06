@@ -20,7 +20,7 @@
 		// }
 		.header-content{
 			&:after{
-				opacity: 0.6;
+				opacity: 0.4;
 			}
 			> *{
 				transform: translateY(0px);
@@ -90,12 +90,12 @@
 	}
 	&.page-football .sport-page{
 		&:before{
-			background-image: url('https://sleepercdn.com/downloads/webtest/football_round_path.png');
+			background-image: url('./background/football-round-path.png');
 		}
 	}
 	&.page-basketball .sport-page{
 		&:before{
-			background-image: url('https://sleepercdn.com/downloads/webtest/basketball_round_path.png');
+			background-image: url('./background/basketball-round-path.png');
 		}
 	}
 	// &.page-soccer .sport-page{
@@ -380,21 +380,32 @@
 .flex-center{
 	align-items: center;
 }
-
-.graphic-row{
-	margin-top: -250px !important;
-	margin-bottom: -100px !important;
-	&:first-of-type{
-		margin-top: -200px !important;
+.row-right{
+	@media (max-width: 1279px){
+		flex-direction: column;
 	}
-	&:not(:last-of-type){
-		margin-bottom: -250px !important;
+}
+.row-left{
+	@media (max-width: 1279px){
+		flex-direction: column-reverse;
+	}
+}
+.graphic-row{
+	@media (min-width: 1280px){
+		margin-top: -250px !important;
+		margin-bottom: -100px !important;
+		&:first-of-type{
+			margin-top: -200px !important;
+		}
+		&:not(:last-of-type){
+			margin-bottom: -250px !important;
+		}
 	}
 }
 
 .bracket-mania-features{
 	padding-top: 0;
-	@media (min-width: 992px){
+	@media (min-width: 1280px){
 		.MuiGrid-item:nth-child(1),.MuiGrid-item:nth-child(4){
 			.feature-icon{
 				margin: 0 auto;

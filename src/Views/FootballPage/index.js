@@ -25,7 +25,7 @@ class FootballPage extends Component {
 				  direction: 'left'
 			  },
 			  {
-				  name: 'David S',
+				  name: 'David S.',
 				  image: './images/sleeper-avatar-2.png',
 				  quote: "Switched leagues from ESPN and Yahoo. Other owners couldn't believe Sleeper existed. Really brought fantasy football up to modern standards.",
 				  direction: 'right'
@@ -119,7 +119,7 @@ class FootballPage extends Component {
 									<Grid item md={6}>
 										<LayeredGraphic
 											back='./images/draft-phone.png'
-											middle='./images/sleeper-draft.webp'
+											middle='./images/sleeper-draft'
 											elements={['./images/clock.png', './images/player_card_05.png', './images/player_card_06.png', './images/player_card_05.png']}
 											className='draft-graphic'
 											entrance={true}
@@ -130,7 +130,7 @@ class FootballPage extends Component {
 									<Grid item md={6}>
 										<LayeredGraphic
 											back='./images/play-phone.png'
-											middle='./images/sleeper-play.webp'
+											middle='./images/sleeper-play'
 											elements={['./images/football_green.png','./images/touchdown.png']}
 											className='play-graphic'
 											entrance={true}
@@ -150,7 +150,7 @@ class FootballPage extends Component {
 									<Grid item md={6}>
 										<LayeredGraphic
 											back='./images/win-phone.png'
-											middle='./images/sleeper-win.webp'
+											middle='./images/sleeper-win'
 											className='win-graphic'
 											entrance={true}
 										/>

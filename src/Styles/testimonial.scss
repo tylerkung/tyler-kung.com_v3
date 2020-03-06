@@ -1,85 +1,153 @@
 @supports (display: grid){
 	.testimonials-module{
-		&.football-testimonial{
-			.testimonial-item{
-				&.item-0{
-					grid-column-start: 4;
-					grid-row-start: 4;
-				}
-				&.item-1{
-					grid-column-start: 12;
-					grid-row-start: 3;
-				}
-				&.item-2{
-					grid-column-start: 4;
-					grid-row-start: 8
-				}
-				&.item-3{
-					grid-column-start: 10;
-					grid-row-start: 10;
-				}
-				&.item-4{
-					grid-column-start: 13;
-					grid-row-start: 8;
-				}
-			}
-		}
-		&.about-testimonial{
-			.testimonial-item{
-				&.item-0{
-					grid-column-start: 5;
-					grid-row-start: 3;
-				}
-				&.item-1{
-					grid-column-start: 11;
-					grid-row-start: 2;
-				}
-				&.item-2{
-					grid-column-start: 4;
-					grid-row-start: 8
-				}
-				&.item-3{
-					grid-column-start: 10;
-					grid-row-start: 8;
-				}
-				&.item-4{
-					grid-column-start: 13;
-					grid-row-start: 5;
-				}
-			}
-		}
-		&.basketball-testimonial{
-			.testimonial-item{
-				&.item-0{
-					grid-column-start: 5;
-					grid-row-start: 3;
-				}
-				&.item-1{
-					grid-column-start: 12;
-					grid-row-start: 2;
-				}
-				&.item-2{
-					grid-column-start: 4;
-					grid-row-start: 8
-				}
-				&.item-3{
-					grid-column-start: 10;
-					grid-row-start: 10;
-				}
-				&.item-4{
-					grid-column-start: 13;
-					grid-row-start: 8;
+		@media (min-width: 1280px){
+			&.football-testimonial{
+				.testimonial-item{
+					&.item-0{
+						grid-column-start: 4;
+						grid-row-start: 4;
+					}
+					&.item-1{
+						grid-column-start: 12;
+						grid-row-start: 3;
+					}
+					&.item-2{
+						grid-column-start: 4;
+						grid-row-start: 8
+					}
+					&.item-3{
+						grid-column-start: 10;
+						grid-row-start: 10;
+					}
+					&.item-4{
+						grid-column-start: 13;
+						grid-row-start: 8;
+					}
+					@media (min-width: 1280px) and (max-width: 1599px){
+						&.item-0{
+							grid-column-start: 2;
+							grid-row-start: 3;
+						}
+						&.item-1{
+							grid-column-start: 12;
+							grid-row-start: 3;
+						}
+						&.item-2{
+							grid-column-start: 2;
+							grid-row-start: 8;
+						}
+						&.item-3{
+							grid-column-start: 9;
+							grid-row-start: 10;
+						}
+						&.item-4{
+							grid-column-start: 13;
+							grid-row-start: 8;
+						}
+					}
 				}
 			}
-		}
-		.testimonials-list{
-			display: grid;
-			grid-template-columns: repeat(20, 1fr);
-			grid-template-rows: repeat(12, 1fr);
-			.testimonial-item{
-				grid-column-end: span 5;
-				grid-row-end: span 2;
-				padding: 10px;
+			&.about-testimonial{
+				.testimonial-item{
+					&.item-0{
+						grid-column-start: 5;
+						grid-row-start: 3;
+					}
+					&.item-1{
+						grid-column-start: 11;
+						grid-row-start: 2;
+					}
+					&.item-2{
+						grid-column-start: 4;
+						grid-row-start: 8
+					}
+					&.item-3{
+						grid-column-start: 10;
+						grid-row-start: 8;
+					}
+					&.item-4{
+						grid-column-start: 13;
+						grid-row-start: 5;
+					}
+				}
+
+			}
+			&.basketball-testimonial{
+				.testimonial-item{
+					@media (min-width: 1600px){
+						&.item-0{
+							grid-column-start: 5;
+							grid-row-start: 3;
+						}
+						&.item-1{
+							grid-column-start: 12;
+							grid-row-start: 2;
+						}
+						&.item-2{
+							grid-column-start: 4;
+							grid-row-start: 8
+						}
+						&.item-3{
+							grid-column-start: 10;
+							grid-row-start: 10;
+						}
+						&.item-4{
+							grid-column-start: 13;
+							grid-row-start: 8;
+						}
+					}
+					@media (min-width: 1280px) and (max-width: 1599px){
+						&.item-0{
+							grid-column-start: 2;
+							grid-row-start: 4;
+						}
+						&.item-1{
+							grid-column-start: 12;
+							grid-row-start: 3;
+						}
+						&.item-2{
+							grid-column-start: 3;
+							grid-row-start: 8;
+						}
+						&.item-3{
+							grid-column-start: 10;
+							grid-row-start: 10;
+						}
+						&.item-4{
+							grid-column-start: 13;
+							grid-row-start: 8;
+						}
+					}
+				}
+			}
+			.testimonials-list{
+				display: grid;
+				grid-template-columns: repeat(20, 1fr);
+				grid-template-rows: repeat(12, 1fr);
+				position: absolute;
+				top: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				-webkit-transform: translateX(-50%);
+				-ms-transform: translateX(-50%);
+				height: 100%;
+				width: 100%;
+				max-width: 2400px;
+				.testimonial-item{
+					padding: 10px;
+				}
+				@media (min-width: 1600px){
+					.testimonial-item{
+						grid-column-end: span 5;
+						grid-row-end: span 2;
+					}
+				}
+				@media (min-width: 1280px) and (max-width: 1599px){
+					.testimonial-item{
+						grid-column-end: span 7;
+						grid-row-end: span 2;
+					}
+				}
 			}
 		}
 	}
@@ -100,59 +168,119 @@
 	}
 	.testimonial-container{
 		position: relative;
-		padding: 400px 0;
+		padding: 100px 0 400px;
+		@media (min-width: 1280px){
+			padding: 400px 0;
+		}
 	}
 	.testimonial-content{
 		text-align: center;
 	}
-	.testimonials-list{
-		position: absolute;
-		display: grid;
-		top: 0;
-		left: 50%;
-    	transform: translateX(-50%);
-		-webkit-transform: translateX(-50%);
-		-ms-transform: translateX(-50%);
-		height: 100%;
-		width: 100%;
-		max-width: 2400px;
-		.testimonial-item{
-			padding: 10px;
-		}
-	}
 	.testimonial-item{
-		max-height: 180px;
-		&.direction-left{
-			.item-user{
-				float: left;
-			}
-			.item-quote{
-				margin-left: 60px;
-				&:after{
-					left: 60px;
+		@media (min-width: 1280px){
+			max-height: 180px;
+			&.direction-left{
+				.item-user{
+					float: left;
+				}
+				.item-quote{
+					margin-left: 60px;
+					&:after{
+						left: 60px;
+					}
+				}
+				.user-portrait{
+					&:after{
+						top: 15px;
+						right: 20px;
+					}
 				}
 			}
-			.user-portrait{
-				&:after{
-					top: 15px;
-					right: 20px;
+			&.direction-right{
+				.item-user{
+					float: right;
+				}
+				.item-quote{
+					margin-right: 60px;
+					&:after{
+						right: 60px;
+					}
+				}
+				.user-portrait{
+					&:after{
+						top: 15px;
+						left: 20px;
+					}
 				}
 			}
 		}
-		&.direction-right{
-			.item-user{
-				float: right;
-			}
+		@media (max-width: 1279px){
+			display: flex;
+			margin: 40px 0;
+			align-items: flex-start;
 			.item-quote{
-				margin-right: 60px;
-				&:after{
-					right: 60px;
+				width: 100%;
+				margin: 0;
+				max-width: 800px;
+			}
+			&:nth-child(2n-1){
+				flex-direction: row-reverse;
+				.item-quote{
+					margin-right: 60px;
+					&:after{
+						bottom: 4px;
+						left: -20px;
+						height: 25px;
+						width: 25px;
+						border-radius: 50%;
+					}
+				}
+				.item-user{
+					margin-right: 40px;
+					margin-left: 16px;
+				}
+				.user-portrait{
+					&:after{
+						top: auto;
+						bottom: 30px;
+						right: -14px;
+					}
 				}
 			}
-			.user-portrait{
-				&:after{
-					top: 15px;
-					left: 20px;
+			&:nth-child(2n){
+				flex-direction: row;
+				.item-quote{
+					margin-left: 60px;
+					&:after{
+						top: 4px;
+						right: -20px;
+						height: 25px;
+						width: 25px;
+						border-radius: 50%;
+					}
+				}
+				.item-user{
+					margin-left: 40px;
+					margin-right: 16px;
+				}
+				.user-portrait{
+					&:after{
+						top: auto;
+						top: 28px;
+						left: -14px;
+					}
+				}
+			}
+		}
+		@media (max-width: 959px){
+			&:nth-child(2n-1){
+				.item-quote{
+					margin-right: 32px;
+				}
+			}
+			&:nth-child(2n){
+				.item-quote{
+					margin-left: 32px;
 				}
 			}
 		}

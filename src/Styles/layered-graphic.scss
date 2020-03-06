@@ -218,18 +218,24 @@
 		-ms-transform: translateX(20px);
 	}
 	.c-frame.layer-left{
-		float: right;
+		margin: 0 auto;
 		.layer-back{
 			img{
 				float: right;
 			}
 		}
-		.layer-back, .layer-middle, .layer-elements{
-			transform: translateX(-20px);
-			-webkit-transform: translateX(-20px);
-			-ms-transform: translateX(-20px);
+		@media (min-width: 1280px){
+			float: right;
 		}
 	}
+	// .c-frame.layer-right{
+	// 	@media (max-width: 1279px){
+	// 		.layer-back{
+	// 			float: right;
+	// 		}
+	// 		margin: 0 auto;
+	// 	}
+	// }
 }
 
 

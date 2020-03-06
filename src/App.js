@@ -106,7 +106,10 @@ class App extends Component {
 							)
 						}}/>
 						<div className={'loading-screen ' + (this.state.loadScreenActive ? 'open' : 'close') + (this.state.initLoadScreen ? ' init' : '')}>
-							<img src='./images/loading-bot.webp' alt="Sleeper Loading" />
+							<picture>
+								<source type="image/webp" srcset="./images/loading-bot.webp" alt="Sleeper Loading"/>
+								<img src="images/v4_200px.png" alt="Sleeper Loading"/>
+							</picture>
 						</div>
 	            </main>
 					<div className="footer-helper"></div>

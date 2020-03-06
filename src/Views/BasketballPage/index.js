@@ -25,7 +25,7 @@ class BasketballPage extends Component {
 				  direction: 'left'
 			  },
 			  {
-				  name: 'David S',
+				  name: 'David S.',
 				  image: './images/sleeper-avatar-2.png',
 				  quote: "Switched leagues from ESPN and Yahoo. Other owners couldn't believe Sleeper existed. Really brought fantasy football up to modern standards.",
 				  direction: 'right'
@@ -159,7 +159,7 @@ class BasketballPage extends Component {
 							<Grid item md={12}>
 								<LayeredGraphic
 									back='./images/bracket-mania-phone.png'
-									middle='./images/sleeper-bracket-mania.webp'
+									middle='./images/sleeper-bracket-mania'
 									elements={[]}
 									className='bracket-mania-graphic'
 									entrance={true}
@@ -171,28 +171,28 @@ class BasketballPage extends Component {
 					<div className="layout layout-secondary-color rounded-top bracket-mania-features">
 						<div className="container">
 							<Grid container spacing={10} className="feature-row">
-								<Grid item md={3}>
+								<Grid item lg={3} md={6}>
 									<div className="feature-icon mint">
 										<img src='./icons/icon_bm_01_group_chat.png' alt='Group Chat' />
 									</div>
 									<h4>Group Chat</h4>
 									<p>Pools are more fun with chat at the center. Send text, images, gifs and polls to your group before and during the tournament.</p>
 								</Grid>
-								<Grid item md={3}>
+								<Grid item lg={3} md={6}>
 									<div className="feature-icon red">
 										<img src='./icons/icon_bm_02_mobile_app.png' alt='Mobile App' />
 									</div>
 									<h4>Mobile app</h4>
 									<p>An intuitive mobile interfaces makes it easy for everyone to fill out their brackets. Now you can edit brackets anywhere, including on the go.</p>
 								</Grid>
-								<Grid item md={3}>
+								<Grid item lg={3} md={6}>
 									<div className="feature-icon yellow">
 										<img src='./icons/icon_bm_03_live_standing.png' alt='Live Standings' />
 									</div>
 									<h4>Live standings</h4>
 									<p>Know where you stand at all times with the fastest and most frequently updated scores, straight from the source.</p>
 								</Grid>
-								<Grid item md={3}>
+								<Grid item lg={3} md={6}>
 									<div className="feature-icon purple">
 										<img src='./icons/icon_bm_04_team_notes.png' alt='Team Notes' />
 									</div>
@@ -205,17 +205,17 @@ class BasketballPage extends Component {
 					<div className="layout layout-secondary-color">
 						<div className="container">
 							<Grid container spacing={10} className="flex-center graphic-row">
-								<Grid item md={7}>
+								<Grid item lg={7} md={12}>
 									<LayeredGraphic
 										back='./images/weekly-phone.png'
-										middle='./images/sleeper-weekly.png'
+										middle='./images/sleeper-weekly'
 										elements={['./images/bm-clock.png', './images/orange-calendar.png','./images/orange-confetti.png','./images/bm-basketball.png']}
 										className='weekly-graphic'
 										entrance={true}
 										imagePosition='left'
 									/>
 								</Grid>
-								<Grid item md={5}>
+								<Grid item lg={5} md={12}>
 									<h1 className="block-header orange">Weekly Mode</h1>
 									<p>In <strong>Weekly Mode (Recommended)</strong>, the 64-team tournament is divided into 3 weeks. There are 2 rounds in every week.</p>
 									<p><strong>Week 1</strong> - Rounds 1 & 2<br/>
@@ -226,15 +226,15 @@ class BasketballPage extends Component {
 									<p>This mode offers the right balance of strategy and chance, with the opportunity for upset comebacks in your pool.</p>
 								</Grid>
 							</Grid>
-							<Grid container spacing={10} className="flex-center graphic-row">
-								<Grid item md={5}>
+							<Grid container spacing={10} className="flex-center graphic-row row-left">
+								<Grid item lg={5} md={12}>
 									<h1 className="block-header yellow">Classic Mode</h1>
 									<p>In <strong>Classic Mode</strong>, each participant will submit all of their picks for the entire bracket, including through the Championship Game.  No changes can be made once games begin.</p>
 								</Grid>
-								<Grid item md={7}>
+								<Grid item lg={7} md={12}>
 									<LayeredGraphic
 										back='./images/classic-phone.png'
-										middle='./images/sleeper-classic.png'
+										middle='./images/sleeper-classic'
 										elements={['./images/orange-confetti.png','./images/bm-basketball.png','./images/orange-trophy.png']}
 										className='classic-graphic'
 										entrance={true}

@@ -39,7 +39,10 @@ class LayeredGraphic extends Component {
 	renderMiddleLayer(){
 		return(
 			<div className="f-layer layer-middle">
-				<img src={this.props.middle} />
+				<picture>
+					<source type="image/webp" srcset={`${this.props.middle}.webp`} alt={this.props.middle}/>
+					<img src={`${this.props.middle}.png`} alt={this.props.middle}/>
+				</picture>
 			</div>
 		)
 	}

@@ -3,7 +3,7 @@
 	h1, h2, h3, h4{
 		margin: 0 0 1em;
 	}
-	background-image: url('./background/img_footer_w.png');
+	background-image: url('./background/moon-footer.webp');
 	background-size: cover;
 	background-position: 50% 0px;
 	background-repeat: no-repeat;
@@ -17,14 +17,14 @@
 	// -ms-transform: translateY(400px);
 	&:after{
 		content: '';
-		height: 180px;
+		height: 120px;
 		width: 100%;
 		display: block;
 		position: absolute;
 		pointer-events: none;
-		top: 0px;
+		top: 20px;
 		z-index: 0;
-		background-image: url('./background/img_footer_spaceship_w.png');
+		background-image: url('./background/img_footer_spaceship_w.webp');
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: calc(100% - 104px) 0px;

@@ -69,11 +69,11 @@ class Footer extends Component {
 								<div className="footer-right">
 									<img src='./images/sleeper-logo-footer.png' alt="Sleeper" className="footer-logo"/>
 									<div className="footer-socials">
-										<a href="https://twitter.com/SleeperHQ" target="_blank">
-											<img src="./icons/twitter_White.png" alt="Twitter" rel="noopener noreferrer" />
+										<a href="https://twitter.com/SleeperHQ" target="_blank" rel="noopener noreferrer">
+											<img src="./icons/twitter_White.png" alt="Twitter" />
 										</a>
-										<a href="https://www.facebook.com/sleeperhq" target="_blank">
-											<img src="./icons/Facebook_White.png" alt="Facebook" rel="noopener noreferrer" />
+										<a href="https://www.facebook.com/sleeperhq" target="_blank" rel="noopener noreferrer">
+											<img src="./icons/Facebook_White.png" alt="Facebook"/>
 										</a>
 									</div>
 								</div>

@@ -35,7 +35,7 @@ class App extends Component {
 		this.startLoad();
 		setTimeout(() => {
 			console.log('go Home');
-			this.history.push('/home')}, 1000
+			this.history.push('./')}, 1000
 		);
 	}
 	initLoad(){
@@ -70,7 +70,7 @@ class App extends Component {
 									>
 										<Switch location={location}>
 					                  <Route exact
-												path="/(home|index.html)/"
+												path="/(|index.html)/"
 												render={(props) =>
 													<HomePage {...props} stopLoad={this.stopLoad} initLoad={this.initLoad}/>}
 											/>

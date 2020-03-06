@@ -261,17 +261,17 @@ class AboutPage extends Component {
 								</Grid>
 							</Grid>
 							<Grid container spacing={3}>
-								<Grid item md={4}>
+								<Grid item md={4} xs={12}>
 									<Card>
 										<img src="https://sleepercdn.com/images/landing/v3/logos/logo_bv-1fdae4b88793c5c97e3f3abb75ece603.png?vsn=d" alt="Birchmere Ventures"/>
 									</Card>
 								</Grid>
-								<Grid item md={4} className="header-content">
+								<Grid item md={4} xs={12}>
 									<Card>
 										<img src="https://sleepercdn.com/images/landing/v3/logos/logo_gc-f4ab3187f155a05b27db8cc3169014be.png?vsn=d" alt="General Catalyst"/>
 									</Card>
 								</Grid>
-								<Grid item md={4}>
+								<Grid item md={4} xs={12}>
 									<Card>
 										<img src="https://sleepercdn.com/images/landing/v3/logos/logo_expa-0fe28b05b47672ea09075d5087ed25a9.png?vsn=d" alt="Expa	"/>
 									</Card>

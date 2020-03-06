@@ -156,7 +156,7 @@ class BasketballPage extends Component {
 							offsetY={[0,20]}
 						/>
 						<Grid container spacing={3}>
-							<Grid item md={12}>
+							<Grid item xs={12}>
 								<LayeredGraphic
 									back='./images/bracket-mania-phone.png'
 									middle='./images/sleeper-bracket-mania'

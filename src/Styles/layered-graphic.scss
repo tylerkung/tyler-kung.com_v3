@@ -2,6 +2,11 @@
 	height: 800px;
 	width: 600px;
 	position: relative;
+	@media (max-width: 632px){
+		width: calc(100vw - 0px);
+		height: auto;
+		padding-top: 120%; //600x800 or 3:4 ratio
+	}
 	.f-layer{
 		position: absolute;
 		height: 100%;

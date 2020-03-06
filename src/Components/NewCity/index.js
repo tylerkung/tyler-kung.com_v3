@@ -51,15 +51,13 @@ class NewCity extends Component {
 		this.moveCamera = this.moveCamera.bind(this);
 		this.pickposition = {x: 0, y: 0}
 		this.ferrisWheel = null;
+		this.zoom = 0;
 		this.cursors = [{
 			sport: 'basketball',
 		},
 		{
 			sport: 'football',
-		},
-		{
-			sport: 'soccer',
-		}];
+		},];
 		this.camera = null;
 		this.renderer = null;
 		this.composer = null;
@@ -95,19 +93,20 @@ class NewCity extends Component {
 		// CAMERA
 		var zoomCamera = false;
 		var near = 0.1;
-		var far = 10;
+		var far = 15;
 		var windowWidth = window.innerWidth;
 		var windowHeight = window.innerHeight + 175;
 		var multiplier = 1.1;
 		this.factor = multiplier * windowWidth;
 
-		this.camera = new THREE.PerspectiveCamera( 16, windowWidth/windowHeight, near, far);
+		this.camera = new THREE.PerspectiveCamera( 25, windowWidth/windowHeight, near, far);
 		this.defaultPosition = {x: -326.1627032276631, y: 317.2596352789266, z: 331.14793030593717}
 		this.camera.position.set(this.defaultPosition.x, this.defaultPosition.y, this.defaultPosition.z);
 		this.camera.scale.x = 100;
 		this.camera.scale.y = 100;
 		this.camera.scale.z = 100;
-		this.camera.zoom = 1.0;
+		this.camera.zoom = 1.4;
+		this.camera.lookAt({x: 1000, y: 100, z: 100});
 		this.cameraHelper = this.camera.clone();
 
 		// CONTROLS
@@ -116,8 +115,10 @@ class NewCity extends Component {
 		controls.enablePan = false;
 		controls.enableRotate = false;
 		controls.keyPanSpeed = 1;
+		controls.target.set(-12, 0, -12);
 		controls.maxPolarAngle = 0.9718649472467462;
 		controls.minPolarAngle = 0.9718649472467462;
+		controls.update();
 		// LIGHTS
 		// Light 1
 		// var sphere = new THREE.SphereBufferGeometry( 0.5, 16, 8 );
@@ -315,8 +316,8 @@ class NewCity extends Component {
 					this.viewFootball();
 					break;
 				case 'soccer':
-					this.setState({activeStadium: clickedStadium});
-					this.viewSoccer();
+					// this.setState({activeStadium: clickedStadium});
+					// this.viewSoccer();
 					break;
 				default:
 					break;
@@ -333,7 +334,7 @@ class NewCity extends Component {
 					this.setState({hoverStadium: 'football'});
 					break;
 				case 'soccer':
-					this.setState({hoverStadium: 'soccer'});
+					// this.setState({hoverStadium: 'soccer'});
 					break;
 				default:
 					this.setState({hoverStadium: ''});
@@ -349,7 +350,7 @@ class NewCity extends Component {
 		setTimeout(() => {
 			this.setState({activeStadium: '', hoverStadium: ''});
 		}, 600)
-		this.moveCamera(this.defaultQ, 1.0);
+		this.moveCamera(this.defaultQ, this.zoom);
 		// this.lightsOff();
 	}
 	viewBasketball(){
@@ -388,6 +389,9 @@ class NewCity extends Component {
 		this.camera.right = windowWidth / this.factor;
 		this.camera.top = windowHeight / this.factor;
 		this.camera.bottom = -windowHeight / this.factor;
+		this.zoom = 1.4 - (1200/windowWidth * 0.35);
+		this.camera.zoom = this.zoom;
+		console.log(windowWidth);
 		// this.camera.updateProjectionMatrix();
 
 		this.renderer.setSize( windowWidth, windowHeight );

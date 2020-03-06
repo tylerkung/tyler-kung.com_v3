@@ -76,9 +76,6 @@ class Footer extends Component {
 										<a href="https://www.facebook.com/sleeperhq" target="_blank">
 											<img src="./icons/Facebook_White.png" alt="Facebook" rel="noopener noreferrer" />
 										</a>
-										<a href="https://medium.com/@sleeperbot" target="_blank">
-											<img src="./icons/Medium_White.png" alt="Medium" rel="noopener noreferrer" />
-										</a>
 									</div>
 								</div>
 						  	</Grid>

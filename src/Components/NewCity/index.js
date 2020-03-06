@@ -200,6 +200,7 @@ class NewCity extends Component {
 				textures[texture].repeat.set(4, 4);
 				textures[texture].wrapS = THREE.ClampToEdgeWrapping;
 				textures[texture].wrapT = THREE.RepeatWrapping;
+				textures[texture].anisotropy = this.renderer.getMaxAnisotropy();
 			}
 
 			var signMaterial = object.getObjectByName('billboard_03').material.clone();

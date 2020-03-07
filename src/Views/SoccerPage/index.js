@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
-import LayeredGraphic from "../../Components/LayeredGraphic";
-import Testimonials from "../../Components/Testimonials";
-import Lottie from "react-lottie";
-import animationData from "../../Lotties/scroll-animation-dark.json";
 import { Controller, Scene } from 'react-scrollmagic';
 import { Tween, Timeline } from 'react-gsap';
 
@@ -15,7 +11,6 @@ class SoccerPage extends Component {
 		 this.state = {
 			 pageLoaded: false
 		 }
-		 this.onRouteChange = this.onRouteChange.bind(this);
 		 this.testimonials = [
 			 {
 				 name: 'Phatdad66',
@@ -50,31 +45,13 @@ class SoccerPage extends Component {
 		 ];
 	}
 	componentDidMount(){
-	  // this.initLoadScreen();
-	  // this.props.stopLoad();
-	  setTimeout(
-		  () => {
-			  this.setState({pageLoaded: true});
-		  }, 1000);
-	  this.props.history.listen(this.onRouteChange.bind(this));
+	  this.initLoadScreen();
+	  this.props.stopLoad();
   }
   componentWillUnmount(){
 	  this.setState({pageLoaded: false});
   }
-  onRouteChange(route){
-	  if (route.pathname === "/"){
-		  this.props.goHome();
-	  }
-  }
   render(){
-	  const defaultOptions = {
-		  loop: true,
-		  autoplay: true,
-		  animationData: animationData,
-		  rendererSettings: {
-			  preserveAspectRatio: 'xMidYMid slice'
-		  }
-	  };
 	  return (
 		  <div className={`page-content page-soccer ${(this.state.pageLoaded) ? "page-loaded" : ""}`}>
 			  <Controller>

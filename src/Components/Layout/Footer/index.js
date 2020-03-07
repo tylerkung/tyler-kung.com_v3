@@ -41,31 +41,31 @@ class Footer extends Component {
 
 					<div className="sleeper-footer-secondary">
 						<Grid className="container" container>
-							<Grid item md={2} xs={12}>
+							<Grid item md={2} sm={6}>
 								<ul className="footer-links">
 									<li className="links-header">Company</li>
 									<li><Link to="/about">About</Link></li>
 									<li><a href="https://blog.sleeper.app/" target="_blank" rel="noopener noreferrer">Blog</a></li>
 								</ul>
 						  	</Grid>
-							<Grid item md={2} xs={12}>
+							<Grid item md={2} sm={6}>
 								<ul className="footer-links">
 									<li className="links-header">Product</li>
 									<li><Link to="/bracket-mania">Bracket Mania</Link></li>
 									<li><Link to="/fantasy-football">Fantasy Football</Link></li>
 								</ul>
 						  	</Grid>
-							<Grid item md={2} xs={12}>
+							<Grid item md={2} sm={6}>
 								<ul className="footer-links">
 									<li className="links-header">Resources</li>
 								</ul>
 						  	</Grid>
-							<Grid item md={2} xs={12}>
+							<Grid item md={2} sm={6}>
 								<ul className="footer-links">
 									<li className="links-header">More</li>
 								</ul>
 						  	</Grid>
-							<Grid item md={4} xs={12}>
+							<Grid item md={4} sm={12}>
 								<div className="footer-right">
 									<img src='./images/sleeper-logo-footer.png' alt="Sleeper" className="footer-logo"/>
 									<div className="footer-socials">

@@ -16,7 +16,6 @@ class FootballPage extends Component {
         this.state = {
 			  pageLoaded: false
         }
-		  this.onRouteChange = this.onRouteChange.bind(this);
 		  this.testimonials = [
 			  {
 				  name: 'Phatdad66',
@@ -57,15 +56,9 @@ class FootballPage extends Component {
 			() => {
 				this.setState({pageLoaded: true});
 			}, 1000);
- 		this.props.history.listen(this.onRouteChange.bind(this));
  	}
 	componentWillUnmount(){
 		this.setState({pageLoaded: false});
-	}
-	onRouteChange(route){
-		if (route.pathname === "/"){
-			this.props.goHome();
-		}
 	}
    render(){
 		const defaultOptions = {
@@ -78,7 +71,25 @@ class FootballPage extends Component {
 		};
       return (
             <div className={`page-content page-football ${(this.state.pageLoaded) ? "page-loaded" : ""}`}>
-					<div>
+				<Controller>
+				  <Scene
+					  classToggle=''
+					  reverse={true}
+					  indicators={false}
+					  triggerHook={0}
+					  offset={0}
+					  duration="1000px"
+				  >
+					  <Timeline>
+						  <Tween
+							  position="0"
+							  from={{
+								  yPercent: 0,
+							  }}
+							  to={{
+								  yPercent: 40,
+							  }}
+						  >
 									<div className="sport-header header-football">
 										<div className="container">
 											<Grid container spacing={3}>
@@ -101,7 +112,10 @@ class FootballPage extends Component {
 											</video>
 										</div>
 									</div>
-								</div>
+								</Tween>
+								</Timeline>
+								</Scene>
+								</Controller>
 					<div className="sport-page">
 						<div className="scroll-down">
 							<Lottie options={defaultOptions}

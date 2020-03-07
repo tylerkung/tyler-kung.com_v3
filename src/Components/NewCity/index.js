@@ -237,7 +237,7 @@ class NewCity extends Component {
 	}
 
 	componentWillUnmount(){
-		this.setState({activeStadium: null});
+		// this.setState({activeStadium: null});
 		cancelAnimationFrame(this.frameId);
 	}
 	//ANIMATE

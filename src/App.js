@@ -19,18 +19,31 @@ import StylesPage from "./Views/StylesPage";
 import ScrollToTop from './Components/ScrollToTop';
 class App extends Component {
 	constructor(props){
-		 super(props);
+		super(props);
 
-		 this.state = {
-			 loadScreenActive: false,
-			 initLoadScreen: false,
-			 overlayStatus: false
-		 }
-		 this.goHome = this.goHome.bind(this);
-		 this.initLoad = this.initLoad.bind(this);
-		 this.startLoad = this.startLoad.bind(this);
-		 this.stopLoad = this.stopLoad.bind(this);
-		 this.history = createBrowserHistory();
+		this.state = {
+			loadScreenActive: false,
+			initLoadScreen: false,
+			overlayStatus: false
+		}
+		this.goHome = this.goHome.bind(this);
+		this.initLoad = this.initLoad.bind(this);
+		this.startLoad = this.startLoad.bind(this);
+		this.stopLoad = this.stopLoad.bind(this);
+		this.history = createBrowserHistory();
+	}
+	componentDidMount(){
+		// console.log(this.history);
+	}
+	goNext(){
+		console.log(this.history);
+	}
+	goBack(){
+		this.history.listen(location => {
+			if (this.history.action === 'POP' && location.pathname === '/'){
+				// this.goHome();
+			}
+		});
 	}
 	goHome(){
 		this.startLoad();
@@ -58,7 +71,7 @@ class App extends Component {
 	            <main>
 						<Route render={({location}) => {
 							const { pathname, key } = location
-
+							this.goBack();
 							return (
 								<TransitionGroup component={null}>
 									<Transition

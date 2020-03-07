@@ -16,7 +16,6 @@ class BasketballPage extends Component {
 		  this.state = {
 			  pageLoaded: false
         }
-		  this.onRouteChange = this.onRouteChange.bind(this);
 		  this.testimonials = [
 			  {
 				  name: 'Phatdad66',
@@ -57,15 +56,9 @@ class BasketballPage extends Component {
 			() => {
 				this.setState({pageLoaded: true});
 			}, 1000);
- 		this.props.history.listen(this.onRouteChange.bind(this));
  	}
 	componentWillUnmount(){
 		this.setState({pageLoaded: false});
-	}
-	onRouteChange(route){
-		if (route.pathname === "/"){
-			this.props.goHome();
-		}
 	}
 	render(){
 		const defaultOptions = {
@@ -171,28 +164,28 @@ class BasketballPage extends Component {
 					<div className="layout layout-secondary-color rounded-top bracket-mania-features">
 						<div className="container">
 							<Grid container spacing={10} className="feature-row">
-								<Grid item lg={3} md={6}>
+								<Grid item lg={3} sm={6} xs={12}>
 									<div className="feature-icon mint">
 										<img src='./icons/icon_bm_01_group_chat.png' alt='Group Chat' />
 									</div>
 									<h4>Group Chat</h4>
 									<p>Pools are more fun with chat at the center. Send text, images, gifs and polls to your group before and during the tournament.</p>
 								</Grid>
-								<Grid item lg={3} md={6}>
+								<Grid item lg={3} sm={6} xs={12}>
 									<div className="feature-icon red">
 										<img src='./icons/icon_bm_02_mobile_app.png' alt='Mobile App' />
 									</div>
 									<h4>Mobile app</h4>
 									<p>An intuitive mobile interfaces makes it easy for everyone to fill out their brackets. Now you can edit brackets anywhere, including on the go.</p>
 								</Grid>
-								<Grid item lg={3} md={6}>
+								<Grid item lg={3} sm={6} xs={12}>
 									<div className="feature-icon yellow">
 										<img src='./icons/icon_bm_03_live_standing.png' alt='Live Standings' />
 									</div>
 									<h4>Live standings</h4>
 									<p>Know where you stand at all times with the fastest and most frequently updated scores, straight from the source.</p>
 								</Grid>
-								<Grid item lg={3} md={6}>
+								<Grid item lg={3} sm={6} xs={12}>
 									<div className="feature-icon purple">
 										<img src='./icons/icon_bm_04_team_notes.png' alt='Team Notes' />
 									</div>

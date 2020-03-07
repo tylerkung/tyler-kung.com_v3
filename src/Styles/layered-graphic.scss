@@ -13,12 +13,7 @@
 		width: 100%;
 		top: 0;
 		left: 0;
-		&.layer-middle{
-			img{
-				max-width: 100%;
-			}
-		}
-		&.layer-back{
+		&.layer-middle, &.layer-back{
 			img{
 				max-height: 100%;
 			}
@@ -224,7 +219,7 @@
 	}
 	.c-frame.layer-left{
 		margin: 0 auto;
-		.layer-back{
+		.layer-back, .layer-middle{
 			img{
 				float: right;
 			}

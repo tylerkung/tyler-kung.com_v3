@@ -40,7 +40,7 @@ class LayeredGraphic extends Component {
 		return(
 			<div className="f-layer layer-middle">
 				<picture>
-					<source type="image/webp" srcset={`${this.props.middle}.webp`} alt={this.props.middle}/>
+					<source type="image/webp" srcSet={`${this.props.middle}.webp`} alt={this.props.middle}/>
 					<img src={`${this.props.middle}.png`} alt={this.props.middle}/>
 				</picture>
 			</div>
@@ -57,6 +57,7 @@ class LayeredGraphic extends Component {
 					triggerElement={`#${this.key}`}
 					offset={50}
 					reverse={true}
+					pushFollowers={false}
 				>
 					{(progress, event) => (
 						<div className={`graphic-inner`}>

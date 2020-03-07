@@ -87,7 +87,7 @@ class FootballPage extends Component {
 								  yPercent: 0,
 							  }}
 							  to={{
-								  yPercent: 40,
+								  yPercent: 20,
 							  }}
 						  >
 									<div className="sport-header header-football">
@@ -125,6 +125,25 @@ class FootballPage extends Component {
 						</div>
 						<div className="layout layout-secondary-color">
 							<div className="container">
+								<Grid container spacing={3}>
+									<Grid item md={3}>
+									</Grid>
+									<Grid item md={6} className="txt-center">
+										<h2>Gameday, everyday</h2>
+										<p>Your team, your players, and your friends, all in one place. Sleeper integrates a social environment with the competitive fantasy atmosphere. Next level features and everything else your team needs are here.</p>
+										<Link to="">
+											<button className="btn btn-default">
+												Create a league
+											</button>
+										</Link>
+									</Grid>
+									<Grid item md={3}>
+									</Grid>
+								</Grid>
+							</div>
+						</div>
+						<div className="layout layout-secondary-color">
+							<div className="container">
 								<Grid container spacing={10} className="flex-center graphic-row row-left">
 									<Grid item lg={6} xs={12}>
 										<h1 className="block-header purple">Draft players</h1>
@@ -132,7 +151,7 @@ class FootballPage extends Component {
 									</Grid>
 									<Grid item lg={6} xs={12}>
 										<LayeredGraphic
-											back='./images/draft-phone.png'
+											back='https://sleepercdn.com/downloads/webtest/draft-phone.png'
 											middle='./images/sleeper-draft'
 											elements={['./images/clock.png', './images/player_card_05.png', './images/player_card_06.png', './images/player_card_05.png']}
 											className='draft-graphic'
@@ -144,8 +163,8 @@ class FootballPage extends Component {
 								<Grid container spacing={10} className="flex-center graphic-row row-right">
 									<Grid item lg={6} xs={12}>
 										<LayeredGraphic
-											back='./images/play-phone.png'
-											middle='./images/sleeper-play'
+											back='https://sleepercdn.com/downloads/webtest/play-phone.png'
+											middle='https://sleepercdn.com/downloads/webtest/sleeper-play'
 											elements={['./images/football_green.png','./images/touchdown.png']}
 											className='play-graphic'
 											entrance={true}
@@ -164,31 +183,12 @@ class FootballPage extends Component {
 									</Grid>
 									<Grid item lg={6} xs={12}>
 										<LayeredGraphic
-											back='./images/win-phone.png'
-											middle='./images/sleeper-win'
+											back='https://sleepercdn.com/downloads/webtest/win-phone.png'
+											middle='https://sleepercdn.com/downloads/webtest/sleeper-win'
 											className='win-graphic'
 											entrance={true}
 											imagePosition='right'
 										/>
-									</Grid>
-								</Grid>
-							</div>
-						</div>
-						<div className="layout layout-secondary-color">
-							<div className="container">
-								<Grid container spacing={3}>
-									<Grid item md={3}>
-									</Grid>
-									<Grid item md={6} className="txt-center">
-										<h2>Gameday, everyday</h2>
-										<p>Your team, your players, and your friends, all in one place. Sleeper integrates a social environment with the competitive fantasy atmosphere. Next level features and everything else your team needs are here.</p>
-										<Link to="">
-											<button className="btn btn-default">
-												Create a league
-											</button>
-										</Link>
-									</Grid>
-									<Grid item md={3}>
 									</Grid>
 								</Grid>
 							</div>

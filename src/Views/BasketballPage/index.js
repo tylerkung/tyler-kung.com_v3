@@ -87,7 +87,7 @@ class BasketballPage extends Component {
 							  yPercent: 0,
 						  }}
 						  to={{
-							  yPercent: 40,
+							  yPercent: 20,
 						  }}
 					  >
 							<div className="sport-header header-basketball">
@@ -151,8 +151,8 @@ class BasketballPage extends Component {
 						<Grid container spacing={3}>
 							<Grid item xs={12}>
 								<LayeredGraphic
-									back='./images/bracket-mania-phone.png'
-									middle='./images/sleeper-bracket-mania'
+									back='https://sleepercdn.com/downloads/webtest/bracket-mania-phone.png'
+									middle='https://sleepercdn.com/downloads/webtest/sleeper-bracket-mania'
 									elements={[]}
 									className='bracket-mania-graphic'
 									entrance={true}
@@ -200,8 +200,8 @@ class BasketballPage extends Component {
 							<Grid container spacing={10} className="flex-center graphic-row">
 								<Grid item lg={7} md={12}>
 									<LayeredGraphic
-										back='./images/weekly-phone.png'
-										middle='./images/sleeper-weekly'
+										back='https://sleepercdn.com/downloads/webtest/weekly-phone.png'
+										middle='https://sleepercdn.com/downloads/webtest/sleeper-weekly'
 										elements={['./images/bm-clock.png', './images/orange-calendar.png','./images/orange-confetti.png','./images/bm-basketball.png']}
 										className='weekly-graphic'
 										entrance={true}
@@ -226,7 +226,7 @@ class BasketballPage extends Component {
 								</Grid>
 								<Grid item lg={7} md={12}>
 									<LayeredGraphic
-										back='./images/classic-phone.png'
+										back='https://sleepercdn.com/downloads/webtest/classic-phone.png'
 										middle='./images/sleeper-classic'
 										elements={['./images/orange-confetti.png','./images/bm-basketball.png','./images/orange-trophy.png']}
 										className='classic-graphic'

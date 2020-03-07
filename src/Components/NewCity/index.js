@@ -49,12 +49,7 @@ class NewCity extends Component {
 		this.pickposition = {x: 0, y: 0}
 		this.ferrisWheel = null;
 		this.zoom = 0;
-		this.cursors = [{
-			sport: 'basketball',
-		},
-		{
-			sport: 'football',
-		},];
+		this.cursors = [];
 		this.camera = null;
 		this.renderer = null;
 		this.composer = null;
@@ -185,12 +180,12 @@ class NewCity extends Component {
 			});
 
 			const textures = {};
-			textures.sleeper = new THREE.TextureLoader().load('./images/sleeper-billboard-4.png');
-			textures.sleeper_2 = new THREE.TextureLoader().load('./images/sleeper-billboard-3.png');
-			textures.sleeper_bm = new THREE.TextureLoader().load('./images/bracket-mania-billboard.png');
+			textures.sleeper = new THREE.TextureLoader().load('https://sleepercdn.com/downloads/webtest/sleeper-billboard-4.png');
+			textures.sleeper_2 = new THREE.TextureLoader().load('https://sleepercdn.com/downloads/webtest/sleeper-billboard-3.png');
+			textures.sleeper_bm = new THREE.TextureLoader().load('https://sleepercdn.com/downloads/webtest/bracket-mania-billboard.png');
 			textures.tatum = new THREE.TextureLoader().load('./images/birchmere.png');
-			textures.hero = new THREE.TextureLoader().load('./images/sleeper-billboard-hero.png');
-			textures.juju = new THREE.TextureLoader().load('./images/juju.png');
+			textures.hero = new THREE.TextureLoader().load('https://sleepercdn.com/downloads/webtest/sleeper-billboard-hero.png');
+			textures.juju = new THREE.TextureLoader().load('https://sleepercdn.com/downloads/webtest/juju.png');
 			for (var texture in textures){
 				textures[texture].offset.x = -1.5;
 				textures[texture].repeat.set(4, 4);

@@ -57,17 +57,14 @@ class LayeredGraphic extends Component {
 					triggerElement={`#${this.key}`}
 					offset={50}
 					reverse={true}
-					pushFollowers={false}
 				>
-					{(progress, event) => (
-						<div className={`graphic-inner`}>
+						<div className={`graphic-inner active`}>
 							<div className={`c-frame layer-${this.props.imagePosition}`}>
 								{this.renderBackLayer()}
 								{this.renderElements()}
 								{this.renderMiddleLayer()}
 							</div>
 						</div>
-					)}
 				</Scene>
 			</Controller>
 		)

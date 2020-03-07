@@ -30,7 +30,7 @@ class AboutPage extends Component {
 				name: 'Andrew D.',
 				image: './images/sleeper-avatar-3.png',
 				quote: "We all love what you're doing over at Sleeper. Every day we're reminded why we switched from ESPN, Yahoo, etc.",
-				direction: 'right'
+				direction: 'left'
 			},
 			{
 				name: 'AN1836',
@@ -168,21 +168,21 @@ class AboutPage extends Component {
 						<p>We believe the biggest opportunity in sports does not lie in betting, content, or escapism, but rather in its power to bring people closer together and create new friendships.</p>
 					</div>
 					<div className="page-banner">
-						<img src="./images/sleeper-party.jpg" alt="Sleeper Team"/>
+						<img src="https://sleepercdn.com/downloads/webtest/sleeper-party.jpg" alt="Sleeper Team"/>
 					</div>
 				</div>
 				<div className="default-page">
 					<div className="layout layout-secondary-color">
 						<div className="container">
 							<Grid container spacing={3}>
-								<Grid item md={3}>
+								<Grid item lg={3} sm={2} xs={12}>
 								</Grid>
-								<Grid item md={6} className="header-content">
+								<Grid item lg={6} sm={8} xs={12} className="header-content">
 									<h2 className="txt-center">Here’s what our users are saying...</h2>
 									<p className="txt-center">Sleeper has by far the most engagement per user of any sports app,
 									and is one of the highest retention apps in the world.<br/>Hear it directly from our users.</p>
 								</Grid>
-								<Grid item md={3}>
+								<Grid item lg={3} sm={2} xs={12}>
 								</Grid>
 							</Grid>
 						</div>

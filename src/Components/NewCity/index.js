@@ -46,15 +46,19 @@ class NewCity extends Component {
 		this.enterStadium = this.enterStadium.bind(this);
 		this.exitStadium = this.exitStadium.bind(this);
 		this.moveCamera = this.moveCamera.bind(this);
+		this.viewBasketball = this.viewBasketball.bind(this);
+		this.viewFootball = this.viewFootball.bind(this);
 		this.pickposition = {x: 0, y: 0}
 		this.ferrisWheel = null;
 		this.zoom = 0;
 		this.cursors = [{
 			sport: 'basketball',
-			name: 'Bracket Mania'
+			name: 'Bracket Mania',
+			click: this.viewBasketball
 		},{
 			sport: 'football',
-			name: 'Fantasy Football'
+			name: 'Fantasy Football',
+			click: this.viewFootball
 		}];
 		this.camera = null;
 		this.renderer = null;
@@ -303,11 +307,9 @@ class NewCity extends Component {
 		if (!this.state.activeStadium.length){
 			switch(clickedStadium){
 				case 'basketball':
-					this.setState({activeStadium: clickedStadium});
 					this.viewBasketball();
 					break;
 				case 'football':
-					this.setState({activeStadium: clickedStadium});
 					this.viewFootball();
 					break;
 				case 'soccer':
@@ -349,16 +351,19 @@ class NewCity extends Component {
 		// this.lightsOff();
 	}
 	viewBasketball(){
+		this.setState({activeStadium: 'basketball'});
 		this.cameraHelper.lookAt( -54, 9.7, 1 );
 		var targetQ = this.cameraHelper.quaternion.clone();
 		this.moveCamera(targetQ, 1.8);
 	}
 	viewFootball(){
+		this.setState({activeStadium: 'football'});
 		this.cameraHelper.lookAt( -12.5, 9.7, 26.6 );
 		var targetQ = this.cameraHelper.quaternion.clone();
 		this.moveCamera(targetQ, 2.0);
 	}
 	viewSoccer(){
+		this.setState({activeStadium: 'soccer'});
 		this.cameraHelper.lookAt( 12.7, 17.5, -45.1 );
 		var targetQ = this.cameraHelper.quaternion.clone();
 		this.moveCamera(targetQ, 2.2);
@@ -371,7 +376,7 @@ class NewCity extends Component {
 	renderCursors(){
 		const cursors = []
 		this.cursors.map((value, index) => {
-			cursors.push(<div className={`cursor cursor-${value.sport}`}>
+			cursors.push(<div className={`cursor cursor-${value.sport}`} onClick={value.click}>
 				<div className={`cursor-icon`}></div>
 				<div className='cursor-label'>{value.name}</div>
 				</div>);

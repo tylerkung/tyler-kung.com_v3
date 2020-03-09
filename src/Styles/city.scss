@@ -21,10 +21,20 @@
 			cursor: pointer;
 		}
 		.cursor-basketball{
-			&:before{
-				animation-duration: 4s;
-				-webkit-animation-duration: 4s;
-				-ms-animation-duration: 4s;
+			&:after{
+				opacity: 0.8;
+			}
+			.cursor-icon{
+				&:before{
+					transform: rotate(30deg);
+				}
+				&:after{
+					opacity: 0;
+					visibility: hidden;
+				}
+			}
+			.cursor-label{
+				opacity: 1;
 			}
 		}
 	}
@@ -33,10 +43,20 @@
 			cursor: pointer;
 		}
 		.cursor-football{
-			&:before{
-				animation-duration: 4s;
-				-webkit-animation-duration: 4s;
-				-ms-animation-duration: 4s;
+			&:after{
+				opacity: 0.8;
+			}
+			.cursor-icon{
+				&:before{
+					transform: rotate(30deg);
+				}
+				&:after{
+					opacity: 0;
+					visibility: hidden;
+				}
+			}
+			.cursor-label{
+				opacity: 1;
 			}
 		}
 	}
@@ -234,45 +254,119 @@
 }
 
 .cursor{
-	height: 200px;
-	width: 200px;
+	height: 180px;
+	width: 180px;
 	position: absolute;
 	z-index: 19;
 	pointer-events: none;
 	transition: all 0.4s ease-out;
 	opacity: 1;
-	&:before{
+	&:after{
 		content: '';
 		height: 100%;
 		width: 100%;
-		display: block;
-		animation: spin 16s linear;
-		-webkit-animation: spin 16s linear;
-		-ms-animation: spin 16s linear;
+		position: absolute;
+		z-index: -1;
+		left: 0;
+		top: 0;
+		background-color: rgba(255,255,255,0.4);
+		border-radius: 50%;
+		opacity: 0;
+		transition: all 0.2s ease;
+	}
+	.cursor-icon{
+		animation: bounceDown 0.8s ease-out;
+		-webkit-animation: bounceDown 0.8s ease-out;
+		-ms-animation: bounceDown 0.8s ease-out;
 		animation-iteration-count: infinite;
 		-webkit-animation-iteration-count: infinite;
 		-ms-animation-iteration-count: infinite;
+		position: absolute;
+		height: 80px;
+		width: 80px;
+		left: calc(50% - 40px);
+		top: 20px;
+		&:before{
+			content: '';
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			display: block;
+			transition: all 0.2s ease;
+		}
+		&:after{
+			content: '';
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			z-index: -1;
+			top: 0;
+			left: 0;
+			background-color: rgba(0,0,0,0.5);
+			border: 2px solid black;
+			border-radius: 50%;
+			animation: pulse 3s ease;
+			-webkit-animation: pulse 3s ease;
+			-ms-animation: pulse 3s ease;
+			animation-iteration-count: infinite;
+			-webkit-animation-iteration-count: infinite;
+			-ms-animation-iteration-count: infinite;
+		}
+	}
+	.cursor-label{
+		width: 100%;
+		font-family: $muliStack;
+		font-weight: 800;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 0 20px;
+		font-size: 18px;
+		position: absolute;
+		top: 106px;
+		opacity: 0;
+		transition: opacity 0.2s ease;
+		color: $sleeperBlack;
 	}
 }
 .cursor-football{
 	top: 0;
-	&:before{
-		background-image: url('./icons/football-cursor.png');
-		background-size: contain;
+	&:after{
+		background-image: linear-gradient(315deg, #96eae1, #ffffff);
 	}
-	transform: translate(calc(50vw - 100px + 26vh), calc(50vh - 100px + 12vh));
-	-webkit-transform: translate(calc(50vw - 100px + 26vh), calc(50vh - 100px + 12vh));
-	-ms-transform: translate(calc(50vw - 100px + 26vh), calc(50vh - 100px + 12vh));
+	.cursor-icon{
+		animation-delay: 0.4s;
+		&:before{
+			background-image: url('./icons/football.png');
+			background-size: contain;
+		}
+		&:after{
+			animation-delay: 0.4s;
+			background-color: rgba(0, 206, 184, 0.5);
+			border-color: rgba(0, 206, 184, 0.6);
+		}
+	}
+	transform: translate(calc(50vw - 40px + 11vw + 4vh), calc(50vh - 30px - 40px + 2vw + 4vh));
+	-webkit-transform: translate(calc(50vw - 40px + 11vw + 4vh), calc(50vh - 30px - 40px + 2vw + 4vh));
+	-ms-transform: translate(calc(50vw - 40px + 11vw + 4vh), calc(50vh - 30px - 40px + 2vw + 4vh));
 }
 .cursor-basketball{
 	top: 0;
-	&:before{
-		background-image: url('./icons/basketball-cursor.png');
-		background-size: contain;
+	&:after{
+		background-image: linear-gradient(315deg, #ffd0a2, #ffffff);
 	}
-	transform: translate(calc(50vw - 100px - 54vh), calc(50vh - 100px + 16vh));
-	-webkit-transform: translate(calc(50vw - 100px - 54vh), calc(50vh - 100px + 16vh));
-	-ms-transform: translate(calc(50vw - 100px - 54vh), calc(50vh - 100px + 16vh));
+	.cursor-icon{
+		&:before{
+			background-image: url('./icons/basketball.png');
+			background-size: contain;
+		}
+		&:after{
+			background-color: rgba(255, 92, 0, 0.5);
+			border-color: rgba(255, 92, 0, 0.6);
+		}
+	}
+	transform: translate(calc(50vw - 90px - 60px - 11vw - 4vh), calc(50vh - 90px + 2vw + 4vh));
+	-webkit-transform: translate(calc(50vw - 90px - 60px - 11vw - 4vh), calc(50vh - 90px + 2vw + 4vh));
+	-ms-transform: translate(calc(50vw - 90px - 60px - 11vw - 4vh), calc(50vh - 90px + 2vw + 4vh));
 }
 .cursor-soccer{
 	top: 0;
@@ -323,5 +417,54 @@
 		transform: rotate(-360deg);
 		-webkit-transform: rotate(-360deg);
 		-ms-transform: rotate(-360deg);
+	}
+}
+
+@keyframes bounceDown{
+	0%{
+		transform: translate(0px, 0px);
+		-webkit-transform: translate(0px, 0px);
+		-ms-transform: translate(0px, 0px);
+	}
+	30%{
+		transform: translate(0px, 5px);
+		-webkit-transform: translate(0px, 5px);
+		-ms-transform: translate(0px, 5px);
+	}
+	100%{
+		transform: translate(0px, 0px);
+		-webkit-transform: translate(0px, 0px);
+		-ms-transform: translate(0px, 0px);
+	}
+}
+
+@keyframes bounceUp{
+	0%{
+		transform: translate(0px, 20px);
+		-webkit-transform: translate(0px, 20px);
+		-ms-transform: translate(0px, 20px);
+	}
+	100%{
+		transform: translate(0px, 0px);
+		-webkit-transform: translate(0px, 0px);
+		-ms-transform: translate(0px, 0px);
+	}
+}
+
+@keyframes pulse{
+	0%{
+		opacity: 1;
+		transform: scale(0.1);
+	}
+	20%{
+		opacity: 1;
+	}
+	40%{
+		transform: scale(1.2);
+		opacity: 0;
+	}
+	100%{
+		transform: scale(1.2);
+		opacity: 0;
 	}
 }

@@ -49,7 +49,13 @@ class NewCity extends Component {
 		this.pickposition = {x: 0, y: 0}
 		this.ferrisWheel = null;
 		this.zoom = 0;
-		this.cursors = [];
+		this.cursors = [{
+			sport: 'basketball',
+			name: 'Bracket Mania'
+		},{
+			sport: 'football',
+			name: 'Fantasy Football'
+		}];
 		this.camera = null;
 		this.renderer = null;
 		this.composer = null;
@@ -365,7 +371,10 @@ class NewCity extends Component {
 	renderCursors(){
 		const cursors = []
 		this.cursors.map((value, index) => {
-			cursors.push(<div className={`cursor cursor-${value.sport}`}></div>);
+			cursors.push(<div className={`cursor cursor-${value.sport}`}>
+				<div className={`cursor-icon`}></div>
+				<div className='cursor-label'>{value.name}</div>
+				</div>);
 		});
 		return cursors;
 	}

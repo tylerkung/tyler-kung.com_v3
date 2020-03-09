@@ -57,14 +57,18 @@ class AboutPage extends Component {
 				name: 'Daniel',
 				department: 'Growth',
 				class: this.departmentClasses.marketing
-			}, eric_b: {
+			},eric_b: {
 				name: 'Eric B.',
 				department: 'Engineering',
 				class: this.departmentClasses.engineering
-			}, eric_k: {
+			},eric_k: {
 				name: 'Eric K.',
 				department: 'Ops/Marketing',
 				class: this.departmentClasses.operations
+			},henry: {
+				name: 'Henry',
+				department: 'Founding Engineer',
+				class: this.departmentClasses.engineering
 			},jeannie: {
 				name: 'Jeannie',
 				department: 'Support',
@@ -81,6 +85,10 @@ class AboutPage extends Component {
 				name: 'Kat',
 				department: 'Operations',
 				class: this.departmentClasses.operations
+			},ken: {
+				name: 'Ken',
+				department: 'Founding Engineer',
+				class: this.departmentClasses.engineering
 			},kenny: {
 				name: 'Kenny',
 				department: 'Engineering',
@@ -101,6 +109,10 @@ class AboutPage extends Component {
 				name: 'Mai',
 				department: 'Design',
 				class: this.departmentClasses.design
+			},nan: {
+				name: 'Nan',
+				department: 'CEO, Founder',
+				class: 'ceo purple'
 			},ray: {
 				name: 'Ray',
 				department: 'Design',
@@ -125,6 +137,10 @@ class AboutPage extends Component {
 				name: 'Victoriya',
 				department: 'Design',
 				class: this.departmentClasses.design
+			},weixi: {
+				name: 'Weixi',
+				department: 'CTO, Founder',
+				class: this.departmentClasses.engineering
 			},william: {
 				name: 'William',
 				department: 'Design',
@@ -210,40 +226,14 @@ class AboutPage extends Component {
 						</div>
 					</div>
 					<div className="layout layout-secondary-color">
-						<div className="container wide">
+
+						<div className="container wide full-team">
 							<Grid container spacing={10} className="feature-row">
-								<Grid item md={3}>
-									<h3 className="block-header purple ceo">Nan<br/><span className="txt-sm">CEO, Founder</span></h3>
-									<p>Recovering finance professional. Repatriated ex-patriot who roots for the Patriots. Really excited about building Sleeper into a sports network where friends can enjoy sports together.</p>
-								</Grid>
-								<Grid item md={3}>
-									<h3 className="block-header mint engineering">Weixi<br/><span className="txt-sm">CTO, Founder</span></h3>
-									<p>Berkeley grad. Husband & father. Warriors fan. Picked Odell Beckham #1 overall. Favorite quote: "If you have no faith, why are you guys even here?" - HotshotGG.</p>
-								</Grid>
-								<Grid item md={3}>
-									<h3 className="block-header mint engineering">Ken<br/><span className="txt-sm">Founding Engineer</span></h3>
-									<p>If you're reading this, come join us for a 🍻, have some 🔥🥘, play some 🎮, and have a 🎉⏱</p>
-								</Grid>
-								<Grid item md={3}>
-									<h3 className="block-header mint engineering">Henry<br/><span className="txt-sm">Founding Engineer</span></h3>
-									<p>Passionate developer striving to code meaningful experiences to end-users. There is only one thing we say to bad user experiences: Not today.</p>
-								</Grid>
-							</Grid>
-						</div>
-						<div className="container full-team">
-							<Grid container spacing={10} className="feature-row">
-								{this.renderEmployees(['eric_k', 'kenny', 'seth', 'lam', 'sheng'])}
-							</Grid>
-							<Grid container spacing={10} className="feature-row">
-								{this.renderEmployees(['daniel', 'joel', 'luke', 'victoriya', 'tyler'])}
-							</Grid>
-							<Grid container spacing={10} className="feature-row">
-								{this.renderEmployees(['kat', 'eric_b', 'jorge', 'ray', 'william'])}
-							</Grid>
-							<Grid container spacing={10} className="feature-row">
-								{this.renderEmployees(['jeannie', '', '', 'mai', 'sunny'])}
-							</Grid>
-							<Grid container spacing={10} className="feature-row">
+								{this.renderEmployees(['nan', 'weixi', 'ken', 'lam', 'sheng'])}
+								{this.renderEmployees(['eric_k', 'henry', 'kenny', 'victoriya', 'tyler'])}
+								{this.renderEmployees(['daniel', 'seth', 'joel', 'ray', 'william'])}
+								{this.renderEmployees(['kat', 'luke', 'eric_b', 'mai', 'sunny'])}
+								{this.renderEmployees(['jeannie', 'jorge','','',''])}
 								{this.renderEmployees(['kevin'])}
 							</Grid>
 						</div>

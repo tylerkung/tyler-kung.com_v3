@@ -188,20 +188,21 @@ main{
 		content: '';
 		width: 200px;
 		height: 2px;
-		background-color: $sleeperBlack;
+		background-color: $sleeperWhite;
 		position: absolute;
 		bottom: calc(50vh - 100px);
 		z-index: 2;
-		transform: scaleX(0);
-		transform-origin: left;
-		transition: transform 0.1s 2s linear;
+		transform: scaleX(1);
+		opacity: 0;
+		transform-origin: right;
+		transition: transform 0.1s linear;
 		// animation: load 3s linear forwards;
 	}
 	&:after{
 		content: '';
 		width: 200px;
 		height: 2px;
-		background-color: $sleeperWhite;
+		background-color: $sleeperBlack;
 		position: absolute;
 		bottom: calc(50vh - 100px);
 		z-index: 1;
@@ -228,9 +229,10 @@ main{
 	&.init:not(.close){
 		transition-property: none;
 		&:before{
+			opacity: 1;
 			transition-duration: 3s;
 			transition-delay: 0s;
-			transform: scaleX(1);
+			transform: scaleX(0);
 		}
 	}
 	picture{

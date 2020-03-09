@@ -31,10 +31,10 @@
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: calc(100% - 104px) 0px;
-		// @media (min-width: 1600px){
-		// 	background-position: 95% 0px;
-		// 	top: 120px;
-		// }
+		@media (min-width: 1800px){
+			background-position: 95% 0px;
+			top: 120px;
+		}
 		// @media (min-width: 2000px){
 		// 	background-position: 95% 0px;
 		// 	top: 200px;

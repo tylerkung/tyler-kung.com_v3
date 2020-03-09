@@ -374,7 +374,7 @@
 			background-size: contain;
 		}
 		&:after{
-			animation-delay: 0.4s;
+			animation-delay: 1.5s;
 			background-color: rgba(0, 206, 184, 0.5);
 			border-color: rgba(0, 206, 184, 0.6);
 		}
@@ -504,11 +504,11 @@
 		opacity: 1;
 	}
 	40%{
-		transform: scale(1.2);
+		transform: scale(1.6);
 		opacity: 0;
 	}
 	100%{
-		transform: scale(1.2);
+		transform: scale(1.6);
 		opacity: 0;
 	}
 }

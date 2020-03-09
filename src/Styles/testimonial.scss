@@ -208,13 +208,13 @@
 				.item-quote{
 					margin-left: 60px;
 					&:after{
-						left: 60px;
+						left: 85px;
 					}
 				}
 				.user-portrait{
 					&:after{
 						top: 15px;
-						right: 20px;
+						right: -15px;
 					}
 				}
 			}
@@ -225,13 +225,13 @@
 				.item-quote{
 					margin-right: 60px;
 					&:after{
-						right: 60px;
+						right: 85px;
 					}
 				}
 				.user-portrait{
 					&:after{
 						top: 15px;
-						left: 20px;
+						left: -15px;
 					}
 				}
 			}

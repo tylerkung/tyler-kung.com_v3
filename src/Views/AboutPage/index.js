@@ -56,7 +56,7 @@ class AboutPage extends Component {
 			daniel: {
 				name: 'Daniel',
 				department: 'Growth',
-				class: this.departmentClasses.marketing
+				class: this.departmentClasses.support
 			},eric_b: {
 				name: 'Eric B.',
 				department: 'Engineering',
@@ -112,7 +112,7 @@ class AboutPage extends Component {
 			},nan: {
 				name: 'Nan',
 				department: 'CEO, Founder',
-				class: 'ceo purple'
+				class: this.departmentClasses.operations
 			},ray: {
 				name: 'Ray',
 				department: 'Design',
@@ -230,10 +230,10 @@ class AboutPage extends Component {
 						<div className="container wide full-team">
 							<Grid container spacing={10} className="feature-row">
 								{this.renderEmployees(['nan', 'weixi', 'ken', 'lam', 'sheng'])}
-								{this.renderEmployees(['eric_k', 'henry', 'kenny', 'victoriya', 'tyler'])}
-								{this.renderEmployees(['daniel', 'seth', 'joel', 'ray', 'william'])}
-								{this.renderEmployees(['kat', 'luke', 'eric_b', 'mai', 'sunny'])}
-								{this.renderEmployees(['jeannie', 'jorge','','',''])}
+								{this.renderEmployees(['eric_k', 'henry', 'seth', 'victoriya', 'tyler'])}
+								{this.renderEmployees(['kat', 'kenny', 'luke', 'ray', 'william'])}
+								{this.renderEmployees(['daniel', 'joel', 'jorge', 'mai', 'sunny'])}
+								{this.renderEmployees(['jeannie', 'eric_b', '','',''])}
 								{this.renderEmployees(['kevin'])}
 							</Grid>
 						</div>

@@ -102,7 +102,7 @@ class NewCity extends Component {
 		this.factor = multiplier * windowWidth;
 
 		this.camera = new THREE.PerspectiveCamera( 25, windowWidth/windowHeight, near, far);
-		this.defaultPosition = {x: -326.1627032276631, y: 317.2596352789266, z: 331.14793030593717}
+		this.defaultPosition = {x: -326.162, y: 317.259, z: 331.147}
 		this.camera.position.set(this.defaultPosition.x, this.defaultPosition.y, this.defaultPosition.z);
 		this.camera.scale.x = 100;
 		this.camera.scale.y = 100;
@@ -117,8 +117,8 @@ class NewCity extends Component {
 		controls.enableRotate = false;
 		controls.keyPanSpeed = 1;
 		controls.target.set(-12, 0, -12);
-		controls.maxPolarAngle = 0.9718649472467462;
-		controls.minPolarAngle = 0.9718649472467462;
+		controls.maxPolarAngle = 0.972;
+		controls.minPolarAngle = 0.972;
 		controls.update();
 		// LIGHTS
 		// Light 1

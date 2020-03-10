@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
 import Card from '../../Components/Card';
-import LayeredGraphic from "../../Components/LayeredGraphic";
 import Testimonials from "../../Components/Testimonials";
 
 
@@ -153,7 +152,7 @@ class AboutPage extends Component {
 		const employees = [];
 		names.map((employee, index) => {
 			if (employee.length > 0){
-				employees.push(
+				return employees.push(
 					<Grid item md={2} sm={4} key={index}>
 						<h3 className={`block-header ${this.employees[employee].class}`}>
 							{this.employees[employee].name}<br/><span className="txt-sm">{this.employees[employee].department}</span>
@@ -161,7 +160,7 @@ class AboutPage extends Component {
 					</Grid>
 				)
 			} else{
-				employees.push(
+				return employees.push(
 					<Grid item md={2} sm={4} key={index}>
 					</Grid>
 				)
@@ -278,10 +277,10 @@ class AboutPage extends Component {
 									<h2 className="txt-center">Think you can make an impact?</h2>
 									<p className="txt-center">If you are a free agent who wants to help build a world where friendships are strengthened over sports, please send a cover letter and resume to <a href="mailto:jobs@sleeper.app">jobs@sleeper.app</a>.</p>
 									<p className="txt-center">For all other inquiries: </p>
-									<p className="txt-center"><a href="">
+									<p className="txt-center">
 										<button className="btn btn-default">Contact Us
 										</button>
-									</a></p>
+									</p>
 								</Grid>
 								<Grid item md={3}>
 								</Grid>

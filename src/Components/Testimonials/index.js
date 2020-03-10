@@ -20,7 +20,7 @@ class Testimonials extends Component {
 		const elements = [];
 		if (this.props.elements) {
 			this.props.elements.map((value, index)=>{
-				elements.push(<img src={value} key={index} className={`element-${index}`} alt=''/>);
+				return elements.push(<img src={value} key={index} className={`element-${index}`} alt=''/>);
 			});
 			return (
 				<div className="f-layer layer-elements">
@@ -65,7 +65,7 @@ class Testimonials extends Component {
 	renderTestimonials(){
 		const testimonials = [];
 		this.props.testimonials.map((ele, key) => {
-			testimonials.push(
+			return testimonials.push(
 				<div className={`testimonial-item item-${key} direction-${ele.direction}`} key={key}>
 					<div className='item-quote'>
 						{ele.quote}

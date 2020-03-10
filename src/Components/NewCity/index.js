@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import THREE from "./Three/three";
 import { TimelineMax as Timeline, Power3 } from 'gsap/dist/gsap';
-import {
-   Link
-} from "react-router-dom";
 
 import { FBXLoader } from './Three/build/FBXLoader.js';
 // import { GLTFLoader } from './Three/build/GLTFLoader.js';
@@ -17,7 +14,7 @@ import { CityFile } from './Assets';
 var clock = new THREE.Clock();
 
 var scene, controls, canvas;
-var purpleGlowMaterial, light1, soccerLight;
+var light1;
 
 
 var lightInts = {
@@ -76,7 +73,7 @@ class NewCity extends Component {
 
 		//SCENE, CAMERA, RENDERER
 		canvas = document.querySelector('#scene-sleeper');
-		canvas.addEventListener('keydown', event => {
+		window.addEventListener('keydown', event => {
 			if (event.keyCode === 27 && this.state.activeStadium.length){
 				this.refs.overlay.exitStadium();
 			}
@@ -93,7 +90,6 @@ class NewCity extends Component {
 		// this.renderer.gammaOutput = true;
 
 		// CAMERA
-		var zoomCamera = false;
 		var near = 0.1;
 		var far = 15;
 		var windowWidth = window.innerWidth;
@@ -163,16 +159,16 @@ class NewCity extends Component {
 
 		this.resize();
 
-		var onProgress = function ( xhr ) {
-			if ( xhr.lengthComputable ) {
-				var percentComplete = xhr.loaded / xhr.total * 100;
-				console.log( Math.round(percentComplete, 2) + '% downloaded' );
-			}
-		};
-
-		var onError = function ( e ) {
-			console.error(e);
-		};
+		// var onProgress = function ( xhr ) {
+		// 	if ( xhr.lengthComputable ) {
+		// 		var percentComplete = xhr.loaded / xhr.total * 100;
+		// 		console.log( Math.round(percentComplete, 2) + '% downloaded' );
+		// 	}
+		// };
+		//
+		// var onError = function ( e ) {
+		// 	console.error(e);
+		// };
 
 		this.loader = new FBXLoader(manager);
 		this.loader.load( CityFile, (object) => {
@@ -371,7 +367,7 @@ class NewCity extends Component {
 	renderCursors(){
 		const cursors = []
 		this.cursors.map((value, index) => {
-			cursors.push(<div className={`cursor cursor-${value.sport}`} onClick={value.click} key={index}>
+			return cursors.push(<div className={`cursor cursor-${value.sport}`} onClick={value.click} key={index}>
 				<div className={`cursor-icon`}></div>
 				<div className='cursor-label'>{value.name}</div>
 				</div>);

@@ -19,7 +19,7 @@ class LayeredGraphic extends Component {
 		const elements = [];
 		if (this.props.elements) {
 			this.props.elements.map((value, index) => {
-				elements.push(<img src={value} key={index} className={`element-${index}`} alt=''/>);
+				return elements.push(<img src={value} key={index} className={`element-${index}`} alt=''/>);
 			});
 			return (
 				<div className="f-layer layer-elements">
@@ -32,7 +32,7 @@ class LayeredGraphic extends Component {
 	renderBackLayer(){
 		return (
 			<div className={`f-layer layer-back`}>
-				<img src={this.props.back}/>
+				<img src={this.props.back} alt="Phone"/>
 			</div>
 		)
 	}

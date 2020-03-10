@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 /**
  * @author renej
  * NURBS curve object

@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-redeclare */
+/* eslint-disable eqeqeq */
 /**
  * @author renej
  * NURBS utils

@@ -1,5 +1,12 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-redeclare */
+/* eslint-disable no-loop-func */
+/* eslint-disable default-case */
+/* eslint-disable no-unreachable */
+/* eslint-disable eqeqeq */
+/* eslint-disable no-useless-escape */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-fallthrough */
 /**
  * @author Kyle-Larson https://github.com/Kyle-Larson
  * @author Takahiro https://github.com/takahirox

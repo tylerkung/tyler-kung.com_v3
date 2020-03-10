@@ -20,7 +20,7 @@ class Testimonials extends Component {
 		const elements = [];
 		if (this.props.elements) {
 			this.props.elements.map((value, index)=>{
-				elements.push(<img src={value} key={index} className={`element-${index}`}/>);
+				elements.push(<img src={value} key={index} className={`element-${index}`} alt=''/>);
 			});
 			return (
 				<div className="f-layer layer-elements">
@@ -72,7 +72,7 @@ class Testimonials extends Component {
 					</div>
 					<div className='item-user'>
 						<div className='user-portrait'>
-							<img src={ele.image} />
+							<img src={ele.image} alt='User Portrait'/>
 						</div>
 						<div className='user-name'>
 							{ele.name}
@@ -91,7 +91,7 @@ class Testimonials extends Component {
 		if (this.props.background){
 			return (
 				<div className={`testimonial-path ${(this.props.background) ? 'background-' + this.props.background : ''}`}>
-					<img src="./images/testimonial-round-path.png" />
+					<img src="./images/testimonial-round-path.png" alt=''/>
 				</div>
 			)
 		}

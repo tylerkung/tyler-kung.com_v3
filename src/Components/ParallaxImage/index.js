@@ -36,7 +36,7 @@ class ParallaxImage extends Component {
 								yPercent: this.props.offsetY[1],
 							}}
 						>
-							<img src={this.props.src} className={this.props.className}/>
+							<img src={this.props.src} className={this.props.className} alt=''/>
 						</Tween>
 					</Timeline>
 				</Scene>

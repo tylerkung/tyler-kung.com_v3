@@ -18,8 +18,8 @@ class LayeredGraphic extends Component {
 	renderElements(){
 		const elements = [];
 		if (this.props.elements) {
-			this.props.elements.map((value, index)=>{
-				elements.push(<img src={value} key={index} className={`element-${index}`}/>);
+			this.props.elements.map((value, index) => {
+				elements.push(<img src={value} key={index} className={`element-${index}`} alt=''/>);
 			});
 			return (
 				<div className="f-layer layer-elements">

@@ -226,14 +226,16 @@ main{
 			// opacity: 0;
 		}
 	}
-	&.init:not(.close){
-		transition-property: none;
+	&.open{
 		&:before{
 			opacity: 1;
 			transition-duration: 3s;
-			transition-delay: 0s;
+			transition-delay: 0.5s;
 			transform: scaleX(0);
 		}
+	}
+	&.init:not(.close){
+		transition-property: none;
 	}
 	picture{
 		// position: absolute;

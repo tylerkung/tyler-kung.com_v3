@@ -174,8 +174,6 @@ class NewCity extends Component {
 			console.error(e);
 		};
 
-
-		// this.loader = new GLTFLoader();
 		this.loader = new FBXLoader(manager);
 		this.loader.load( CityFile, (object) => {
 			object.traverse(function(child){
@@ -193,7 +191,6 @@ class NewCity extends Component {
 			textures.sleeper = new THREE.TextureLoader().load('https://sleepercdn.com/downloads/webtest/sleeper-billboard-4.png');
 			textures.sleeper_2 = new THREE.TextureLoader().load('https://sleepercdn.com/downloads/webtest/sleeper-billboard-3.png');
 			textures.sleeper_bm = new THREE.TextureLoader().load('https://sleepercdn.com/downloads/webtest/bracket-mania-billboard.png');
-			textures.tatum = new THREE.TextureLoader().load('./images/birchmere.png');
 			textures.hero = new THREE.TextureLoader().load('https://sleepercdn.com/downloads/webtest/sleeper-billboard-hero.png');
 			textures.juju = new THREE.TextureLoader().load('https://sleepercdn.com/downloads/webtest/juju.png');
 			for (var texture in textures){
@@ -215,8 +212,6 @@ class NewCity extends Component {
 			sleeperSign_2.map = textures.sleeper_2;
 			var sleeperSign_BM = signMaterial.clone();
 			sleeperSign_BM.map = textures.sleeper_bm;
-			var tatumSign = signMaterial.clone();
-			tatumSign.map = textures.tatum;
 			var heroSign = signMaterial.clone();
 			heroSign.map = textures.hero;
 			var jujuSign = signMaterial.clone();
@@ -376,7 +371,7 @@ class NewCity extends Component {
 	renderCursors(){
 		const cursors = []
 		this.cursors.map((value, index) => {
-			cursors.push(<div className={`cursor cursor-${value.sport}`} onClick={value.click}>
+			cursors.push(<div className={`cursor cursor-${value.sport}`} onClick={value.click} key={index}>
 				<div className={`cursor-icon`}></div>
 				<div className='cursor-label'>{value.name}</div>
 				</div>);

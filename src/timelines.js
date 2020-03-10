@@ -24,7 +24,6 @@ const getHomeTimeline = (node, delay) => {
 
 const getSportTimeline = (node, delay) => {
 	const timeline = new Timeline({ paused: true });
-   const video = node.querySelector('.sport-video');
 	const page = node.querySelector('.sport-page');
    timeline
      .from(node, { display: 'none', autoAlpha: 0, delay, ease: Power1.easeIn })

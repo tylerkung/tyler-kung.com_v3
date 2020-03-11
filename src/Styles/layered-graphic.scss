@@ -6,6 +6,9 @@
 		width: calc(100vw - 0px);
 		height: auto;
 		padding-top: 120%; //600x800 or 3:4 ratio
+		&.layer-left{
+			float: right;
+		}
 	}
 	.f-layer{
 		position: absolute;

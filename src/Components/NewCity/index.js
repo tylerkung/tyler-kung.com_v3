@@ -219,6 +219,14 @@ class NewCity extends Component {
 			object.getObjectByName('billboard_04').material = sleeperSign_BM;
 			object.getObjectByName('billboard_05').material = sleeperSign;
 			object.getObjectByName('billboard_09').material = jujuSign;
+
+			var ocean = object.getObjectByName('pPlane1').material;
+			ocean.opacity = 0.9;
+			ocean.shininess = 0.8;
+			ocean.metalness = 0.8;
+			ocean.roughness = 0.8;
+			ocean.transparent = true;
+			console.log(ocean);
 			// object.getObjectByName('sign_05').material = signMaterial;
 			// object.getObjectByName('sign_06').material = signMaterial;
 			this.ferrisWheel = object.getObjectByName('ferris_wheel');

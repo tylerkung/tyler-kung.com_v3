@@ -314,6 +314,9 @@
 					display: none !important;
 				}
 			}
+			.user-portrait{
+				box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+			}
 			.item-user{
 				z-index: 2;
 				position: relative;

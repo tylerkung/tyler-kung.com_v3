@@ -129,7 +129,7 @@ class FootballPage extends Component {
 									<Grid item md={3}>
 									</Grid>
 									<Grid item md={6} className="txt-center">
-										<h2>Gameday, everyday</h2>
+										<h1>Gameday, everyday</h1>
 										<p>Your team, your players, and your friends, all in one place. Sleeper integrates a social environment with the competitive fantasy atmosphere. Next level features and everything else your team needs are here.</p>
 										<Link to="">
 											<button className="btn btn-default">

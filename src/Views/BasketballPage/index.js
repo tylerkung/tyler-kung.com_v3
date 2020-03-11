@@ -33,7 +33,7 @@ class BasketballPage extends Component {
 				  name: 'Andrew D.',
 				  image: './images/sleeper-avatar-3.png',
 				  quote: "We all love what you're doing over at Sleeper. Every day we're reminded why we switched from ESPN, Yahoo, etc.",
-				  direction: 'right'
+				  direction: 'left'
 			  },
 			  {
 				  name: 'AN1836',
@@ -127,9 +127,9 @@ class BasketballPage extends Component {
 					<div className="layout layout-secondary-color">
 						<div className="container">
 							<Grid container spacing={3}>
-								<Grid item md={2}>
+								<Grid item md={1} lg={2}>
 								</Grid>
-								<Grid item md={8} className="header-content">
+								<Grid item md={10} lg={8} className="header-content">
 									<h1 className="txt-center">The biggest event this March</h1>
 									<p className="txt-center">Get ready to fill out your brackets for the NCAA college basketball tournament!<br/>Enjoy Weekly and Classic gameplay designed for groups.</p>
 									<div className="txt-center">
@@ -137,7 +137,7 @@ class BasketballPage extends Component {
 										</button>
 									</div>
 								</Grid>
-								<Grid item md={2}>
+								<Grid item md={1} lg={2}>
 								</Grid>
 							</Grid>
 						</div>

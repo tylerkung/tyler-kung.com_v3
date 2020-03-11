@@ -21,17 +21,17 @@ class Footer extends Component {
   				<Scene
   					classToggle='show'
   					triggerElement={`.footer-helper`}
-  					offset={-300}
+  					offset={-400}
   					triggerHook={1}
   					reverse={true}
   					indicators={false}
-					duration="400px"
+					duration="500px"
   				>
 				<Timeline>
 					<Tween
 						position="0"
 						from={{
-							y: '400px',
+							y: '500px',
 						}}
 						to={{
 							y: '0px'

@@ -110,6 +110,8 @@
 		font-size: 1em;
 		font-weight: bold;
 		text-transform: uppercase;
+		font-family: $muliStack;
+		color: $sleeperBlack;
 	}
 	li{
 		margin-bottom: 1.286em;
@@ -132,10 +134,16 @@
 		margin-bottom: 20px;
 	}
 	.footer-socials{
+		display: flex;
 		> *{
 			&:not(:first-of-type){
 				margin-left: 20px;
 			}
+		}
+		a{
+			display: block;
+			height: 32px;
+			width: 32px;
 		}
 	}
 }

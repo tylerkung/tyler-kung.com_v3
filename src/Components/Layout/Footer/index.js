@@ -58,12 +58,10 @@ class Footer extends Component {
 							<Grid item md={2} sm={6}>
 								<ul className="footer-links">
 									<li className="links-header">Resources</li>
+									<li><Link to="/privacy">Privacy</Link></li>
 								</ul>
 						  	</Grid>
 							<Grid item md={2} sm={6}>
-								<ul className="footer-links">
-									<li className="links-header">More</li>
-								</ul>
 						  	</Grid>
 							<Grid item md={4} sm={12}>
 								<div className="footer-right">

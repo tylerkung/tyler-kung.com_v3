@@ -183,7 +183,7 @@ class AboutPage extends Component {
 						<p>We believe the biggest opportunity in sports does not lie in betting, content, or escapism, but rather in its power to bring people closer together and create new friendships.</p>
 					</div>
 					<div className="page-banner">
-						<img src="https://sleepercdn.com/downloads/webtest/sleeper-party.jpg" alt="Sleeper Team"/>
+						<img src="./images/sleeper-working.jpg" alt="Sleeper Team"/>
 					</div>
 				</div>
 				<div className="default-page">
